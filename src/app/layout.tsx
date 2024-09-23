@@ -2,7 +2,6 @@ import "@/styles/index.scss";
 
 import type { Metadata, Viewport } from "next";
 
-import { ThemeSwitch } from "@/components/theme-switch";
 import metaConstants from "@/constants/meta";
 import viewportConstants from "@/constants/viewport";
 
@@ -22,9 +21,7 @@ export default function RootLayout({
 		<html lang="ru">
 			<body className={involve.variable}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-					<header>
-						Header <ThemeSwitch />
-					</header>
+					<header>Header</header>
 					<main>{children}</main>
 					<footer>Footer</footer>
 				</Providers>
