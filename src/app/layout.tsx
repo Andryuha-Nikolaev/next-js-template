@@ -1,31 +1,17 @@
 import "@/styles/globals.css";
 
-import clsx from "clsx";
 import type { Metadata, Viewport } from "next";
 
 import { ThemeSwitch } from "@/components/theme-switch";
-import { fontSans } from "@/config/fonts";
-import { siteConfig } from "@/config/site";
+import metaConstants from "@/constants/meta";
+import viewportConstants from "@/constants/viewport";
 
+import { involve } from "./fonts";
 import { Providers } from "./providers";
 
-export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s - ${siteConfig.name}`,
-	},
-	description: siteConfig.description,
-	icons: {
-		icon: "/favicon.ico",
-	},
-};
+export const metadata: Metadata = metaConstants;
 
-export const viewport: Viewport = {
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
-};
+export const viewport: Viewport = viewportConstants;
 
 export default function RootLayout({
 	children,
@@ -33,14 +19,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html suppressHydrationWarning lang="en">
-			<head />
-			<body
-				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
-					fontSans.variable
-				)}
-			>
+		<html lang="ru">
+			<body className={involve.variable}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
 					<header>
 						Header <ThemeSwitch />
