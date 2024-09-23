@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/index.scss";
 
 import type { Metadata, Viewport } from "next";
 

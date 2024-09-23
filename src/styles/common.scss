@@ -1,0 +1,149 @@
+@import "./functions/convert-px2rem";
+@import "./mixins/typography";
+@import "./mixins/square-size";
+
+* {
+	font-feature-settings: "salt" on;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+html {
+	font-size: var(--font-size_small);
+	@media (min-width: 320px) {
+		font-size: var(--font-size_normal);
+	}
+}
+
+html,
+body,
+main,
+#root {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	height: 100%;
+}
+
+body {
+	line-height: var(--font-line-height);
+	font-family: var(--font-involve), sans-serif;
+	font-weight: 400;
+	color: var(--foreground);
+	background: var(--background);
+	-webkit-tap-highlight-color: transparent;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	& > div[data-overlay-container="true"] {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+}
+
+img {
+	display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+sub,
+sup {
+	font-size: 70%;
+}
+
+h1 {
+	@include h1();
+}
+
+h2 {
+	@include h2();
+}
+
+h3 {
+	@include h3();
+}
+
+p,
+a {
+	@include main-text();
+}
+
+i {
+	font-weight: 400;
+	@include additional-text;
+	display: inline-block;
+}
+
+label {
+	cursor: pointer;
+}
+
+pre {
+	text-wrap: unset;
+}
+
+a {
+	color: inherit;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+// ::-webkit-input-placeholder {
+//   color: var(--foreground);
+// }
+
+// :-moz-placeholder {
+//   color: var(--foreground);
+//   opacity: 1;
+// }
+
+// ::-moz-placeholder {
+//   color: var(--foreground);
+//   opacity: 1;
+// }
+
+// :-ms-input-placeholder {
+//   color: var(--foreground);
+// }
+
+// ::-ms-input-placeholder {
+//   color: var(--foreground);
+// }
+
+// ::placeholder {
+//   color: var(--foreground);
+// }
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover,
+// textarea:-webkit-autofill:focus {
+//   @include main-text();
+//   border: convert-px2rem(1) solid var(--foreground);
+//   -webkit-text-fill-color: var(--foreground);
+//   -webkit-box-shadow: 0 0 0 convert-px2rem(1000) var(--foreground) inset;
+// }
+
+// .ReactCollapse--collapse {
+//   transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+// }

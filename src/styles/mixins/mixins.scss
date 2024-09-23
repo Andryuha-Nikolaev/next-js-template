@@ -1,0 +1,34 @@
+@mixin hover-wrapper {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin active-wrapper {
+  @media (hover: hover) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+$maxWidthContainer: 768;
+
+@mixin adaptive-value($property, $startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+  #{$property}: $startSize + px;
+  @media (max-width: #{$maxWidthContainer + px}) {
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320})
+    );
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
