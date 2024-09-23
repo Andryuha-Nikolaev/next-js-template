@@ -8,7 +8,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
 
-import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
+import { MoonFilledIcon, SunFilledIcon } from "./icons";
 
 export interface ThemeSwitchProps {
 	className?: string;
@@ -43,6 +43,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
 	});
 
 	return (
+		// @ts-ignore
 		<Component
 			{...getBaseProps({
 				className: clsx(
