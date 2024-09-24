@@ -2,6 +2,7 @@ import "@/styles/index.scss";
 
 import type { Metadata, Viewport } from "next";
 
+import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/constants/meta";
 import viewportConstants from "@/constants/viewport";
 
@@ -21,9 +22,11 @@ export default function RootLayout({
 		<html lang="ru">
 			<body className={involve.variable}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-					<header>Header</header>
-					<main>{children}</main>
-					<footer>Footer</footer>
+					<PageLayout>
+						<header>Header</header>
+						<main>{children}</main>
+						<footer>Footer</footer>
+					</PageLayout>
 				</Providers>
 			</body>
 		</html>

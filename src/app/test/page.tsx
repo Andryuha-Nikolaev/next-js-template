@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import ContentLayout from "@/components/layouts/content/ContentLayout";
 import routesConstants from "@/constants/routes";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function Test() {
-	return <div>test</div>;
+	return (
+		<div>
+			<ContentLayout>test</ContentLayout>
+		</div>
+	);
 }
