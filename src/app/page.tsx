@@ -1,7 +1,5 @@
+import HomeWrapper from "@/sheets/home/wrapper/HomeWrapper";
+
 export default function Home() {
-	return (
-		<div>
-			<p>HOME Дом Домашняя</p>
-		</div>
-	);
+	return <HomeWrapper />;
 }
