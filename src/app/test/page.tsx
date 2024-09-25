@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import routesConstants from "@/constants/routes";
@@ -17,6 +18,7 @@ export default function Test() {
 				<h4>h4 Прототип нового сервиса — это как структура</h4>
 				<p>p Прототип нового сервиса — это как структура</p>
 				<small>small Прототип нового сервиса — это как структура</small>
+				<Link href={"/"}>на главную</Link>
 			</ContentLayout>
 		</div>
 	);
