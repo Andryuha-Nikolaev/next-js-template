@@ -36,8 +36,9 @@ body {
 	line-height: var(--font-line-height);
 	font-family: var(--font-involve), sans-serif;
 	font-weight: 400;
-	color: var(--foreground);
-	background: var(--background);
+	background: var(--color-background-1);
+	color: var(--color-text-1);
+
 	-webkit-tap-highlight-color: transparent;
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
