@@ -19,9 +19,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="ru">
+		<html suppressHydrationWarning lang="ru">
 			<body className={involve.variable}>
-				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<PageLayout>
 						<header>Header</header>
 						<main>{children}</main>
