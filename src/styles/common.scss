@@ -3,7 +3,6 @@
 @import "./mixins/square-size";
 
 * {
-	font-feature-settings: "salt" on;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -83,15 +82,16 @@ h3 {
 	@include h3();
 }
 
-p,
-a {
+h4 {
+	@include h4();
+}
+
+p {
 	@include main-text();
 }
 
-i {
-	font-weight: 400;
-	@include additional-text;
-	display: inline-block;
+small {
+	@include small-text();
 }
 
 label {
@@ -106,11 +106,11 @@ a {
 	color: inherit;
 }
 
-@layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
-}
+// @layer utilities {
+// 	.text-balance {
+// 		text-wrap: balance;
+// 	}
+// }
 
 // ::-webkit-input-placeholder {
 //   color: var(--foreground);
