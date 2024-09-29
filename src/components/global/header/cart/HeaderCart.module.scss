@@ -1,0 +1,34 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.count {
+	width: convert-px2rem(40);
+	height: convert-px2rem(40);
+	background-color: var(--color-note);
+	border-radius: 50%;
+	font-size: convert-px2rem(14);
+	@include flex-center();
+	color: var(--color-text-2);
+
+	&_empty {
+		background-color: var(--color-button-3);
+		color: var(--color-text-1);
+	}
+
+	@include md {
+	}
+
+	@include lg {
+	}
+}

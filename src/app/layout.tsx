@@ -2,6 +2,7 @@ import "@/styles/index.scss";
 
 import type { Metadata, Viewport } from "next";
 
+import Header from "@/components/global/header/Header";
 import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/constants/meta";
 import viewportConstants from "@/constants/viewport";
@@ -21,9 +22,9 @@ export default function RootLayout({
 	return (
 		<html suppressHydrationWarning lang="ru">
 			<body className={involve.variable}>
-				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
 					<PageLayout>
-						<header>Header</header>
+						<Header />
 						<main>{children}</main>
 						<footer>Footer</footer>
 					</PageLayout>

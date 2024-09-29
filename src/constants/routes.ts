@@ -1,12 +1,16 @@
 const routesConstants = {
-	MAIN: {
-		name: "",
+	HOME: {
+		name: "Главная",
 		url: "/",
+	},
+	CART: {
+		name: "Корзина",
+		url: "/cart",
 	},
 	TEST: {
 		name: "Тест",
 		url: "/test",
-		title: "Тест",
+		metaTitle: "Тест",
 	},
 } as const;
 

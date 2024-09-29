@@ -5,7 +5,7 @@ import ContentLayout from "@/components/layouts/content/ContentLayout";
 import routesConstants from "@/constants/routes";
 
 export const metadata: Metadata = {
-	title: routesConstants.TEST.title,
+	title: routesConstants.TEST.metaTitle,
 };
 
 export default function Test() {

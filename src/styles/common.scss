@@ -32,6 +32,9 @@ main {
 }
 
 body {
+	width: 100%;
+	overflow-y: scroll;
+
 	line-height: var(--font-line-height);
 	font-family: var(--font-involve), sans-serif;
 	font-weight: 400;

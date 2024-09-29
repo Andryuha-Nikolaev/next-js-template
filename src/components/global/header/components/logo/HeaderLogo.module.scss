@@ -5,9 +5,10 @@
 @import "@/styles/mixins/mixins";
 
 .block {
-	@include md {
-	}
+	max-width: convert-px2rem(99);
+	flex-shrink: 0;
 
 	@include lg {
+		max-width: convert-px2rem(156);
 	}
 }

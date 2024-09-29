@@ -1,0 +1,28 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.wrap {
+	width: 100%;
+	max-width: convert-px2rem(600);
+	max-height: 100%;
+	overflow: auto;
+	background-color: var(--color-white);
+	padding: convert-px2rem(50) convert-px2rem(20);
+	position: relative;
+}
+.title {
+	text-align: center;
+}
+
+.close {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+}
+
+.content {
+	margin-top: convert-px2rem(20);
+}
