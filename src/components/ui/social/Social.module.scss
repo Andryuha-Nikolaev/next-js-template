@@ -1,0 +1,52 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	display: flex;
+	align-items: center;
+	gap: convert-px2rem(10);
+}
+
+.link {
+	flex-shrink: 0;
+	width: convert-px2rem(32);
+	height: convert-px2rem(32);
+	transition: color var(--transition-duration);
+
+	rect {
+		transition:
+			fill var(--transition-duration),
+			stroke var(--transition-duration);
+	}
+
+	@include hover-wrapper {
+		color: var(--background);
+
+		rect {
+			fill: var(--bg-button-4-hover);
+		}
+
+		&.light {
+			rect {
+				stroke: var(--bg-button-4-hover);
+			}
+		}
+	}
+
+	@include active-wrapper {
+		color: var(--background);
+
+		rect {
+			fill: var(--bg-button-4-active);
+		}
+
+		&.light {
+			rect {
+				stroke: var(--bg-button-4-hover);
+			}
+		}
+	}
+}

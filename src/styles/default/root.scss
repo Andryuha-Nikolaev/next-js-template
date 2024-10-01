@@ -1,7 +1,7 @@
 :root {
 	--font-size-init-number: 16;
 	--font-size_normal: calc(var(--font-size-init-number) * 1px);
-	--font-size_small: 12px;
+	--font-size_small: 14px;
 
 	--font-line-height: normal;
 
@@ -18,35 +18,55 @@
 	--color-black-1: #212121;
 	--color-black-2: #000000;
 
-	--color-black-opacity-10: #21212110;
-	--color-black-opacity-30: #21212130;
-	--color-black-opacity-50: #21212150;
-	--color-black-opacity-70: #21212170;
+	--color-black-opacity-10: rgba(33, 33, 33, 0.1);
+	--color-black-opacity-30: rgba(33, 33, 33, 0.3);
+
+	--color-black-opacity-50: rgba(33, 33, 33, 0.5);
+	--color-black-opacity-70: rgba(33, 33, 33, 0.7);
 
 	--color-white: #fff;
 	--color-gray-1: #f8f8f8;
 	--color-red-1: #ff4a4a;
 
 	// colors
-	--color-background-1: var(--color-white);
-	--color-text-1: var(--color-black-1);
-	--color-background-2: var(--color-black-1);
-	--color-text-2: var(--color-white);
+	--background: var(--color-white);
+	--foreground: var(--color-black-1);
 
-	--color-overlay: var(--color-black-opacity-10);
+	--bg-overlay: var(--color-black-opacity-10);
 
-	--color-note: var(--color-red-1);
+	--fg-alert: var(--color-red-1);
 
-	--color-button-3: var(--color-gray-1);
+	--bg-button-1: var(--color-black-1);
+	--bg-button-2: var(--color-white);
+	--bg-button-3: var(--color-gray-1);
+	--bg-button-4: var(--color-white);
+	--bg-button-disabled: var(--color-black-opacity-10);
+	--fg-button-disabled: var(--color-black-opacity-30);
 
-	--color-icon-hover: var(--color-black-opacity-70);
-	--color-icon-active: var(--color-black-opacity-70);
+	--bg-button-1-hover: var(--color-black-2);
+	--bg-button-2-hover: var(--color-black-2);
+	--bg-button-3-hover: var(--color-black-opacity-10);
+	--bg-button-4-hover: var(--color-black-1);
+
+	--bg-button-1-active: var(--color-black-2);
+	--bg-button-2-active: var(--color-black-2);
+	--bg-button-3-active: var(--color-black-opacity-30);
+	--bg-button-4-active: var(--color-black-2);
+
+	--bg-card: var(--color-gray-1);
+	--bg-border: var(--color-black-opacity-10);
+
+	--bg-scrollbar-track: var(--color-black-opacity-10);
 
 	// z-index
+	--z-index-menu: 97;
+	--z-index-burger: 98;
+	--z-index-header: 99;
 	--z-index-modal: 100;
 
-	&.dark {
-		// --color-background-1: var(--color-black-1);
-		// --color-text-1: var(--color-white);
-	}
+	// shadow
+	--box-shadow: 0px 0px 10px 0px #2121211a;
+
+	// &.dark {
+	// }
 }

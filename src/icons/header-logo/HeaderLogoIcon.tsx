@@ -1,6 +1,6 @@
 const HeaderLogoIcon = () => {
 	return (
-		<svg width="100%" height="auto" fill="none" viewBox="0 0 158 32">
+		<svg width="100%" fill="none" viewBox="0 0 158 32">
 			<path
 				fill="currentColor"
 				stroke="currentColor"

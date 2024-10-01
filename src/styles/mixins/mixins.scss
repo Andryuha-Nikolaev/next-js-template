@@ -38,3 +38,19 @@ $maxWidthContainer: 768;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 }
+
+@mixin button-opacity {
+	transition: opacity var(--transition-duration);
+
+	@include hover-wrapper {
+		opacity: 0.7;
+	}
+
+	@include active-wrapper {
+		opacity: 0.7;
+	}
+
+	&:disabled {
+		opacity: 0.3;
+	}
+}

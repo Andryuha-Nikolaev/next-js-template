@@ -1,0 +1,46 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.button {
+	width: convert-px2rem(24);
+	height: convert-px2rem(24);
+	@include flex-center();
+
+	circle:first-child {
+		fill: transparent;
+		transition:
+			fill var(--transition-duration),
+			stroke var(--transition-duration);
+	}
+
+	path:first-child {
+		transition: stroke var(--transition-duration);
+	}
+
+	@include hover-wrapper {
+		circle:first-child {
+			fill: var(--bg-button-4-hover);
+		}
+		circle:nth-child(2) {
+			stroke: var(--background);
+		}
+		path {
+			stroke: var(--background);
+		}
+	}
+
+	@include active-wrapper {
+		circle:first-child {
+			fill: var(--bg-button-4-active);
+		}
+		circle:nth-child(2) {
+			stroke: var(--background);
+		}
+		path {
+			stroke: var(--background);
+		}
+	}
+}

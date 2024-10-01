@@ -1,0 +1,26 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	padding: 0 0 convert-px2rem(30);
+	border-bottom: 1px solid var(--bg-border);
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.title {
+	font-weight: 600;
+	margin-bottom: convert-px2rem(16);
+}
+
+.link {
+	@include main-link();
+	display: inline-block;
+	margin-top: convert-px2rem(8);
+}

@@ -6,6 +6,7 @@
 
 .header {
 	width: 100%;
+	z-index: var(--z-index-header);
 	@include backdrop();
 	@include md {
 	}
@@ -16,7 +17,17 @@
 	&_fixed {
 		position: fixed;
 		top: 0;
+		left: 0;
 	}
+}
+
+.line {
+	position: absolute;
+	height: 1px;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	background-color: var(--bg-card);
 }
 
 .block {

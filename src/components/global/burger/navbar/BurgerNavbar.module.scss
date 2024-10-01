@@ -1,0 +1,23 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	display: flex;
+	flex-direction: column;
+	padding: convert-px2rem(30) 0 convert-px2rem(22);
+	border-bottom: 1px solid var(--bg-border);
+	gap: convert-px2rem(7);
+
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.link {
+	@include menu-link();
+}

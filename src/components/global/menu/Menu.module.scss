@@ -1,0 +1,91 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.overlay {
+	display: none;
+
+	z-index: var(--z-index-menu) !important;
+	overflow: hidden !important;
+	@include md {
+	}
+
+	@include lg {
+		display: block;
+	}
+}
+
+.block {
+	padding-top: convert-px2rem(var(--header-height-number));
+	height: convert-px2rem(420);
+	background-color: var(--background);
+	border-bottom-left-radius: convert-px2rem(20);
+	border-bottom-right-radius: convert-px2rem(20);
+	transform: translateY(-100%);
+	transition: transform var(--transition-duration);
+
+	&.open {
+		transform: translateY(0);
+	}
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	font-weight: 600;
+	margin-bottom: convert-px2rem(12);
+}
+
+.contentWrapper {
+	display: grid;
+
+	gap: convert-px2rem(5) convert-px2rem(10);
+	grid-template-columns: 1fr 1fr;
+}
+
+.menu {
+	display: grid;
+	grid-template-columns: convert-px2rem(278) convert-px2rem(278);
+	gap: convert-px2rem(40);
+	padding: convert-px2rem(50) convert-px2rem(20) 0;
+	width: fit-content;
+}
+
+.link {
+	@include menu-link();
+	font-size: convert-px2rem(12);
+	word-break: break-word;
+}
+
+.scrollbar {
+	max-height: convert-px2rem(204);
+	padding-right: convert-px2rem(20);
+}
+
+.second {
+	flex-shrink: 0;
+	width: auto;
+	padding-right: convert-px2rem(20);
+	display: flex;
+	gap: convert-px2rem(50);
+}
+
+.image {
+	max-width: convert-px2rem(300);
+	width: 21vw;
+	height: convert-px2rem(340);
+
+	object-fit: cover;
+}
+
+.button {
+	width: convert-px2rem(240);
+	height: fit-content;
+	margin-top: auto;
+	margin-bottom: convert-px2rem(50);
+}

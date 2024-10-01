@@ -1,19 +1,17 @@
-import { useContext } from "react";
-
-import { ModalContext } from "@/components/providers/modal/ModalProvider";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
+import { useModal } from "@/context/modal/ModalProvider";
+import type { ModalComponentsMap } from "@/context/modal/types/modal";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
-import { MODAL_ID } from "./constants/constants";
 import s from "./Modal.module.scss";
-import type { ModalComponentsMap } from "./types/modal";
 
+import { MODAL_ID } from "../../../context/modal/constants/constants";
 import Overlay from "../overlay/Overlay";
 
 const Modal = () => {
-	const modalContext = useContext(ModalContext);
+	const modalContext = useModal();
 
 	if (!modalContext) {
 		throw new Error("Modal must be used within a ModalProvider");

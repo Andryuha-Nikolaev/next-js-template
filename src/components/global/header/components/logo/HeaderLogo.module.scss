@@ -11,4 +11,6 @@
 	@include lg {
 		max-width: convert-px2rem(156);
 	}
+
+	@include button-opacity();
 }

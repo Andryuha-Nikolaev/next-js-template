@@ -9,7 +9,9 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@nextui-org/accordion": "^2.0.40",
 		"@nextui-org/button": "2.0.38",
+		"@nextui-org/popover": "^2.1.29",
 		"@nextui-org/switch": "2.0.34",
 		"@nextui-org/system": "2.2.6",
 		"@nextui-org/theme": "2.2.11",
@@ -23,7 +25,8 @@
 		"next-themes": "^0.2.1",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
-		"react-text-mask": "^5.5.0"
+		"react-text-mask": "^5.5.0",
+		"simplebar-react": "^3.2.6"
 	},
 	"devDependencies": {
 		"@hookform/error-message": "^2.0.1",

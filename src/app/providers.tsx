@@ -6,10 +6,11 @@ import type { ThemeProviderProps } from "next-themes/dist/types";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 
-import { ModalProvider } from "@/components/providers/modal/ModalProvider";
+import ModalProvider from "@/context/modal/ModalProvider";
+import SiteStateProvider from "@/context/site/SiteStateProvider";
 
 const AppProgressBar = dynamic(
-	() => import("@/components/global/app-progress-bar/AppProgressBar")
+	() => import("@/components/global/progress-bar/AppProgressBar")
 );
 
 export interface ProvidersProps {
@@ -24,7 +25,9 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 		// eslint-disable-next-line @typescript-eslint/unbound-method
 		<NextUIProvider navigate={router.push}>
 			<NextThemesProvider {...themeProps}>
-				<ModalProvider>{children}</ModalProvider>
+				<SiteStateProvider>
+					<ModalProvider>{children}</ModalProvider>
+				</SiteStateProvider>
 				<AppProgressBar />
 			</NextThemesProvider>
 		</NextUIProvider>

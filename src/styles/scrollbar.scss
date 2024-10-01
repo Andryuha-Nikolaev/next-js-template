@@ -1,0 +1,15 @@
+@import "./functions/convert-px2rem";
+
+.custom-scrollbar-layout {
+	.simplebar-scrollbar {
+		&::before {
+			opacity: 1 !important;
+			background: var(--bg-scrollbar-track) !important;
+		}
+	}
+
+	.simplebar-vertical {
+		width: 9px !important;
+		right: convert-px2rem(5);
+	}
+}

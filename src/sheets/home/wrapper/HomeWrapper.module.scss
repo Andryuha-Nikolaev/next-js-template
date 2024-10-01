@@ -5,6 +5,7 @@
 @import "@/styles/mixins/mixins";
 
 .block {
+	height: 2000px;
 	@include md {
 	}
 

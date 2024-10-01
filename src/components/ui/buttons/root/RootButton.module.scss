@@ -1,0 +1,115 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.button {
+	transition:
+		background-color var(--transition-duration),
+		color var(--transition-duration),
+		border var(--transition-duration),
+		border-color var(--transition-duration);
+	border: none;
+	font-size: convert-px2rem(14);
+	font-weight: 400;
+	flex-shrink: 0;
+	line-height: 1;
+	border-radius: convert-px2rem(50);
+	@include flex-center;
+	flex-direction: row;
+	gap: convert-px2rem(10);
+
+	&:disabled {
+		background-color: var(--bg-button-disabled) !important;
+		color: var(--fg-button-disabled) !important;
+	}
+
+	&.small {
+		min-height: convert-px2rem(37);
+		padding: convert-px2rem(8);
+	}
+
+	&.middle {
+		min-height: convert-px2rem(50);
+		padding: convert-px2rem(8) convert-px2rem(30);
+	}
+
+	&.large {
+		min-height: convert-px2rem(60);
+		padding: convert-px2rem(8) convert-px2rem(30);
+	}
+
+	&.var1 {
+		background-color: var(--bg-button-1);
+		color: var(--background);
+
+		@include hover-wrapper {
+			background-color: var(--bg-button-1-hover);
+		}
+
+		@include active-wrapper {
+			background-color: var(--bg-button-1-active);
+		}
+	}
+
+	&.var2 {
+		border: 1px solid var(--foreground);
+		background-color: var(--bg-button-2);
+
+		@include hover-wrapper {
+			border-color: var(--bg-button-2-hover);
+			color: var(--background);
+			background-color: var(--bg-button-2-hover);
+		}
+
+		@include active-wrapper {
+			border-color: var(--bg-button-2-active);
+			color: var(--background);
+			background-color: var(--bg-button-2-active);
+		}
+	}
+
+	&.var3 {
+		background-color: var(--bg-button-3);
+
+		@include hover-wrapper {
+			background-color: var(--bg-button-3-hover);
+			.icon {
+				opacity: 0.7;
+			}
+		}
+
+		@include active-wrapper {
+			background-color: var(--bg-button-3-active);
+			.icon {
+				opacity: 0.7;
+			}
+		}
+
+		&:disabled {
+			.icon {
+				opacity: 0.3;
+			}
+		}
+	}
+}
+
+.icon {
+	transition: opacity var(--transition-duration);
+	width: convert-px2rem(24);
+	height: convert-px2rem(24);
+
+	svg {
+		width: 100%;
+		height: auto;
+	}
+}

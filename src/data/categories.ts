@@ -1,0 +1,46 @@
+import type { IMenuAccordionItem } from "@/types/accordion";
+
+export const categories: IMenuAccordionItem[] = [
+	{
+		title: "Аукционы",
+		categories: [
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+		],
+	},
+	{
+		title: "Магазин",
+		categories: [
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+			{ name: "Категория", url: "/auction/category" },
+		],
+	},
+];
