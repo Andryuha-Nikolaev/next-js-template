@@ -11,9 +11,9 @@
 	margin: 0 auto;
 	position: relative;
 	@include md {
-		padding: 0 convert-px2rem(30);
 	}
 
 	@include lg {
+		padding: 0 convert-px2rem(30);
 	}
 }

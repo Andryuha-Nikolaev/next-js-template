@@ -7,6 +7,7 @@ const SiteContext = createContext<SiteStateType>({
 	isOpenBurger: false,
 	isBurgerViewed: false,
 	switchBurger() {},
+	closeBurger() {},
 });
 
 export const useSiteState = () => useContext(SiteContext);
@@ -26,9 +27,13 @@ const SiteStateProvider = ({ children }: { children: React.ReactNode }) => {
 		}
 	};
 
+	const closeBurger = () => {
+		setIsOpenBurger(false);
+	};
+
 	return (
 		<SiteContext.Provider
-			value={{ isOpenBurger, switchBurger, isBurgerViewed }}
+			value={{ isOpenBurger, switchBurger, closeBurger, isBurgerViewed }}
 		>
 			{children}
 		</SiteContext.Provider>

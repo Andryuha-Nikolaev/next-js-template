@@ -2,30 +2,26 @@
 
 import { useEffect } from "react";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    /* eslint-disable no-console */
-    console.error(error);
-  }, [error]);
+import ContentLayout from "@/components/layouts/content/ContentLayout";
+import RootButton from "@/components/ui/buttons/root/RootButton";
 
-  return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
-  );
+export default function Error({
+	error,
+	reset,
+}: {
+	error: Error;
+	reset: () => void;
+}) {
+	useEffect(() => {
+		console.error(error);
+	}, [error]);
+
+	return (
+		<div>
+			<ContentLayout>
+				<h2>{error.message}</h2>
+				<RootButton onClick={() => reset()}>Try again</RootButton>
+			</ContentLayout>
+		</div>
+	);
 }

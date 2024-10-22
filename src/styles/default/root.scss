@@ -7,6 +7,8 @@
 
 	--transition-duration: 0.2s;
 
+	--transition-duration-long: 0.5s;
+
 	// header
 	--header-height-number: 60;
 
@@ -29,34 +31,63 @@
 	--color-red-1: #ff4a4a;
 
 	// colors
+	// --background-colored:
 	--background: var(--color-white);
 	--foreground: var(--color-black-1);
 
 	--bg-overlay: var(--color-black-opacity-10);
 
-	--fg-alert: var(--color-red-1);
+	--color-alert: var(--color-red-1);
 
+	--bg-card-1: var(--color-gray-1);
+	--bg-card-2: var(--color-black-opacity-30);
+	--bg-card-3: var(--color-black-opacity-10);
+
+	--color-border-1: var(--color-gray-1);
+	--color-border-2: var(--color-black-opacity-10);
+
+	// button-1
 	--bg-button-1: var(--color-black-1);
+	--fg-button-1: var(--color-white);
+	--bg-button-1-hover: var(--color-black-2);
+	--fg-button-1-hover: var(--color-white);
+	--bg-button-1-active: var(--color-black-2);
+	--fg-button-1-active: var(--color-white);
+	// button-2
 	--bg-button-2: var(--color-white);
+	--fg-button-2: var(--color-black-1);
+	--bg-button-2-hover: var(--color-black-2);
+	--fg-button-2-hover: var(--color-white);
+	--bg-button-2-active: var(--color-black-2);
+	--fg-button-2-active: var(--color-white);
+	// button-3
 	--bg-button-3: var(--color-gray-1);
+	--fg-button-3: var(--color-black-1);
+	--bg-button-3-hover: var(--color-black-opacity-10);
+	--fg-button-3-hover: var(--color-black-1);
+	--bg-button-3-active: var(--color-black-opacity-30);
+	--fg-button-3-active: var(--color-black-1);
+	// button-4
 	--bg-button-4: var(--color-white);
+	--fg-button-4: var(--color-black-1);
+	--bg-button-4-hover: var(--color-black-1);
+	--bg-button-4-active: var(--color-black-2);
+	// button disabled
 	--bg-button-disabled: var(--color-black-opacity-10);
 	--fg-button-disabled: var(--color-black-opacity-30);
 
-	--bg-button-1-hover: var(--color-black-2);
-	--bg-button-2-hover: var(--color-black-2);
-	--bg-button-3-hover: var(--color-black-opacity-10);
-	--bg-button-4-hover: var(--color-black-1);
+	// input
+	--color-input-border: var(--color-black-opacity-30);
+	--color-input-border-focused: var(--color-black-1);
+	--bg-input: var(--color-white);
+	--bg-input-autofill: var(--color-white);
+	--fg-input-autofill: var(--color-black-1);
+	--color-input-placeholder: var(--color-black-opacity-30);
+	--input-height-number: 60;
+	--input-border-radius-number: 50;
 
-	--bg-button-1-active: var(--color-black-2);
-	--bg-button-2-active: var(--color-black-2);
-	--bg-button-3-active: var(--color-black-opacity-30);
-	--bg-button-4-active: var(--color-black-2);
-
-	--bg-card: var(--color-gray-1);
-	--bg-border: var(--color-black-opacity-10);
-
-	--bg-scrollbar-track: var(--color-black-opacity-10);
+	// scrollbar
+	--color-scrollbar-track: var(--color-black-opacity-10);
 
 	// z-index
 	--z-index-menu: 97;
@@ -66,6 +97,12 @@
 
 	// shadow
 	--box-shadow: 0px 0px 10px 0px #2121211a;
+
+	// select
+	--color-dropdown-indicator: var(--color-black-opacity-30);
+	--color-dropdown-indicator-active: var(--color-black-1);
+	--color-option-focused: var(--color-black-opacity-10);
+	--color-option-selected: var(--color-black-opacity-30);
 
 	// &.dark {
 	// }

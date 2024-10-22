@@ -13,9 +13,9 @@ const useScrollLock = (activeState: boolean) => {
 			const scrollY = bodyStyle.top;
 			bodyStyle.position = "";
 			bodyStyle.top = "";
-			// document.documentElement.style.scrollBehavior = "auto";
+			document.documentElement.style.scrollBehavior = "auto";
 			window.scrollTo(0, parseInt(scrollY || "0") * -1);
-			// document.documentElement.style.scrollBehavior = "smooth";
+			document.documentElement.style.scrollBehavior = "smooth";
 		};
 
 		if (activeState) {

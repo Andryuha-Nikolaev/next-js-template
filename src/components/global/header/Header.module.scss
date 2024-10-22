@@ -7,7 +7,7 @@
 .header {
 	width: 100%;
 	z-index: var(--z-index-header);
-	@include backdrop();
+	background-color: var(--background);
 	@include md {
 	}
 
@@ -27,7 +27,7 @@
 	left: 0;
 	width: 100%;
 	bottom: 0;
-	background-color: var(--bg-card);
+	background-color: var(--color-border-1);
 }
 
 .block {

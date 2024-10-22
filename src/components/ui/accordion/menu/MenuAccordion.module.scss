@@ -48,7 +48,7 @@
 }
 
 .contentWrapper {
-	background-color: var(--bg-card);
+	background-color: var(--bg-card-1);
 	padding: convert-px2rem(12);
 
 	display: grid;
@@ -62,6 +62,10 @@
 
 .indicator {
 	position: relative;
+
+	&[data-open="true"] {
+		transform: rotate(-180deg) !important;
+	}
 }
 
 .link {

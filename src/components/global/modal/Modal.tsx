@@ -1,3 +1,6 @@
+import clsx from "clsx";
+
+import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import { useModal } from "@/context/modal/ModalProvider";
 import type { ModalComponentsMap } from "@/context/modal/types/modal";
@@ -33,13 +36,18 @@ const Modal = () => {
 	return (
 		<Overlay onMouseDown={hideModal} isShown={isShown}>
 			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-			<div onMouseDown={(e) => e.stopPropagation()} className={s.wrap}>
-				<div className={s.close}>
-					<CloseButton onClick={hideModal} />
-				</div>
-
-				<h2 className={s.title}>{modalConfig.title}</h2>
-				<div className={s.content}>{modalComponents[modalConfig.modalId]}</div>
+			<div
+				onMouseDown={(e) => e.stopPropagation()}
+				className={clsx(s.wrap, s[modalConfig.modalId])}
+			>
+				<CustomScrollLayout className={s.scroll}>
+					<div className={s.content}>
+						<div className={s.close}>
+							<CloseButton onClick={hideModal} />
+						</div>
+						{modalComponents[modalConfig.modalId]}
+					</div>
+				</CustomScrollLayout>
 			</div>
 		</Overlay>
 	);

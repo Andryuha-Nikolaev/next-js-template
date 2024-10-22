@@ -12,7 +12,11 @@ import { involve } from "./fonts";
 import { Providers } from "./providers";
 
 import "simplebar-react/dist/simplebar.min.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
+import Footer from "@/components/global/footer/Footer";
 import Menu from "@/components/global/menu/Menu";
 
 export const metadata: Metadata = metaConstants;
@@ -33,7 +37,7 @@ export default function RootLayout({
 						<Burger />
 						<Menu />
 						<main>{children}</main>
-						<footer>Footer</footer>
+						<Footer />
 					</PageLayout>
 				</Providers>
 			</body>

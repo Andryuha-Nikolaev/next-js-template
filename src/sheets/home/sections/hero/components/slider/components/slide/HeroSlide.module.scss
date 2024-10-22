@@ -1,0 +1,108 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	position: relative;
+	min-height: convert-px2rem(740);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	@include md {
+	}
+
+	@include lg {
+		min-height: unset;
+	}
+}
+
+.imageWrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	@include md {
+		height: 100%;
+	}
+}
+
+.image {
+	width: 100%;
+	height: convert-px2rem(489);
+	object-fit: cover;
+	object-position: top left;
+
+	@include md {
+		height: 100%;
+	}
+}
+
+.contentWrap {
+	@include lg {
+		width: 100%;
+		max-width: convert-px2rem(880);
+		margin: 0 auto;
+	}
+}
+
+.content {
+	position: relative;
+	background-color: var(--bg-card-1);
+	max-width: convert-px2rem(390);
+	margin: convert-px2rem(20) auto 0;
+	border-radius: convert-px2rem(20);
+	padding: convert-px2rem(40) convert-px2rem(40) convert-px2rem(30);
+
+	@include lg {
+		max-width: convert-px2rem(540);
+		min-height: convert-px2rem(700);
+		margin: 0;
+		margin-left: auto;
+		border-radius: 0;
+
+		padding: convert-px2rem(102) convert-px2rem(50) convert-px2rem(50);
+
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.buttonWrap {
+	min-height: convert-px2rem(60);
+	margin: convert-px2rem(20) 0 convert-px2rem(30);
+
+	@include lg {
+		margin: convert-px2rem(32) 0;
+	}
+}
+
+.button {
+	max-width: convert-px2rem(240);
+	display: block;
+}
+
+.footer {
+	min-height: convert-px2rem(36);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@include lg {
+		margin-top: auto;
+	}
+}
+
+.buttons {
+	display: flex;
+	gap: convert-px2rem(10);
+}
+
+.title {
+	margin: convert-px2rem(20) 0;
+
+	@include lg {
+		margin: convert-px2rem(5) 0 convert-px2rem(20);
+	}
+}

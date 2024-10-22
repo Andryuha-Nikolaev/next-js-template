@@ -18,7 +18,7 @@
 .count {
 	width: convert-px2rem(40);
 	height: convert-px2rem(40);
-	background-color: var(--fg-alert);
+	background-color: var(--color-alert);
 	border-radius: 50%;
 	font-size: convert-px2rem(14);
 	@include flex-center();

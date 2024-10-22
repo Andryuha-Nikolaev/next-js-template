@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
-const SITE_NAME = "Title";
+const SITE_NAME = "Antik 1963";
 
 const metaConstants: Metadata = {
 	title: {
 		default: SITE_NAME,
-		template: `%s - ${SITE_NAME}`,
+		template: `%s | ${SITE_NAME}`,
 	},
-	description: "description",
+	description: "Магазин-аукцион антиквариата",
 	icons: {
 		icon: "/favicon.ico",
 		// apple: {
-		// 	rel: "/apple-touch-icon.png",
+		// 	rel: "apple-touch-icon",
 		// 	type: "image/png",
 		// 	sizes: "180x180",
 		// 	url: "/apple-touch-icon.png",
@@ -38,6 +38,12 @@ const metaConstants: Metadata = {
 		// 	{
 		// 		rel: "icon",
 		// 		type: "image/png",
+		// 		sizes: "128x128",
+		// 		url: "/android-chrome-128x128.png",
+		// 	},
+		// 	{
+		// 		rel: "icon",
+		// 		type: "image/png",
 		// 		sizes: "192x192",
 		// 		url: "/android-chrome-192x192.png",
 		// 	},
@@ -50,8 +56,8 @@ const metaConstants: Metadata = {
 		// ],
 	},
 	openGraph: {
-		// images: [`${process.env["NEXT_PUBLIC_SITE_URL"]}/og-image.png`],
+		images: `${process.env["NEXT_PUBLIC_SITE_URL"]}/og-image.png`,
 	},
-} as const;
+};
 
 export default metaConstants;

@@ -54,3 +54,18 @@ $maxWidthContainer: 768;
 		opacity: 0.3;
 	}
 }
+
+@mixin line-clamp($lines) {
+	line-clamp: $lines;
+	-webkit-line-clamp: $lines;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+@mixin user-select {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}

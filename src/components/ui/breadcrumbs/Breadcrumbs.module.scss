@@ -1,0 +1,25 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.nav {
+	margin-bottom: convert-px2rem(8);
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.scrollbar {
+	width: 100%;
+	min-height: convert-px2rem(32);
+	padding-bottom: convert-px2rem(10);
+}
+
+.list {
+	display: flex;
+	width: fit-content;
+}

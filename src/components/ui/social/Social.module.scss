@@ -16,10 +16,18 @@
 	height: convert-px2rem(32);
 	transition: color var(--transition-duration);
 
+	color: var(--foreground);
+
 	rect {
 		transition:
 			fill var(--transition-duration),
 			stroke var(--transition-duration);
+	}
+
+	&.dark {
+		rect {
+			stroke: var(--background);
+		}
 	}
 
 	@include hover-wrapper {

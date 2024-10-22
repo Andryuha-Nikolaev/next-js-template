@@ -1,4 +1,4 @@
-import type { IMenuAccordionItem } from "@/types/accordion";
+import type { IMenuAccordionItem } from "@/types/menu-accordion";
 
 export const categories: IMenuAccordionItem[] = [
 	{

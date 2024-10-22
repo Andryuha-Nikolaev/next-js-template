@@ -2,8 +2,9 @@ import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import clsx from "clsx";
 import Link from "next/link";
 
+import { useSiteState } from "@/context/site/SiteStateProvider";
 import PolygonIcon from "@/icons/polygon/PolygonIcon";
-import type { IMenuAccordionItem } from "@/types/accordion";
+import type { IMenuAccordionItem } from "@/types/menu-accordion";
 
 import s from "./MenuAccordion.module.scss";
 
@@ -18,6 +19,8 @@ const MenuAccordion = ({
 	titleFontSize = 14,
 	columns = 1,
 }: MenuAccordionProps) => {
+	const { closeBurger } = useSiteState();
+
 	return (
 		<div className={s.block}>
 			<Accordion
@@ -29,10 +32,7 @@ const MenuAccordion = ({
 					trigger: s.trigger,
 					content: s.content,
 					base: s.base,
-					indicator: [
-						"data-[open=true]:rotate-180 rtl:data-[open=true]:rotate-180",
-						s.indicator,
-					],
+					indicator: s.indicator,
 				}}
 			>
 				{menu.map((item, i) => (
@@ -52,7 +52,11 @@ const MenuAccordion = ({
 							>
 								{item.categories.map((item) => (
 									<li className={s.item} key={`accordion-link-${item.url}`}>
-										<Link className={s.link} href={item.url}>
+										<Link
+											onClick={closeBurger}
+											className={s.link}
+											href={item.url}
+										>
 											{item.name}
 										</Link>
 									</li>

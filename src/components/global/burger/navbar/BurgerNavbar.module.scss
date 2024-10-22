@@ -8,7 +8,7 @@
 	display: flex;
 	flex-direction: column;
 	padding: convert-px2rem(30) 0 convert-px2rem(22);
-	border-bottom: 1px solid var(--bg-border);
+	border-bottom: 1px solid var(--color-border-2);
 	gap: convert-px2rem(7);
 
 	@include md {

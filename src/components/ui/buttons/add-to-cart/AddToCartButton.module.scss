@@ -1,0 +1,39 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.button {
+	width: convert-px2rem(32);
+	height: convert-px2rem(32);
+	@include flex-center();
+	border-radius: 50%;
+	background-color: var(--bg-button-3);
+	color: var(--foreground);
+
+	transition: color var(--transition-duration);
+
+	svg {
+		width: convert-px2rem(16);
+		height: auto;
+	}
+
+	path:first-child {
+		transition: fill var(--transition-duration);
+	}
+
+	@include hover-wrapper {
+		color: var(--bg-button-4-hover);
+		path:first-child {
+			fill: var(--bg-button-4-hover);
+		}
+	}
+
+	@include active-wrapper {
+		color: var(--bg-button-4-active);
+		path:first-child {
+			fill: var(--bg-button-4-active);
+		}
+	}
+}

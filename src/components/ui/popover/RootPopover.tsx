@@ -1,4 +1,7 @@
+"use client";
+
 import type React from "react";
+import { useState } from "react";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/popover";
 
@@ -10,8 +13,12 @@ interface RootPopoverProps {
 }
 
 const RootPopover = ({ trigger, children }: RootPopoverProps) => {
+	const [isOpen, setIsOpen] = useState(false);
+
 	return (
 		<Popover
+			isOpen={isOpen}
+			onOpenChange={(open) => setIsOpen(open)}
 			offset={38}
 			showArrow
 			classNames={{
@@ -22,7 +29,9 @@ const RootPopover = ({ trigger, children }: RootPopoverProps) => {
 			}}
 		>
 			<PopoverTrigger>{trigger}</PopoverTrigger>
-			<PopoverContent>{children}</PopoverContent>
+			<PopoverContent onClick={() => setIsOpen(false)}>
+				{children}
+			</PopoverContent>
 		</Popover>
 	);
 };

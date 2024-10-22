@@ -6,7 +6,7 @@
 
 .block {
 	padding: 0 0 convert-px2rem(30);
-	border-bottom: 1px solid var(--bg-border);
+	border-bottom: 1px solid var(--color-border-2);
 	@include md {
 	}
 

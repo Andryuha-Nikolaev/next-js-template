@@ -2,14 +2,9 @@
 @import "./mixins/typography";
 @import "./mixins/square-size";
 
-* {
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-}
-
 html {
+	scroll-padding-top: convert-px2rem(var(--header-height-number));
+	scroll-behavior: smooth;
 	font-size: var(--font-size_small);
 	@media (min-width: 430px) {
 		font-size: var(--font-size_normal);
@@ -22,7 +17,7 @@ body,
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-	height: 100%;
+	min-height: 100%;
 }
 
 main {
@@ -108,51 +103,3 @@ pre {
 a {
 	color: inherit;
 }
-
-// @layer utilities {
-// 	.text-balance {
-// 		text-wrap: balance;
-// 	}
-// }
-
-// ::-webkit-input-placeholder {
-//   color: var(--foreground);
-// }
-
-// :-moz-placeholder {
-//   color: var(--foreground);
-//   opacity: 1;
-// }
-
-// ::-moz-placeholder {
-//   color: var(--foreground);
-//   opacity: 1;
-// }
-
-// :-ms-input-placeholder {
-//   color: var(--foreground);
-// }
-
-// ::-ms-input-placeholder {
-//   color: var(--foreground);
-// }
-
-// ::placeholder {
-//   color: var(--foreground);
-// }
-
-// input:-webkit-autofill,
-// input:-webkit-autofill:hover,
-// input:-webkit-autofill:focus,
-// textarea:-webkit-autofill,
-// textarea:-webkit-autofill:hover,
-// textarea:-webkit-autofill:focus {
-//   @include main-text();
-//   border: convert-px2rem(1) solid var(--foreground);
-//   -webkit-text-fill-color: var(--foreground);
-//   -webkit-box-shadow: 0 0 0 convert-px2rem(1000) var(--foreground) inset;
-// }
-
-// .ReactCollapse--collapse {
-//   transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
-// }

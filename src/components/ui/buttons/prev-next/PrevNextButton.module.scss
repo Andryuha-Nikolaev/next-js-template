@@ -1,0 +1,47 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	width: convert-px2rem(36);
+	height: convert-px2rem(36);
+
+	@include flex-center();
+
+	circle {
+		transition: fill var(--transition-duration);
+	}
+
+	path {
+		transition: stroke var(--transition-duration);
+	}
+
+	@include hover-wrapper {
+		circle {
+			fill: var(--bg-button-4-hover);
+		}
+		path {
+			stroke: var(--background);
+		}
+	}
+
+	@include active-wrapper {
+		circle {
+			fill: var(--bg-button-4-active);
+		}
+		path {
+			stroke: var(--background);
+		}
+	}
+
+	&.next {
+		transform: rotate(180deg);
+	}
+
+	svg {
+		width: 100%;
+		height: auto;
+	}
+}

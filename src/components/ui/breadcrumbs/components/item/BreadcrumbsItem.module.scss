@@ -1,0 +1,41 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.item {
+	opacity: 0.5;
+	display: flex;
+
+	&:first-child {
+		.separator {
+			display: none;
+		}
+	}
+
+	&:last-child {
+		pointer-events: none;
+		opacity: 1;
+	}
+}
+
+.link {
+	@include menu-link;
+	text-wrap: nowrap;
+}
+
+.separator {
+	@include additional-text;
+	min-width: convert-px2rem(7);
+	text-align: center;
+	margin: 0 convert-px2rem(4);
+}

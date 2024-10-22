@@ -6,23 +6,28 @@
 
 .wrap {
 	width: 100%;
-	max-width: convert-px2rem(600);
 	max-height: 100%;
-	overflow: auto;
+	height: 100%;
 	background-color: var(--background);
-	padding: convert-px2rem(50) convert-px2rem(20);
-	position: relative;
+
+	@include md {
+		height: auto;
+		max-width: convert-px2rem(600);
+		border-radius: convert-px2rem(30);
+	}
 }
-.title {
-	text-align: center;
+
+.scroll {
+	max-height: 100%;
 }
 
 .close {
 	position: absolute;
-	right: 15px;
-	top: 15px;
+	right: convert-px2rem(20);
+	top: convert-px2rem(20);
 }
 
 .content {
-	margin-top: convert-px2rem(20);
+	padding: convert-px2rem(60) convert-px2rem(35);
+	position: relative;
 }

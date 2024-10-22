@@ -13,7 +13,7 @@ const routesConstants = {
 	},
 	DELIVERY: {
 		name: "Доставка и оплата",
-		url: "/delivery",
+		url: "/custom-page/dostavka-i-oplata",
 	},
 	REFUND: {
 		name: "Обмен и возврат",
@@ -27,12 +27,16 @@ const routesConstants = {
 		name: "Новости",
 		url: "/news",
 	},
+	BLOG: {
+		name: "Блог",
+		url: "/blog",
+	},
 	FAQ: {
 		name: "FAQ",
 		url: "/#faq",
 	},
 	PROFILE: {
-		name: "Профиль",
+		name: "Личный кабинет",
 		url: "/profile",
 	},
 	TEST: {

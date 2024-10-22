@@ -1,0 +1,56 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	width: 100%;
+
+	@include sm {
+		max-width: calc((100% - convert-px2rem(10)) / 2);
+	}
+
+	@include md {
+		max-width: calc((100% - convert-px2rem(20)) / 3);
+	}
+
+	@include md2 {
+		max-width: calc((100% - convert-px2rem(40)) / 5);
+	}
+
+	@include hover-wrapper {
+		.image {
+			transform: scale(1.02);
+		}
+	}
+}
+
+.date {
+	opacity: 0.5;
+	margin: convert-px2rem(10) 0 convert-px2rem(4);
+
+	@include small-text();
+
+	@include lg {
+		margin: convert-px2rem(20) 0 convert-px2rem(4);
+	}
+}
+
+.title {
+	@include line-clamp(2);
+}
+
+.image {
+	width: 100%;
+	aspect-ratio: 1/1;
+	object-fit: contain;
+	object-position: center;
+	will-change: transform;
+	transition: transform var(--transition-duration-long);
+}
+
+.imageWrap {
+	border-radius: convert-px2rem(20);
+	overflow: hidden;
+}

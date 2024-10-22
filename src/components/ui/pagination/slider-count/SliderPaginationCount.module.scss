@@ -1,0 +1,23 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	display: flex;
+	gap: convert-px2rem(4);
+	@include md {
+	}
+
+	@include lg {
+	}
+
+	p {
+		opacity: 0.5;
+	}
+}
+
+.current {
+	opacity: 1 !important;
+}

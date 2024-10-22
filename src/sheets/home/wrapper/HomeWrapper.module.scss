@@ -5,10 +5,17 @@
 @import "@/styles/mixins/mixins";
 
 .block {
-	height: 2000px;
+	display: flex;
+	flex-direction: column;
+	gap: convert-px2rem(60);
+	padding-bottom: convert-px2rem(60);
+	width: 100%;
+
 	@include md {
 	}
 
 	@include lg {
+		gap: convert-px2rem(100);
+		padding-bottom: convert-px2rem(100);
 	}
 }

@@ -1,0 +1,46 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	padding: convert-px2rem(20) 0;
+	@include md {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	@include lg {
+	}
+}
+
+.payments {
+	display: flex;
+	gap: convert-px2rem(10);
+}
+
+.payment {
+	width: convert-px2rem(60);
+	height: convert-px2rem(30);
+	background-color: var(--bg-card-2);
+	border-radius: convert-px2rem(10);
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	gap: convert-px2rem(4);
+	margin-bottom: convert-px2rem(12);
+
+	@include md {
+		flex-direction: row;
+		gap: convert-px2rem(49);
+		margin-bottom: 0;
+	}
+}
+
+.link {
+	@include main-link();
+}

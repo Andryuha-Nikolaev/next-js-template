@@ -5,7 +5,7 @@
 @import "@/styles/mixins/mixins";
 
 .overlay {
-	display: none;
+	display: none !important;
 
 	z-index: var(--z-index-menu) !important;
 	overflow: hidden !important;
@@ -13,7 +13,7 @@
 	}
 
 	@include lg {
-		display: block;
+		display: block !important;
 	}
 }
 
@@ -65,27 +65,4 @@
 .scrollbar {
 	max-height: convert-px2rem(204);
 	padding-right: convert-px2rem(20);
-}
-
-.second {
-	flex-shrink: 0;
-	width: auto;
-	padding-right: convert-px2rem(20);
-	display: flex;
-	gap: convert-px2rem(50);
-}
-
-.image {
-	max-width: convert-px2rem(300);
-	width: 21vw;
-	height: convert-px2rem(340);
-
-	object-fit: cover;
-}
-
-.button {
-	width: convert-px2rem(240);
-	height: fit-content;
-	margin-top: auto;
-	margin-bottom: convert-px2rem(50);
 }

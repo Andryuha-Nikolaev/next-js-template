@@ -4,14 +4,6 @@
 @import "@/styles/mixins/breakpoints";
 @import "@/styles/mixins/mixins";
 
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
-
 .button {
 	transition:
 		background-color var(--transition-duration),
@@ -27,10 +19,15 @@
 	@include flex-center;
 	flex-direction: row;
 	gap: convert-px2rem(10);
+	position: relative;
 
 	&:disabled {
 		background-color: var(--bg-button-disabled) !important;
 		color: var(--fg-button-disabled) !important;
+	}
+
+	&.loading {
+		pointer-events: none;
 	}
 
 	&.small {
@@ -50,39 +47,44 @@
 
 	&.var1 {
 		background-color: var(--bg-button-1);
-		color: var(--background);
+		color: var(--fg-button-1);
 
 		@include hover-wrapper {
 			background-color: var(--bg-button-1-hover);
+			color: var(--fg-button-1-hover);
 		}
 
 		@include active-wrapper {
 			background-color: var(--bg-button-1-active);
+			color: var(--fg-button-1-active);
 		}
 	}
 
 	&.var2 {
-		border: 1px solid var(--foreground);
 		background-color: var(--bg-button-2);
+		color: var(--fg-button-2);
+		border: 1px solid var(--fg-button-2);
 
 		@include hover-wrapper {
-			border-color: var(--bg-button-2-hover);
-			color: var(--background);
 			background-color: var(--bg-button-2-hover);
+			color: var(--fg-button-2-hover);
+			border-color: var(--bg-button-2-hover);
 		}
 
 		@include active-wrapper {
-			border-color: var(--bg-button-2-active);
-			color: var(--background);
 			background-color: var(--bg-button-2-active);
+			color: var(--fg-button-2-active);
+			border-color: var(--bg-button-2-active);
 		}
 	}
 
 	&.var3 {
 		background-color: var(--bg-button-3);
+		color: var(--fg-button-3);
 
 		@include hover-wrapper {
 			background-color: var(--bg-button-3-hover);
+			color: var(--fg-button-3-hover);
 			.icon {
 				opacity: 0.7;
 			}
@@ -90,6 +92,8 @@
 
 		@include active-wrapper {
 			background-color: var(--bg-button-3-active);
+			color: var(--fg-button-3-active);
+
 			.icon {
 				opacity: 0.7;
 			}
@@ -112,4 +116,12 @@
 		width: 100%;
 		height: auto;
 	}
+}
+
+.spinner {
+	display: block;
+	position: absolute;
+	left: convert-px2rem(10);
+	top: 50%;
+	transform: translateY(-50%);
 }
