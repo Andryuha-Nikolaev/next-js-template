@@ -6,7 +6,6 @@ import type { ThemeProviderProps } from "next-themes/dist/types";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 
-import ModalProvider from "@/context/modal/ModalProvider";
 import SiteStateProvider from "@/context/site/SiteStateProvider";
 
 const AppProgressBar = dynamic(
@@ -25,9 +24,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 		// eslint-disable-next-line @typescript-eslint/unbound-method
 		<NextUIProvider navigate={router.push}>
 			<NextThemesProvider {...themeProps}>
-				<SiteStateProvider>
-					<ModalProvider>{children}</ModalProvider>
-				</SiteStateProvider>
+				<SiteStateProvider>{children}</SiteStateProvider>
 				<AppProgressBar />
 			</NextThemesProvider>
 		</NextUIProvider>
