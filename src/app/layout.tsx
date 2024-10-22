@@ -2,8 +2,6 @@ import "@/styles/index.scss";
 
 import type { Metadata, Viewport } from "next";
 
-import Burger from "@/components/global/burger/Burger";
-import Header from "@/components/global/header/Header";
 import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/constants/meta";
 import viewportConstants from "@/constants/viewport";
@@ -15,9 +13,6 @@ import "simplebar-react/dist/simplebar.min.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import Footer from "@/components/global/footer/Footer";
-import Menu from "@/components/global/menu/Menu";
 
 export const metadata: Metadata = metaConstants;
 
@@ -33,11 +28,7 @@ export default function RootLayout({
 			<body className={involve.variable}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
 					<PageLayout>
-						<Header />
-						<Burger />
-						<Menu />
 						<main>{children}</main>
-						<Footer />
 					</PageLayout>
 				</Providers>
 			</body>
