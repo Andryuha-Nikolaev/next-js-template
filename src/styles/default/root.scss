@@ -17,92 +17,95 @@
 	}
 
 	// colors
-	--color-black-1: #212121;
-	--color-black-2: #000000;
-
-	--color-black-opacity-10: rgba(33, 33, 33, 0.1);
-	--color-black-opacity-30: rgba(33, 33, 33, 0.3);
-
-	--color-black-opacity-50: rgba(33, 33, 33, 0.5);
-	--color-black-opacity-70: rgba(33, 33, 33, 0.7);
-
 	--color-white: #fff;
-	--color-gray-1: #f8f8f8;
-	--color-red-1: #ff4a4a;
+
+	--color-black-light: #212121;
+	--color-black-medium: #121212;
+	--color-black-dark: #000000;
+	--color-black-opacity-10: rgba(18, 18, 18, 0.1);
+	--color-black-opacity-50: rgba(18, 18, 18, 0.5);
+
+	--color-gray-light: #f8f8f8;
+	--color-gray-medium: #e0e0e0;
+	--color-gray-dark: #8c8c8c;
+
+	--color-red-medium: #ff4a4a;
+
+	--color-green-light: #466045;
+	--color-green-medium: #3a4f39;
+	--color-green-dark: #2c3b2b;
 
 	// colors
 	// --background-colored:
 	--background: var(--color-white);
-	--foreground: var(--color-black-1);
+	--foreground: var(--color-black-medium);
 
-	--bg-overlay: var(--color-black-opacity-10);
+	--bg-overlay: var(--color-black-opacity);
 
-	--color-alert: var(--color-red-1);
+	--color-alert: var(--color-red-medium);
 
-	--bg-card-1: var(--color-gray-1);
-	--bg-card-2: var(--color-black-opacity-30);
-	--bg-card-3: var(--color-black-opacity-10);
+	--bg-card-1: var(--color-gray-medium);
 
-	--color-border-1: var(--color-gray-1);
-	--color-border-2: var(--color-black-opacity-10);
+	--color-border-1: var(--color-gray-medium);
 
 	// button-1
-	--bg-button-1: var(--color-black-1);
+	--bg-button-1: var(--color-black-medium);
 	--fg-button-1: var(--color-white);
-	--bg-button-1-hover: var(--color-black-2);
+	--bg-button-1-hover: var(--color-black-dark);
 	--fg-button-1-hover: var(--color-white);
-	--bg-button-1-active: var(--color-black-2);
+	--bg-button-1-active: var(--color-black-light);
 	--fg-button-1-active: var(--color-white);
 	// button-2
 	--bg-button-2: var(--color-white);
-	--fg-button-2: var(--color-black-1);
-	--bg-button-2-hover: var(--color-black-2);
+	--fg-button-2: var(--color-black-medium);
+	--bg-button-2-hover: var(--color-black-dark);
 	--fg-button-2-hover: var(--color-white);
-	--bg-button-2-active: var(--color-black-2);
+	--bg-button-2-active: var(--color-black-light);
 	--fg-button-2-active: var(--color-white);
 	// button-3
-	--bg-button-3: var(--color-gray-1);
-	--fg-button-3: var(--color-black-1);
-	--bg-button-3-hover: var(--color-black-opacity-10);
-	--fg-button-3-hover: var(--color-black-1);
-	--bg-button-3-active: var(--color-black-opacity-30);
-	--fg-button-3-active: var(--color-black-1);
-	// button-4
-	--bg-button-4: var(--color-white);
-	--fg-button-4: var(--color-black-1);
-	--bg-button-4-hover: var(--color-black-1);
-	--bg-button-4-active: var(--color-black-2);
+	--bg-button-3: var(--color-green-medium);
+	--fg-button-3: var(--color-white);
+	--bg-button-3-hover: var(--color-green-dark);
+	--fg-button-3-hover: var(--color-white);
+	--bg-button-3-active: var(--color-green-light);
+	--fg-button-3-active: var(--color-white);
 	// button disabled
-	--bg-button-disabled: var(--color-black-opacity-10);
-	--fg-button-disabled: var(--color-black-opacity-30);
+	--bg-button-disabled: var(--color-gray-dark);
+	--fg-button-disabled: var(--color-gray-light);
 
-	// input
-	--color-input-border: var(--color-black-opacity-30);
-	--color-input-border-focused: var(--color-black-1);
-	--bg-input: var(--color-white);
-	--bg-input-autofill: var(--color-white);
-	--fg-input-autofill: var(--color-black-1);
-	--color-input-placeholder: var(--color-black-opacity-30);
-	--input-height-number: 60;
-	--input-border-radius-number: 50;
+	// // link-1
+	// --color-link-1: inherit;
+	// --color-link-1-hover: var(--color-green-dark);
+	// --color-link-1-active: var(--color-green-light);
+	// // link disabled
+	// --color-link-disabled: var(--color-gray-dark);
+
+	// select
+	--color-dropdown-indicator: var(--color-black-opacity-50);
+	--color-dropdown-indicator-active: var(--color-black-medium);
+	--bg-option-focused: var(--color-black-opacity-10);
+	--bg-option-selected: var(--color-black-opacity-50);
 
 	// scrollbar
-	--color-scrollbar-track: var(--color-black-opacity-10);
+	--color-scrollbar-track: var(--color-black-opacity-50);
 
-	// z-index
-	--z-index-menu: 97;
-	--z-index-burger: 98;
-	--z-index-header: 99;
-	--z-index-modal: 100;
+	// input
+	--color-input-border: var(--color-gray-medium);
+	--color-input-border-focused: var(--color-black-medium);
+	--bg-input: var(--color-white);
+	--bg-input-autofill: var(--color-white);
+	--fg-input-autofill: var(--color-black-medium);
+	--color-input-placeholder: var(--color-black-opacity-50);
+	--input-height-number: 60;
+	--input-border-radius-number: 50;
 
 	// shadow
 	--box-shadow: 0px 0px 10px 0px #2121211a;
 
-	// select
-	--color-dropdown-indicator: var(--color-black-opacity-30);
-	--color-dropdown-indicator-active: var(--color-black-1);
-	--color-option-focused: var(--color-black-opacity-10);
-	--color-option-selected: var(--color-black-opacity-30);
+	// z-index
+	--z-index-burger: 98;
+	--z-index-header: 99;
+	--z-index-modal: 100;
 
 	// &.dark {
 	// }

@@ -31,9 +31,9 @@ body {
 	overflow-y: scroll;
 
 	line-height: var(--font-line-height);
-	font-family: var(--font-involve), sans-serif;
+	font-family: var(--primary-font), sans-serif;
 	font-weight: 400;
-	background: var(--background);
+	background-color: var(--background);
 	color: var(--foreground);
 
 	-webkit-tap-highlight-color: transparent;
@@ -101,5 +101,5 @@ pre {
 }
 
 a {
-	color: inherit;
+	@include link-1;
 }

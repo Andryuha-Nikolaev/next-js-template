@@ -6,7 +6,7 @@ import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/constants/meta";
 import viewportConstants from "@/constants/viewport";
 
-import { involve } from "./fonts";
+import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
 
 import "simplebar-react/dist/simplebar.min.css";
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html suppressHydrationWarning lang="ru">
-			<body className={involve.variable}>
+			<body className={primaryFont.variable}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
 					<PageLayout>
 						<main>{children}</main>

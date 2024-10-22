@@ -1,9 +1,15 @@
 import { Open_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
-export const involve = localFont({
+export const primaryFont = Open_Sans({
+	subsets: ["latin", "cyrillic"],
+	// preload: true,
+	variable: "--primary-font",
+});
+
+export const secondaryFont = localFont({
 	display: "swap",
-	variable: "--font-involve",
+	variable: "--secondary-font",
 	src: [
 		{
 			path: "./fonts/Involve-Regular.woff",
@@ -21,10 +27,4 @@ export const involve = localFont({
 			style: "normal",
 		},
 	],
-});
-
-export const openSans = Open_Sans({
-	subsets: ["latin", "cyrillic"],
-	preload: true,
-	variable: "--font-open-sans",
 });

@@ -78,11 +78,11 @@
 		}
 
 		&--is-focused {
-			background-color: var(--color-option-focused) !important;
+			background-color: var(--bg-option-focused) !important;
 		}
 
 		&--is-selected {
-			background-color: var(--color-option-selected) !important;
+			background-color: var(--bg-option-selected) !important;
 		}
 	}
 }
