@@ -2,6 +2,9 @@
 
 import { useEffect } from "react";
 
+import ContentLayout from "@/components/layouts/content/ContentLayout";
+import RootButton from "@/components/ui/buttons/root/RootButton";
+
 export default function Error({
 	error,
 	reset,
@@ -14,9 +17,9 @@ export default function Error({
 	}, [error]);
 
 	return (
-		<div>
+		<ContentLayout>
 			<h2>{error.message}</h2>
-			<button onClick={() => reset()}>Try again</button>
-		</div>
+			<RootButton onClick={() => reset()}>Try again</RootButton>
+		</ContentLayout>
 	);
 }
