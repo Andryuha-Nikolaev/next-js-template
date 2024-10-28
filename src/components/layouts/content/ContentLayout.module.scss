@@ -4,13 +4,16 @@
 @import "@/styles/mixins/breakpoints";
 @import "@/styles/mixins/mixins";
 
-.wrap {
-	display: flex;
-	flex-direction: column;
-	gap: convert-px2rem(20);
+.block {
+	max-width: convert-px2rem(1440);
+	padding: 0 convert-px2rem(10);
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
 	@include md {
 	}
 
 	@include lg {
+		padding: 0 convert-px2rem(30);
 	}
 }

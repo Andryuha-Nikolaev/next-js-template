@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
+import ContentLayout from "@/components/layouts/content/ContentLayout";
+
 import s from "./TestContent.module.scss";
 
 const TestContent = () => {
@@ -10,11 +12,15 @@ const TestContent = () => {
 
 	return (
 		<div className={s.block}>
-			<h1>TEST</h1>
-			<Link href={"/"}>next/link HOME</Link>
-			<button onClick={() => router.push("/")}>
-				nextjs-toploader push HOME
-			</button>
+			<ContentLayout>
+				<div className={s.wrap}>
+					<h1>TEST</h1>
+					<Link href={"/"}>next/link HOME</Link>
+					<button onClick={() => router.push("/")}>
+						nextjs-toploader push HOME
+					</button>
+				</div>
+			</ContentLayout>
 		</div>
 	);
 };
