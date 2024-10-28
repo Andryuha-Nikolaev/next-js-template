@@ -32,7 +32,7 @@ const RootButton = <C extends React.ElementType = "button">({
 	colorVariant = "var1",
 	size = "md",
 	isLoading,
-	Icon,
+	// Icon,
 	iconPosition = "left",
 	...restProps
 }: RootButtonProps<C>) => {
