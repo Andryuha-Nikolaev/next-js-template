@@ -1,0 +1,8 @@
+@mixin square-size($size) {
+	width: $size;
+	max-width: $size;
+	min-width: $size;
+	height: $size;
+	max-height: $size;
+	min-height: $size;
+}
