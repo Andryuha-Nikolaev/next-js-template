@@ -10,9 +10,7 @@ interface ContentLayoutProps {
 }
 
 const ContentLayout = ({ children, className }: ContentLayoutProps) => {
-	return (
-		<div className={clsx(s.block, className && s[className])}>{children}</div>
-	);
+	return <div className={clsx(s.block, className)}>{children}</div>;
 };
 
 export default ContentLayout;
