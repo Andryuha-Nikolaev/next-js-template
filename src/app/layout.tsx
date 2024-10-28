@@ -8,7 +8,7 @@ import metaConstants from "@/constants/meta";
 import siteConstants from "@/constants/site";
 import viewportConstants from "@/constants/viewport";
 
-import { involve } from "./fonts";
+import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = metaConstants;
@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ru">
-			<body className={involve.variable}>
+			<body className={primaryFont.variable}>
 				<NextTopLoader color={siteConstants.PROGRESS_BAR_COLOR} />
 				<Providers>
 					<PageLayout>
