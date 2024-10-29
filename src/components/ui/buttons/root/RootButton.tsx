@@ -16,7 +16,6 @@ type RootButtonProps<C extends React.ElementType> = PropsToElement<
 	C,
 	{
 		children: React.ReactNode;
-		className?: string;
 		colorVariant?: "var1" | "var2" | "var3";
 		size?: "sm" | "md" | "lg";
 		isLoading?: boolean;

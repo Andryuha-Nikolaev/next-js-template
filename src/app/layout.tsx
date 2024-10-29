@@ -23,7 +23,10 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={primaryFont.variable}>
-				<NextTopLoader color={siteConstants.PROGRESS_BAR_COLOR} />
+				<NextTopLoader
+					color={siteConstants.PROGRESS_BAR_COLOR}
+					showSpinner={false}
+				/>
 				<Providers>
 					<PageLayout>
 						<main>{children}</main>
