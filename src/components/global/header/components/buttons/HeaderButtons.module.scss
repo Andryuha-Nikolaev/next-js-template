@@ -1,0 +1,21 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	display: flex;
+	gap: convert-px2rem(10);
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.burger {
+	@include lg {
+		display: none;
+	}
+}

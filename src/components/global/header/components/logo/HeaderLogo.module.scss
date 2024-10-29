@@ -1,0 +1,18 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	flex-shrink: 0;
+
+	@include lg {
+	}
+}
+
+.wrap {
+	font-weight: 600;
+	font-size: convert-px2rem(30);
+	text-decoration: none;
+}

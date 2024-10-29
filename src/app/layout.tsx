@@ -3,6 +3,7 @@ import "@/styles/index.scss";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 
+import Header from "@/components/global/header/Header";
 import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/constants/meta";
 import siteConstants from "@/constants/site";
@@ -29,6 +30,7 @@ export default function RootLayout({
 				/>
 				<Providers>
 					<PageLayout>
+						<Header />
 						<main>{children}</main>
 					</PageLayout>
 				</Providers>

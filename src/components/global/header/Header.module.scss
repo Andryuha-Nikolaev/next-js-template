@@ -1,0 +1,35 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.header {
+	width: 100%;
+	z-index: var(--z-index-header);
+	background-color: var(--background);
+	box-shadow: var(--box-shadow);
+	@include md {
+	}
+
+	@include lg {
+	}
+
+	&_fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+}
+
+.block {
+	min-height: convert-px2rem(var(--header-height-number));
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@include md {
+	}
+
+	@include lg {
+	}
+}
