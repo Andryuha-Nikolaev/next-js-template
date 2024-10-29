@@ -48,6 +48,7 @@ const TestContent = () => {
 					>
 						Root Button With Icon Right
 					</RootButton>
+					<Link href={"/"}>Link-1</Link>
 				</div>
 			</ContentLayout>
 		</div>

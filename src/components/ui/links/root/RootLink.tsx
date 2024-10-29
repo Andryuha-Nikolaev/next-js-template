@@ -9,8 +9,6 @@ type PropsToElement<C extends React.ElementType, P> = P &
 type RootLinkProps<C extends React.ElementType> = PropsToElement<
 	C,
 	{
-		// Добавьте здесь любые дополнительные пропсы, специфичные для вашего компонента.
-		// Например, можно добавить prop для управления стилем и др.
 		children: React.ReactNode;
 	}
 >;

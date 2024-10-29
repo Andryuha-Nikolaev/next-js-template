@@ -36,7 +36,7 @@ const RootButton = <C extends React.ElementType = "button">({
 	iconPosition = "left",
 	...restProps
 }: RootButtonProps<C>) => {
-	const ButtonContent = (
+	const buttonContent = (
 		<>
 			{isLoading && (
 				<span className={s.spinner}>
@@ -60,7 +60,7 @@ const RootButton = <C extends React.ElementType = "button">({
 			)}
 			{...restProps}
 		>
-			{ButtonContent}
+			{buttonContent}
 		</Component>
 	);
 };

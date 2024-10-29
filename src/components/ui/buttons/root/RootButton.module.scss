@@ -19,7 +19,7 @@
 	flex-direction: row;
 	gap: convert-px2rem(10);
 	position: relative;
-
+	text-decoration: none;
 	width: fit-content;
 
 	@include md {
