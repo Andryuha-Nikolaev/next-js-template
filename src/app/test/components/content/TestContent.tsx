@@ -49,7 +49,6 @@ const TestContent = () => {
 		<div className={s.block}>
 			<ContentLayout>
 				<div className={s.wrap}>
-					<h1>TEST</h1>
 					<hr style={{ width: "100%" }} />
 					<h2>Typography:</h2>
 					<h1>h1 Прототип нового сервиса — это как структура</h1>

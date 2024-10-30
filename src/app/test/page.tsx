@@ -25,7 +25,7 @@ export default async function Test() {
 
 	return (
 		<>
-			<div>{data.data.title}</div>
+			<h1 style={{ textAlign: "center" }}>{data.data.title}</h1>
 			<TestContent />
 		</>
 	);
