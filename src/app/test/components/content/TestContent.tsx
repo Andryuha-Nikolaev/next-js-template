@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
+import FeedbackForm from "@/components/forms/feedback/FeedbackForm";
 import CloseIcon from "@/components/icons/close/CloseIcon";
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import RootButton from "@/components/ui/buttons/root/RootButton";
+import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootLink from "@/components/ui/links/root/RootLink";
 import Social from "@/components/ui/social/Social";
 import { MODAL_ID } from "@/context/modal/constants/constants";
@@ -123,6 +125,10 @@ const TestContent = () => {
 					<RootButton colorVariant="var3" onClick={showFeedbackModal}>
 						showFeedbackModal disableOverlayClick
 					</RootButton>
+					<hr style={{ width: "100%" }} />
+					<h2>Forms:</h2>
+					<FeedbackForm />
+					{/* <RootInput /> */}
 				</div>
 			</ContentLayout>
 		</div>
