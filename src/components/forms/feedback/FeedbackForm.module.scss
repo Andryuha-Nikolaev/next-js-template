@@ -5,9 +5,14 @@
 @import "@/styles/mixins/mixins";
 
 .block {
+	// width: 100%;
 	@include md {
 	}
 
 	@include lg {
 	}
+}
+
+.form {
+	// width: 100%;
 }
