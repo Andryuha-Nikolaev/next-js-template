@@ -7,6 +7,7 @@ import CloseIcon from "@/components/icons/close/CloseIcon";
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import RootLink from "@/components/ui/links/root/RootLink";
+import Social from "@/components/ui/social/Social";
 
 import s from "./TestContent.module.scss";
 
@@ -75,6 +76,9 @@ const TestContent = () => {
 					<RootLink target="_blank" rel="noreferrer" href="/" as="a">
 						RootLink as=a
 					</RootLink>
+					<hr style={{ width: "100%" }} />
+					<h2>Social:</h2>
+					<Social />
 				</div>
 			</ContentLayout>
 		</div>
