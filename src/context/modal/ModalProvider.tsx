@@ -29,7 +29,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 		setTimeout(() => {
 			setModalConfig(null);
-		}, 300);
+		}, 200);
 	};
 
 	return (

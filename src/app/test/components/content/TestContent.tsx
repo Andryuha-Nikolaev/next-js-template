@@ -8,11 +8,23 @@ import ContentLayout from "@/components/layouts/content/ContentLayout";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import RootLink from "@/components/ui/links/root/RootLink";
 import Social from "@/components/ui/social/Social";
+import { MODAL_ID } from "@/context/modal/constants/constants";
+import { useModal } from "@/context/modal/ModalProvider";
 
 import s from "./TestContent.module.scss";
 
 const TestContent = () => {
 	const router = useRouter();
+
+	const { showModal } = useModal();
+
+	const showDefaultModal = () => {
+		showModal({ modalId: MODAL_ID.DEFAULT, title: "Title", text: "Text" });
+	};
+
+	const showFeedbackModal = () => {
+		showModal({ modalId: MODAL_ID.FEEDBACK_FORM });
+	};
 
 	return (
 		<div className={s.block}>
@@ -79,6 +91,14 @@ const TestContent = () => {
 					<hr style={{ width: "100%" }} />
 					<h2>Social:</h2>
 					<Social />
+					<hr style={{ width: "100%" }} />
+					<h2>Modal:</h2>
+					<RootButton colorVariant="var3" onClick={showDefaultModal}>
+						showDefaultModal
+					</RootButton>
+					<RootButton colorVariant="var3" onClick={showFeedbackModal}>
+						showFeedbackModal
+					</RootButton>
 				</div>
 			</ContentLayout>
 		</div>
