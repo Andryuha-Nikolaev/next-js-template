@@ -12,6 +12,8 @@ import viewportConstants from "@/constants/viewport";
 
 import "simplebar-react/dist/simplebar.min.css";
 
+import Analytics from "@/components/global/analytics";
+
 import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
 
@@ -39,6 +41,7 @@ export default function RootLayout({
 					</PageLayout>
 				</Providers>
 			</body>
+			<Analytics />
 		</html>
 	);
 }
