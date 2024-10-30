@@ -22,8 +22,27 @@ const TestContent = () => {
 		showModal({ modalId: MODAL_ID.DEFAULT, title: "Title", text: "Text" });
 	};
 
+	const showDefaultSuccessModal = () => {
+		showModal({
+			modalId: MODAL_ID.DEFAULT,
+			title: "Title",
+			text: "Text",
+			type: "success",
+		});
+	};
+
+	const showDefaultErrorModal = () => {
+		showModal({
+			modalId: MODAL_ID.DEFAULT,
+			title: "Title",
+			text: "Text",
+			type: "error",
+			hiddenCloseButton: true,
+		});
+	};
+
 	const showFeedbackModal = () => {
-		showModal({ modalId: MODAL_ID.FEEDBACK_FORM });
+		showModal({ modalId: MODAL_ID.FEEDBACK_FORM, disableOverlayClick: true });
 	};
 
 	return (
@@ -96,8 +115,14 @@ const TestContent = () => {
 					<RootButton colorVariant="var3" onClick={showDefaultModal}>
 						showDefaultModal
 					</RootButton>
+					<RootButton colorVariant="var3" onClick={showDefaultSuccessModal}>
+						showDefaultSuccessModal
+					</RootButton>
+					<RootButton colorVariant="var3" onClick={showDefaultErrorModal}>
+						showDefaultErrorModal hiddenCloseButton
+					</RootButton>
 					<RootButton colorVariant="var3" onClick={showFeedbackModal}>
-						showFeedbackModal
+						showFeedbackModal disableOverlayClick
 					</RootButton>
 				</div>
 			</ContentLayout>

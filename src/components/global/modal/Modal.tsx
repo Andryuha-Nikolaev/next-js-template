@@ -34,7 +34,14 @@ const Modal = () => {
 	};
 
 	return (
-		<Overlay onMouseDown={hideModal} isShown={isShown}>
+		<Overlay
+			onMouseDown={() => {
+				if (!modalConfig.disableOverlayClick) {
+					hideModal();
+				}
+			}}
+			isShown={isShown}
+		>
 			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
 			<div
 				onMouseDown={(e) => e.stopPropagation()}
@@ -42,9 +49,11 @@ const Modal = () => {
 			>
 				<CustomScrollLayout className={s.scroll}>
 					<div className={s.content}>
-						<div className={s.close}>
-							<CloseButton onClick={hideModal} />
-						</div>
+						{!modalConfig.hiddenCloseButton && (
+							<div className={s.close}>
+								<CloseButton onClick={hideModal} />
+							</div>
+						)}
 						{modalComponents[modalConfig.modalId]}
 					</div>
 				</CustomScrollLayout>

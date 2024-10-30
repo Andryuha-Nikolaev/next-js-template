@@ -16,8 +16,10 @@ const DefaultModal = () => {
 					{modalConfig.type === "success" ? <SuccessIcon /> : <ErrorIcon />}
 				</div>
 			)}
-			{modalConfig?.title && <h4>{parse(modalConfig.title)}</h4>}
-			{modalConfig?.text && <p>{parse(modalConfig?.text)}</p>}
+			<div className={s.content}>
+				{modalConfig?.title && <h4>{parse(modalConfig.title)}</h4>}
+				{modalConfig?.text && <p>{parse(modalConfig?.text)}</p>}
+			</div>
 		</div>
 	);
 };
