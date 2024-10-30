@@ -3,11 +3,14 @@ import "@/styles/index.scss";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 
+import Burger from "@/components/global/burger/Burger";
 import Header from "@/components/global/header/Header";
 import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/constants/meta";
 import siteConstants from "@/constants/site";
 import viewportConstants from "@/constants/viewport";
+
+import "simplebar-react/dist/simplebar.min.css";
 
 import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
@@ -31,6 +34,7 @@ export default function RootLayout({
 				<Providers>
 					<PageLayout>
 						<Header />
+						<Burger />
 						<main>{children}</main>
 					</PageLayout>
 				</Providers>

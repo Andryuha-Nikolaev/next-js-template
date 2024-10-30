@@ -1,7 +1,7 @@
 "use client";
 
 import { useSiteState } from "@/context/site/SiteStateProvider";
-import useScrollLock from "@/scroll/useScrollLock";
+import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import s from "./BurgerSwitch.module.scss";
 
