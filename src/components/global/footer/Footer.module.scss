@@ -1,0 +1,16 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	background-color: var(--foreground);
+	color: var(--background);
+
+	@include md {
+	}
+
+	@include lg {
+	}
+}

@@ -28,11 +28,12 @@
 
 .wrapper {
 	position: absolute;
-	top: convert-px2rem(calc(var(--header-height-number) + 20));
+	top: convert-px2rem(calc(var(--header-height-number)));
 	left: 0;
 	right: 0;
 	bottom: 0;
 }
 
 .content {
+	min-height: 1500px;
 }

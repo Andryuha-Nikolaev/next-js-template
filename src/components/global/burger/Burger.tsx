@@ -2,12 +2,12 @@
 
 import clsx from "clsx";
 
-import TestContent from "@/app/test/components/content/TestContent";
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import { useSiteState } from "@/context/site/SiteStateProvider";
 
 import s from "./Burger.module.scss";
+import BurgerNavbar from "./components/navbar/BurgerNavbar";
 
 const Burger = () => {
 	const { isOpenBurger, isBurgerViewed } = useSiteState();
@@ -21,7 +21,7 @@ const Burger = () => {
 			<CustomScrollLayout className={s.wrapper}>
 				<ContentLayout>
 					<div className={s.content}>
-						<TestContent />
+						<BurgerNavbar />
 					</div>
 				</ContentLayout>
 			</CustomScrollLayout>
