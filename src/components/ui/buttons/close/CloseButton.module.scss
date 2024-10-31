@@ -10,4 +10,9 @@
 	@include flex-center();
 
 	@include hover-opacity;
+
+	svg {
+		width: 100%;
+		height: auto;
+	}
 }

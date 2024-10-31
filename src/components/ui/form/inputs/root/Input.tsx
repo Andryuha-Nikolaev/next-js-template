@@ -4,6 +4,8 @@ import { forwardRef, type InputHTMLAttributes } from "react";
 
 import MaskedInput, { type MaskedInputProps } from "react-text-mask";
 
+import CloseButton from "@/components/ui/buttons/close/CloseButton";
+
 import s from "./Input.module.scss";
 
 export interface InputWrapperProps {
@@ -14,20 +16,13 @@ export interface InputWrapperProps {
 export interface InputProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		InputWrapperProps {
-	withClear?: boolean;
+	onReset?: () => void;
 	mask?: MaskedInputProps["mask"];
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
-		{
-			mask,
-			withClear = true,
-			errorMessage,
-			label,
-			type = "text",
-			...restProps
-		},
+		{ mask, onReset, errorMessage, label, type = "text", value, ...restProps },
 		ref
 	) => {
 		const setRef = (innerRef: HTMLInputElement | null) => {
@@ -38,23 +33,42 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			}
 		};
 
+		const isFilled = !!value;
+
+		console.log(errorMessage);
+
 		return (
-			<>
-				{mask ? (
-					<MaskedInput
-						mask={mask}
-						guide={false}
-						type={type}
-						ref={(innerRef) => {
-							setRef((innerRef?.inputElement as HTMLInputElement) || null);
-						}}
-						className={s.input}
-						{...restProps}
-					/>
-				) : (
-					<input type={type} ref={ref} className={s.input} {...restProps} />
-				)}
-			</>
+			<label>
+				<span className={s.wrap}>
+					{mask ? (
+						<MaskedInput
+							mask={mask}
+							guide={false}
+							ref={(innerRef) => {
+								setRef((innerRef?.inputElement as HTMLInputElement) || null);
+							}}
+							className={s.input}
+							type={type}
+							value={value}
+							{...restProps}
+						/>
+					) : (
+						<input
+							ref={ref}
+							className={s.input}
+							type={type}
+							value={value}
+							{...restProps}
+						/>
+					)}
+					<span className={s.buttons}>
+						{!!onReset && isFilled && (
+							<CloseButton className={s.reset} onClick={onReset} />
+						)}
+					</span>
+					<span className={s.error}>{errorMessage}</span>
+				</span>
+			</label>
 		);
 	}
 );
