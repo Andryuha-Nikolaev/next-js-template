@@ -1,34 +1,35 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import RootButton from "@/components/ui/buttons/root/RootButton";
-import RootInputRhf from "@/components/ui/form/inputs/root/RootInputRhf";
+import RootInput from "@/components/ui/form/inputs/root/RootInput";
 
 import s from "./FeedbackForm.module.scss";
 
 import FormWrapper from "../wrapper/FormWrapper";
 
+interface FeedbackFormFields {
+	name: string;
+}
+
 const FeedbackForm = () => {
-	const methods = useForm();
+	const methods = useForm<FeedbackFormFields>();
 
 	const {
 		handleSubmit,
 		formState: { isSubmitting },
 	} = methods;
 
-	const onSubmit = (values) => {
+	const onSubmit: SubmitHandler<FeedbackFormFields> = (values) => {
 		console.log(values);
 	};
 
 	return (
-		<div className={s.block}>
-			<FormProvider {...methods}>
-				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
-						<RootInputRhf name="name" placeholder="Имя" />
-					</FormWrapper>
-				</form>
-			</FormProvider>
-		</div>
+		<FormProvider {...methods}>
+			<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+				<FormWrapper isLoading={isSubmitting} title="Обратная связь">
+					<RootInput name="name" placeholder="Имя" />
+				</FormWrapper>
+			</form>
+		</FormProvider>
 	);
 };
 

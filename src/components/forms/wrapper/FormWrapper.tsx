@@ -21,7 +21,7 @@ const FormWrapper = ({
 }: FormWrapperProps) => {
 	return (
 		<div className={s.block}>
-			<h2 className={s.title}>{parse(title)}</h2>
+			<h3 className={s.title}>{parse(title)}</h3>
 			<div className={s.content}>
 				<div className={s.fields}>{children}</div>
 				<RootButton isLoading={isLoading} className={s.button} type="submit">
