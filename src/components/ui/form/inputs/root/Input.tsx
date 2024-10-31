@@ -1,10 +1,11 @@
 "use client";
 
-import { forwardRef, type InputHTMLAttributes } from "react";
+import { forwardRef, useState, type InputHTMLAttributes } from "react";
 
 import MaskedInput, { type MaskedInputProps } from "react-text-mask";
 
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
+import EyeButton from "@/components/ui/buttons/eye/EyeButton";
 
 import s from "./Input.module.scss";
 
@@ -35,7 +36,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		const isFilled = !!value;
 
-		console.log(errorMessage);
+		const [currentType, setCurrentType] = useState(type);
+
+		const togglePassword = () => {
+			if (currentType === "password") {
+				setCurrentType("text");
+			} else {
+				setCurrentType("password");
+			}
+		};
+		console.log(value);
 
 		return (
 			<label>
@@ -48,7 +58,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 								setRef((innerRef?.inputElement as HTMLInputElement) || null);
 							}}
 							className={s.input}
-							type={type}
+							type={currentType}
 							value={value}
 							{...restProps}
 						/>
@@ -56,12 +66,18 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 						<input
 							ref={ref}
 							className={s.input}
-							type={type}
+							type={currentType}
 							value={value}
 							{...restProps}
 						/>
 					)}
 					<span className={s.buttons}>
+						{type === "password" && (
+							<EyeButton
+								onClick={togglePassword}
+								isOpen={currentType === "text"}
+							/>
+						)}
 						{!!onReset && isFilled && (
 							<CloseButton className={s.reset} onClick={onReset} />
 						)}

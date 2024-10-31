@@ -12,6 +12,10 @@
 	}
 }
 
+.label {
+	width: 100%;
+}
+
 .wrap {
 	display: block;
 	position: relative;
@@ -55,6 +59,8 @@
 	top: 0;
 	height: convert-px2rem(var(--input-height-number));
 	@include flex-center;
+	flex-direction: row;
+	gap: convert-px2rem(4);
 }
 
 .reset {

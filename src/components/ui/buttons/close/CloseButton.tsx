@@ -15,6 +15,7 @@ const CloseButton = ({ onClick, className }: CloseButtonProps) => {
 			onClick={onClick}
 			className={clsx(s.button, className)}
 			aria-label="Закрыть"
+			type="button"
 		>
 			<CloseIcon />
 		</button>

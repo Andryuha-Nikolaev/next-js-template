@@ -23,13 +23,16 @@ const FeedbackForm = () => {
 	};
 
 	return (
-		<FormProvider {...methods}>
-			<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-				<FormWrapper isLoading={isSubmitting} title="Обратная связь">
-					<RootInput name="name" placeholder="Имя" />
-				</FormWrapper>
-			</form>
-		</FormProvider>
+		<>
+			<FormProvider {...methods}>
+				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
+						<RootInput name="name" placeholder="Имя" />
+						<RootInput name="password" placeholder="Пароль" type="password" />
+					</FormWrapper>
+				</form>
+			</FormProvider>
+		</>
 	);
 };
 
