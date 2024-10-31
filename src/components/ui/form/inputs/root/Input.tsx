@@ -45,7 +45,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				setCurrentType("password");
 			}
 		};
-		console.log(value);
 
 		return (
 			<label>

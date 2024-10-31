@@ -15,7 +15,7 @@ const EyeButton = ({ isOpen, onClick }: EyeButtonProps) => {
 		<button
 			aria-label="show password"
 			className={s.button}
-			onMouseDown={onClick}
+			onClick={onClick}
 			type="button"
 		>
 			{isOpen ? <EyeOpened /> : <EyeClosed />}
