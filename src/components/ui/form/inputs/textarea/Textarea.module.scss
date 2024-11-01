@@ -24,6 +24,7 @@
 	border: 1px solid var(--color-input-border);
 	padding: convert-px2rem(14) convert-px2rem(4) convert-px2rem(14)
 		convert-px2rem(16);
+	transition: border-color var(--transition-duration);
 	@include scrollbar;
 
 	&.focused {
@@ -39,12 +40,8 @@
 	overflow-y: scroll;
 	display: block;
 	width: 100%;
-	min-height: convert-px2rem(var(--input-height-number));
-
 	font-size: convert-px2rem(16);
-
 	padding-right: convert-px2rem(32);
-	transition: border-color var(--transition-duration);
 
 	// resize: vertical;
 	min-height: convert-px2rem(150);

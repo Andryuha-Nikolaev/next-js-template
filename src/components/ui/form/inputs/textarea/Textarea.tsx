@@ -27,8 +27,6 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 			<InputWrapper errorMessage={errorMessage} label={label}>
 				<label
 					onFocus={() => {
-						console.log("aaaaaaaaaa");
-
 						setIsFocused(true);
 					}}
 					onBlur={() => setIsFocused(false)}

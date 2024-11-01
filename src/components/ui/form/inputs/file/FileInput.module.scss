@@ -1,0 +1,34 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	gap: convert-px2rem(10);
+}
+
+.rules {
+	@include small-text();
+	opacity: 0.5;
+}
+
+.fileName {
+	@include small-text();
+	margin-top: convert-px2rem(2);
+	word-break: break-word;
+}
+
+.button {
+	max-width: convert-px2rem(218);
+}

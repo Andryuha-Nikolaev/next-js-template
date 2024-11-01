@@ -39,3 +39,15 @@ export interface TextareaProps
 export interface RootTextareaProps extends TextareaProps {
 	name: string;
 }
+
+export interface FileInputProps
+	extends InputHTMLAttributes<HTMLInputElement>,
+		InputWrapperProps {
+	fileSize?: string;
+	fileFormat?: string;
+	buttonText?: string;
+}
+
+export interface RootFileInputProps extends FileInputProps {
+	name: string;
+}

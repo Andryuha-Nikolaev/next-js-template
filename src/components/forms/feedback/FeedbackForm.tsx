@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
+import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
@@ -43,6 +44,7 @@ const FeedbackForm = () => {
 						<PhoneInput name="phone" />
 						<RootInput name="password" placeholder="Пароль" type="password" />
 						<RootTextarea name="text" placeholder="Текст" />
+						<RootFileInput name="file" />
 					</FormWrapper>
 				</form>
 			</FormProvider>
