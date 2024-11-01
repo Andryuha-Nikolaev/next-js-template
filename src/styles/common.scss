@@ -99,6 +99,14 @@ a {
 	@include link-1;
 }
 
+a,
+button {
+	&:focus {
+		outline: 2px solid var(--color-outline-focus) !important;
+		outline-offset: 1px;
+	}
+}
+
 form {
 	width: 100%;
 }
