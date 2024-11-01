@@ -21,8 +21,6 @@ const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	return (
 		<Controller
 			name={name}
-			defaultValue=""
-			rules={{ required: "aaaaaa" }}
 			render={({ field }) => (
 				<Input
 					errorMessage={errorMessage}

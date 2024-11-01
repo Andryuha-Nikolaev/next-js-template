@@ -43,7 +43,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		const inputClassnames = clsx(
 			s.input,
 			isFocused && s.focused,
-			errorMessage && s.error
+			errorMessage && s.error,
+			s[type]
 		);
 
 		return (
