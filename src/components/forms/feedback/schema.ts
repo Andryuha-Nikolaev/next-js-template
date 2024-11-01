@@ -7,6 +7,7 @@ export const feedbackSchema = z.object({
 	phone: fields.phone,
 	email: fields.emailRequired,
 	password: fields.password,
+	text: fields.text,
 });
 
 export const feedbackDefaultValues = {
@@ -14,6 +15,7 @@ export const feedbackDefaultValues = {
 	phone: "",
 	email: "",
 	password: "",
+	text: "",
 };
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;

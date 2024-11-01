@@ -19,20 +19,30 @@
 .wrap {
 	display: block;
 	position: relative;
+	overflow: hidden;
+	border-radius: convert-px2rem(var(--input-border-radius-number));
+	border: 1px solid var(--color-input-border);
+
+	@include scrollbar;
+
+	padding: convert-px2rem(12) convert-px2rem(4) convert-px2rem(12)
+		convert-px2rem(16);
 }
 
 .input {
+	overflow-y: scroll;
 	display: block;
 	width: 100%;
 	min-height: convert-px2rem(var(--input-height-number));
 
 	font-size: convert-px2rem(16);
 
-	border: 1px solid var(--color-input-border);
-	border-radius: convert-px2rem(var(--input-border-radius-number));
-	padding: convert-px2rem(5) convert-px2rem(36) convert-px2rem(5)
-		convert-px2rem(16);
+	padding-right: convert-px2rem(32);
 	transition: border-color var(--transition-duration);
+
+	// resize: vertical;
+	min-height: convert-px2rem(150);
+	max-height: convert-px2rem(400);
 
 	&.focused {
 		border-color: var(--color-input-border-focused);
@@ -40,19 +50,6 @@
 
 	&.error {
 		border-color: var(--color-alert) !important;
-	}
-
-	&.password {
-		padding-right: convert-px2rem(58);
-	}
-
-	&:-webkit-autofill,
-	&:-webkit-autofill:hover,
-	&:-webkit-autofill:focus,
-	&:-webkit-autofill:active {
-		-webkit-box-shadow: 0 0 0 convert-px2rem(var(--input-height-number))
-			var(--bg-input-autofill) inset !important;
-		-webkit-text-fill-color: var(--fg-input-autofill);
 	}
 
 	&::placeholder {

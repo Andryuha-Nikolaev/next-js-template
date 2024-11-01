@@ -5,6 +5,7 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
+import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
 
 import s from "./FeedbackForm.module.scss";
 import {
@@ -41,6 +42,7 @@ const FeedbackForm = () => {
 						<RootInput name="email" placeholder="Email" />
 						<PhoneInput name="phone" />
 						<RootInput name="password" placeholder="Пароль" type="password" />
+						<RootTextarea name="text" placeholder="Текст" />
 					</FormWrapper>
 				</form>
 			</FormProvider>

@@ -5,13 +5,12 @@ import { forwardRef, useState } from "react";
 import clsx from "clsx";
 import MaskedInput from "react-text-mask";
 
-import CloseButton from "@/components/ui/buttons/close/CloseButton";
-import EyeButton from "@/components/ui/buttons/eye/EyeButton";
 import type { InputProps } from "@/types/input";
 
 import s from "./Input.module.scss";
 
-import InputWrapper from "../wrapper/InputWrapper";
+import InputControls from "../components/controls/InputControls";
+import InputWrapper from "../components/wrapper/InputWrapper";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
@@ -77,17 +76,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 								{...restProps}
 							/>
 						)}
-						<span className={s.buttons}>
-							{type === "password" && (
-								<EyeButton
-									onClick={togglePassword}
-									isOpen={currentType === "text"}
-								/>
-							)}
-							{!!onReset && isFilled && (
-								<CloseButton className={s.reset} onClick={onReset} />
-							)}
-						</span>
+
+						<InputControls
+							type={type}
+							currentType={currentType}
+							isFilled={isFilled}
+							onReset={onReset}
+							togglePassword={togglePassword}
+						/>
 					</span>
 				</label>
 			</InputWrapper>
