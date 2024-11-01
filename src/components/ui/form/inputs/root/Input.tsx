@@ -39,7 +39,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		const [isFocused, setIsFocused] = useState(false);
 
-		const inputClassnames = clsx(
+		const inputClassNames = clsx(
 			s.input,
 			isFocused && s.focused,
 			errorMessage && s.error,
@@ -60,7 +60,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 								ref={(innerRef) => {
 									setRef((innerRef?.inputElement as HTMLInputElement) || null);
 								}}
-								className={inputClassnames}
+								className={inputClassNames}
 								type={currentType}
 								value={value}
 								autoComplete="new-password"
@@ -69,7 +69,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 						) : (
 							<input
 								ref={ref}
-								className={inputClassnames}
+								className={inputClassNames}
 								type={currentType}
 								value={value}
 								autoComplete="new-password"

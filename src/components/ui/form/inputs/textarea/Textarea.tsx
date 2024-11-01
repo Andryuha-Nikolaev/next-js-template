@@ -17,8 +17,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
 		const [isFocused, setIsFocused] = useState(false);
 
-		const inputClassnames = clsx(
-			s.input,
+		const wrapClassNames = clsx(
+			s.wrap,
 			isFocused && s.focused,
 			errorMessage && s.error
 		);
@@ -26,13 +26,17 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 		return (
 			<InputWrapper errorMessage={errorMessage} label={label}>
 				<label
-					onFocus={() => setIsFocused(true)}
+					onFocus={() => {
+						console.log("aaaaaaaaaa");
+
+						setIsFocused(true);
+					}}
 					onBlur={() => setIsFocused(false)}
 				>
-					<span className={s.wrap}>
+					<span className={wrapClassNames}>
 						<textarea
 							ref={ref}
-							className={inputClassnames}
+							className={s.input}
 							value={value}
 							{...restProps}
 						/>
