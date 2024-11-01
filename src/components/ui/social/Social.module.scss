@@ -23,6 +23,10 @@
 	@include flex-center;
 	border-radius: 50%;
 
+	transition:
+		background-color var(--transition-duration),
+		color var(--transition-duration);
+
 	background-color: var(--bg-button-1);
 	color: var(--fg-button-1);
 
