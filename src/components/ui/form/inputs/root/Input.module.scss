@@ -38,6 +38,10 @@
 		border-color: var(--color-input-border-focused);
 	}
 
+	&.error {
+		border-color: var(--color-alert) !important;
+	}
+
 	&:-webkit-autofill,
 	&:-webkit-autofill:hover,
 	&:-webkit-autofill:focus,
@@ -66,13 +70,4 @@
 .reset {
 	width: convert-px2rem(16);
 	height: convert-px2rem(16);
-}
-
-.error {
-	display: block;
-	@include helper-text;
-	color: var(--color-alert);
-	position: absolute;
-	top: 100%;
-	left: convert-px2rem(16);
 }

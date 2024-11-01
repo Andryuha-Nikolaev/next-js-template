@@ -5,15 +5,7 @@
 @import "@/styles/mixins/mixins";
 
 .block {
-	padding-bottom: convert-px2rem(100);
-}
-
-.wrap {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: convert-px2rem(20);
-
+	position: relative;
 	@include md {
 	}
 
@@ -21,10 +13,15 @@
 	}
 }
 
-.additionalText {
-	@include additional-text;
+.errorMessage {
+	display: block;
+	@include helper-text;
+	color: var(--color-alert);
+	position: absolute;
+	top: 100%;
+	left: convert-px2rem(16);
 }
 
-.helperText {
-	@include helper-text;
+.label {
+	margin-bottom: convert-px2rem(5);
 }

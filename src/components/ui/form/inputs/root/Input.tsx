@@ -1,26 +1,17 @@
 "use client";
 
-import { forwardRef, useState, type InputHTMLAttributes } from "react";
+import { forwardRef, useState } from "react";
 
 import clsx from "clsx";
-import MaskedInput, { type MaskedInputProps } from "react-text-mask";
+import MaskedInput from "react-text-mask";
 
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import EyeButton from "@/components/ui/buttons/eye/EyeButton";
+import type { InputProps } from "@/types/input";
 
 import s from "./Input.module.scss";
 
-export interface InputWrapperProps {
-	label?: string;
-	errorMessage?: string;
-}
-
-export interface InputProps
-	extends InputHTMLAttributes<HTMLInputElement>,
-		InputWrapperProps {
-	onReset?: () => void;
-	mask?: MaskedInputProps["mask"];
-}
+import InputWrapper from "../wrapper/InputWrapper";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
@@ -49,51 +40,56 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		const [isFocused, setIsFocused] = useState(false);
 
-		const inputClassnames = clsx(s.input, isFocused && s.focused);
+		const inputClassnames = clsx(
+			s.input,
+			isFocused && s.focused,
+			errorMessage && s.error
+		);
 
 		return (
-			<label
-				onFocus={() => setIsFocused(true)}
-				onBlur={() => setIsFocused(false)}
-			>
-				<span className={s.wrap}>
-					{mask ? (
-						<MaskedInput
-							mask={mask}
-							guide={false}
-							ref={(innerRef) => {
-								setRef((innerRef?.inputElement as HTMLInputElement) || null);
-							}}
-							className={inputClassnames}
-							type={currentType}
-							value={value}
-							autoComplete="new-password"
-							{...restProps}
-						/>
-					) : (
-						<input
-							ref={ref}
-							className={inputClassnames}
-							type={currentType}
-							value={value}
-							autoComplete="new-password"
-							{...restProps}
-						/>
-					)}
-					<span className={s.buttons}>
-						{type === "password" && (
-							<EyeButton
-								onClick={togglePassword}
-								isOpen={currentType === "text"}
+			<InputWrapper errorMessage={errorMessage} label={label}>
+				<label
+					onFocus={() => setIsFocused(true)}
+					onBlur={() => setIsFocused(false)}
+				>
+					<span className={s.wrap}>
+						{mask ? (
+							<MaskedInput
+								mask={mask}
+								guide={false}
+								ref={(innerRef) => {
+									setRef((innerRef?.inputElement as HTMLInputElement) || null);
+								}}
+								className={inputClassnames}
+								type={currentType}
+								value={value}
+								autoComplete="new-password"
+								{...restProps}
+							/>
+						) : (
+							<input
+								ref={ref}
+								className={inputClassnames}
+								type={currentType}
+								value={value}
+								autoComplete="new-password"
+								{...restProps}
 							/>
 						)}
-						{!!onReset && isFilled && (
-							<CloseButton className={s.reset} onClick={onReset} />
-						)}
+						<span className={s.buttons}>
+							{type === "password" && (
+								<EyeButton
+									onClick={togglePassword}
+									isOpen={currentType === "text"}
+								/>
+							)}
+							{!!onReset && isFilled && (
+								<CloseButton className={s.reset} onClick={onReset} />
+							)}
+						</span>
 					</span>
-					<span className={s.error}>{errorMessage}</span>
-				</span>
-			</label>
+				</label>
+			</InputWrapper>
 		);
 	}
 );

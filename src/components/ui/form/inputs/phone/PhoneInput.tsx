@@ -1,4 +1,6 @@
-import RootInput, { type RootInputProps } from "../root/RootInput";
+import type { RootInputProps } from "@/types/input";
+
+import RootInput from "../root/RootInput";
 
 const PhoneInput = ({ ...props }: RootInputProps) => {
 	return (

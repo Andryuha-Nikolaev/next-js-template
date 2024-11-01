@@ -2,11 +2,9 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import Input, { type InputProps } from "./Input";
+import type { RootInputProps } from "@/types/input";
 
-export interface RootInputProps extends InputProps {
-	name: string;
-}
+import Input from "./Input";
 
 const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	const {

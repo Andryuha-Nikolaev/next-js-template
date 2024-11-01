@@ -44,7 +44,7 @@ const FeedbackForm = () => {
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
-						<RootInput name="name" placeholder="Имя" />
+						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<PhoneInput name="phone" />
 						<RootInput name="password" placeholder="Пароль" type="password" />
 					</FormWrapper>
