@@ -2,6 +2,7 @@
 
 import { forwardRef, useState, type InputHTMLAttributes } from "react";
 
+import clsx from "clsx";
 import MaskedInput, { type MaskedInputProps } from "react-text-mask";
 
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
@@ -46,8 +47,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			}
 		};
 
+		const [isFocused, setIsFocused] = useState(false);
+
+		const inputClassnames = clsx(s.input, isFocused && s.focused);
+
 		return (
-			<label>
+			<label
+				onFocus={() => setIsFocused(true)}
+				onBlur={() => setIsFocused(false)}
+			>
 				<span className={s.wrap}>
 					{mask ? (
 						<MaskedInput
@@ -56,17 +64,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 							ref={(innerRef) => {
 								setRef((innerRef?.inputElement as HTMLInputElement) || null);
 							}}
-							className={s.input}
+							className={inputClassnames}
 							type={currentType}
 							value={value}
+							autoComplete="new-password"
 							{...restProps}
 						/>
 					) : (
 						<input
 							ref={ref}
-							className={s.input}
+							className={inputClassnames}
 							type={currentType}
 							value={value}
+							autoComplete="new-password"
 							{...restProps}
 						/>
 					)}

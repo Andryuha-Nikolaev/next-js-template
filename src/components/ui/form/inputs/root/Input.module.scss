@@ -34,7 +34,7 @@
 		convert-px2rem(16);
 	transition: border-color var(--transition-duration);
 
-	&:focus-visible {
+	&.focused {
 		border-color: var(--color-input-border-focused);
 	}
 

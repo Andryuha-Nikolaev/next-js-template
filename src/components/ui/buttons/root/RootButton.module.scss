@@ -21,6 +21,10 @@
 	position: relative;
 	text-decoration: none;
 	width: fit-content;
+	&:focus {
+		outline: 2px solid var(--color-outline-focus) !important;
+		outline-offset: 1px;
+	}
 
 	@include md {
 	}

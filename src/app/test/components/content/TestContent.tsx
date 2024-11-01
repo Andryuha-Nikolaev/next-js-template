@@ -7,7 +7,6 @@ import FeedbackForm from "@/components/forms/feedback/FeedbackForm";
 import CloseIcon from "@/components/icons/close/CloseIcon";
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import RootButton from "@/components/ui/buttons/root/RootButton";
-import RootInput from "@/components/ui/form/inputs/root/Input";
 import RootLink from "@/components/ui/links/root/RootLink";
 import Social from "@/components/ui/social/Social";
 import { MODAL_ID } from "@/context/modal/constants/constants";

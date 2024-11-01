@@ -1,5 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
+import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 
 import s from "./FeedbackForm.module.scss";
@@ -22,12 +27,25 @@ const FeedbackForm = () => {
 		console.log(values);
 	};
 
+	const [formKey, setFormKey] = useState(1);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setFormKey(2);
+		}, 2000);
+	}, []);
+
 	return (
 		<>
 			<FormProvider {...methods}>
-				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+				<form
+					key={formKey}
+					className={s.form}
+					onSubmit={handleSubmit(onSubmit)}
+				>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
 						<RootInput name="name" placeholder="Имя" />
+						<PhoneInput name="phone" />
 						<RootInput name="password" placeholder="Пароль" type="password" />
 					</FormWrapper>
 				</form>

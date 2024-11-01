@@ -13,7 +13,7 @@ interface EyeButtonProps {
 const EyeButton = ({ isOpen, onClick }: EyeButtonProps) => {
 	return (
 		<button
-			aria-label="show password"
+			aria-label="Показать пароль"
 			className={s.button}
 			onClick={onClick}
 			type="button"
