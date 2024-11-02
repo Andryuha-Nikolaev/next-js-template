@@ -1,6 +1,7 @@
 import { forwardRef, useRef } from "react";
 
 import AttachIcon from "@/components/icons/attach/AttachIcon";
+import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import type { FileInputProps } from "@/types/input";
 
@@ -17,7 +18,7 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 			buttonText = "Прикрепить файл",
 			fileSize,
 			fileFormat,
-
+			fileNames,
 			...restProps
 		},
 		ref
@@ -47,11 +48,18 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 						>{`${fileSize ? `${fileSize} ` : ""}${fileFormat ? fileFormat : ""}`}</p>
 					)}
 				</div>
-				{/* {!!fieldState?.length && (
-				<p className={s.fileName}>
-					{Array.from(fieldState).map((file) => `${file.name} `)}
-				</p>
-			)} */}
+				{!!fileNames?.length && (
+					<div className={s.fileNames}>
+						<div>
+							{fileNames.map((name, i) => (
+								<p key={i} className={s.fileName}>
+									{`${name} `}
+								</p>
+							))}
+						</div>
+						{!!onReset && <CloseButton className={s.reset} onClick={onReset} />}
+					</div>
+				)}
 			</InputWrapper>
 		);
 	}

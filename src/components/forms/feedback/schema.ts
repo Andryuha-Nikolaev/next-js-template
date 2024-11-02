@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import fields from "@/schemas/fields";
 
-const MAX_FILE_SIZE = 5000000;
+const MAX_FILE_SIZE = 3000000;
 function checkFileType(file: File) {
 	if (file?.name) {
 		const fileType = file.name.split(".").pop();
@@ -14,15 +14,23 @@ function checkFileType(file: File) {
 export const feedbackSchema = z.object({
 	name: fields.name,
 	phone: fields.phone,
-	email: fields.emailRequired,
+	email: fields.email,
 	password: fields.password,
 	text: fields.text,
-	file: z.any().refine((file: File) => file?.length !== 0, "File is required"),
-	// .refine((file: File) => file.size > MAX_FILE_SIZE, "Max size is 5MB.")
+	file: z
+		.any()
+		// .refine((file: FileList) => file?.length !== 0, "File is required")
+		.refine(
+			(files: FileList) =>
+				Array.from(files).reduce((sum, file) => sum + file.size, 0) <
+				MAX_FILE_SIZE,
+			"Max size is 5MB."
+		),
 	// .refine(
 	// 	(file) => checkFileType(file),
 	// 	"Only .pdf, .docx formats are supported."
 	// ),
+	files: z.any(),
 });
 
 export const feedbackDefaultValues = {
@@ -32,6 +40,7 @@ export const feedbackDefaultValues = {
 	password: "",
 	text: "",
 	file: "",
+	files: "",
 };
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;

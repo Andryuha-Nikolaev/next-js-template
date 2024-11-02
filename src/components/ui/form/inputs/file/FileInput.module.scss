@@ -23,12 +23,23 @@
 	opacity: 0.5;
 }
 
+.fileNames {
+	margin-top: convert-px2rem(2);
+	display: flex;
+	align-items: center;
+	gap: convert-px2rem(5);
+}
+
 .fileName {
 	@include small-text();
-	margin-top: convert-px2rem(2);
+
 	word-break: break-word;
 }
 
 .button {
-	max-width: convert-px2rem(218);
+}
+
+.reset {
+	width: convert-px2rem(12) !important;
+	height: convert-px2rem(12) !important;
 }

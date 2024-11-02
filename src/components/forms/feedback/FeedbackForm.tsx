@@ -25,13 +25,20 @@ const FeedbackForm = () => {
 
 	const {
 		handleSubmit,
-		reset,
+		// reset,
 		formState: { isSubmitting },
 	} = methods;
 
 	const onSubmit: SubmitHandler<FeedbackSchemaType> = (values) => {
 		console.log(values);
-		reset();
+
+		const filteredObject = Object.fromEntries(
+			Object.entries(values).filter(([, value]) => !!value)
+		);
+
+		console.log(filteredObject);
+
+		// reset();
 	};
 
 	return (
@@ -45,6 +52,12 @@ const FeedbackForm = () => {
 						<RootInput name="password" placeholder="Пароль" type="password" />
 						<RootTextarea name="text" placeholder="Текст" />
 						<RootFileInput name="file" />
+						<RootFileInput
+							name="files"
+							multiple
+							label="multiple"
+							buttonText="Прикрепите файлы"
+						/>
 					</FormWrapper>
 				</form>
 			</FormProvider>

@@ -2,14 +2,14 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { FileInputProps, RootFileInputProps } from "@/types/input";
+import type { RootFileInputProps } from "@/types/input";
 
 import FileInput from "./FileInput";
 
 const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 	const {
 		resetField,
-		watch,
+		control,
 		formState: { errors },
 	} = useFormContext();
 
@@ -19,23 +19,29 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 
 	const errorMessage = errors[name]?.message?.toString();
 
-	console.log(watch(name));
-
 	return (
 		<Controller
 			name={name}
-			render={({ field }) => (
-				<FileInput
-					errorMessage={errorMessage}
-					onReset={onReset}
-					{...field}
-					{...restProps}
-					value={field.value.filename}
-					onChange={(event) => {
-						return field.onChange(event.target.files);
-					}}
-				/>
-			)}
+			control={control}
+			render={({ field }) => {
+				const fileNames = Array.from(field.value as FileList).map(
+					(item) => item.name
+				);
+
+				return (
+					<FileInput
+						errorMessage={errorMessage}
+						onReset={onReset}
+						fileNames={fileNames}
+						{...field}
+						{...restProps}
+						value={undefined}
+						onChange={(event) => {
+							return field.onChange(event.target.files);
+						}}
+					/>
+				);
+			}}
 		/>
 	);
 };

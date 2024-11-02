@@ -9,6 +9,7 @@ import Input from "./Input";
 const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	const {
 		resetField,
+		control,
 		formState: { errors },
 	} = useFormContext();
 
@@ -21,6 +22,7 @@ const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	return (
 		<Controller
 			name={name}
+			control={control}
 			render={({ field }) => (
 				<Input
 					errorMessage={errorMessage}

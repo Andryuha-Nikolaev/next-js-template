@@ -9,6 +9,7 @@ import Textarea from "./Textarea";
 const RootTextarea = ({ name, ...restProps }: RootTextareaProps) => {
 	const {
 		resetField,
+		control,
 		formState: { errors },
 	} = useFormContext();
 
@@ -21,6 +22,7 @@ const RootTextarea = ({ name, ...restProps }: RootTextareaProps) => {
 	return (
 		<Controller
 			name={name}
+			control={control}
 			render={({ field }) => (
 				<Textarea
 					errorMessage={errorMessage}
