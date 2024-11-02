@@ -13,6 +13,8 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 		formState: { errors },
 	} = useFormContext();
 
+	// todo field key
+
 	const onReset = () => {
 		resetField(name);
 	};
@@ -37,6 +39,8 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 						{...restProps}
 						value={undefined}
 						onChange={(event) => {
+							console.log(event.target.files);
+
 							return field.onChange(event.target.files);
 						}}
 					/>

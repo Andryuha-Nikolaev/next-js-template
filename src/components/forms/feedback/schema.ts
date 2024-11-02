@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import fields from "@/schemas/fields";
+import { checkFileLength } from "@/schemas/fileInput";
 
 const MAX_FILE_SIZE = 3000000;
 function checkFileType(file: File) {
@@ -19,7 +20,7 @@ export const feedbackSchema = z.object({
 	text: fields.text,
 	file: z
 		.any()
-		// .refine((file: FileList) => file?.length !== 0, "File is required")
+		.refine((files: FileList) => checkFileLength(files), "Поле обязательно")
 		.refine(
 			(files: FileList) =>
 				Array.from(files).reduce((sum, file) => sum + file.size, 0) <
