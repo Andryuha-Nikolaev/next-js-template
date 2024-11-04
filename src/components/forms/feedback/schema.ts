@@ -1,37 +1,40 @@
 import { z } from "zod";
 
 import fields from "@/schemas/fields";
-import { checkFileLength } from "@/schemas/fileInput";
-
-const MAX_FILE_SIZE = 3000000;
-function checkFileType(file: File) {
-	if (file?.name) {
-		const fileType = file.name.split(".").pop();
-		if (fileType === "docx" || fileType === "pdf") return true;
-	}
-	return false;
-}
+import {
+	checkFilesLength,
+	checkFilesSize,
+	checkFilesTypes,
+} from "@/schemas/fileInput";
 
 export const feedbackSchema = z.object({
 	name: fields.name,
 	phone: fields.phone,
 	email: fields.email,
-	password: fields.password,
+	password: fields.passwordRequired,
 	text: fields.text,
 	file: z
 		.any()
-		.refine((files: FileList) => checkFileLength(files), "Поле обязательно")
+		.refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
 		.refine(
-			(files: FileList) =>
-				Array.from(files).reduce((sum, file) => sum + file.size, 0) <
-				MAX_FILE_SIZE,
-			"Max size is 5MB."
+			(files: FileList) => checkFilesSize(files, 5),
+			"Максимальный размер файла - 5MB"
+		)
+		.refine(
+			(files: FileList) => checkFilesTypes(files),
+			"Допустимые форматы: jpeg, jpg, png"
 		),
-	// .refine(
-	// 	(file) => checkFileType(file),
-	// 	"Only .pdf, .docx formats are supported."
-	// ),
-	files: z.any(),
+
+	files: z
+		.any()
+		.refine(
+			(files: FileList) => checkFilesSize(files, 10),
+			"Максимальный размер файлов - 10MB"
+		)
+		.refine(
+			(files: FileList) => checkFilesTypes(files),
+			"Допустимые форматы: jpeg, jpg, png"
+		),
 });
 
 export const feedbackDefaultValues = {

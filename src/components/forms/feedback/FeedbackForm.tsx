@@ -51,12 +51,18 @@ const FeedbackForm = () => {
 						<PhoneInput name="phone" />
 						<RootInput name="password" placeholder="Пароль" type="password" />
 						<RootTextarea name="text" placeholder="Текст" />
-						<RootFileInput name="file" />
+						<RootFileInput
+							name="file"
+							fileSize="Максимальный размер файла - 5MB."
+							fileFormat="Допустимые форматы: jpeg, jpg, png."
+						/>
 						<RootFileInput
 							name="files"
 							multiple
 							label="multiple"
 							buttonText="Прикрепите файлы"
+							fileSize="Максимальный размер файлов - 10MB."
+							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
 					</FormWrapper>
 				</form>

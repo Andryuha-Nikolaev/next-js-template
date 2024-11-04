@@ -19,9 +19,10 @@ const fields = {
 		.trim()
 		.min(1, "Поле обязательно")
 		.email("Некорректный email"),
-	password: z
+	passwordRequired: z
 		.string()
 		.trim()
+		.min(1, "Поле обязательно")
 		.min(8, "Минимальная длина - 8 символов")
 		.max(30, "Максимальная длина - 30 символов"),
 	text: z.string().trim().max(1500, "Максимальная длина - 1500 символов"),
