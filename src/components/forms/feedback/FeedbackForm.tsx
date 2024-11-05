@@ -7,6 +7,7 @@ import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
+import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
@@ -27,16 +28,22 @@ const FeedbackForm = () => {
 
 	const {
 		handleSubmit,
-		// reset,
+		reset,
 		formState: { isSubmitting },
 	} = methods;
 
+	const { showSuccessModal, showErrorModal } = useModal();
+
 	const onSubmit: SubmitHandler<FeedbackSchemaType> = async (values) => {
 		await sendFormData("feedback", valuesToFormData(values))
-			.then(() => {})
-			.catch(() => {});
-
-		// reset();
+			.then(() => {
+				reset();
+				showSuccessModal();
+			})
+			.catch((e) => {
+				console.error(e);
+				showErrorModal();
+			});
 	};
 
 	return (

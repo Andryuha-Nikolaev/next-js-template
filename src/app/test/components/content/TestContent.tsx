@@ -17,29 +17,18 @@ import s from "./TestContent.module.scss";
 const TestContent = () => {
 	const router = useRouter();
 
-	const { showModal } = useModal();
+	const { showModal, showSuccessModal, showErrorModal } = useModal();
 
 	const showDefaultModal = () => {
-		showModal({ modalId: MODAL_ID.DEFAULT, title: "Title", text: "Text" });
+		showModal({ title: "Title", text: "Text" });
 	};
 
 	const showDefaultSuccessModal = () => {
-		showModal({
-			modalId: MODAL_ID.DEFAULT,
-			title: "Title",
-			text: "Text",
-			type: "success",
-		});
+		showSuccessModal();
 	};
 
 	const showDefaultErrorModal = () => {
-		showModal({
-			modalId: MODAL_ID.DEFAULT,
-			title: "Title",
-			text: "Text",
-			type: "error",
-			hiddenCloseButton: true,
-		});
+		showErrorModal({ hiddenCloseButton: true });
 	};
 
 	const showFeedbackModal = () => {

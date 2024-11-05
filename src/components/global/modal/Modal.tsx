@@ -22,6 +22,8 @@ const Modal = () => {
 
 	const { modalConfig, hideModal, isShown } = modalContext;
 
+	const modalId = modalConfig?.modalId || MODAL_ID.DEFAULT;
+
 	useScrollLock(isShown);
 
 	if (!modalConfig) {
@@ -45,7 +47,7 @@ const Modal = () => {
 			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
 			<div
 				onMouseDown={(e) => e.stopPropagation()}
-				className={clsx(s.wrap, s[modalConfig.modalId])}
+				className={clsx(s.wrap, s[modalId])}
 			>
 				<CustomScrollLayout className={s.scroll}>
 					<div className={s.content}>
@@ -54,7 +56,7 @@ const Modal = () => {
 								<CloseButton onClick={hideModal} />
 							</div>
 						)}
-						{modalComponents[modalConfig.modalId]}
+						{modalComponents[modalId]}
 					</div>
 				</CustomScrollLayout>
 			</div>

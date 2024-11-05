@@ -8,6 +8,8 @@ const ModalContext = createContext<ModalProps>({
 	modalConfig: null,
 	hideModal: () => {},
 	showModal: () => {},
+	showSuccessModal: () => {},
+	showErrorModal: () => {},
 	isShown: false,
 });
 
@@ -24,6 +26,22 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		}, 10);
 	};
 
+	const showSuccessModal = (config?: ModalConfigProps) => {
+		showModal({
+			title: "Данные успешно отправлены",
+			type: "success",
+			...config,
+		});
+	};
+
+	const showErrorModal = (config?: ModalConfigProps) => {
+		showModal({
+			title: "Упс... Что-то пошло не так",
+			type: "error",
+			...config,
+		});
+	};
+
 	const hideModal = () => {
 		setIsShown(false);
 
@@ -34,7 +52,14 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<ModalContext.Provider
-			value={{ modalConfig, showModal, hideModal, isShown }}
+			value={{
+				modalConfig,
+				showModal,
+				showSuccessModal,
+				showErrorModal,
+				hideModal,
+				isShown,
+			}}
 		>
 			{children}
 			<Modal />

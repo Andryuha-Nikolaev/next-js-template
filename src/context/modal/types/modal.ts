@@ -1,7 +1,7 @@
 import { MODAL_ID } from "../constants/constants";
 
 export type ModalConfigProps = {
-	modalId: MODAL_ID;
+	modalId?: MODAL_ID;
 	title?: string;
 	text?: string;
 	type?: "success" | "error";
@@ -13,6 +13,8 @@ export type ModalProps = {
 	isShown: boolean;
 	modalConfig: ModalConfigProps;
 	showModal: (config: ModalConfigProps) => void;
+	showSuccessModal: (config?: ModalConfigProps) => void;
+	showErrorModal: (config?: ModalConfigProps) => void;
 	hideModal: () => void;
 };
 
