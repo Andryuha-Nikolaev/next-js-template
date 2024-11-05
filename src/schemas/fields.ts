@@ -7,12 +7,18 @@ const fields = {
 		.trim()
 		.min(1, "Поле обязательно")
 		.max(80, "Максимальная длина - 80 символов"),
-	phone: z.string().trim().min(18, "Введите номер полностью").or(z.literal("")),
+	phone: z
+		.string()
+		.trim()
+		.min(18, "Введите номер полностью")
+		.or(z.literal(""))
+		.transform((str) => str.replace(/[ ()]/g, "")),
 	phoneRequired: z
 		.string()
 		.trim()
 		.min(1, "Поле обязательно")
-		.min(18, "Введите номер полностью"),
+		.min(18, "Введите номер полностью")
+		.transform((str) => str.replace(/[ ()]/g, "")),
 	email: z.string().trim().email("Некорректный email").or(z.literal("")),
 	emailRequired: z
 		.string()

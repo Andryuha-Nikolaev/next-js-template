@@ -32,9 +32,7 @@ const FeedbackForm = () => {
 	} = methods;
 
 	const onSubmit: SubmitHandler<FeedbackSchemaType> = async (values) => {
-		const formData = valuesToFormData(values);
-
-		await sendFormData("feedback", formData)
+		await sendFormData("feedback", valuesToFormData(values))
 			.then(() => {})
 			.catch(() => {});
 
