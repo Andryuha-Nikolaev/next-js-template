@@ -20,6 +20,7 @@ const FileInput = ({
 	fileList,
 	withPreview,
 	onChangeFileList,
+	isRequired,
 	...restProps
 }: FileInputProps) => {
 	const labelRef = useRef<HTMLLabelElement>(null);
@@ -45,7 +46,11 @@ const FileInput = ({
 	}, [currentFileList]);
 
 	return (
-		<InputWrapper errorMessage={errorMessage} label={label}>
+		<InputWrapper
+			errorMessage={errorMessage}
+			label={label}
+			isRequired={isRequired}
+		>
 			<div className={s.wrap}>
 				<label style={{ display: "none", opacity: 0 }} ref={labelRef}>
 					<input

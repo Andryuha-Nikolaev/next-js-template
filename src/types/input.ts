@@ -9,6 +9,7 @@ import type { MaskedInputProps } from "react-text-mask";
 export interface InputWrapperProps {
 	label?: string;
 	errorMessage?: string;
+	isRequired?: boolean;
 }
 
 export interface InputControlsProps {

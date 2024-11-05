@@ -11,16 +11,16 @@ import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
-import s from "./FeedbackForm.module.scss";
 import {
 	feedbackDefaultValues,
 	feedbackSchema,
 	type FeedbackSchemaType,
 } from "./schema";
+import s from "./TestForm.module.scss";
 
 import FormWrapper from "../wrapper/FormWrapper";
 
-const FeedbackForm = () => {
+const TestForm = () => {
 	const methods = useForm<FeedbackSchemaType>({
 		resolver: zodResolver(feedbackSchema),
 		defaultValues: feedbackDefaultValues,
@@ -52,16 +52,23 @@ const FeedbackForm = () => {
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
 						<RootInput name="name" placeholder="Имя" label="Имя" />
-						<RootInput name="email" placeholder="Email" />
-						<PhoneInput name="phone" />
-						<RootInput name="password" placeholder="Пароль" type="password" />
-						<RootTextarea name="text" placeholder="Текст" />
+						<RootInput name="email" placeholder="Email" label="Email" />
+						<PhoneInput name="phone" label="Телефон" />
+						<RootInput
+							name="password"
+							placeholder="Пароль"
+							label="Пароль"
+							type="password"
+							isRequired
+						/>
+						<RootTextarea name="text" placeholder="Текст" label="Текст" />
 						<RootFileInput
-							label="С превью"
+							label="Файл с превью"
 							name="file"
 							fileSize="Максимальный размер файла - 5MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
+							isRequired
 						/>
 						<RootFileInput
 							name="files"
@@ -78,4 +85,4 @@ const FeedbackForm = () => {
 	);
 };
 
-export default FeedbackForm;
+export default TestForm;

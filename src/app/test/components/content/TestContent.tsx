@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
-import FeedbackForm from "@/components/forms/feedback/FeedbackForm";
+import TestForm from "@/components/forms/test/TestForm";
 import CloseIcon from "@/components/icons/close/CloseIcon";
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import RootButton from "@/components/ui/buttons/root/RootButton";
@@ -115,7 +115,7 @@ const TestContent = () => {
 					</RootButton>
 					<hr style={{ width: "100%" }} />
 					<h2>Forms:</h2>
-					<FeedbackForm />
+					<TestForm />
 					{/* <RootInput /> */}
 				</div>
 			</ContentLayout>

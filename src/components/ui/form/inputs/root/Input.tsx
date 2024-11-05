@@ -14,7 +14,16 @@ import InputWrapper from "../components/wrapper/InputWrapper";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
-		{ mask, onReset, errorMessage, label, type = "text", value, ...restProps },
+		{
+			mask,
+			onReset,
+			errorMessage,
+			label,
+			type = "text",
+			value,
+			isRequired,
+			...restProps
+		},
 		ref
 	) => {
 		const setRef = (innerRef: HTMLInputElement | null) => {
@@ -47,7 +56,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		);
 
 		return (
-			<InputWrapper errorMessage={errorMessage} label={label}>
+			<InputWrapper
+				errorMessage={errorMessage}
+				label={label}
+				isRequired={isRequired}
+			>
 				<label
 					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
