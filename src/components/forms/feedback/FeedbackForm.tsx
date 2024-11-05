@@ -7,6 +7,8 @@ import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
+import { sendFormData } from "@/services/sendFormDataService";
+import { valuesToFormData } from "@/utils/form/submitUtils";
 
 import s from "./FeedbackForm.module.scss";
 import {
@@ -25,20 +27,18 @@ const FeedbackForm = () => {
 
 	const {
 		handleSubmit,
-		reset,
+		// reset,
 		formState: { isSubmitting },
 	} = methods;
 
-	const onSubmit: SubmitHandler<FeedbackSchemaType> = (values) => {
-		console.log(values);
+	const onSubmit: SubmitHandler<FeedbackSchemaType> = async (values) => {
+		const formData = valuesToFormData(values);
 
-		const filteredObject = Object.fromEntries(
-			Object.entries(values).filter(([, value]) => !!value)
-		);
+		await sendFormData("feedback", formData)
+			.then(() => {})
+			.catch(() => {});
 
-		console.log(filteredObject);
-
-		reset();
+		// reset();
 	};
 
 	return (
