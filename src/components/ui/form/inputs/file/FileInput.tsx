@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef } from "react";
 
 import AttachIcon from "@/components/icons/attach/AttachIcon";
-import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import type { FileInputProps } from "@/types/input";
 
+import FileInputPreview from "./componens/preview/FileInputPreview";
+import FileInputRules from "./componens/rules/FileInputRules";
 import s from "./FileInput.module.scss";
 
 import InputWrapper from "../components/wrapper/InputWrapper";
@@ -69,32 +70,13 @@ const FileInput = ({
 				>
 					{buttonText}
 				</RootButton>
-				{(fileSize || fileFormat) && (
-					<p
-						className={s.rules}
-					>{`${fileSize ? `${fileSize} ` : ""}${fileFormat ? fileFormat : ""}`}</p>
-				)}
+				<FileInputRules fileSize={fileSize} fileFormat={fileFormat} />
 			</div>
-			{!!previews.length && (
-				<div className={s.previewBlock}>
-					{previews.map((item, i) => (
-						<div className={s.previewItem} key={i}>
-							{withPreview && (
-								// eslint-disable-next-line @next/next/no-img-element
-								<img className={s.previewImage} src={item.image} alt="" />
-							)}
-
-							<div className={s.previewName}>
-								<p className={s.fileName}>{item.name}</p>
-								<CloseButton
-									className={s.reset}
-									onClick={() => onDeleteFile(item.name)}
-								/>
-							</div>
-						</div>
-					))}
-				</div>
-			)}
+			<FileInputPreview
+				previews={previews}
+				onDeleteFile={(name) => onDeleteFile(name)}
+				withPreview={withPreview}
+			/>
 		</InputWrapper>
 	);
 };
