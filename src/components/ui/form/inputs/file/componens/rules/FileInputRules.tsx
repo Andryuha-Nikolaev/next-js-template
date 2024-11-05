@@ -1,3 +1,5 @@
+import parse from "html-react-parser";
+
 import s from "./FileInputRules.module.scss";
 
 interface FileInputRulesProps {
@@ -11,7 +13,7 @@ const FileInputRules = ({ fileSize, fileFormat }: FileInputRulesProps) => {
 			{(fileSize || fileFormat) && (
 				<p
 					className={s.rules}
-				>{`${fileSize ? `${fileSize} ` : ""}${fileFormat ? fileFormat : ""}`}</p>
+				>{`${fileSize ? `${parse(fileSize) as string} ` : ""}${fileFormat ? (parse(fileFormat) as string) : ""}`}</p>
 			)}
 		</div>
 	);
