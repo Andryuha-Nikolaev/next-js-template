@@ -45,9 +45,10 @@ export interface FileInputProps
 		InputWrapperProps {
 	fileSize?: string;
 	fileFormat?: string;
-	fileNames?: string[];
 	buttonText?: string;
-	onReset?: () => void;
+	fileList: FileList;
+	onChangeFileList: (fileList: FileList | null) => void;
+	onDeleteFile: (name: string) => void;
 }
 
 export interface RootFileInputProps extends FileInputProps {

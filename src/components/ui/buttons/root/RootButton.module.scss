@@ -104,8 +104,8 @@
 
 .icon {
 	transition: opacity var(--transition-duration);
-	width: convert-px2rem(20);
-	height: convert-px2rem(20);
+	max-width: convert-px2rem(24);
+	max-height: convert-px2rem(24);
 
 	&.right {
 		order: 1;

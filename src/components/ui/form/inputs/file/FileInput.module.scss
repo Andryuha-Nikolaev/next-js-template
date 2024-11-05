@@ -23,16 +23,20 @@
 	opacity: 0.5;
 }
 
-.fileNames {
-	margin-top: convert-px2rem(2);
+.previewBlock {
+	margin-top: convert-px2rem(4);
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	gap: convert-px2rem(5);
+}
+
+.previewName {
+	display: inline-block;
 }
 
 .fileName {
 	@include small-text();
-
+	display: inline;
 	word-break: break-word;
 }
 
@@ -40,6 +44,15 @@
 }
 
 .reset {
+	margin-left: convert-px2rem(5) !important ;
+	vertical-align: middle;
+	display: inline-flex !important;
 	width: convert-px2rem(12) !important;
 	height: convert-px2rem(12) !important;
+}
+
+.previewImage {
+	width: 100%;
+	max-width: convert-px2rem(200);
+	height: auto;
 }
