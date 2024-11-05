@@ -35,6 +35,7 @@ export const feedbackSchema = z.object({
 			(files: FileList) => checkFilesTypes(files),
 			"Допустимые форматы: jpeg, jpg, png"
 		),
+	policy: fields.checkboxRequired,
 });
 
 export const feedbackDefaultValues = {
@@ -45,6 +46,7 @@ export const feedbackDefaultValues = {
 	text: "",
 	file: "",
 	files: "",
+	policy: false,
 };
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;

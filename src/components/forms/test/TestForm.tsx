@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
+import RootCheckbox from "@/components/ui/form/checkbox/RootCheckbox";
 import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
@@ -51,6 +52,14 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
+						<RootFileInput
+							label="Файл с превью"
+							name="file"
+							fileSize="Максимальный размер файла - 5MB."
+							fileFormat="Допустимые форматы: jpeg, jpg, png."
+							withPreview
+							isRequired
+						/>
 						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<RootInput name="email" placeholder="Email" label="Email" />
 						<PhoneInput name="phone" label="Телефон" />
@@ -62,14 +71,7 @@ const TestForm = () => {
 							isRequired
 						/>
 						<RootTextarea name="text" placeholder="Текст" label="Текст" />
-						<RootFileInput
-							label="Файл с превью"
-							name="file"
-							fileSize="Максимальный размер файла - 5MB."
-							fileFormat="Допустимые форматы: jpeg, jpg, png."
-							withPreview
-							isRequired
-						/>
+
 						<RootFileInput
 							name="files"
 							multiple
@@ -78,6 +80,19 @@ const TestForm = () => {
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
+						<RootCheckbox name="policy">
+							<small>
+								Я&nbsp;ознакомлен(а) с&nbsp;
+								<a
+									className={s.link}
+									href="/policy.pdf"
+									rel="noreferrer"
+									target="_blank"
+								>
+									Политикой конфиденциальности
+								</a>
+							</small>
+						</RootCheckbox>
 					</FormWrapper>
 				</form>
 			</FormProvider>

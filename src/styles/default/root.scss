@@ -104,6 +104,11 @@
 	--input-height-number: 50;
 	--input-border-radius-number: 10;
 
+	// checkbox
+	--color-checkbox-border: var(--color-gray-dark);
+	--color-checkbox-border-focused: var(--color-black-medium);
+	--bg-checkbox: var(--color-white);
+
 	// focus
 	--color-outline-focus: var(--color-gray-dark);
 
