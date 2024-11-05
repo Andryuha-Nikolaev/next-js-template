@@ -7,6 +7,7 @@ import Checkbox from "./Checkbox";
 const RootCheckbox = ({ name, ...restProps }: RootInputProps) => {
 	const {
 		control,
+
 		formState: { errors },
 	} = useFormContext();
 

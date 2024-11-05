@@ -52,14 +52,6 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
-						<RootFileInput
-							label="Файл с превью"
-							name="file"
-							fileSize="Максимальный размер файла - 5MB."
-							fileFormat="Допустимые форматы: jpeg, jpg, png."
-							withPreview
-							isRequired
-						/>
 						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<RootInput name="email" placeholder="Email" label="Email" />
 						<PhoneInput name="phone" label="Телефон" />
@@ -71,7 +63,14 @@ const TestForm = () => {
 							isRequired
 						/>
 						<RootTextarea name="text" placeholder="Текст" label="Текст" />
-
+						<RootFileInput
+							label="Файл с превью"
+							name="file"
+							fileSize="Максимальный размер файла - 5MB."
+							fileFormat="Допустимые форматы: jpeg, jpg, png."
+							withPreview
+							isRequired
+						/>
 						<RootFileInput
 							name="files"
 							multiple
