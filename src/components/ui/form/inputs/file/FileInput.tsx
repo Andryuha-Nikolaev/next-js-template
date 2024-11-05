@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
-import Image from "next/image";
+import { useEffect, useMemo, useRef } from "react";
 
 import AttachIcon from "@/components/icons/attach/AttachIcon";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
@@ -19,25 +17,31 @@ const FileInput = ({
 	fileSize,
 	fileFormat,
 	fileList,
+	withPreview,
 	onChangeFileList,
 	...restProps
 }: FileInputProps) => {
 	const labelRef = useRef<HTMLLabelElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	const [currentFileList, setCurrentFileList] = useState(Array.from(fileList));
+	const currentFileList = useMemo(() => Array.from(fileList), [fileList]);
 
-	useEffect(() => {
-		setCurrentFileList(Array.from(fileList));
-	}, [fileList]);
+	const previews = useMemo(
+		() =>
+			currentFileList.map((file) => ({
+				image: URL.createObjectURL(file),
+				name: file.name,
+			})),
+		[currentFileList]
+	);
 
 	useEffect(() => {
 		if (inputRef.current) {
 			const dataTransfer = new DataTransfer();
-			Array.from(fileList).forEach((file) => dataTransfer.items.add(file));
+			currentFileList.forEach((file) => dataTransfer.items.add(file));
 			inputRef.current.files = dataTransfer.files;
 		}
-	}, [fileList]);
+	}, [currentFileList]);
 
 	return (
 		<InputWrapper errorMessage={errorMessage} label={label}>
@@ -71,22 +75,20 @@ const FileInput = ({
 					>{`${fileSize ? `${fileSize} ` : ""}${fileFormat ? fileFormat : ""}`}</p>
 				)}
 			</div>
-			{!!currentFileList.length && (
+			{!!previews.length && (
 				<div className={s.previewBlock}>
-					{currentFileList.map((file, i) => (
+					{previews.map((item, i) => (
 						<div className={s.previewItem} key={i}>
-							<Image
-								className={s.previewImage}
-								src={URL.createObjectURL(file)}
-								alt=""
-								width={200}
-								height={200}
-							/>
+							{withPreview && (
+								// eslint-disable-next-line @next/next/no-img-element
+								<img className={s.previewImage} src={item.image} alt="" />
+							)}
+
 							<div className={s.previewName}>
-								<p className={s.fileName}>{file.name}</p>
+								<p className={s.fileName}>{item.name}</p>
 								<CloseButton
 									className={s.reset}
-									onClick={() => onDeleteFile(file.name)}
+									onClick={() => onDeleteFile(item.name)}
 								/>
 							</div>
 						</div>

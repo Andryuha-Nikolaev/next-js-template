@@ -47,10 +47,15 @@ export interface FileInputProps
 	fileFormat?: string;
 	buttonText?: string;
 	fileList: FileList;
+	withPreview?: boolean;
 	onChangeFileList: (fileList: FileList | null) => void;
 	onDeleteFile: (name: string) => void;
 }
 
-export interface RootFileInputProps extends FileInputProps {
+export interface RootFileInputProps
+	extends Omit<
+		FileInputProps,
+		"fileList" | "onChangeFileList" | "onDeleteFile"
+	> {
 	name: string;
 }

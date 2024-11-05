@@ -9,10 +9,15 @@ import FileInput from "./FileInput";
 const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 	const {
 		control,
+		resetField,
 		formState: { errors },
 	} = useFormContext();
 
 	const errorMessage = errors[name]?.message?.toString();
+
+	const onReset = () => {
+		resetField(name);
+	};
 
 	return (
 		<Controller
@@ -27,11 +32,11 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 					const dataTransfer = new DataTransfer();
 					filteredArray.forEach((file) => dataTransfer.items.add(file));
 
-					// if (filteredArray.length < 1) {
-					// 	onReset();
-					// } else {
-					field.onChange(dataTransfer.files);
-					// }
+					if (filteredArray.length < 1) {
+						onReset();
+					} else {
+						field.onChange(dataTransfer.files);
+					}
 				};
 
 				return (

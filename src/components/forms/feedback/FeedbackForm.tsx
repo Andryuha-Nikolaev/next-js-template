@@ -25,7 +25,7 @@ const FeedbackForm = () => {
 
 	const {
 		handleSubmit,
-		// reset,
+		reset,
 		formState: { isSubmitting },
 	} = methods;
 
@@ -38,7 +38,7 @@ const FeedbackForm = () => {
 
 		console.log(filteredObject);
 
-		// reset();
+		reset();
 	};
 
 	return (
@@ -52,15 +52,17 @@ const FeedbackForm = () => {
 						<RootInput name="password" placeholder="Пароль" type="password" />
 						<RootTextarea name="text" placeholder="Текст" />
 						<RootFileInput
+							label="С превью"
 							name="file"
 							fileSize="Максимальный размер файла - 5MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
+							withPreview
 						/>
 						<RootFileInput
 							name="files"
 							multiple
-							label="multiple"
-							buttonText="Прикрепите файлы"
+							label="Несколько файлов"
+							buttonText="Прикрепить файлы"
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
