@@ -9,7 +9,7 @@ import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
-import RootRadio from "@/components/ui/form/radio/RootRadio";
+import RootRadioButton from "@/components/ui/form/radio-button/RootRadioButton";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
@@ -55,6 +55,20 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
+						<RootRadioButton
+							label="RadioButton"
+							name="radio"
+							items={[
+								{
+									value: "Первый RadioButton",
+									label: "Первый RadioButton label",
+								},
+								{
+									value: "Второй RadioButton",
+									label: <h4>Второй RadioButton h4 element</h4>,
+								},
+							]}
+						/>
 						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<RootInput name="email" placeholder="Email" label="Email" />
 						<PhoneInput name="phone" label="Телефон" />
@@ -126,15 +140,6 @@ const TestForm = () => {
 							]}
 							label="Группа чекбоксов 2"
 						/>
-						<RootRadio name="radio" value="value 1">
-							value 1
-						</RootRadio>
-						<RootRadio name="radio" value="value 2">
-							value 2
-						</RootRadio>
-						<RootRadio name="radio" value="value 3">
-							value 3
-						</RootRadio>
 					</FormWrapper>
 				</form>
 			</FormProvider>

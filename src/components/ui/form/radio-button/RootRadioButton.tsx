@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootInputProps } from "@/types/form/input";
+import type { RootRadioButtonProps } from "@/types/form/radioButton";
 
-import Radio from "./Radio";
+import RadioButton from "./RadioButton";
 
-const RootRadio = ({ name, ...restProps }: RootInputProps) => {
+const RootRadioButton = ({ name, ...restProps }: RootRadioButtonProps) => {
 	const {
 		control,
 		watch,
@@ -20,10 +20,10 @@ const RootRadio = ({ name, ...restProps }: RootInputProps) => {
 			name={name}
 			control={control}
 			render={({ field }) => (
-				<Radio errorMessage={errorMessage} {...field} {...restProps} />
+				<RadioButton errorMessage={errorMessage} {...field} {...restProps} />
 			)}
 		/>
 	);
 };
 
-export default RootRadio;
+export default RootRadioButton;
