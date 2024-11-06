@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
+import RootCheckboxGroup from "@/components/ui/form/checkbox-group/RootCheckboxGroup";
 import RootCheckbox from "@/components/ui/form/checkbox/RootCheckbox";
 import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
@@ -92,6 +93,7 @@ const TestForm = () => {
 								</a>
 							</small>
 						</RootCheckbox>
+						<RootCheckboxGroup />
 					</FormWrapper>
 				</form>
 			</FormProvider>

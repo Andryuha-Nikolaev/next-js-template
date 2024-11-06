@@ -11,12 +11,9 @@ import InputWrapper from "../inputs/components/wrapper/InputWrapper";
 const Checkbox = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
-			mask,
-			onReset,
 			errorMessage,
 			label,
-			type,
-			value,
+
 			children,
 			isRequired,
 			...restProps
@@ -26,7 +23,11 @@ const Checkbox = forwardRef<HTMLInputElement, InputProps>(
 		const checkboxClassNames = clsx(s.input, errorMessage && s.error);
 
 		return (
-			<InputWrapper errorMessage={errorMessage} isRequired={isRequired}>
+			<InputWrapper
+				errorMessage={errorMessage}
+				isRequired={isRequired}
+				label={label}
+			>
 				<label className={s.label}>
 					<input
 						ref={ref}
