@@ -1,6 +1,6 @@
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import EyeButton from "@/components/ui/buttons/eye/EyeButton";
-import type { InputControlsProps } from "@/types/input";
+import type { InputControlsProps } from "@/types/form/input";
 
 import s from "./InputControls.module.scss";
 

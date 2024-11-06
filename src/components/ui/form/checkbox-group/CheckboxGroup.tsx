@@ -1,6 +1,6 @@
 import parse from "html-react-parser";
 
-import type { CheckboxGroupProps } from "@/types/checkboxGroup";
+import type { CheckboxGroupProps } from "@/types/form/checkboxGroup";
 
 import s from "./CheckboxGroup.module.scss";
 

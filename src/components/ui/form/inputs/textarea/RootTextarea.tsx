@@ -2,7 +2,7 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootTextareaProps } from "@/types/input";
+import type { RootTextareaProps } from "@/types/form/input";
 
 import Textarea from "./Textarea";
 

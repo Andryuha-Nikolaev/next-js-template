@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootCheckboxGroupProps } from "@/types/checkboxGroup";
+import type { RootCheckboxGroupProps } from "@/types/form/checkboxGroup";
 
 import CheckboxGroup from "./CheckboxGroup";
 

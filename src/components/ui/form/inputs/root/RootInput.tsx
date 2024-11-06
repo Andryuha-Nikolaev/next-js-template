@@ -2,7 +2,7 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootInputProps } from "@/types/input";
+import type { RootInputProps } from "@/types/form/input";
 
 import Input from "./Input";
 

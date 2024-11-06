@@ -1,4 +1,4 @@
-import type { RootInputProps } from "@/types/input";
+import type { RootInputProps } from "@/types/form/input";
 
 import RootInput from "../root/RootInput";
 
