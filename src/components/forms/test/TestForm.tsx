@@ -55,20 +55,6 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
-						<RootRadioButton
-							label="RadioButton"
-							name="radio"
-							items={[
-								{
-									value: "Первый RadioButton",
-									label: "Первый RadioButton label",
-								},
-								{
-									value: "Второй RadioButton",
-									label: <h4>Второй RadioButton h4 element</h4>,
-								},
-							]}
-						/>
 						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<RootInput name="email" placeholder="Email" label="Email" />
 						<PhoneInput name="phone" label="Телефон" />
@@ -139,6 +125,20 @@ const TestForm = () => {
 								{ value: "Шестой", label: "Шестой" },
 							]}
 							label="Группа чекбоксов 2"
+						/>
+						<RootRadioButton
+							label="RadioButton"
+							name="radio"
+							items={[
+								{
+									value: "Первый RadioButton",
+									label: "Первый RadioButton label",
+								},
+								{
+									value: "Второй RadioButton",
+									label: <h4>Второй RadioButton h4 element</h4>,
+								},
+							]}
 						/>
 					</FormWrapper>
 				</form>

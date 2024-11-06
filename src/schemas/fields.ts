@@ -38,6 +38,8 @@ const fields = {
 	checkboxGroupRequired: z
 		.array(z.string())
 		.refine((value) => !!value.length, "Поле обязательно"),
+	radioButton: z.string(),
+	radioButtonRequired: z.string().min(1, "Поле обязательно"),
 };
 
 export default fields;
