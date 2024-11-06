@@ -11,7 +11,7 @@ import InputWrapper from "../inputs/components/wrapper/InputWrapper";
 
 const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 	({ errorMessage, label, items, isRequired, value, ...restProps }, ref) => {
-		const radioClassNames = clsx(s.input);
+		const radioClassNames = clsx(s.input, errorMessage && s.error);
 
 		return (
 			<InputWrapper

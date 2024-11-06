@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootCheckboxGroupProps } from "@/types/form/checkboxGroup";
+import type { RootCheckboxGroupProps } from "@/types/form/checkbox";
 
 import CheckboxGroup from "./CheckboxGroup";
 
@@ -24,6 +24,7 @@ const RootCheckboxGroup = ({
 			control={control}
 			render={({ field }) => (
 				<CheckboxGroup
+					ref={field.ref}
 					items={items}
 					value={field.value as string[]}
 					onChange={(e) => field.onChange(e)}

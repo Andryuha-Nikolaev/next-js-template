@@ -2,25 +2,21 @@ import { forwardRef } from "react";
 
 import clsx from "clsx";
 
-import type { InputProps } from "@/types/form/input";
+import type { CheckboxProps } from "@/types/form/checkbox";
 
 import s from "./Checkbox.module.scss";
 
 import InputWrapper from "../inputs/components/wrapper/InputWrapper";
 
-const Checkbox = forwardRef<HTMLInputElement, InputProps>(
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
-		{
-			errorMessage,
-			label,
-
-			children,
-			isRequired,
-			...restProps
-		},
+		{ errorMessage, label, children, isError, isRequired, ...restProps },
 		ref
 	) => {
-		const checkboxClassNames = clsx(s.input, errorMessage && s.error);
+		const checkboxClassNames = clsx(
+			s.input,
+			(errorMessage || isError) && s.error
+		);
 
 		return (
 			<InputWrapper

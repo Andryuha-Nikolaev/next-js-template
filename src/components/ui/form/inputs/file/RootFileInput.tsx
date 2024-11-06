@@ -2,7 +2,7 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootFileInputProps } from "@/types/form/input";
+import type { RootFileInputProps } from "@/types/form/fileInput";
 
 import FileInput from "./FileInput";
 

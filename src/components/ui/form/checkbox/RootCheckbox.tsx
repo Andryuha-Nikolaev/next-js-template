@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootInputProps } from "@/types/form/input";
+import type { RootCheckboxProps } from "@/types/form/checkbox";
 
 import Checkbox from "./Checkbox";
 
-const RootCheckbox = ({ name, ...restProps }: RootInputProps) => {
+const RootCheckbox = ({ name, ...restProps }: RootCheckboxProps) => {
 	const {
 		control,
 

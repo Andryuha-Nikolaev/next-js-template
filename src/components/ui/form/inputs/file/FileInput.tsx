@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 
 import AttachIcon from "@/components/icons/attach/AttachIcon";
 import RootButton from "@/components/ui/buttons/root/RootButton";
-import type { FileInputProps } from "@/types/form/input";
+import type { FileInputProps } from "@/types/form/fileInput";
 
 import FileInputPreview from "./componens/preview/FileInputPreview";
 import FileInputRules from "./componens/rules/FileInputRules";
