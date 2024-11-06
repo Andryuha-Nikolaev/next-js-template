@@ -11,6 +11,12 @@
 	text-align: left;
 	cursor: pointer;
 	width: fit-content;
+
+	@include hover-wrapper {
+		.input {
+			border-color: var(--color-checkbox-border-hover);
+		}
+	}
 }
 
 .input {

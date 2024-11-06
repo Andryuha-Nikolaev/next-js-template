@@ -11,13 +11,19 @@
 	text-align: left;
 	cursor: pointer;
 	width: fit-content;
+
+	@include hover-wrapper {
+		.input {
+			border-color: var(--color-radio-border-hover);
+		}
+	}
 }
 
 .input {
 	flex-shrink: 0;
 	appearance: none;
-	background: var(--bg-checkbox);
-	border: 1px solid var(--color-checkbox-border);
+	background: var(--bg-radio);
+	border: 1px solid var(--color-radio-border);
 	height: convert-px2rem(20);
 	width: convert-px2rem(20);
 	border-radius: 50%;
@@ -31,7 +37,7 @@
 	}
 
 	&:focus-visible {
-		border-color: var(--color-checkbox-border-focused);
+		border-color: var(--color-radio-border-focused);
 	}
 
 	&::before {
@@ -47,7 +53,7 @@
 
 	&:checked::before {
 		border-radius: 0;
-		background-color: var(--color-checkbox-border);
+		background-color: var(--color-radio-point);
 		border-radius: 50%;
 		margin: convert-px2rem(3) convert-px2rem(3);
 	}

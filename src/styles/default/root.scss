@@ -106,8 +106,16 @@
 
 	// checkbox
 	--color-checkbox-border: var(--color-gray-dark);
+	--color-checkbox-border-hover: var(--color-black-medium);
 	--color-checkbox-border-focused: var(--color-black-medium);
 	--bg-checkbox: var(--color-white);
+
+	// radio button
+	--color-radio-border: var(--color-gray-dark);
+	--color-radio-border-hover: var(--color-black-medium);
+	--color-radio-border-focused: var(--color-black-medium);
+	--color-radio-point: var(--color-black-medium);
+	--bg-radio: var(--color-white);
 
 	// focus
 	--color-outline-focus: var(--color-gray-dark);
