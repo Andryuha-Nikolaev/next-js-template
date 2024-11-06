@@ -7,10 +7,14 @@
 .block {
 	display: flex;
 	flex-direction: column;
-	gap: convert-px2rem(2);
+	gap: convert-px2rem(8);
 	@include md {
 	}
 
 	@include lg {
 	}
+}
+
+.text {
+	@include additional-text;
 }

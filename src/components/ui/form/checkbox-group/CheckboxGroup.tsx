@@ -39,7 +39,7 @@ const CheckboxGroup = ({
 							onChange(items.length === value.length ? [] : items)
 						}
 					>
-						<p>{chooseAllCheckbox}</p>
+						<p className={s.text}>{chooseAllCheckbox}</p>
 					</Checkbox>
 				)}
 				{items.map((item, i) => (
@@ -49,7 +49,7 @@ const CheckboxGroup = ({
 						value={item}
 						onChange={(e) => handleChange(e.target.value)}
 					>
-						<p>{item}</p>
+						<p className={s.text}>{item}</p>
 					</Checkbox>
 				))}
 			</div>
