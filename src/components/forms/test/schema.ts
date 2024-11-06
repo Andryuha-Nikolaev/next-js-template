@@ -36,6 +36,8 @@ export const feedbackSchema = z.object({
 			"Допустимые форматы: jpeg, jpg, png"
 		),
 	policy: fields.checkboxRequired,
+	"checkbox-group": z.array(z.string()),
+	// .refine((value: string[]) => !!value.length, "Поле обязательно"),
 });
 
 export const feedbackDefaultValues = {
@@ -47,6 +49,7 @@ export const feedbackDefaultValues = {
 	file: "",
 	files: "",
 	policy: false,
+	"checkbox-group": [],
 };
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;

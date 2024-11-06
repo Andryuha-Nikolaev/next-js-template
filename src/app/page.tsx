@@ -1,9 +1,11 @@
 import Link from "next/link";
 
+import ContentLayout from "@/components/layouts/content/ContentLayout";
+
 export default function Home() {
 	return (
-		<div>
+		<ContentLayout>
 			HOME <Link href={"/test"}>TEST</Link>
-		</div>
+		</ContentLayout>
 	);
 }

@@ -5,6 +5,9 @@
 @import "@/styles/mixins/mixins";
 
 .block {
+	display: flex;
+	flex-direction: column;
+	gap: convert-px2rem(2);
 	@include md {
 	}
 

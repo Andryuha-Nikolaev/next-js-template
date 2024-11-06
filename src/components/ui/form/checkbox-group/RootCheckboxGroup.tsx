@@ -1,23 +1,39 @@
-import { useState } from "react";
+import { Controller, useFormContext } from "react-hook-form";
+
+import type { RootCheckboxGroupProps } from "@/types/checkboxGroup";
 
 import CheckboxGroup from "./CheckboxGroup";
 
-interface RootCheckboxGroupProps {}
+const RootCheckboxGroup = ({
+	items,
+	name,
+	isRequired,
+	label,
+}: RootCheckboxGroupProps) => {
+	const {
+		control,
+		watch,
+		formState: { errors },
+	} = useFormContext();
 
-const RootCheckboxGroup = ({}: RootCheckboxGroupProps) => {
-	const [value, setValue] = useState<string[] | false>(["aaaaaaa"]);
+	const errorMessage = errors[name]?.message?.toString();
 
-	console.log(value);
+	console.log(watch(name));
 
 	return (
-		<CheckboxGroup
-			items={[
-				{ value: "aaaaaaa", children: "aaaaaaaaaaaaa" },
-				{ value: "bbbbbbb", children: "bbbbbbbb" },
-				{ value: "cccccc", children: "cccccccc" },
-			]}
-			value={value}
-			onChange={(e) => setValue(e)}
+		<Controller
+			name={name}
+			control={control}
+			render={({ field }) => (
+				<CheckboxGroup
+					items={items}
+					value={field.value as string[]}
+					onChange={(e) => field.onChange(e)}
+					errorMessage={errorMessage}
+					isRequired={isRequired}
+					label={label}
+				/>
+			)}
 		/>
 	);
 };

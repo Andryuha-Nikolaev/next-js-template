@@ -93,7 +93,11 @@ const TestForm = () => {
 								</a>
 							</small>
 						</RootCheckbox>
-						<RootCheckboxGroup />
+						<RootCheckboxGroup
+							name="checkbox-group"
+							items={["Первый чекбокс", "Второй чекбокс", "Третий чекбокс"]}
+							label="Группа чекбоксов"
+						/>
 					</FormWrapper>
 				</form>
 			</FormProvider>

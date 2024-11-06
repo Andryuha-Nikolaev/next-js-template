@@ -22,6 +22,8 @@ export function valuesToFormData<T extends Record<string, any>>(
 			formData.append(key, value);
 		} else if (value === true) {
 			formData.append(key, "true");
+		} else if (value instanceof Array) {
+			formData.append(key, JSON.stringify(value));
 		}
 	});
 
