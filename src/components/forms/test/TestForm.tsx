@@ -9,6 +9,8 @@ import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
+import RootRadio from "@/components/ui/form/radio/RootRadio";
+import RootLink from "@/components/ui/links/root/RootLink";
 import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
@@ -95,22 +97,44 @@ const TestForm = () => {
 						</RootCheckbox>
 						<RootCheckboxGroup
 							name="checkbox-group"
-							items={["Первый чекбокс", "Второй чекбокс", "Третий чекбокс"]}
+							items={[
+								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
+								{
+									value: "Второй чекбокс",
+									label: <h4>Второй чекбокс h4 element</h4>,
+								},
+								{ value: "Третий чекбокс", label: "Третий чекбокс" },
+							]}
 							label="Группа чекбоксов"
 							chooseAllCheckbox="Выбрать всё"
 						/>
 						<RootCheckboxGroup
 							name="checkbox-group2"
 							items={[
-								"Первый чекбокс",
-								"Второй чекбокс",
-								"Третий чекбокс",
-								"Четвертый",
-								"Пятый",
-								"Шестой",
+								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
+								{
+									value: "Второй чекбокс",
+									label: <p>Второй чекбокс P element</p>,
+								},
+								{
+									value: "Третий чекбокс",
+									label: <RootLink href={"/"}>aaaaaaaaaaaaaaaaaaa</RootLink>,
+								},
+								{ value: "Четвертый", label: "Четвертый" },
+								{ value: "Пятый", label: "Пятый" },
+								{ value: "Шестой", label: "Шестой" },
 							]}
 							label="Группа чекбоксов 2"
 						/>
+						<RootRadio name="radio" value="value 1">
+							value 1
+						</RootRadio>
+						<RootRadio name="radio" value="value 2">
+							value 2
+						</RootRadio>
+						<RootRadio name="radio" value="value 3">
+							value 3
+						</RootRadio>
 					</FormWrapper>
 				</form>
 			</FormProvider>

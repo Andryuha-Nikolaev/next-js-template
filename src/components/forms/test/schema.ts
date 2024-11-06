@@ -38,6 +38,7 @@ export const feedbackSchema = z.object({
 	policy: fields.checkboxRequired,
 	"checkbox-group": fields.checkboxGroupRequired,
 	"checkbox-group2": fields.checkboxGroup,
+	radio: z.string(),
 });
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;
@@ -53,4 +54,5 @@ export const feedbackDefaultValues: FeedbackSchemaType = {
 	policy: false,
 	"checkbox-group": [],
 	"checkbox-group2": ["Второй чекбокс", "Четвертый"],
+	radio: "",
 };

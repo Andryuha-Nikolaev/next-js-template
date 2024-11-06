@@ -1,0 +1,54 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.label {
+	position: relative;
+	display: flex;
+	gap: convert-px2rem(10);
+	text-align: left;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.input {
+	flex-shrink: 0;
+	appearance: none;
+	background: var(--bg-checkbox);
+	border: 1px solid var(--color-checkbox-border);
+	height: convert-px2rem(20);
+	width: convert-px2rem(20);
+	border-radius: 50%;
+	vertical-align: text-bottom;
+	position: relative;
+	cursor: pointer;
+	transition: border-color var(--transition-duration);
+
+	&.error {
+		border-color: var(--color-alert) !important;
+	}
+
+	&:focus-visible {
+		border-color: var(--color-checkbox-border-focused);
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		top: 0;
+	}
+
+	&:checked::before {
+		border-radius: 0;
+		background-color: var(--color-checkbox-border);
+		border-radius: 50%;
+		margin: convert-px2rem(3) convert-px2rem(3);
+	}
+}

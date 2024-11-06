@@ -1,3 +1,5 @@
+import parse from "html-react-parser";
+
 import type { CheckboxGroupProps } from "@/types/checkboxGroup";
 
 import s from "./CheckboxGroup.module.scss";
@@ -36,7 +38,11 @@ const CheckboxGroup = ({
 						checked={items.length === value.length}
 						value={chooseAllCheckbox}
 						onChange={() =>
-							onChange(items.length === value.length ? [] : items)
+							onChange(
+								items.length === value.length
+									? []
+									: items.map((item) => item.value)
+							)
 						}
 					>
 						<p className={s.text}>{chooseAllCheckbox}</p>
@@ -44,12 +50,16 @@ const CheckboxGroup = ({
 				)}
 				{items.map((item, i) => (
 					<Checkbox
-						checked={value.includes(item)}
+						checked={value.includes(item.value)}
 						key={i}
-						value={item}
+						value={item.value}
 						onChange={(e) => handleChange(e.target.value)}
 					>
-						<p className={s.text}>{item}</p>
+						{typeof item.label === "string" ? (
+							<p className={s.text}>{parse(item.label)}</p>
+						) : (
+							item.label
+						)}
 					</Checkbox>
 				))}
 			</div>
