@@ -12,6 +12,7 @@ const CheckboxGroup = ({
 	errorMessage,
 	isRequired,
 	label,
+	chooseAllCheckbox,
 }: CheckboxGroupProps) => {
 	const handleChange = (checkboxValue: string) => {
 		if (value.includes(checkboxValue)) {
@@ -30,9 +31,20 @@ const CheckboxGroup = ({
 			isRequired={isRequired}
 		>
 			<div className={s.block}>
+				{chooseAllCheckbox && (
+					<Checkbox
+						checked={items.length === value.length}
+						value={chooseAllCheckbox}
+						onChange={() =>
+							onChange(items.length === value.length ? [] : items)
+						}
+					>
+						<p>{chooseAllCheckbox}</p>
+					</Checkbox>
+				)}
 				{items.map((item, i) => (
 					<Checkbox
-						checked={value && value.includes(item)}
+						checked={value.includes(item)}
 						key={i}
 						value={item}
 						onChange={(e) => handleChange(e.target.value)}

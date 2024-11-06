@@ -9,6 +9,7 @@ const RootCheckboxGroup = ({
 	name,
 	isRequired,
 	label,
+	chooseAllCheckbox,
 }: RootCheckboxGroupProps) => {
 	const {
 		control,
@@ -32,6 +33,7 @@ const RootCheckboxGroup = ({
 					errorMessage={errorMessage}
 					isRequired={isRequired}
 					label={label}
+					chooseAllCheckbox={chooseAllCheckbox}
 				/>
 			)}
 		/>

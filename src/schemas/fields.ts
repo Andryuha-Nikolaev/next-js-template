@@ -34,6 +34,10 @@ const fields = {
 	text: z.string().trim().max(1500, "Максимальная длина - 1500 символов"),
 	checkbox: z.boolean(),
 	checkboxRequired: z.boolean().refine((value) => value, "Поле обязательно"),
+	checkboxGroup: z.array(z.string()),
+	checkboxGroupRequired: z
+		.array(z.string())
+		.refine((value) => !!value.length, "Поле обязательно"),
 };
 
 export default fields;

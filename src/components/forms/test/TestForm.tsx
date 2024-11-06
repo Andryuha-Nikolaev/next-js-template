@@ -97,6 +97,19 @@ const TestForm = () => {
 							name="checkbox-group"
 							items={["Первый чекбокс", "Второй чекбокс", "Третий чекбокс"]}
 							label="Группа чекбоксов"
+							chooseAllCheckbox="Выбрать всё"
+						/>
+						<RootCheckboxGroup
+							name="checkbox-group2"
+							items={[
+								"Первый чекбокс",
+								"Второй чекбокс",
+								"Третий чекбокс",
+								"Четвертый",
+								"Пятый",
+								"Шестой",
+							]}
+							label="Группа чекбоксов 2"
 						/>
 					</FormWrapper>
 				</form>
