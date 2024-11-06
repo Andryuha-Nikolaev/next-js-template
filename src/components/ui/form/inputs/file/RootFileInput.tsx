@@ -48,6 +48,7 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 							field.onChange(event);
 						}}
 						onDeleteFile={(fileName) => onDeleteFile(fileName)}
+						ref={field.ref}
 					/>
 				);
 			}}
