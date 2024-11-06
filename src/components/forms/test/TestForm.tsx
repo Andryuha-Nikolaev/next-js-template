@@ -125,18 +125,21 @@ const TestForm = () => {
 								{ value: "Шестой", label: "Шестой" },
 							]}
 							label="Группа чекбоксов 2"
+							isRequired
 						/>
 						<RootRadioButton
+							isRequired
+							variant="horizontal"
 							label="RadioButton"
 							name="radio"
 							items={[
 								{
-									value: "Первый RadioButton",
-									label: "Первый RadioButton label",
+									value: "Да",
+									label: "Да",
 								},
 								{
-									value: "Второй RadioButton",
-									label: <h4>Второй RadioButton h4 element</h4>,
+									value: "Нет",
+									label: <h4>h4 нет</h4>,
 								},
 							]}
 						/>

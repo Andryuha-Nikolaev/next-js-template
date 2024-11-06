@@ -10,7 +10,18 @@ import s from "./RadioButton.module.scss";
 import InputWrapper from "../inputs/components/wrapper/InputWrapper";
 
 const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-	({ errorMessage, label, items, isRequired, value, ...restProps }, ref) => {
+	(
+		{
+			errorMessage,
+			label,
+			items,
+			isRequired,
+			value,
+			variant = "vertical",
+			...restProps
+		},
+		ref
+	) => {
 		const radioClassNames = clsx(s.input, errorMessage && s.error);
 
 		return (
@@ -19,7 +30,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 				isRequired={isRequired}
 				label={label}
 			>
-				<div className={s.block}>
+				<div className={clsx(s.block, s[variant])}>
 					{items.map((item, i) => (
 						<label key={i} className={s.label}>
 							<input

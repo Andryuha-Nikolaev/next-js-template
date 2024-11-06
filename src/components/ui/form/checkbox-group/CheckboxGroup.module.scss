@@ -7,7 +7,7 @@
 .block {
 	display: flex;
 	flex-direction: column;
-	gap: convert-px2rem(8);
+	gap: convert-px2rem(4);
 	@include md {
 	}
 
