@@ -10,9 +10,9 @@ import s from "./Select.module.scss";
 
 import InputWrapper from "../inputs/components/wrapper/InputWrapper";
 
-const ReactSelect = forwardRef<HTMLDivElement, SelectProps>(
+const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 	(
-		{ errorMessage, label, isRequired, isSearchable = false, ...restProps },
+		{ errorMessage, label, isRequired, isSearchable = true, ...restProps },
 		ref
 	) => {
 		return (

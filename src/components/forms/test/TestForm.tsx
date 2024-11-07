@@ -16,19 +16,15 @@ import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
-import {
-	feedbackDefaultValues,
-	feedbackSchema,
-	type FeedbackSchemaType,
-} from "./schema";
+import { formDefaultValues, formSchema, type FormSchemaType } from "./schema";
 import s from "./TestForm.module.scss";
 
 import FormWrapper from "../wrapper/FormWrapper";
 
 const TestForm = () => {
-	const methods = useForm<FeedbackSchemaType>({
-		resolver: zodResolver(feedbackSchema),
-		defaultValues: feedbackDefaultValues,
+	const methods = useForm<FormSchemaType>({
+		resolver: zodResolver(formSchema),
+		defaultValues: formDefaultValues,
 	});
 
 	const {
@@ -39,8 +35,8 @@ const TestForm = () => {
 
 	const { showSuccessModal, showErrorModal } = useModal();
 
-	const onSubmit: SubmitHandler<FeedbackSchemaType> = async (values) => {
-		await sendFormData("feedback", valuesToFormData(values))
+	const onSubmit: SubmitHandler<FormSchemaType> = async (values) => {
+		await sendFormData("test", valuesToFormData(values))
 			.then(() => {
 				reset();
 				showSuccessModal();

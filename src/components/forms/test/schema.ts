@@ -7,7 +7,7 @@ import {
 	checkFilesTypes,
 } from "@/schemas/fileInput";
 
-export const feedbackSchema = z.object({
+export const formSchema = z.object({
 	name: fields.name,
 	phone: fields.phone,
 	email: fields.email,
@@ -50,9 +50,9 @@ export const feedbackSchema = z.object({
 	// .or(z.null()),
 });
 
-export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;
+export type FormSchemaType = z.infer<typeof formSchema>;
 
-export const feedbackDefaultValues: FeedbackSchemaType = {
+export const formDefaultValues: FormSchemaType = {
 	name: "",
 	phone: "",
 	email: "",
