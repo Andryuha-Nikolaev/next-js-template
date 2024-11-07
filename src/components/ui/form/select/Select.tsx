@@ -29,6 +29,7 @@ const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 				isRequired={isRequired}
 			>
 				<Select
+					noOptionsMessage={() => "Нет опций"}
 					className={s.container}
 					// @ts-ignore
 					ref={ref}
