@@ -47,6 +47,15 @@ const fields = {
 		.refine((value) => !!value.length, "Поле обязательно"),
 	radioButton: z.string(),
 	radioButtonRequired: z.string().min(1, "Поле обязательно"),
+	select: z
+		.object({ value: z.string(), label: z.string() })
+		.transform((value) => value?.value)
+		.or(z.null()),
+	selectRequired: z
+		.object({ value: z.string(), label: z.string() })
+		.transform((value) => value?.value)
+		.or(z.null())
+		.refine((value) => !!value, "Поле обязательно"),
 };
 
 export default fields;

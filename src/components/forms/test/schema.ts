@@ -39,13 +39,7 @@ export const formSchema = z.object({
 	"checkbox-group": fields.checkboxGroup,
 	"checkbox-group2": fields.checkboxGroup,
 	radio: fields.radioButtonRequired,
-	select: z
-		.object({ value: z.string(), label: z.string() })
-
-		.transform((value) => value?.value)
-		// .or(z.string())
-		.or(z.null())
-		.refine((value) => !!value, "Поле обязательно"),
+	select: fields.selectRequired,
 	// .or(z.array(z.object({ value: z.string(), label: z.string() })))
 	// .or(z.null()),
 });
