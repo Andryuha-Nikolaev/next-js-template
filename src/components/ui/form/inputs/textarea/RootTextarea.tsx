@@ -8,14 +8,9 @@ import Textarea from "./Textarea";
 
 const RootTextarea = ({ name, ...restProps }: RootTextareaProps) => {
 	const {
-		resetField,
 		control,
 		formState: { errors },
 	} = useFormContext();
-
-	const onReset = () => {
-		resetField(name);
-	};
 
 	const errorMessage = errors[name]?.message?.toString();
 
@@ -23,14 +18,20 @@ const RootTextarea = ({ name, ...restProps }: RootTextareaProps) => {
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => (
-				<Textarea
-					errorMessage={errorMessage}
-					onReset={onReset}
-					{...field}
-					{...restProps}
-				/>
-			)}
+			render={({ field }) => {
+				const onReset = () => {
+					field.onChange("");
+				};
+
+				return (
+					<Textarea
+						errorMessage={errorMessage}
+						onReset={onReset}
+						{...field}
+						{...restProps}
+					/>
+				);
+			}}
 		/>
 	);
 };

@@ -8,7 +8,7 @@ import {
 } from "@/schemas/fileInput";
 
 export const formSchema = z.object({
-	name: fields.name,
+	name: fields.nameRequired,
 	phone: fields.phone,
 	email: fields.email,
 	password: fields.password,

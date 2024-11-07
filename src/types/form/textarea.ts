@@ -8,6 +8,6 @@ export interface TextareaProps
 	onReset?: () => void;
 }
 
-export interface RootTextareaProps extends TextareaProps {
+export interface RootTextareaProps extends Omit<TextareaProps, "onReset"> {
 	name: string;
 }

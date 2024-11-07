@@ -12,7 +12,7 @@ import s from "./Input.module.scss";
 import InputControls from "../components/controls/InputControls";
 import InputWrapper from "../components/wrapper/InputWrapper";
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Input = forwardRef<HTMLLabelElement, InputProps>(
 	(
 		{
 			mask,
@@ -26,14 +26,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		},
 		ref
 	) => {
-		const setRef = (innerRef: HTMLInputElement | null) => {
-			if (typeof ref === "function") {
-				ref(innerRef);
-			} else if (ref) {
-				ref.current = innerRef;
-			}
-		};
-
 		const isFilled = !!value;
 
 		const [currentType, setCurrentType] = useState(type);
@@ -64,15 +56,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				<label
 					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
+					ref={ref}
 				>
 					<span className={s.wrap}>
 						{mask ? (
 							<MaskedInput
 								mask={mask}
 								guide={false}
-								ref={(innerRef) => {
-									setRef((innerRef?.inputElement as HTMLInputElement) || null);
-								}}
 								className={inputClassNames}
 								type={currentType}
 								value={value}
@@ -81,7 +71,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 							/>
 						) : (
 							<input
-								ref={ref}
 								className={inputClassNames}
 								type={currentType}
 								value={value}

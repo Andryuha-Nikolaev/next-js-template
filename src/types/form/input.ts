@@ -23,6 +23,6 @@ export interface InputProps
 	mask?: MaskedInputProps["mask"];
 }
 
-export interface RootInputProps extends InputProps {
+export interface RootInputProps extends Omit<InputProps, "onReset"> {
 	name: string;
 }

@@ -8,14 +8,9 @@ import Input from "./Input";
 
 const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	const {
-		resetField,
 		control,
 		formState: { errors },
 	} = useFormContext();
-
-	const onReset = () => {
-		resetField(name);
-	};
 
 	const errorMessage = errors[name]?.message?.toString();
 
@@ -23,14 +18,20 @@ const RootInput = ({ name, ...restProps }: RootInputProps) => {
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => (
-				<Input
-					errorMessage={errorMessage}
-					onReset={onReset}
-					{...field}
-					{...restProps}
-				/>
-			)}
+			render={({ field }) => {
+				const onReset = () => {
+					field.onChange("");
+				};
+
+				return (
+					<Input
+						errorMessage={errorMessage}
+						onReset={onReset}
+						{...field}
+						{...restProps}
+					/>
+				);
+			}}
 		/>
 	);
 };
