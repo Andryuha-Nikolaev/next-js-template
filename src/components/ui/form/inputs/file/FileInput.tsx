@@ -12,7 +12,7 @@ import s from "./FileInput.module.scss";
 
 import InputWrapper from "../components/wrapper/InputWrapper";
 
-const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
+const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 	(
 		{
 			onDeleteFile,
@@ -29,7 +29,6 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 		},
 		ref
 	) => {
-		const labelRef = useRef<HTMLLabelElement | null>(null);
 		const inputRef = useRef<HTMLInputElement | null>(null);
 
 		const currentFileList = useMemo(() => Array.from(fileList), [fileList]);
@@ -60,17 +59,10 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 				<div className={s.wrap}>
 					<label
 						style={{ opacity: 0, width: 0, height: 0, overflow: "hidden" }}
-						ref={labelRef}
+						ref={ref}
 					>
 						<input
-							ref={(node) => {
-								inputRef.current = node;
-								if (typeof ref === "function") {
-									ref(node);
-								} else if (ref) {
-									ref.current = node;
-								}
-							}}
+							ref={inputRef}
 							type="file"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 								if (e.target.value) {
@@ -86,7 +78,7 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 						Icon={<AttachIcon />}
 						colorVariant="var2"
 						onClick={() => {
-							labelRef.current?.click();
+							inputRef.current?.click();
 						}}
 					>
 						{buttonText}
