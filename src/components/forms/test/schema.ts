@@ -40,6 +40,9 @@ export const formSchema = z.object({
 	"checkbox-group2": fields.checkboxGroup,
 	radio: fields.radioButtonRequired,
 	select: fields.selectRequired,
+	"multi-select": z
+		.array(z.object({ value: z.string(), label: z.string() }))
+		.or(z.null()),
 	// .or(z.array(z.object({ value: z.string(), label: z.string() })))
 	// .or(z.null()),
 });
@@ -59,4 +62,5 @@ export const formDefaultValues: FormSchemaType = {
 	"checkbox-group2": ["Второй чекбокс", "Четвертый"],
 	radio: "",
 	select: null,
+	"multi-select": [{ value: "ccc", label: "ccc" }],
 };

@@ -52,15 +52,6 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
-						<RootSelect
-							label="Выбор"
-							placeholder="Выбор"
-							name="select"
-							options={[
-								{ value: "aaaaa", label: "aaaaa" },
-								{ value: "bbb", label: "bbb" },
-							]}
-						/>
 						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<RootInput name="email" placeholder="Email" label="Email" />
 						<PhoneInput name="phone" label="Телефон" />
@@ -143,6 +134,26 @@ const TestForm = () => {
 									value: "Нет",
 									label: <h4>h4 нет</h4>,
 								},
+							]}
+						/>
+						<RootSelect
+							label="Выбор"
+							placeholder="Выбор"
+							name="select"
+							options={[
+								{ value: "aaaaa", label: "aaaaa" },
+								{ value: "bbb", label: "bbb" },
+							]}
+						/>
+						<RootSelect
+							label="Мульти выбор"
+							placeholder="Мульти выбор"
+							name="multi-select"
+							isMulti
+							options={[
+								{ value: "aaaaa", label: "aaaaa" },
+								{ value: "bbb", label: "bbb" },
+								{ value: "ccc", label: "ccc" },
 							]}
 						/>
 					</FormWrapper>

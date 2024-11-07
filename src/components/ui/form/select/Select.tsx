@@ -12,7 +12,14 @@ import InputWrapper from "../inputs/components/wrapper/InputWrapper";
 
 const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 	(
-		{ errorMessage, label, isRequired, isSearchable = true, ...restProps },
+		{
+			errorMessage,
+			label,
+			isRequired,
+			isSearchable = true,
+			isClearable = true,
+			...restProps
+		},
 		ref
 	) => {
 		return (
@@ -27,6 +34,7 @@ const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 					ref={ref}
 					classNamePrefix="react-select"
 					isSearchable={isSearchable}
+					isClearable={isClearable}
 					{...restProps}
 				/>
 			</InputWrapper>

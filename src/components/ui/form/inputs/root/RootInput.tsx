@@ -14,7 +14,7 @@ const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	} = useFormContext();
 
 	const onReset = () => {
-		resetField(name);
+		resetField(name, { keepError: false });
 	};
 
 	const errorMessage = errors[name]?.message?.toString();
