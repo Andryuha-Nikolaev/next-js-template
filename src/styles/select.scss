@@ -38,6 +38,11 @@
 		}
 	}
 
+	&__placeholder {
+		opacity: 1 !important;
+		color: var(--color-input-placeholder) !important;
+	}
+
 	&__dropdown-indicator {
 		transition:
 			transform var(--transition-duration),
