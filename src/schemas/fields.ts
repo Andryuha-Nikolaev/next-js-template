@@ -25,6 +25,13 @@ const fields = {
 		.trim()
 		.min(1, "Поле обязательно")
 		.email("Некорректный email"),
+	password: z
+		.string()
+		.trim()
+		.max(30, "Максимальная длина - 30 символов")
+		.min(8, "Минимальная длина - 8 символов")
+		.or(z.literal("")),
+
 	passwordRequired: z
 		.string()
 		.trim()

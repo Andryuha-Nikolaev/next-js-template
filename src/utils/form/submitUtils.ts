@@ -2,7 +2,12 @@ export function clearEmptyValues<T extends Record<string, any>>(
 	values: T
 ): Partial<T> {
 	const filteredObject = Object.fromEntries(
-		Object.entries(values).filter(([, value]) => Boolean(value))
+		Object.entries(values).filter(([, value]) => {
+			if (Array.isArray(value)) {
+				return value.length > 0;
+			}
+			return Boolean(value);
+		})
 	) as Partial<T>;
 
 	return filteredObject;
@@ -22,7 +27,7 @@ export function valuesToFormData<T extends Record<string, any>>(
 			formData.append(key, value);
 		} else if (value === true) {
 			formData.append(key, "true");
-		} else if (value instanceof Array) {
+		} else if (Array.isArray(value)) {
 			formData.append(key, JSON.stringify(value));
 		}
 	});

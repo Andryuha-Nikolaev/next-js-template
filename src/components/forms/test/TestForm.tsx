@@ -73,7 +73,6 @@ const TestForm = () => {
 							placeholder="Пароль"
 							label="Пароль"
 							type="password"
-							isRequired
 						/>
 						<RootTextarea name="text" placeholder="Текст" label="Текст" />
 						<RootFileInput
@@ -82,7 +81,6 @@ const TestForm = () => {
 							fileSize="Максимальный размер файла - 5MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
-							isRequired
 						/>
 						<RootFileInput
 							name="files"
@@ -135,10 +133,8 @@ const TestForm = () => {
 								{ value: "Шестой", label: "Шестой" },
 							]}
 							label="Группа чекбоксов 2"
-							isRequired
 						/>
 						<RootRadioButton
-							isRequired
 							variant="horizontal"
 							label="RadioButton"
 							name="radio"

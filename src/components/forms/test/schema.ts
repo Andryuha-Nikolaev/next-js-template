@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import fields from "@/schemas/fields";
 import {
-	checkFilesLength,
+	// checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
 } from "@/schemas/fileInput";
@@ -11,11 +11,11 @@ export const feedbackSchema = z.object({
 	name: fields.name,
 	phone: fields.phone,
 	email: fields.email,
-	password: fields.passwordRequired,
+	password: fields.password,
 	text: fields.text,
 	file: z
 		.any()
-		.refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+		// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
 		.refine(
 			(files: FileList) => checkFilesSize(files, 5),
 			"Максимальный размер файла - 5MB"
@@ -35,11 +35,19 @@ export const feedbackSchema = z.object({
 			(files: FileList) => checkFilesTypes(files),
 			"Допустимые форматы: jpeg, jpg, png"
 		),
-	policy: fields.checkboxRequired,
-	"checkbox-group": fields.checkboxGroupRequired,
+	policy: fields.checkbox,
+	"checkbox-group": fields.checkboxGroup,
 	"checkbox-group2": fields.checkboxGroup,
 	radio: fields.radioButtonRequired,
-	select: z.string().min(1, "Поле обязательно"),
+	select: z
+		.object({ value: z.string(), label: z.string() })
+
+		.transform((value) => value?.value)
+		// .or(z.string())
+		.or(z.null())
+		.refine((value) => !!value, "Поле обязательно"),
+	// .or(z.array(z.object({ value: z.string(), label: z.string() })))
+	// .or(z.null()),
 });
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;
@@ -56,5 +64,5 @@ export const feedbackDefaultValues: FeedbackSchemaType = {
 	"checkbox-group": [],
 	"checkbox-group2": ["Второй чекбокс", "Четвертый"],
 	radio: "",
-	select: "",
+	select: null,
 };

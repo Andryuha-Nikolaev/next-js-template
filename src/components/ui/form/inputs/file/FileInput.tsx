@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useEffect, useMemo, useRef } from "react";
 
 import AttachIcon from "@/components/icons/attach/AttachIcon";
