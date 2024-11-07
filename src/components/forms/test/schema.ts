@@ -39,6 +39,7 @@ export const feedbackSchema = z.object({
 	"checkbox-group": fields.checkboxGroupRequired,
 	"checkbox-group2": fields.checkboxGroup,
 	radio: fields.radioButtonRequired,
+	select: z.string().min(1, "Поле обязательно"),
 });
 
 export type FeedbackSchemaType = z.infer<typeof feedbackSchema>;
@@ -55,4 +56,5 @@ export const feedbackDefaultValues: FeedbackSchemaType = {
 	"checkbox-group": [],
 	"checkbox-group2": ["Второй чекбокс", "Четвертый"],
 	radio: "",
+	select: "",
 };

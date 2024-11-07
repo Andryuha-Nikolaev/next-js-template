@@ -10,6 +10,7 @@ import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
 import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
 import RootRadioButton from "@/components/ui/form/radio-button/RootRadioButton";
+import RootSelect from "@/components/ui/form/select/RootSelect";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
@@ -54,7 +55,16 @@ const TestForm = () => {
 		<>
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-					<FormWrapper isLoading={isSubmitting} title="Обратная связь">
+					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
+						<RootSelect
+							label="Выбор"
+							placeholder="Выбор"
+							name="select"
+							options={[
+								{ value: "aaaaa", label: "aaaaa" },
+								{ value: "bbb", label: "bbb" },
+							]}
+						/>
 						<RootInput name="name" placeholder="Имя" label="Имя" />
 						<RootInput name="email" placeholder="Email" label="Email" />
 						<PhoneInput name="phone" label="Телефон" />
