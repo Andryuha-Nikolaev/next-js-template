@@ -8,7 +8,7 @@ import {
 } from "@/schemas/fileInput";
 
 export const formSchema = z.object({
-	name: fields.nameRequired,
+	name: fields.name,
 	phone: fields.phone,
 	email: fields.email,
 	password: fields.password,
@@ -39,12 +39,8 @@ export const formSchema = z.object({
 	"checkbox-group": fields.checkboxGroup,
 	"checkbox-group2": fields.checkboxGroup,
 	radio: fields.radioButtonRequired,
-	select: fields.selectRequired,
-	"multi-select": z
-		.array(z.object({ value: z.string(), label: z.string() }))
-		.or(z.null()),
-	// .or(z.array(z.object({ value: z.string(), label: z.string() })))
-	// .or(z.null()),
+	select: fields.select,
+	"multi-select": fields.multiRequired,
 });
 
 export type FormSchemaType = z.infer<typeof formSchema>;

@@ -16,7 +16,7 @@ const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 			errorMessage,
 			label,
 			isRequired,
-			isSearchable = true,
+			isSearchable = false,
 			isClearable = true,
 			...restProps
 		},

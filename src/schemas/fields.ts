@@ -56,6 +56,10 @@ const fields = {
 		.transform((value) => value?.value)
 		.or(z.null())
 		.refine((value) => !!value, "Поле обязательно"),
+	multiSelect: z.array(z.object({ value: z.string(), label: z.string() })),
+	multiRequired: z
+		.array(z.object({ value: z.string(), label: z.string() }))
+		.refine((value) => !!value.length, "Поле обязательно"),
 };
 
 export default fields;
