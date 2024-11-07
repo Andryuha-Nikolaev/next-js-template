@@ -43,10 +43,12 @@
 			transform var(--transition-duration),
 			color var(--transition-duration) !important;
 		color: var(--color-dropdown-indicator) !important;
+		cursor: pointer !important;
 	}
 
 	&__clear-indicator {
 		color: var(--color-dropdown-indicator) !important;
+		cursor: pointer !important;
 	}
 
 	&__value-container {
@@ -67,6 +69,7 @@
 		background-color: var(--bg-input) !important;
 		// border-top: none !important;
 		margin-top: convert-px2rem(-1) !important;
+		@include scrollbar;
 	}
 
 	&__menu-list {
