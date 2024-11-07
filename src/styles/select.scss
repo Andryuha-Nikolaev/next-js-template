@@ -101,3 +101,11 @@
 		}
 	}
 }
+
+.react-select-error {
+	.react-select {
+		&__control {
+			border-color: var(--color-alert) !important;
+		}
+	}
+}

@@ -2,6 +2,7 @@
 
 import { forwardRef } from "react";
 
+import clsx from "clsx";
 import Select from "react-select";
 
 import type { SelectProps } from "@/types/form/select";
@@ -28,16 +29,18 @@ const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 				label={label}
 				isRequired={isRequired}
 			>
-				<Select
-					noOptionsMessage={() => "Нет опций"}
-					className={s.container}
-					// @ts-ignore
-					ref={ref}
-					classNamePrefix="react-select"
-					isSearchable={isSearchable}
-					isClearable={isClearable}
-					{...restProps}
-				/>
+				<div className={clsx(s.wrap, errorMessage && "react-select-error")}>
+					<Select
+						noOptionsMessage={() => "Нет опций"}
+						className={s.container}
+						// @ts-ignore
+						ref={ref}
+						classNamePrefix="react-select"
+						isSearchable={isSearchable}
+						isClearable={isClearable}
+						{...restProps}
+					/>
+				</div>
 			</InputWrapper>
 		);
 	}
