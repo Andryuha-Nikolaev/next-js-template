@@ -1,6 +1,18 @@
 import { z } from "zod";
 
-import fields from "@/schemas/fields";
+import {
+	checkboxGroupSchema,
+	checkboxGroupSchemaRequired,
+	checkboxSchema,
+	emailSchema,
+	multiSelectSchemaRequired,
+	nameSchema,
+	passwordSchema,
+	phoneSchema,
+	radioButtonSchemaRequired,
+	selectSchema,
+	textSchema,
+} from "@/schemas/fields";
 import {
 	// checkFilesLength,
 	checkFilesSize,
@@ -8,11 +20,11 @@ import {
 } from "@/schemas/fileInput";
 
 export const formSchema = z.object({
-	name: fields.name,
-	phone: fields.phone,
-	email: fields.email,
-	password: fields.password,
-	text: fields.text,
+	name: nameSchema,
+	phone: phoneSchema,
+	email: emailSchema,
+	password: passwordSchema,
+	text: textSchema,
 	file: z
 		.any()
 		// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
@@ -35,12 +47,12 @@ export const formSchema = z.object({
 			(files: FileList) => checkFilesTypes(files),
 			"Допустимые форматы: jpeg, jpg, png"
 		),
-	policy: fields.checkbox,
-	"checkbox-group": fields.checkboxGroup,
-	"checkbox-group2": fields.checkboxGroup,
-	radio: fields.radioButtonRequired,
-	select: fields.select,
-	"multi-select": fields.multiRequired,
+	policy: checkboxSchema,
+	"checkbox-group": checkboxGroupSchema,
+	"checkbox-group2": checkboxGroupSchemaRequired,
+	radio: radioButtonSchemaRequired,
+	select: selectSchema,
+	"multi-select": multiSelectSchemaRequired,
 });
 
 export type FormSchemaType = z.infer<typeof formSchema>;

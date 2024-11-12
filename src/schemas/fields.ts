@@ -1,70 +1,93 @@
 import { z } from "zod";
 
-const fields = {
-	name: z.string().trim().max(80, "Максимальная длина - 80 символов"),
-	nameRequired: z
-		.string()
-		.trim()
-		.min(1, "Поле обязательно")
-		.max(80, "Максимальная длина - 80 символов"),
-	phone: z
-		.string()
-		.trim()
-		.min(18, "Введите номер полностью")
-		.or(z.literal(""))
-		.transform((str) => str.replace(/[ ()]/g, "")),
-	phoneRequired: z
-		.string()
-		.trim()
-		.min(1, "Поле обязательно")
-		.min(18, "Введите номер полностью")
-		.transform((str) => str.replace(/[ ()]/g, "")),
-	email: z.string().trim().email("Некорректный email").or(z.literal("")),
-	emailRequired: z
-		.string()
-		.trim()
-		.min(1, "Поле обязательно")
-		.email("Некорректный email"),
-	password: z
-		.string()
-		.trim()
-		.max(30, "Максимальная длина - 30 символов")
-		.min(8, "Минимальная длина - 8 символов")
-		.or(z.literal("")),
-
-	passwordRequired: z
-		.string()
-		.trim()
-		.min(1, "Поле обязательно")
-		.min(8, "Минимальная длина - 8 символов")
-		.max(30, "Максимальная длина - 30 символов"),
-	text: z.string().trim().max(1500, "Максимальная длина - 1500 символов"),
-	checkbox: z.boolean(),
-	checkboxRequired: z.boolean().refine((value) => value, "Поле обязательно"),
-	checkboxGroup: z.array(z.string()),
-	checkboxGroupRequired: z
-		.array(z.string())
-		.refine((value) => !!value.length, "Поле обязательно"),
-	radioButton: z.string(),
-	radioButtonRequired: z.string().min(1, "Поле обязательно"),
-	select: z
-		.object({ value: z.string(), label: z.string() })
-		.transform((value) => value?.value)
-		.or(z.null()),
-	selectRequired: z
-		.object({ value: z.string(), label: z.string() })
-		.transform((value) => value?.value)
-		.or(z.null())
-		.refine((value) => !!value, "Поле обязательно"),
-	multiSelect: z
-		.array(z.object({ value: z.string(), label: z.string() }))
-		.transform((value) => value.map((item) => item.value))
-		.or(z.array(z.object({ value: z.string(), label: z.string() }))),
-	multiRequired: z
-		.array(z.object({ value: z.string(), label: z.string() }))
-		.transform((value) => value.map((item) => item.value))
-		.or(z.array(z.object({ value: z.string(), label: z.string() })))
-		.refine((value) => !!value.length, "Поле обязательно"),
+const validationRegex = {
+	ONLY_CYRILLIC: /^[а-яА-ЯёЁ\s-]+$/,
 };
 
-export default fields;
+export const nameSchemaRequired = z
+	.string()
+	.trim()
+	.min(1, "Поле обязательно")
+	.min(2, "Минимальная длина - 2 символа")
+	.max(25, "Максимальная длина - 25 символов")
+	.refine(
+		(value) => validationRegex.ONLY_CYRILLIC.test(value),
+		"Введите имя на русском языке"
+	);
+
+export const nameSchema = nameSchemaRequired.or(z.literal(""));
+
+export const phoneSchemaRequired = z
+	.string()
+	.trim()
+	.min(1, "Поле обязательно")
+	.min(18, "Введите номер полностью")
+	.transform((str) => str.replace(/\D/g, ""));
+
+export const phoneSchema = phoneSchemaRequired.or(z.literal(""));
+
+export const emailSchemaRequired = z
+	.string()
+	.trim()
+	.min(1, "Поле обязательно")
+	.email("Некорректный email");
+
+export const emailSchema = emailSchemaRequired.or(z.literal(""));
+
+export const passwordSchemaRequired = z
+	.string()
+	.trim()
+	.min(1, "Поле обязательно")
+	.min(8, "Минимальная длина - 8 символов")
+	.max(30, "Максимальная длина - 30 символов");
+
+export const passwordSchema = passwordSchemaRequired.or(z.literal(""));
+
+export const textSchemaRequired = z
+	.string()
+	.trim()
+	.min(1, "Поле обязательно")
+	.max(1500, "Максимальная длина - 1500 символов");
+
+export const textSchema = textSchemaRequired.or(z.literal(""));
+
+export const checkboxSchema = z.boolean();
+
+export const checkboxSchemaRequired = checkboxSchema.refine(
+	(value) => value,
+	"Поле обязательно"
+);
+
+export const checkboxGroupSchema = z.array(z.string());
+
+export const checkboxGroupSchemaRequired = checkboxGroupSchema.refine(
+	(value) => !!value.length,
+	"Поле обязательно"
+);
+
+export const radioButtonSchema = z.string();
+
+export const radioButtonSchemaRequired = radioButtonSchema.min(
+	1,
+	"Поле обязательно"
+);
+
+export const selectSchema = z
+	.object({ value: z.string(), label: z.string() })
+	.transform((value) => value?.value)
+	.or(z.null());
+
+export const selectSchemaRequired = selectSchema.refine(
+	(value) => !!value,
+	"Поле обязательно"
+);
+
+export const multiSelectSchema = z
+	.array(z.object({ value: z.string(), label: z.string() }))
+	.transform((value) => value.map((item) => item.value))
+	.or(z.array(z.object({ value: z.string(), label: z.string() })));
+
+export const multiSelectSchemaRequired = multiSelectSchema.refine(
+	(value) => !!value.length,
+	"Поле обязательно"
+);
