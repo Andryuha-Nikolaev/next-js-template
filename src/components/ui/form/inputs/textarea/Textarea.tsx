@@ -12,7 +12,7 @@ import InputControls from "../components/controls/InputControls";
 import InputWrapper from "../components/wrapper/InputWrapper";
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-	({ onReset, errorMessage, label, value, ...restProps }, ref) => {
+	({ onReset, errorMessage, label, value, isRequired, ...restProps }, ref) => {
 		const isFilled = !!value;
 
 		const [isFocused, setIsFocused] = useState(false);
@@ -24,7 +24,11 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 		);
 
 		return (
-			<InputWrapper errorMessage={errorMessage} label={label}>
+			<InputWrapper
+				errorMessage={errorMessage}
+				label={label}
+				isRequired={isRequired}
+			>
 				<label
 					onFocus={() => {
 						setIsFocused(true);

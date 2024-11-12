@@ -16,6 +16,10 @@ const FileInputPreview = ({
 	withPreview,
 	onDeleteFile,
 }: FileInputPreviewProps) => {
+	if (!previews.length) {
+		return null;
+	}
+
 	return (
 		<div className={s.previewBlock}>
 			{previews.map((item, i) => (
