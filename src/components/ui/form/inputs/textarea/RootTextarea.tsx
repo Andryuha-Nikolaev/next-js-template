@@ -7,25 +7,20 @@ import type { RootTextareaProps } from "@/types/form/textarea";
 import Textarea from "./Textarea";
 
 const RootTextarea = ({ name, ...restProps }: RootTextareaProps) => {
-	const {
-		control,
-		formState: { errors },
-	} = useFormContext();
-
-	const errorMessage = errors[name]?.message?.toString();
+	const { control } = useFormContext();
 
 	return (
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => {
+			render={({ field, fieldState: { error } }) => {
 				const onReset = () => {
 					field.onChange("");
 				};
 
 				return (
 					<Textarea
-						errorMessage={errorMessage}
+						errorMessage={error?.message}
 						onReset={onReset}
 						{...field}
 						{...restProps}

@@ -11,24 +11,19 @@ const RootCheckboxGroup = ({
 	label,
 	chooseAllCheckbox,
 }: RootCheckboxGroupProps) => {
-	const {
-		control,
-		formState: { errors },
-	} = useFormContext();
-
-	const errorMessage = errors[name]?.message?.toString();
+	const { control } = useFormContext();
 
 	return (
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => (
+			render={({ field, fieldState: { error } }) => (
 				<CheckboxGroup
 					ref={field.ref}
 					items={items}
 					value={field.value as string[]}
 					onChange={(e) => field.onChange(e)}
-					errorMessage={errorMessage}
+					errorMessage={error?.message}
 					isRequired={isRequired}
 					label={label}
 					chooseAllCheckbox={chooseAllCheckbox}

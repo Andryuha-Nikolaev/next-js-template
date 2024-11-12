@@ -7,25 +7,20 @@ import type { RootInputProps } from "@/types/form/input";
 import Input from "./Input";
 
 const RootInput = ({ name, ...restProps }: RootInputProps) => {
-	const {
-		control,
-		formState: { errors },
-	} = useFormContext();
-
-	const errorMessage = errors[name]?.message?.toString();
+	const { control } = useFormContext();
 
 	return (
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => {
+			render={({ field, fieldState: { error } }) => {
 				const onReset = () => {
 					field.onChange("");
 				};
 
 				return (
 					<Input
-						errorMessage={errorMessage}
+						errorMessage={error?.message}
 						onReset={onReset}
 						{...field}
 						{...restProps}

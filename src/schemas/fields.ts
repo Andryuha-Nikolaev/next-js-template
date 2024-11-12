@@ -38,8 +38,7 @@ export const passwordSchemaRequired = z
 	.string()
 	.trim()
 	.min(1, "Поле обязательно")
-	.min(8, "Минимальная длина - 8 символов")
-	.max(30, "Максимальная длина - 30 символов");
+	.min(8, "Минимальная длина - 8 символов");
 
 export const passwordSchema = passwordSchemaRequired.or(z.literal(""));
 

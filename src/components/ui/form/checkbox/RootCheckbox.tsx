@@ -5,20 +5,14 @@ import type { RootCheckboxProps } from "@/types/form/checkbox";
 import Checkbox from "./Checkbox";
 
 const RootCheckbox = ({ name, ...restProps }: RootCheckboxProps) => {
-	const {
-		control,
-
-		formState: { errors },
-	} = useFormContext();
-
-	const errorMessage = errors[name]?.message?.toString();
+	const { control } = useFormContext();
 
 	return (
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => (
-				<Checkbox errorMessage={errorMessage} {...field} {...restProps} />
+			render={({ field, fieldState: { error } }) => (
+				<Checkbox errorMessage={error?.message} {...field} {...restProps} />
 			)}
 		/>
 	);

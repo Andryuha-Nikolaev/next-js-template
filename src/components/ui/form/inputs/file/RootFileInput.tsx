@@ -7,18 +7,13 @@ import type { RootFileInputProps } from "@/types/form/fileInput";
 import FileInput from "./FileInput";
 
 const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
-	const {
-		control,
-		formState: { errors },
-	} = useFormContext();
-
-	const errorMessage = errors[name]?.message?.toString();
+	const { control } = useFormContext();
 
 	return (
 		<Controller
 			name={name}
 			control={control}
-			render={({ field }) => {
+			render={({ field, fieldState: { error } }) => {
 				const onDeleteFile = (fileName: string) => {
 					const fileArray = Array.from(field.value as FileList);
 					const filteredArray = fileArray.filter(
@@ -36,7 +31,7 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 
 				return (
 					<FileInput
-						errorMessage={errorMessage}
+						errorMessage={error?.message}
 						{...restProps}
 						fileList={field.value as FileList}
 						onChangeFileList={(event) => {

@@ -57,6 +57,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
 					ref={ref}
+					className={s.label}
 				>
 					<span className={s.wrap}>
 						{mask ? (
