@@ -6,6 +6,7 @@ interface FileInputPreviewProps {
 	previews: {
 		image: string;
 		name: string;
+		size: number;
 	}[];
 	onDeleteFile: (name: string) => void;
 	withPreview?: boolean;
@@ -30,7 +31,12 @@ const FileInputPreview = ({
 					)}
 
 					<div className={s.previewName}>
-						<p className={s.fileName}>{item.name}</p>
+						<p className={s.fileName}>
+							{item.name}{" "}
+							{Math.round(item.size / 1024 / 1000) > 1
+								? Math.round(item.size / 1024 / 1000) + " Мб"
+								: Math.round(item.size / 1024) + " Кб"}
+						</p>
 						<CloseButton
 							className={s.reset}
 							onClick={() => onDeleteFile(item.name)}

@@ -38,6 +38,7 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 				currentFileList.map((file) => ({
 					image: URL.createObjectURL(file),
 					name: file.name,
+					size: file.size,
 				})),
 			[currentFileList]
 		);
