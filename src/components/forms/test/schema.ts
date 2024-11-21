@@ -53,6 +53,10 @@ export const formSchema = z.object({
 	radio: radioButtonSchemaRequired,
 	select: selectSchema,
 	"multi-select": multiSelectSchemaRequired,
+	date: z
+		.date()
+		.transform((value) => value.toISOString())
+		.or(z.undefined()),
 });
 
 export type FormSchemaType = z.infer<typeof formSchema>;
@@ -71,4 +75,5 @@ export const formDefaultValues: FormSchemaType = {
 	radio: "",
 	select: null,
 	"multi-select": [{ value: "ccc", label: "ccc" }],
+	date: undefined,
 };

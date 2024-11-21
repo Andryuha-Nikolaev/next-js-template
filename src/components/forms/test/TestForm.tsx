@@ -5,6 +5,7 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import RootCheckboxGroup from "@/components/ui/form/checkbox-group/RootCheckboxGroup";
 import RootCheckbox from "@/components/ui/form/checkbox/RootCheckbox";
+import RootDatePicker from "@/components/ui/form/date-picker/RootDatePicker";
 import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
 import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
 import RootInput from "@/components/ui/form/inputs/root/RootInput";
@@ -162,6 +163,7 @@ const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
+						<RootDatePicker label="Дата" mode="single" name="date" />
 					</FormWrapper>
 				</form>
 			</FormProvider>

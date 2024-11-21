@@ -11,6 +11,7 @@ import siteConstants from "@/constants/site";
 import viewportConstants from "@/constants/viewport";
 
 import "simplebar-react/dist/simplebar.min.css";
+import "react-day-picker/style.css";
 
 import Analytics from "@/components/global/analytics";
 import Footer from "@/components/global/footer/Footer";
