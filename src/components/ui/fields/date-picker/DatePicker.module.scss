@@ -11,3 +11,26 @@
 	@include lg {
 	}
 }
+
+.wrap {
+	position: relative;
+}
+
+.picker {
+	background-color: var(--background);
+	box-shadow: var(--box-shadow);
+
+	&.modal {
+		z-index: 1;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+
+		&.open {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

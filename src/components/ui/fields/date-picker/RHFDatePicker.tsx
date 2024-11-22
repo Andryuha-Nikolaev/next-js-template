@@ -17,7 +17,7 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerProps) => {
 						<DatePicker
 							errorMessage={error?.message}
 							{...props}
-							value={field.value as string}
+							value={field.value as Date}
 							onChange={field.onChange}
 							ref={field.ref}
 						/>

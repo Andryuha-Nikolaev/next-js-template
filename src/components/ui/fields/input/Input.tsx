@@ -21,6 +21,8 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			type = "text",
 			value,
 			onChange,
+			onLabelFocus = () => {},
+			onLabelBlur = () => {},
 			isRequired,
 			...restProps
 		},
@@ -58,8 +60,14 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 				isRequired={isRequired}
 			>
 				<label
-					onFocus={() => setIsFocused(true)}
-					onBlur={() => setIsFocused(false)}
+					onFocus={() => {
+						setIsFocused(true);
+						onLabelFocus();
+					}}
+					onBlur={() => {
+						setIsFocused(false);
+						onLabelBlur();
+					}}
 					ref={ref}
 					className={s.label}
 				>

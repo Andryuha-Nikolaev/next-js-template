@@ -20,6 +20,8 @@ export interface InputProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
 		InputWrapperProps {
 	onChange: (value: string) => void;
+	onLabelFocus?: () => void;
+	onLabelBlur?: () => void;
 	mask?: MaskedInputProps["mask"];
 	pipe?: MaskedInputProps["pipe"];
 }

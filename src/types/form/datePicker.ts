@@ -1,12 +1,19 @@
 import type { InputWrapperProps } from "./input";
 
-export type DatePickerProps = InputWrapperProps & {
-	mode: "single";
-	value: Date | "";
-	onChange: (date: Date | "") => void;
+export type DatePickerBaseProps = {
+	isModal?: boolean;
+	isCloseModalAfterSelect?: boolean;
 };
 
-export type RHFDatePickerProps = InputWrapperProps & {
-	mode: "single";
-	name: string;
-};
+export type DatePickerProps = InputWrapperProps &
+	DatePickerBaseProps & {
+		mode: "single";
+		value: Date | "";
+		onChange: (date: Date | "") => void;
+	};
+
+export type RHFDatePickerProps = InputWrapperProps &
+	DatePickerBaseProps & {
+		mode: "single";
+		name: string;
+	};

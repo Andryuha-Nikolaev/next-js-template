@@ -1,11 +1,14 @@
 "use client";
 
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
+import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
 import { DayPicker } from "react-day-picker";
+import { ru } from "react-day-picker/locale";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
+import useClickOutside from "@/hooks/other/useClickOutside";
 import type { DatePickerProps } from "@/types/form/datePicker";
 
 import s from "./DatePicker.module.scss";
@@ -14,8 +17,35 @@ import InputWrapper from "../components/wrapper/InputWrapper";
 import Input from "../input/Input";
 
 const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
-	({ errorMessage, label, isRequired, mode, value, onChange }, ref) => {
+	(
+		{
+			errorMessage,
+			label,
+			isRequired,
+			mode,
+			value,
+			onChange,
+			isModal = true,
+			isCloseModalAfterSelect = true,
+		},
+		ref
+	) => {
 		const [month, setMonth] = useState(value ? new Date(value) : new Date());
+
+		const [isOpen, setIsOpen] = useState(false);
+
+		const closeModal = () => {
+			setIsOpen(false);
+		};
+		console.log(isOpen);
+
+		const wrapRef = useRef<HTMLDivElement>(null);
+
+		useClickOutside({
+			elementRefs: [wrapRef],
+			isOpen: isOpen,
+			onClose: closeModal,
+		});
 
 		const [inputValue, setInputValue] = useState(
 			value ? format(value, "dd.MM.yyyy") : ""
@@ -42,6 +72,10 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 				onChange(date);
 				setMonth(date);
 				setInputValue(format(date, "dd.MM.yyyy"));
+			}
+
+			if (isCloseModalAfterSelect) {
+				closeModal();
 			}
 		};
 
@@ -74,27 +108,32 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 					label={label}
 					isRequired={isRequired}
 				>
-					{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-					<label ref={ref} className={s.label}>
+					<div ref={wrapRef} className={s.wrap}>
 						<Input
+							ref={ref}
 							value={inputValue}
 							placeholder="dd.мм.yyyy"
 							mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
 							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 							pipe={autoCorrectedDatePipe}
 							onChange={handleInputChange}
+							onLabelFocus={() => setIsOpen(true)}
+							// onLabelBlur={() => setIsOpen(false)}
 						/>
-					</label>
-					<div className={s.picker}>
-						{mode === "single" && (
-							<DayPicker
-								mode={mode}
-								month={month}
-								onMonthChange={setMonth}
-								selected={value ? new Date(value) : undefined}
-								onSelect={handleDayPickerSelect}
-							/>
-						)}
+						<div
+							className={clsx(s.picker, isModal && s.modal, isOpen && s.open)}
+						>
+							{mode === "single" && (
+								<DayPicker
+									locale={ru}
+									mode={mode}
+									month={month}
+									onMonthChange={setMonth}
+									selected={value ? new Date(value) : undefined}
+									onSelect={handleDayPickerSelect}
+								/>
+							)}
+						</div>
 					</div>
 				</InputWrapper>
 			</div>
