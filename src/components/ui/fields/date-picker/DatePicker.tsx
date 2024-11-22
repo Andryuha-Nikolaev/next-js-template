@@ -27,6 +27,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			onChange,
 			isModal = true,
 			isCloseModalAfterSelect = true,
+			withInput = true,
 		},
 		ref
 	) => {
@@ -109,17 +110,32 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 					isRequired={isRequired}
 				>
 					<div ref={wrapRef} className={s.wrap}>
-						<Input
-							ref={ref}
-							value={inputValue}
-							placeholder="dd.мм.yyyy"
-							mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
-							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-							pipe={autoCorrectedDatePipe}
-							onChange={handleInputChange}
-							onLabelFocus={() => setIsOpen(true)}
-							// onLabelBlur={() => setIsOpen(false)}
-						/>
+						<div className={clsx(s.inputWrap, !withInput && s.hidden)}>
+							{" "}
+							<Input
+								ref={ref}
+								value={inputValue}
+								placeholder="dd.мм.yyyy"
+								mask={[
+									/\d/,
+									/\d/,
+									".",
+									/\d/,
+									/\d/,
+									".",
+									/\d/,
+									/\d/,
+									/\d/,
+									/\d/,
+								]}
+								// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+								pipe={autoCorrectedDatePipe}
+								onChange={handleInputChange}
+								onLabelFocus={() => setIsOpen(true)}
+								// onLabelBlur={() => setIsOpen(false)}
+							/>
+						</div>
+
 						<div
 							className={clsx(s.picker, isModal && s.modal, isOpen && s.open)}
 						>

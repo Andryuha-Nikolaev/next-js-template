@@ -122,7 +122,13 @@ const TestForm = () => {
 							]}
 							label="Группа чекбоксов 2"
 						/>
-						<RHFDatePicker label="Дата" mode="single" name="date" />
+						<RHFDatePicker
+							label="Дата"
+							mode="single"
+							name="date"
+							isModal={false}
+							withInput={false}
+						/>
 						<RHFRadioButton
 							variant="horizontal"
 							label="RadioButton"

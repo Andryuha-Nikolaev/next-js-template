@@ -70,16 +70,7 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 				isRequired={isRequired}
 			>
 				<div className={s.wrap}>
-					<label
-						style={{
-							opacity: 0,
-							width: 0,
-							height: 0,
-							overflow: "hidden",
-							display: "block",
-						}}
-						ref={ref}
-					>
+					<label className={s.label} ref={ref}>
 						<input
 							ref={inputRef}
 							type="file"

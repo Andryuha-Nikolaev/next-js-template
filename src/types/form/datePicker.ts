@@ -3,6 +3,7 @@ import type { InputWrapperProps } from "./input";
 export type DatePickerBaseProps = {
 	isModal?: boolean;
 	isCloseModalAfterSelect?: boolean;
+	withInput?: boolean;
 };
 
 export type DatePickerProps = InputWrapperProps &
