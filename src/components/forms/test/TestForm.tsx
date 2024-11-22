@@ -122,6 +122,7 @@ const TestForm = () => {
 							]}
 							label="Группа чекбоксов 2"
 						/>
+						<RootDatePicker label="Дата" mode="single" name="date" />
 						<RootRadioButton
 							variant="horizontal"
 							label="RadioButton"
@@ -163,7 +164,6 @@ const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
-						<RootDatePicker label="Дата" mode="single" name="date" />
 					</FormWrapper>
 				</form>
 			</FormProvider>

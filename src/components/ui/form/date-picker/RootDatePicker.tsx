@@ -19,6 +19,7 @@ const RootDatePicker = ({ name, ...props }: RootDatePickerProps) => {
 							{...props}
 							value={field.value as Date}
 							onChange={field.onChange}
+							ref={field.ref}
 						/>
 					)}
 				/>
