@@ -18,7 +18,7 @@ export function valuesToFormData<T extends Record<string, any>>(
 ): FormData {
 	const formData = new FormData();
 
-	console.log(values);
+	console.log(JSON.stringify(values));
 
 	Object.entries(clearEmptyValues(values)).forEach(([key, value]) => {
 		if (value instanceof FileList) {
