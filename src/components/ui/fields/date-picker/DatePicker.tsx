@@ -10,8 +10,8 @@ import type { DatePickerProps } from "@/types/form/datePicker";
 
 import s from "./DatePicker.module.scss";
 
-import InputWrapper from "../inputs/components/wrapper/InputWrapper";
-import Input from "../inputs/root/Input";
+import InputWrapper from "../components/wrapper/InputWrapper";
+import Input from "../input/Input";
 
 const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 	({ errorMessage, label, isRequired, mode, value, onChange }, ref) => {

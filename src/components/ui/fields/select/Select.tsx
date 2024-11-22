@@ -9,7 +9,7 @@ import type { SelectProps } from "@/types/form/select";
 
 import s from "./Select.module.scss";
 
-import InputWrapper from "../inputs/components/wrapper/InputWrapper";
+import InputWrapper from "../components/wrapper/InputWrapper";
 
 const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 	(

@@ -13,7 +13,7 @@ export interface FileInputProps
 	onChangeFileList: (fileList: FileList | null | string) => void;
 }
 
-export interface RootFileInputProps
+export interface RHFFileInputProps
 	extends Omit<
 		FileInputProps,
 		"fileList" | "onChangeFileList" | "onDeleteFile"

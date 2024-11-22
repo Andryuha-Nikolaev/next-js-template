@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootDatePickerProps } from "@/types/form/datePicker";
+import type { RHFDatePickerProps } from "@/types/form/datePicker";
 
 import DatePicker from "./DatePicker";
 
-const RootDatePicker = ({ name, ...props }: RootDatePickerProps) => {
+const RHFDatePicker = ({ name, ...props }: RHFDatePickerProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -28,4 +28,4 @@ const RootDatePicker = ({ name, ...props }: RootDatePickerProps) => {
 	);
 };
 
-export default RootDatePicker;
+export default RHFDatePicker;

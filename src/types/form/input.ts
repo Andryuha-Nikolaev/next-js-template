@@ -24,6 +24,6 @@ export interface InputProps
 	pipe?: MaskedInputProps["pipe"];
 }
 
-export interface RootInputProps extends Omit<InputProps, "onChange"> {
+export interface RHFInputProps extends Omit<InputProps, "onChange"> {
 	name: string;
 }

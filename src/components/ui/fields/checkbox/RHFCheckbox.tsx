@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootCheckboxProps } from "@/types/form/checkbox";
+import type { RHFCheckboxProps } from "@/types/form/checkbox";
 
 import Checkbox from "./Checkbox";
 
-const RootCheckbox = ({ name, ...restProps }: RootCheckboxProps) => {
+const RHFCheckbox = ({ name, ...restProps }: RHFCheckboxProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -18,4 +18,4 @@ const RootCheckbox = ({ name, ...restProps }: RootCheckboxProps) => {
 	);
 };
 
-export default RootCheckbox;
+export default RHFCheckbox;

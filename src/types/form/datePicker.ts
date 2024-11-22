@@ -6,7 +6,7 @@ export type DatePickerProps = InputWrapperProps & {
 	onChange: (date: string) => void;
 };
 
-export type RootDatePickerProps = InputWrapperProps & {
+export type RHFDatePickerProps = InputWrapperProps & {
 	mode: "single";
 	name: string;
 };

@@ -2,11 +2,11 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootFileInputProps } from "@/types/form/fileInput";
+import type { RHFFileInputProps } from "@/types/form/fileInput";
 
 import FileInput from "./FileInput";
 
-const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
+const RHFFileInput = ({ name, ...restProps }: RHFFileInputProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -30,4 +30,4 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 	);
 };
 
-export default RootFileInput;
+export default RHFFileInput;

@@ -7,7 +7,7 @@ import type { RadioButtonProps } from "@/types/form/radioButton";
 
 import s from "./RadioButton.module.scss";
 
-import InputWrapper from "../inputs/components/wrapper/InputWrapper";
+import InputWrapper from "../components/wrapper/InputWrapper";
 
 const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 	(

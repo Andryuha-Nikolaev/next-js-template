@@ -9,6 +9,6 @@ export interface RadioButtonProps
 	variant?: "vertical" | "horizontal";
 }
 
-export interface RootRadioButtonProps extends RadioButtonProps {
+export interface RHFRadioButtonProps extends RadioButtonProps {
 	name: string;
 }

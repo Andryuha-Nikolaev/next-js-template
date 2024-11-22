@@ -1,16 +1,16 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootCheckboxGroupProps } from "@/types/form/checkbox";
+import type { RHFCheckboxGroupProps } from "@/types/form/checkbox";
 
 import CheckboxGroup from "./CheckboxGroup";
 
-const RootCheckboxGroup = ({
+const RHFCheckboxGroup = ({
 	items,
 	name,
 	isRequired,
 	label,
 	chooseAllCheckbox,
-}: RootCheckboxGroupProps) => {
+}: RHFCheckboxGroupProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -33,4 +33,4 @@ const RootCheckboxGroup = ({
 	);
 };
 
-export default RootCheckboxGroup;
+export default RHFCheckboxGroup;

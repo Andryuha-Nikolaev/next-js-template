@@ -8,6 +8,6 @@ export interface TextareaProps
 	onChange: (value: string) => void;
 }
 
-export interface RootTextareaProps extends Omit<TextareaProps, "onChange"> {
+export interface RHFTextareaProps extends Omit<TextareaProps, "onChange"> {
 	name: string;
 }

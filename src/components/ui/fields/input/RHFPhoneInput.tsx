@@ -1,10 +1,10 @@
-import type { RootInputProps } from "@/types/form/input";
+import type { RHFInputProps } from "@/types/form/input";
 
-import RootInput from "../root/RootInput";
+import RHFInput from "./RHFInput";
 
-const PhoneInput = ({ ...props }: RootInputProps) => {
+const RHFPhoneInput = ({ ...props }: RHFInputProps) => {
 	return (
-		<RootInput
+		<RHFInput
 			type="tel"
 			placeholder="+7 (___) ___ __ __"
 			mask={[
@@ -32,4 +32,4 @@ const PhoneInput = ({ ...props }: RootInputProps) => {
 	);
 };
 
-export default PhoneInput;
+export default RHFPhoneInput;

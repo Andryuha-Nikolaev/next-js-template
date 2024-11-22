@@ -2,11 +2,11 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RootInputProps } from "@/types/form/input";
+import type { RHFInputProps } from "@/types/form/input";
 
 import Input from "./Input";
 
-const RootInput = ({ name, ...restProps }: RootInputProps) => {
+const RHFInput = ({ name, ...restProps }: RHFInputProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -22,4 +22,4 @@ const RootInput = ({ name, ...restProps }: RootInputProps) => {
 	);
 };
 
-export default RootInput;
+export default RHFInput;

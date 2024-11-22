@@ -9,7 +9,7 @@ export interface CheckboxProps
 	isError?: boolean;
 }
 
-export interface RootCheckboxProps extends CheckboxProps {
+export interface RHFCheckboxProps extends CheckboxProps {
 	name: string;
 }
 
@@ -20,7 +20,7 @@ export interface CheckboxGroupProps extends InputWrapperProps {
 	chooseAllCheckbox?: string;
 }
 
-export interface RootCheckboxGroupProps
+export interface RHFCheckboxGroupProps
 	extends Omit<CheckboxGroupProps, "errorMessage" | "onChange" | "value"> {
 	name: string;
 }

@@ -6,7 +6,7 @@ import type { CheckboxProps } from "@/types/form/checkbox";
 
 import s from "./Checkbox.module.scss";
 
-import InputWrapper from "../inputs/components/wrapper/InputWrapper";
+import InputWrapper from "../components/wrapper/InputWrapper";
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(

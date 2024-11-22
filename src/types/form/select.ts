@@ -8,6 +8,6 @@ export interface RootSelectItem {
 }
 export interface SelectProps extends Props, InputWrapperProps {}
 
-export interface RootSelectProps extends SelectProps {
+export interface RHFSelectProps extends SelectProps {
 	name: string;
 }

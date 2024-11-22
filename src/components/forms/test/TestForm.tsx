@@ -3,15 +3,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import RootCheckboxGroup from "@/components/ui/form/checkbox-group/RootCheckboxGroup";
-import RootCheckbox from "@/components/ui/form/checkbox/RootCheckbox";
-import RootDatePicker from "@/components/ui/form/date-picker/RootDatePicker";
-import RootFileInput from "@/components/ui/form/inputs/file/RootFileInput";
-import PhoneInput from "@/components/ui/form/inputs/phone/PhoneInput";
-import RootInput from "@/components/ui/form/inputs/root/RootInput";
-import RootTextarea from "@/components/ui/form/inputs/textarea/RootTextarea";
-import RootRadioButton from "@/components/ui/form/radio-button/RootRadioButton";
-import RootSelect from "@/components/ui/form/select/RootSelect";
+import RHFCheckboxGroup from "@/components/ui/fields/checkbox-group/RHFCheckboxGroup";
+import RHFCheckbox from "@/components/ui/fields/checkbox/RHFCheckbox";
+import RHFDatePicker from "@/components/ui/fields/date-picker/RHFDatePicker";
+import RHFFileInput from "@/components/ui/fields/file/RHFFileInput";
+import RHFInput from "@/components/ui/fields/input/RHFInput";
+import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
+import RHFRadioButton from "@/components/ui/fields/radio-button/RHFRadioButton";
+import RHFSelect from "@/components/ui/fields/select/RHFSelect";
+import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
@@ -53,24 +53,24 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
-						<RootInput name="name" placeholder="Имя" label="Имя" />
-						<RootInput name="email" placeholder="Email" label="Email" />
-						<PhoneInput name="phone" label="Телефон" />
-						<RootInput
+						<RHFInput name="name" placeholder="Имя" label="Имя" />
+						<RHFInput name="email" placeholder="Email" label="Email" />
+						<RHFPhoneInput name="phone" label="Телефон" />
+						<RHFInput
 							name="password"
 							placeholder="Пароль"
 							label="Пароль"
 							type="password"
 						/>
-						<RootTextarea name="text" placeholder="Текст" label="Текст" />
-						<RootFileInput
+						<RHFTextarea name="text" placeholder="Текст" label="Текст" />
+						<RHFFileInput
 							label="Файл с превью"
 							name="file"
 							fileSize="Максимальный размер файла - 5MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
 						/>
-						<RootFileInput
+						<RHFFileInput
 							name="files"
 							multiple
 							label="Несколько файлов"
@@ -78,7 +78,7 @@ const TestForm = () => {
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
-						<RootCheckbox name="policy">
+						<RHFCheckbox name="policy">
 							<small>
 								Я&nbsp;ознакомлен(а) с&nbsp;
 								<a
@@ -90,8 +90,8 @@ const TestForm = () => {
 									Политикой конфиденциальности
 								</a>
 							</small>
-						</RootCheckbox>
-						<RootCheckboxGroup
+						</RHFCheckbox>
+						<RHFCheckboxGroup
 							name="checkbox-group"
 							items={[
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
@@ -104,7 +104,7 @@ const TestForm = () => {
 							label="Группа чекбоксов"
 							chooseAllCheckbox="Выбрать всё"
 						/>
-						<RootCheckboxGroup
+						<RHFCheckboxGroup
 							name="checkbox-group2"
 							items={[
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
@@ -122,8 +122,8 @@ const TestForm = () => {
 							]}
 							label="Группа чекбоксов 2"
 						/>
-						<RootDatePicker label="Дата" mode="single" name="date" />
-						<RootRadioButton
+						<RHFDatePicker label="Дата" mode="single" name="date" />
+						<RHFRadioButton
 							variant="horizontal"
 							label="RadioButton"
 							name="radio"
@@ -138,7 +138,7 @@ const TestForm = () => {
 								},
 							]}
 						/>
-						<RootSelect
+						<RHFSelect
 							label="Выбор"
 							placeholder="Выбор"
 							name="select"
@@ -147,7 +147,7 @@ const TestForm = () => {
 								{ value: "bbb", label: "bbb" },
 							]}
 						/>
-						<RootSelect
+						<RHFSelect
 							label="Мульти выбор"
 							placeholder="Мульти выбор"
 							name="multi-select"

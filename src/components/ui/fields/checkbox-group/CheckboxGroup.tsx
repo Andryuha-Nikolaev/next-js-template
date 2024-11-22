@@ -7,7 +7,7 @@ import type { CheckboxGroupProps } from "@/types/form/checkbox";
 import s from "./CheckboxGroup.module.scss";
 
 import Checkbox from "../checkbox/Checkbox";
-import InputWrapper from "../inputs/components/wrapper/InputWrapper";
+import InputWrapper from "../components/wrapper/InputWrapper";
 
 const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 	(
