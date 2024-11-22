@@ -4,18 +4,14 @@ import type { RootDatePickerProps } from "@/types/form/datePicker";
 
 import DatePicker from "./DatePicker";
 
-const RootDatePicker = ({
-	name,
-
-	...props
-}: RootDatePickerProps) => {
+const RootDatePicker = ({ name, ...props }: RootDatePickerProps) => {
 	const { control } = useFormContext();
 
 	return (
 		<>
 			{props.mode === "single" && (
 				<Controller
-					name={name ?? "date"}
+					name={name}
 					control={control}
 					render={({ field, fieldState: { error } }) => (
 						<DatePicker

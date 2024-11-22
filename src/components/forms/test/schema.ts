@@ -9,8 +9,9 @@ import {
 	nameSchema,
 	passwordSchema,
 	phoneSchema,
-	radioButtonSchemaRequired,
+	radioButtonSchema,
 	selectSchema,
+	singleDateSchemaRequired,
 	textSchema,
 } from "@/schemas/fields";
 import {
@@ -50,13 +51,10 @@ export const formSchema = z.object({
 	policy: checkboxSchema,
 	"checkbox-group": checkboxGroupSchema,
 	"checkbox-group2": checkboxGroupSchemaRequired,
-	radio: radioButtonSchemaRequired,
+	radio: radioButtonSchema,
 	select: selectSchema,
 	"multi-select": multiSelectSchemaRequired,
-	date: z
-		.date()
-		.transform((value) => value.toISOString())
-		.or(z.undefined()),
+	date: singleDateSchemaRequired,
 });
 
 export type FormSchemaType = z.infer<typeof formSchema>;

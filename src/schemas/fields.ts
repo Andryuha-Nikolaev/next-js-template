@@ -90,3 +90,13 @@ export const multiSelectSchemaRequired = multiSelectSchema.refine(
 	(value) => !!value.length,
 	"Поле обязательно"
 );
+
+export const singleDateSchema = z
+	.date()
+	.transform((value) => value.toISOString())
+	.or(z.undefined());
+
+export const singleDateSchemaRequired = singleDateSchema.refine(
+	(value) => value?.length,
+	"Поле обязательно"
+);
