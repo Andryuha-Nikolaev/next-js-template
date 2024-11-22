@@ -21,6 +21,7 @@ export interface InputProps
 		InputWrapperProps {
 	onReset?: () => void;
 	mask?: MaskedInputProps["mask"];
+	pipe?: MaskedInputProps["pipe"];
 }
 
 export interface RootInputProps extends Omit<InputProps, "onReset"> {

@@ -1,11 +1,12 @@
-import type { DayPickerProps } from "react-day-picker";
-
 import type { InputWrapperProps } from "./input";
 
-export type DatePickerProps = InputWrapperProps & DayPickerProps;
+export type DatePickerProps = InputWrapperProps & {
+	mode: "single";
+	value: Date | undefined;
+	onChange: (date: Date | undefined) => void;
+};
 
-export type RootDatePickerProps = DatePickerProps & {
-	nameFrom?: string;
-	nameTo?: string;
-	name?: string;
+export type RootDatePickerProps = InputWrapperProps & {
+	mode: "single";
+	name: string;
 };

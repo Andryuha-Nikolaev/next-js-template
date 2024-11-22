@@ -6,8 +6,7 @@ import DatePicker from "./DatePicker";
 
 const RootDatePicker = ({
 	name,
-	nameFrom,
-	nameTo,
+
 	...props
 }: RootDatePickerProps) => {
 	const { control } = useFormContext();
@@ -21,9 +20,9 @@ const RootDatePicker = ({
 					render={({ field, fieldState: { error } }) => (
 						<DatePicker
 							errorMessage={error?.message}
-							selected={field.value as Date}
-							onSelect={field.onChange}
 							{...props}
+							value={field.value as Date}
+							onChange={field.onChange}
 						/>
 					)}
 				/>
