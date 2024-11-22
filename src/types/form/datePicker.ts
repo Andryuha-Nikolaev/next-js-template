@@ -3,7 +3,7 @@ import type { InputWrapperProps } from "./input";
 export type DatePickerProps = InputWrapperProps & {
 	mode: "single";
 	value: Date | undefined;
-	onChange: (date: Date | undefined) => void;
+	onChange: (date: string) => void;
 };
 
 export type RootDatePickerProps = InputWrapperProps & {
