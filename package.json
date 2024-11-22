@@ -28,6 +28,7 @@
     "react-select": "^5.8.2",
     "react-text-mask": "^5.5.0",
     "simplebar-react": "^3.2.6",
+    "text-mask-addons": "^3.8.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

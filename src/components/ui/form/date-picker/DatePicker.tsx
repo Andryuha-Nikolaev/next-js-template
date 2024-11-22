@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
 import { DayPicker } from "react-day-picker";
+import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
 import type { DatePickerProps } from "@/types/form/datePicker";
 
@@ -22,10 +23,6 @@ const DatePicker = ({
 }: DatePickerProps) => {
 	const [month, setMonth] = useState(new Date());
 
-	// Hold the selected date in state
-	// const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-
-	// Hold the input value in state
 	const [inputValue, setInputValue] = useState("");
 
 	const handleDayPickerSelect = (date: Date | undefined) => {
@@ -42,20 +39,7 @@ const DatePicker = ({
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 
-		// Валидация дня и месяца
-		const [day, month] = value.split(".");
-		console.log(day && (parseInt(day, 10) < 1 || parseInt(day, 10) > 31));
-
-		if (
-			(day && (parseInt(day, 10) < 1 || parseInt(day, 10) > 31)) ||
-			(month && (parseInt(month, 10) < 1 || parseInt(month, 10) > 12))
-		) {
-			return;
-		}
-
-		console.log("aaaaaaaaa");
-
-		setInputValue(value); // keep the input value in sync
+		setInputValue(value);
 
 		const parsedDate = parse(e.target.value, "dd.MM.yyyy", new Date());
 
@@ -66,6 +50,10 @@ const DatePicker = ({
 			onChange(undefined);
 		}
 	};
+
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+	const autoCorrectedDatePipe = createAutoCorrectedDatePipe("dd.mm.yyyy HH:MM");
+
 	return (
 		<div className={s.block}>
 			<InputWrapper
@@ -77,6 +65,8 @@ const DatePicker = ({
 					value={inputValue}
 					placeholder="dd.MM.yyyy"
 					mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
+					// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+					pipe={autoCorrectedDatePipe}
 					onChange={handleInputChange}
 				/>
 				<div className={s.picker}>
