@@ -10,8 +10,7 @@ export interface FileInputProps
 	buttonText?: string;
 	fileList: FileList;
 	withPreview?: boolean;
-	onChangeFileList: (fileList: FileList | null) => void;
-	onDeleteFile: (name: string) => void;
+	onChangeFileList: (fileList: FileList | null | string) => void;
 }
 
 export interface RootFileInputProps

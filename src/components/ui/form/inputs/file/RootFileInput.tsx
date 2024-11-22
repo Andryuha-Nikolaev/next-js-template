@@ -14,21 +14,6 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 			name={name}
 			control={control}
 			render={({ field, fieldState: { error } }) => {
-				const onDeleteFile = (fileName: string) => {
-					const fileArray = Array.from(field.value as FileList);
-					const filteredArray = fileArray.filter(
-						(file) => file.name !== fileName
-					);
-					const dataTransfer = new DataTransfer();
-					filteredArray.forEach((file) => dataTransfer.items.add(file));
-
-					if (filteredArray.length < 1) {
-						field.onChange("");
-					} else {
-						field.onChange(dataTransfer.files);
-					}
-				};
-
 				return (
 					<FileInput
 						errorMessage={error?.message}
@@ -37,7 +22,6 @@ const RootFileInput = ({ name, ...restProps }: RootFileInputProps) => {
 						onChangeFileList={(event) => {
 							field.onChange(event);
 						}}
-						onDeleteFile={(fileName) => onDeleteFile(fileName)}
 						ref={field.ref}
 					/>
 				);

@@ -15,7 +15,6 @@ import InputWrapper from "../components/wrapper/InputWrapper";
 const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 	(
 		{
-			onDeleteFile,
 			errorMessage,
 			label,
 			buttonText = "Прикрепить файл",
@@ -50,6 +49,19 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 				inputRef.current.files = dataTransfer.files;
 			}
 		}, [currentFileList]);
+
+		const onDeleteFile = (fileName: string) => {
+			const fileArray = Array.from(fileList);
+			const filteredArray = fileArray.filter((file) => file.name !== fileName);
+			const dataTransfer = new DataTransfer();
+			filteredArray.forEach((file) => dataTransfer.items.add(file));
+
+			if (filteredArray.length < 1) {
+				onChangeFileList("");
+			} else {
+				onChangeFileList(dataTransfer.files);
+			}
+		};
 
 		return (
 			<InputWrapper
