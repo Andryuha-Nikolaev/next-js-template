@@ -22,10 +22,15 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 		);
 
 		useEffect(() => {
-			const formattedValue = format(value, "dd.MM.yyyy");
-			if (formattedValue !== inputValue) {
-				setInputValue(value ? formattedValue : "");
+			if (value) {
+				const formattedValue = format(value, "dd.MM.yyyy");
+				if (formattedValue !== inputValue) {
+					setInputValue(formattedValue);
+				}
+			} else {
+				setInputValue("");
 			}
+
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [value]);
 
