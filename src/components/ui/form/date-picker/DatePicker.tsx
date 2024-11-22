@@ -86,7 +86,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 								mode={mode}
 								month={month}
 								onMonthChange={setMonth}
-								selected={value ?? undefined}
+								selected={value ? new Date(value) : undefined}
 								onSelect={handleDayPickerSelect}
 							/>
 						)}
