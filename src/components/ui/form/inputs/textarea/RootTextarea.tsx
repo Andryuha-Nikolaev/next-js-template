@@ -14,17 +14,8 @@ const RootTextarea = ({ name, ...restProps }: RootTextareaProps) => {
 			name={name}
 			control={control}
 			render={({ field, fieldState: { error } }) => {
-				const onReset = () => {
-					field.onChange("");
-				};
-
 				return (
-					<Textarea
-						errorMessage={error?.message}
-						onReset={onReset}
-						{...field}
-						{...restProps}
-					/>
+					<Textarea errorMessage={error?.message} {...field} {...restProps} />
 				);
 			}}
 		/>

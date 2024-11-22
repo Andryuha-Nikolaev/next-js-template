@@ -3,11 +3,11 @@ import type { TextareaHTMLAttributes } from "react";
 import type { InputWrapperProps } from "./input";
 
 export interface TextareaProps
-	extends TextareaHTMLAttributes<HTMLTextAreaElement>,
+	extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange">,
 		InputWrapperProps {
-	onReset?: () => void;
+	onChange: (value: string) => void;
 }
 
-export interface RootTextareaProps extends Omit<TextareaProps, "onReset"> {
+export interface RootTextareaProps extends Omit<TextareaProps, "onChange"> {
 	name: string;
 }
