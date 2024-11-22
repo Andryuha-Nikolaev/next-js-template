@@ -14,17 +14,8 @@ const RootInput = ({ name, ...restProps }: RootInputProps) => {
 			name={name}
 			control={control}
 			render={({ field, fieldState: { error } }) => {
-				const onReset = () => {
-					field.onChange("");
-				};
-
 				return (
-					<Input
-						errorMessage={error?.message}
-						onReset={onReset}
-						{...field}
-						{...restProps}
-					/>
+					<Input errorMessage={error?.message} {...field} {...restProps} />
 				);
 			}}
 		/>

@@ -32,13 +32,11 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			}
 		};
 
-		const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-			const value = e.target.value;
-
+		const handleInputChange = (value: string) => {
 			setInputValue(value);
 
 			if (value.length === 10) {
-				const parsedDate = parse(e.target.value, "dd.MM.yyyy", new Date());
+				const parsedDate = parse(value, "dd.MM.yyyy", new Date());
 
 				if (isValid(parsedDate)) {
 					onChange(parsedDate.toISOString());
@@ -56,11 +54,6 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 			createAutoCorrectedDatePipe("dd.mm.yyyy HH:MM");
 
-		const onReset = () => {
-			setInputValue("");
-			onChange("");
-		};
-
 		return (
 			<div className={s.block}>
 				<InputWrapper
@@ -77,7 +70,6 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 							pipe={autoCorrectedDatePipe}
 							onChange={handleInputChange}
-							onReset={onReset}
 						/>
 					</label>
 					<div className={s.picker}>

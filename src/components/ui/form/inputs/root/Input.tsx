@@ -16,11 +16,11 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 	(
 		{
 			mask,
-			onReset,
 			errorMessage,
 			label,
 			type = "text",
 			value,
+			onChange,
 			isRequired,
 			...restProps
 		},
@@ -47,6 +47,10 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			s[type]
 		);
 
+		const onReset = () => {
+			onChange("");
+		};
+
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
@@ -67,6 +71,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 								className={inputClassNames}
 								type={currentType}
 								value={value}
+								onChange={(e) => onChange(e.target.value)}
 								autoComplete="new-password"
 								{...restProps}
 							/>
@@ -75,6 +80,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 								className={inputClassNames}
 								type={currentType}
 								value={value}
+								onChange={(e) => onChange(e.target.value)}
 								autoComplete="new-password"
 								{...restProps}
 							/>

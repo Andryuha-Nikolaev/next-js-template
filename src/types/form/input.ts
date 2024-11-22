@@ -17,13 +17,14 @@ export interface InputControlsProps {
 }
 
 export interface InputProps
-	extends InputHTMLAttributes<HTMLInputElement>,
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
 		InputWrapperProps {
-	onReset?: () => void;
+	onChange: (value: string) => void;
 	mask?: MaskedInputProps["mask"];
 	pipe?: MaskedInputProps["pipe"];
 }
 
-export interface RootInputProps extends Omit<InputProps, "onReset"> {
+export interface RootInputProps
+	extends Omit<InputProps, "onReset" | "onChange"> {
 	name: string;
 }
