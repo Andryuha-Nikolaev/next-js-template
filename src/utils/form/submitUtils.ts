@@ -18,6 +18,8 @@ export function valuesToFormData<T extends Record<string, any>>(
 ): FormData {
 	const formData = new FormData();
 
+	console.log(values);
+
 	Object.entries(clearEmptyValues(values)).forEach(([key, value]) => {
 		if (value instanceof FileList) {
 			for (let i = 0; i < value.length; i++) {
@@ -29,6 +31,8 @@ export function valuesToFormData<T extends Record<string, any>>(
 			formData.append(key, "true");
 		} else if (Array.isArray(value)) {
 			formData.append(key, JSON.stringify(value));
+		} else if (value instanceof Date) {
+			formData.append(key, value.toISOString());
 		}
 	});
 

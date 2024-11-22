@@ -43,6 +43,7 @@ const TestForm = () => {
 				showSuccessModal();
 			})
 			.catch((e) => {
+				reset();
 				console.error(e);
 				showErrorModal();
 			});

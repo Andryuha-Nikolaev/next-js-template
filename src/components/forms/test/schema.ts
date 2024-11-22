@@ -73,5 +73,5 @@ export const formDefaultValues: FormSchemaType = {
 	radio: "",
 	select: null,
 	"multi-select": [{ value: "ccc", label: "ccc" }],
-	date: "1994-05-11T20:00:00.000Z",
+	date: new Date(),
 };

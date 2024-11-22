@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
 import { DayPicker } from "react-day-picker";
@@ -21,12 +21,20 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			value ? format(value, "dd.MM.yyyy") : ""
 		);
 
+		useEffect(() => {
+			const formattedValue = format(value, "dd.MM.yyyy");
+			if (formattedValue !== inputValue) {
+				setInputValue(value ? formattedValue : "");
+			}
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+		}, [value]);
+
 		const handleDayPickerSelect = (date: Date | undefined) => {
 			if (!date) {
 				setInputValue("");
 				onChange("");
 			} else {
-				onChange(date.toISOString());
+				onChange(date);
 				setMonth(date);
 				setInputValue(format(date, "dd.MM.yyyy"));
 			}
@@ -39,7 +47,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 				const parsedDate = parse(value, "dd.MM.yyyy", new Date());
 
 				if (isValid(parsedDate)) {
-					onChange(parsedDate.toISOString());
+					onChange(parsedDate);
 					setMonth(parsedDate);
 				} else {
 					onChange("");
