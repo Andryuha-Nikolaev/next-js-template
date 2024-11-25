@@ -8,11 +8,13 @@ import { DayPicker } from "react-day-picker";
 import { ru } from "react-day-picker/locale";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
+import CalendarIcon from "@/components/icons/calendar/CalendarIcon";
 import useClickOutside from "@/hooks/other/useClickOutside";
 import type { DatePickerProps } from "@/types/form/datePicker";
 
 import s from "./DatePicker.module.scss";
 
+import RootButton from "../../buttons/root/RootButton";
 import InputWrapper from "../components/wrapper/InputWrapper";
 import Input from "../input/Input";
 
@@ -39,7 +41,6 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 		const closeModal = () => {
 			setIsOpen(false);
 		};
-		console.log(isOpen);
 
 		const wrapRef = useRef<HTMLDivElement>(null);
 
@@ -110,7 +111,18 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 					label={label}
 					isRequired={isRequired}
 				>
-					<div ref={wrapRef} className={s.wrap}>
+					<div ref={wrapRef} className={clsx(s.wrap, withInput && s.withInput)}>
+						{!withInput && isModal && (
+							<div className={s.buttons}>
+								<RootButton
+									onClick={() => setIsOpen(!isOpen)}
+									type="button"
+									size="sm"
+								>
+									<CalendarIcon />
+								</RootButton>
+							</div>
+						)}
 						<div className={clsx(s.inputWrap, !withInput && s.hidden)}>
 							<Input
 								ref={ref}
@@ -132,6 +144,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 								pipe={autoCorrectedDatePipe}
 								onChange={handleInputChange}
 								onLabelFocus={() => setIsOpen(true)}
+								onOpenCalendar={() => setIsOpen(true)}
 								// onLabelBlur={() => setIsOpen(false)}
 							/>
 						</div>

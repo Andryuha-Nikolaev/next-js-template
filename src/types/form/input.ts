@@ -13,6 +13,7 @@ export interface InputControlsProps {
 	currentType?: HTMLInputTypeAttribute;
 	togglePassword?: () => void;
 	onReset?: () => void;
+	onOpenCalendar?: () => void;
 	isFilled: boolean;
 }
 
@@ -22,6 +23,7 @@ export interface InputProps
 	onChange: (value: string) => void;
 	onLabelFocus?: () => void;
 	onLabelBlur?: () => void;
+	onOpenCalendar?: () => void;
 	mask?: MaskedInputProps["mask"];
 	pipe?: MaskedInputProps["pipe"];
 }

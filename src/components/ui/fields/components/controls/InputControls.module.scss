@@ -15,6 +15,16 @@
 }
 
 .reset {
-	width: convert-px2rem(16);
-	height: convert-px2rem(16);
+	width: convert-px2rem(16) !important;
+	height: convert-px2rem(16) !important;
+}
+
+.calendar {
+	width: convert-px2rem(16) !important;
+	height: convert-px2rem(16) !important;
+	@include flex-center;
+	@include hover-opacity;
+
+	svg {
+	}
 }

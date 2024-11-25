@@ -14,6 +14,11 @@
 
 .wrap {
 	position: relative;
+	width: fit-content;
+
+	&.withInput {
+		width: 100%;
+	}
 }
 
 .inputWrap {
@@ -53,4 +58,9 @@
 			bottom: 100%;
 		}
 	}
+}
+
+.buttons {
+	display: flex;
+	gap: convert-px2rem(10);
 }

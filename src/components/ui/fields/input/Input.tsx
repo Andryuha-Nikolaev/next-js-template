@@ -23,6 +23,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			onChange,
 			onLabelFocus = () => {},
 			onLabelBlur = () => {},
+			onOpenCalendar,
 			isRequired,
 			...restProps
 		},
@@ -100,6 +101,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 							isFilled={isFilled}
 							onReset={onReset}
 							togglePassword={togglePassword}
+							onOpenCalendar={onOpenCalendar}
 						/>
 					</span>
 				</label>
