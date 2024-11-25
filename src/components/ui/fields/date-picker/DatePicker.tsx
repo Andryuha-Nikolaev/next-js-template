@@ -24,7 +24,6 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			errorMessage,
 			label,
 			isRequired,
-			mode,
 			value,
 			onChange,
 			isModal = true,
@@ -157,16 +156,14 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 								s[modalPosition]
 							)}
 						>
-							{mode === "single" && (
-								<DayPicker
-									locale={ru}
-									mode={mode}
-									month={month}
-									onMonthChange={setMonth}
-									selected={value ? new Date(value) : undefined}
-									onSelect={handleDayPickerSelect}
-								/>
-							)}
+							<DayPicker
+								locale={ru}
+								mode="single"
+								month={month}
+								onMonthChange={setMonth}
+								selected={value ? new Date(value) : undefined}
+								onSelect={handleDayPickerSelect}
+							/>
 						</div>
 					</div>
 				</InputWrapper>
