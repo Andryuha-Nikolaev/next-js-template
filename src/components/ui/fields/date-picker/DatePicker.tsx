@@ -60,6 +60,18 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 				: ""
 		);
 
+		const [inputFromValue, setInputFromValue] = useState(
+			config.mode === "range" && config.rangeValue && config.rangeValue.from
+				? format(config.rangeValue.from, "dd.MM.yyyy")
+				: ""
+		);
+
+		const [inputToValue, setInputToValue] = useState(
+			config.mode === "range" && config.rangeValue && config.rangeValue.to
+				? format(config.rangeValue.to, "dd.MM.yyyy")
+				: ""
+		);
+
 		useEffect(() => {
 			if (config.mode === "single") {
 				if (config.singleValue) {
@@ -82,7 +94,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 					config.singleOnChange("");
 				} else {
 					config.singleOnChange(date);
-					setMonth(date);
+					// setMonth(date);
 					setInputValue(format(date, "dd.MM.yyyy"));
 				}
 			}
@@ -101,10 +113,11 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 					config.rangeOnChange("");
 				} else {
 					config.rangeOnChange(value);
-					if (value.from) {
-						setMonth(value.from);
-					}
-
+					// if (value.from) {
+					// 	setMonth(value.from);
+					// }
+					setInputFromValue(value.from ? format(value.from, "dd.MM.yyyy") : "");
+					setInputToValue(value.to ? format(value.to, "dd.MM.yyyy") : "");
 					// setInputValue(format(date, "dd.MM.yyyy"));
 				}
 			}
@@ -114,21 +127,99 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			}
 		};
 
-		const handleInputChange = (value: string) => {
-			setInputValue(value);
+		const handleInputChange = (value: string, range?: "from" | "to") => {
+			// if (config.mode === "single") {
 
-			if (config.mode === "single") {
-				if (value.length === 10) {
-					const parsedDate = parse(value, "dd.MM.yyyy", new Date());
+			switch (range) {
+				case "from":
+					setInputFromValue(value);
+					break;
+				case "to":
+					setInputToValue(value);
+					break;
+				default:
+					setInputValue(value);
+					break;
+			}
 
-					if (isValid(parsedDate)) {
+			if (value.length === 10) {
+				const parsedDate = parse(value, "dd.MM.yyyy", new Date());
+
+				if (isValid(parsedDate)) {
+					if (config.mode === "single") {
 						config.singleOnChange(parsedDate);
 						setMonth(parsedDate);
-					} else {
+					}
+
+					if (config.mode === "range" && range === "from") {
+						if (
+							config.rangeValue &&
+							config.rangeValue.to &&
+							parsedDate.getTime() > config.rangeValue.to.getTime()
+						) {
+							config.rangeOnChange({
+								from: config.rangeValue ? config.rangeValue.to : undefined,
+								to: parsedDate,
+							});
+							setInputFromValue(format(config.rangeValue.to, "dd.MM.yyyy"));
+							setInputToValue(value);
+						} else {
+							config.rangeOnChange({
+								from: parsedDate,
+								to: config.rangeValue ? config.rangeValue.to : undefined,
+							});
+						}
+
+						setMonth(parsedDate);
+					}
+
+					if (config.mode === "range" && range === "to") {
+						if (
+							config.rangeValue &&
+							config.rangeValue.from &&
+							parsedDate.getTime() < config.rangeValue.from.getTime()
+						) {
+							console.log("aaaaaa");
+
+							config.rangeOnChange({
+								from: parsedDate,
+								to: config.rangeValue ? config.rangeValue.from : undefined,
+							});
+							setInputFromValue(value);
+							setInputToValue(format(config.rangeValue.from, "dd.MM.yyyy"));
+						} else {
+							config.rangeOnChange({
+								from: config.rangeValue ? config.rangeValue.from : undefined,
+								to: parsedDate,
+							});
+						}
+
+						setMonth(parsedDate);
+					}
+				} else {
+					if (config.mode === "single") {
 						config.singleOnChange("");
 					}
-				} else if (!value.length) {
+
+					if (config.mode === "range" && range === "from") {
+						config.rangeOnChange("");
+					}
+
+					if (config.mode === "range" && range === "to") {
+						config.rangeOnChange("");
+					}
+				}
+			} else if (!value.length) {
+				if (config.mode === "single") {
 					config.singleOnChange("");
+				}
+
+				if (config.mode === "range" && range === "from") {
+					config.rangeOnChange("");
+				}
+
+				if (config.mode === "range" && range === "to") {
+					config.rangeOnChange("");
 				}
 			}
 		};
@@ -158,29 +249,80 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 							</div>
 						)}
 						<div className={clsx(s.inputWrap, !withInput && s.hidden)}>
-							<Input
-								ref={ref}
-								value={inputValue}
-								placeholder="dd.мм.yyyy"
-								mask={[
-									/\d/,
-									/\d/,
-									".",
-									/\d/,
-									/\d/,
-									".",
-									/\d/,
-									/\d/,
-									/\d/,
-									/\d/,
-								]}
-								// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-								pipe={autoCorrectedDatePipe}
-								onChange={handleInputChange}
-								onLabelFocus={() => setIsOpen(true)}
-								onOpenCalendar={() => setIsOpen(true)}
-								// onLabelBlur={() => setIsOpen(false)}
-							/>
+							{config.mode === "single" && (
+								<Input
+									ref={ref}
+									value={inputValue}
+									placeholder="dd.мм.yyyy"
+									mask={[
+										/\d/,
+										/\d/,
+										".",
+										/\d/,
+										/\d/,
+										".",
+										/\d/,
+										/\d/,
+										/\d/,
+										/\d/,
+									]}
+									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+									pipe={autoCorrectedDatePipe}
+									onChange={handleInputChange}
+									onLabelFocus={() => setIsOpen(true)}
+									onOpenCalendar={() => setIsOpen(true)}
+									// onLabelBlur={() => setIsOpen(false)}
+								/>
+							)}
+							{config.mode === "range" && (
+								<>
+									<Input
+										ref={ref}
+										value={inputFromValue}
+										placeholder="dd.мм.yyyy"
+										mask={[
+											/\d/,
+											/\d/,
+											".",
+											/\d/,
+											/\d/,
+											".",
+											/\d/,
+											/\d/,
+											/\d/,
+											/\d/,
+										]}
+										// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+										pipe={autoCorrectedDatePipe}
+										onChange={(e) => handleInputChange(e, "from")}
+										onLabelFocus={() => setIsOpen(true)}
+										onOpenCalendar={() => setIsOpen(true)}
+										// onLabelBlur={() => setIsOpen(false)}
+									/>
+									<Input
+										value={inputToValue}
+										placeholder="dd.мм.yyyy"
+										mask={[
+											/\d/,
+											/\d/,
+											".",
+											/\d/,
+											/\d/,
+											".",
+											/\d/,
+											/\d/,
+											/\d/,
+											/\d/,
+										]}
+										// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+										pipe={autoCorrectedDatePipe}
+										onChange={(e) => handleInputChange(e, "to")}
+										onLabelFocus={() => setIsOpen(true)}
+										onOpenCalendar={() => setIsOpen(true)}
+										// onLabelBlur={() => setIsOpen(false)}
+									/>
+								</>
+							)}
 						</div>
 
 						<div
