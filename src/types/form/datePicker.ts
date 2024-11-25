@@ -4,6 +4,7 @@ export type DatePickerBaseProps = {
 	isModal?: boolean;
 	isCloseModalAfterSelect?: boolean;
 	withInput?: boolean;
+	modalPosition?: "top" | "bottom";
 };
 
 export type DatePickerProps = InputWrapperProps &

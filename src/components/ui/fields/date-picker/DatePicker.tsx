@@ -28,6 +28,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			isModal = true,
 			isCloseModalAfterSelect = true,
 			withInput = true,
+			modalPosition = "bottom",
 		},
 		ref
 	) => {
@@ -111,7 +112,6 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 				>
 					<div ref={wrapRef} className={s.wrap}>
 						<div className={clsx(s.inputWrap, !withInput && s.hidden)}>
-							{" "}
 							<Input
 								ref={ref}
 								value={inputValue}
@@ -137,7 +137,12 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 						</div>
 
 						<div
-							className={clsx(s.picker, isModal && s.modal, isOpen && s.open)}
+							className={clsx(
+								s.picker,
+								isModal && s.modal,
+								isOpen && s.open,
+								s[modalPosition]
+							)}
 						>
 							{mode === "single" && (
 								<DayPicker

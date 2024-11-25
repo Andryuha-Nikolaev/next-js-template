@@ -31,7 +31,6 @@
 	background-color: var(--background);
 	border: 1px solid var(--color-input-border);
 	border-radius: convert-px2rem(var(--input-border-radius-number));
-	margin-top: -1px;
 
 	&.modal {
 		z-index: 1;
@@ -44,6 +43,16 @@
 		&.open {
 			visibility: visible;
 			opacity: 1;
+		}
+
+		&.bottom {
+			top: 100%;
+			border-top: none;
+		}
+
+		&.top {
+			bottom: 100%;
+			border-bottom: none;
 		}
 	}
 }

@@ -126,8 +126,7 @@ const TestForm = () => {
 							label="Дата"
 							mode="single"
 							name="date"
-							isModal={false}
-							withInput={false}
+							modalPosition="top"
 						/>
 						<RHFRadioButton
 							variant="horizontal"
