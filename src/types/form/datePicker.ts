@@ -1,5 +1,3 @@
-import type { DateRange } from "react-day-picker";
-
 import type { InputWrapperProps } from "./input";
 
 export type DatePickerBaseProps = {
@@ -11,21 +9,13 @@ export type DatePickerBaseProps = {
 
 export type DatePickerProps = InputWrapperProps &
 	DatePickerBaseProps & {
-		config:
-			| {
-					mode: "single";
-					singleValue: Date | "";
-					singleOnChange: (date: Date | "") => void;
-			  }
-			| {
-					mode: "range";
-					rangeValue: DateRange | "";
-					rangeOnChange: (date: DateRange | "") => void;
-			  };
+		mode: "single";
+		value: Date | "";
+		onChange: (date: Date | "") => void;
 	};
 
 export type RHFDatePickerProps = InputWrapperProps &
 	DatePickerBaseProps & {
-		mode: "single" | "range";
+		mode: "single";
 		name: string;
 	};
