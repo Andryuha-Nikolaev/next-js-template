@@ -55,6 +55,12 @@ export const formSchema = z.object({
 	select: selectSchema,
 	"multi-select": multiSelectSchemaRequired,
 	date: singleDateSchemaRequired,
+	["date-range"]: z
+		.object({
+			from: z.date().or(z.undefined()),
+			to: z.date().or(z.undefined()),
+		})
+		.or(z.string()),
 });
 
 export type FormSchemaType = z.infer<typeof formSchema>;
@@ -74,4 +80,5 @@ export const formDefaultValues: FormSchemaType = {
 	select: null,
 	"multi-select": [{ value: "ccc", label: "ccc" }],
 	date: new Date(),
+	"date-range": "",
 };

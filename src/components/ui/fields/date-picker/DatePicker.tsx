@@ -4,7 +4,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 
 import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import { DayPicker, type DateRange } from "react-day-picker";
 import { ru } from "react-day-picker/locale";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
@@ -24,9 +24,7 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 			errorMessage,
 			label,
 			isRequired,
-			mode,
-			value,
-			onChange,
+			config,
 			isModal = true,
 			isCloseModalAfterSelect = true,
 			withInput = true,
@@ -34,7 +32,13 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 		},
 		ref
 	) => {
-		const [month, setMonth] = useState(value ? new Date(value) : new Date());
+		const [month, setMonth] = useState(
+			config.mode === "single" && config.singleValue
+				? new Date(config.singleValue)
+				: config.mode === "range" && config.rangeValue && config.rangeValue.from
+					? config.rangeValue.from
+					: new Date()
+		);
 
 		const [isOpen, setIsOpen] = useState(false);
 
@@ -51,30 +55,58 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 		});
 
 		const [inputValue, setInputValue] = useState(
-			value ? format(value, "dd.MM.yyyy") : ""
+			config.mode === "single" && config.singleValue
+				? format(config.singleValue, "dd.MM.yyyy")
+				: ""
 		);
 
 		useEffect(() => {
-			if (value) {
-				const formattedValue = format(value, "dd.MM.yyyy");
-				if (formattedValue !== inputValue) {
-					setInputValue(formattedValue);
+			if (config.mode === "single") {
+				if (config.singleValue) {
+					const formattedValue = format(config.singleValue, "dd.MM.yyyy");
+					if (formattedValue !== inputValue) {
+						setInputValue(formattedValue);
+					}
+				} else {
+					setInputValue("");
 				}
-			} else {
-				setInputValue("");
 			}
 
 			// eslint-disable-next-line react-hooks/exhaustive-deps
-		}, [value]);
+		}, [config]);
 
 		const handleDayPickerSelect = (date: Date | undefined) => {
-			if (!date) {
-				setInputValue("");
-				onChange("");
-			} else {
-				onChange(date);
-				setMonth(date);
-				setInputValue(format(date, "dd.MM.yyyy"));
+			if (config.mode === "single") {
+				if (!date) {
+					setInputValue("");
+					config.singleOnChange("");
+				} else {
+					config.singleOnChange(date);
+					setMonth(date);
+					setInputValue(format(date, "dd.MM.yyyy"));
+				}
+			}
+
+			if (isCloseModalAfterSelect) {
+				closeModal();
+			}
+		};
+
+		const handleDayPickerRangeSelect = (value: DateRange | undefined) => {
+			console.log(value);
+
+			if (config.mode === "range") {
+				if (!value) {
+					setInputValue("");
+					config.rangeOnChange("");
+				} else {
+					config.rangeOnChange(value);
+					if (value.from) {
+						setMonth(value.from);
+					}
+
+					// setInputValue(format(date, "dd.MM.yyyy"));
+				}
 			}
 
 			if (isCloseModalAfterSelect) {
@@ -85,17 +117,19 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 		const handleInputChange = (value: string) => {
 			setInputValue(value);
 
-			if (value.length === 10) {
-				const parsedDate = parse(value, "dd.MM.yyyy", new Date());
+			if (config.mode === "single") {
+				if (value.length === 10) {
+					const parsedDate = parse(value, "dd.MM.yyyy", new Date());
 
-				if (isValid(parsedDate)) {
-					onChange(parsedDate);
-					setMonth(parsedDate);
-				} else {
-					onChange("");
+					if (isValid(parsedDate)) {
+						config.singleOnChange(parsedDate);
+						setMonth(parsedDate);
+					} else {
+						config.singleOnChange("");
+					}
+				} else if (!value.length) {
+					config.singleOnChange("");
 				}
-			} else if (!value.length) {
-				onChange("");
 			}
 		};
 
@@ -157,14 +191,28 @@ const DatePicker = forwardRef<HTMLLabelElement, DatePickerProps>(
 								s[modalPosition]
 							)}
 						>
-							{mode === "single" && (
+							{config.mode === "single" && (
 								<DayPicker
 									locale={ru}
-									mode={mode}
+									mode={config.mode}
 									month={month}
 									onMonthChange={setMonth}
-									selected={value ? new Date(value) : undefined}
+									selected={
+										config.singleValue
+											? new Date(config.singleValue)
+											: undefined
+									}
 									onSelect={handleDayPickerSelect}
+								/>
+							)}
+							{config.mode === "range" && (
+								<DayPicker
+									locale={ru}
+									mode={config.mode}
+									month={month}
+									onMonthChange={setMonth}
+									selected={config.rangeValue ? config.rangeValue : undefined}
+									onSelect={handleDayPickerRangeSelect}
 								/>
 							)}
 						</div>

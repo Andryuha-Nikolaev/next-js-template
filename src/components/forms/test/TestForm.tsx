@@ -128,6 +128,13 @@ const TestForm = () => {
 							name="date"
 							modalPosition="bottom"
 						/>
+						<RHFDatePicker
+							label="Дата range"
+							mode="range"
+							name="date-range"
+							modalPosition="bottom"
+							isCloseModalAfterSelect={false}
+						/>
 						<RHFRadioButton
 							variant="horizontal"
 							label="RadioButton"
