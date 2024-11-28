@@ -164,6 +164,7 @@ const TestForm = () => {
 							]}
 						/>
 						<RHFSelect
+							isDisabled
 							label="Выбор"
 							placeholder="Выбор"
 							name={FieldName.SELECT}

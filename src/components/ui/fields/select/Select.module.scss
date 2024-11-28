@@ -14,3 +14,9 @@
 
 .container {
 }
+
+.wrap {
+	&.disabled {
+		cursor: not-allowed;
+	}
+}

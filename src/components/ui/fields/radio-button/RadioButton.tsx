@@ -18,6 +18,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 			isRequired,
 			value,
 			variant = "vertical",
+			disabled,
 			...restProps
 		},
 		ref
@@ -32,7 +33,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 			>
 				<div className={clsx(s.block, s[variant])}>
 					{items.map((item, i) => (
-						<label key={i} className={s.label}>
+						<label key={i} className={clsx(s.label, disabled && s.disabled)}>
 							<input
 								checked={value === item.value}
 								ref={ref}
@@ -40,6 +41,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 								className={radioClassNames}
 								{...restProps}
 								value={item.value}
+								disabled={disabled || item.disabled}
 							/>
 							{typeof item.label === "string" ? (
 								<p className={s.text}>{parse(item.label)}</p>

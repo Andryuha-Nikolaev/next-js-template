@@ -5,7 +5,11 @@ import type { InputWrapperProps } from "./input";
 export interface RadioButtonProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		InputWrapperProps {
-	items: { value: string; label: string | React.ReactNode }[];
+	items: {
+		value: string;
+		label: string | React.ReactNode;
+		disabled?: boolean;
+	}[];
 	variant?: "vertical" | "horizontal";
 }
 

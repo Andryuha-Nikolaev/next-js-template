@@ -34,6 +34,8 @@ const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 			}
 		};
 
+		const notDisabledItems = items.filter((item) => !item.disabled);
+
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
@@ -45,13 +47,13 @@ const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 						<Checkbox
 							disabled={disabled || chooseAllCheckboxDisabled}
 							isError={!!errorMessage}
-							checked={items.length === value.length}
+							checked={notDisabledItems.length === value.length}
 							value={chooseAllCheckbox}
 							onChange={() =>
 								onChange(
-									items.length === value.length
+									notDisabledItems.length === value.length
 										? []
-										: items.map((item) => item.value)
+										: notDisabledItems.map((item) => item.value)
 								)
 							}
 						>

@@ -29,6 +29,10 @@
 			border-color: var(--color-radio-border-hover);
 		}
 	}
+
+	&.disabled {
+		cursor: not-allowed;
+	}
 }
 
 .input {
@@ -50,6 +54,12 @@
 
 	&:focus-visible {
 		border-color: var(--color-radio-border-focused);
+	}
+
+	&:disabled {
+		background-color: var(--bg-radio-disabled) !important;
+		border-color: var(--color-radio-border) !important;
+		cursor: not-allowed !important;
 	}
 
 	&::before {

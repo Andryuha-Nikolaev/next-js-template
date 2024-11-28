@@ -29,7 +29,13 @@ const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 				label={label}
 				isRequired={isRequired}
 			>
-				<div className={clsx(s.wrap, errorMessage && "react-select-error")}>
+				<div
+					className={clsx(
+						s.wrap,
+						restProps.isDisabled && s.disabled,
+						errorMessage && "react-select-error"
+					)}
+				>
 					<Select
 						noOptionsMessage={() => "Нет опций"}
 						className={s.container}
