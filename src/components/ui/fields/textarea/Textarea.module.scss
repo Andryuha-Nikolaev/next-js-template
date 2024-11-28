@@ -21,7 +21,6 @@
 	padding: convert-px2rem(14) convert-px2rem(4) convert-px2rem(14)
 		convert-px2rem(16);
 	transition: border-color var(--transition-duration);
-	@include scrollbar;
 
 	&.focused {
 		border-color: var(--color-input-border-focused);
@@ -45,6 +44,11 @@
 	resize: vertical;
 	min-height: convert-px2rem(150);
 	max-height: convert-px2rem(400);
+	@include scrollbar;
+
+	&::-webkit-scrollbar-thumb {
+		cursor: auto;
+	}
 
 	&::placeholder {
 		opacity: 1;
@@ -52,6 +56,7 @@
 	}
 
 	&:disabled {
+		resize: none;
 		cursor: not-allowed;
 		color: var(--fg-input-disabled);
 	}

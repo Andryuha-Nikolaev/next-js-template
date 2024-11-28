@@ -116,7 +116,6 @@ const TestContent = () => {
 					<hr style={{ width: "100%" }} />
 					<h2>Forms:</h2>
 					<TestForm />
-					{/* <RootInput /> */}
 				</div>
 			</ContentLayout>
 		</div>
