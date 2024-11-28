@@ -72,6 +72,7 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 				<div className={s.wrap}>
 					<label className={s.label} ref={ref}>
 						<input
+							tabIndex={-1}
 							ref={inputRef}
 							type="file"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

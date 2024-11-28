@@ -62,7 +62,7 @@ export type FormSchemaType = z.infer<typeof formSchema>;
 
 export const defaultValues: FormSchemaType = {
 	[FieldName.FIRST_NAME]: "",
-	[FieldName.LAST_NAME]: "",
+	[FieldName.LAST_NAME]: "Николаев",
 	[FieldName.PHONE]: "",
 	[FieldName.EMAIL]: "",
 	[FieldName.PASSWORD]: "",

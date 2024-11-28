@@ -94,15 +94,16 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 								{...restProps}
 							/>
 						)}
-
-						<InputControls
-							type={type}
-							currentType={currentType}
-							isFilled={isFilled}
-							onReset={onReset}
-							togglePassword={togglePassword}
-							onOpenCalendar={onOpenCalendar}
-						/>
+						{!restProps.disabled && (
+							<InputControls
+								type={type}
+								currentType={currentType}
+								isFilled={isFilled}
+								onReset={onReset}
+								togglePassword={togglePassword}
+								onOpenCalendar={onOpenCalendar}
+							/>
+						)}
 					</span>
 				</label>
 			</InputWrapper>

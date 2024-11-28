@@ -20,7 +20,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 		const wrapClassNames = clsx(
 			s.wrap,
 			isFocused && s.focused,
-			errorMessage && s.error
+			errorMessage && s.error,
+			restProps.disabled && s.disabled
 		);
 
 		const onReset = () => {
@@ -34,9 +35,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 				isRequired={isRequired}
 			>
 				<label
-					onFocus={() => {
-						setIsFocused(true);
-					}}
+					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
 					className={s.label}
 				>
@@ -48,8 +47,9 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 							onChange={(e) => onChange(e.target.value)}
 							{...restProps}
 						/>
-
-						<InputControls isFilled={isFilled} onReset={onReset} />
+						{!restProps.disabled && (
+							<InputControls isFilled={isFilled} onReset={onReset} />
+						)}
 					</span>
 				</label>
 			</InputWrapper>

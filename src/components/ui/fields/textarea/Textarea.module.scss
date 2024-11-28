@@ -12,10 +12,6 @@
 	}
 }
 
-.label {
-	cursor: text !important;
-}
-
 .wrap {
 	display: block;
 	position: relative;
@@ -34,6 +30,10 @@
 	&.error {
 		border-color: var(--color-alert) !important;
 	}
+
+	&.disabled {
+		cursor: not-allowed;
+	}
 }
 
 .input {
@@ -49,5 +49,9 @@
 	&::placeholder {
 		opacity: 1;
 		color: var(--color-input-placeholder);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
 	}
 }

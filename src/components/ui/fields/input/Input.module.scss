@@ -17,10 +17,6 @@
 	position: relative;
 }
 
-.label {
-	cursor: text;
-}
-
 .input {
 	display: block;
 	width: 100%;
@@ -44,6 +40,10 @@
 
 	&.password {
 		padding-right: convert-px2rem(58);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
 	}
 
 	&:-webkit-autofill,

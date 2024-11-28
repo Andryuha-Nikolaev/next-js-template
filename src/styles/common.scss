@@ -86,14 +86,6 @@ small {
 	@include small-text();
 }
 
-label {
-	cursor: pointer;
-}
-
-pre {
-	text-wrap: unset;
-}
-
 a {
 	color: inherit;
 	@include link-1;

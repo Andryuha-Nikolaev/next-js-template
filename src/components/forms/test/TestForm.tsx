@@ -81,6 +81,7 @@ const TestForm = () => {
 							name={FieldName.TEXT}
 							placeholder="Текст"
 							label="Текст"
+							disabled
 						/>
 						<RHFFileInput
 							label="Файл с превью"
