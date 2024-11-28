@@ -7,6 +7,7 @@ export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		InputWrapperProps {
 	isError?: boolean;
+	disabled?: boolean;
 }
 
 export interface RHFCheckboxProps extends CheckboxProps {
@@ -14,10 +15,16 @@ export interface RHFCheckboxProps extends CheckboxProps {
 }
 
 export interface CheckboxGroupProps extends InputWrapperProps {
-	items: { value: string; label: string | React.ReactNode }[];
+	disabled?: boolean;
+	items: {
+		value: string;
+		label: string | React.ReactNode;
+		disabled?: boolean;
+	}[];
 	onChange: (value: string[]) => void;
 	value: string[];
 	chooseAllCheckbox?: string;
+	chooseAllCheckboxDisabled?: boolean;
 }
 
 export interface RHFCheckboxGroupProps

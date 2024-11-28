@@ -24,7 +24,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				isRequired={isRequired}
 				label={label}
 			>
-				<label className={s.label}>
+				<label className={clsx(s.label, restProps.disabled && s.disabled)}>
 					<input
 						ref={ref}
 						type="checkbox"

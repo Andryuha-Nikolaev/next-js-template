@@ -101,6 +101,7 @@
 	--bg-input-autofill: var(--color-white);
 	--fg-input-autofill: var(--color-black-medium);
 	--color-input-placeholder: var(--color-black-opacity-50);
+	--fg-input-disabled: var(--color-gray-dark);
 	--input-height-number: 50;
 	--input-border-radius-number: 10;
 
@@ -109,6 +110,7 @@
 	--color-checkbox-border-hover: var(--color-black-medium);
 	--color-checkbox-border-focused: var(--color-black-medium);
 	--bg-checkbox: var(--color-white);
+	--bg-checkbox-disabled: var(--color-gray-medium);
 
 	// radio button
 	--color-radio-border: var(--color-gray-dark);

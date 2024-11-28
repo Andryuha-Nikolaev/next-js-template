@@ -84,6 +84,7 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 						></input>
 					</label>
 					<RootButton
+						disabled={restProps.disabled}
 						type="button"
 						className={s.button}
 						Icon={<AttachIcon />}

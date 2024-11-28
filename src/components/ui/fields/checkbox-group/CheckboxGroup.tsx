@@ -19,6 +19,8 @@ const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 			isRequired,
 			label,
 			chooseAllCheckbox,
+			chooseAllCheckboxDisabled,
+			disabled,
 		},
 		ref
 	) => {
@@ -41,6 +43,7 @@ const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 				<div className={s.block}>
 					{chooseAllCheckbox && (
 						<Checkbox
+							disabled={disabled || chooseAllCheckboxDisabled}
 							isError={!!errorMessage}
 							checked={items.length === value.length}
 							value={chooseAllCheckbox}
@@ -57,6 +60,7 @@ const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 					)}
 					{items.map((item, i) => (
 						<Checkbox
+							disabled={item.disabled || disabled}
 							isError={!!errorMessage}
 							checked={value.includes(item.value)}
 							key={i}

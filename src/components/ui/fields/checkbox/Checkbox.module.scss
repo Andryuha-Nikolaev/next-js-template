@@ -17,6 +17,10 @@
 			border-color: var(--color-checkbox-border-hover);
 		}
 	}
+
+	&.disabled {
+		cursor: not-allowed;
+	}
 }
 
 .input {
@@ -38,6 +42,12 @@
 
 	&:focus-visible {
 		border-color: var(--color-checkbox-border-focused);
+	}
+
+	&:disabled {
+		background-color: var(--bg-checkbox-disabled) !important;
+		border-color: var(--color-checkbox-border) !important;
+		cursor: not-allowed !important;
 	}
 
 	&::before {

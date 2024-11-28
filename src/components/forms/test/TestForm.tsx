@@ -84,6 +84,7 @@ const TestForm = () => {
 							disabled
 						/>
 						<RHFFileInput
+							disabled
 							label="Файл с превью"
 							name={FieldName.FILE}
 							fileSize="Максимальный размер файла - 5MB."
@@ -98,7 +99,7 @@ const TestForm = () => {
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
-						<RHFCheckbox name={FieldName.POLICY}>
+						<RHFCheckbox disabled name={FieldName.POLICY}>
 							<small>
 								Я&nbsp;ознакомлен(а) с&nbsp;
 								<a
@@ -114,7 +115,11 @@ const TestForm = () => {
 						<RHFCheckboxGroup
 							name={FieldName.CHECKBOX_GROUP}
 							items={[
-								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
+								{
+									value: "Первый чекбокс",
+									label: "Первый чекбокс label",
+									disabled: true,
+								},
 								{
 									value: "Второй чекбокс",
 									label: <h4>Второй чекбокс h4 element</h4>,
