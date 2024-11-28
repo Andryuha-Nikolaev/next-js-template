@@ -33,8 +33,8 @@ const FileInputPreview = ({
 					<div className={s.previewName}>
 						<p className={s.fileName}>
 							{item.name}{" "}
-							{Math.round(item.size / 1024 / 1000) > 1
-								? Math.round(item.size / 1024 / 1000) + " Мб"
+							{Math.round(item.size / 1024 / 1024) > 1
+								? Math.round(item.size / 1024 / 1024) + " Мб"
 								: Math.round(item.size / 1024) + " Кб"}
 						</p>
 						<CloseButton
