@@ -1,3 +1,5 @@
+import type { DateRange } from "react-day-picker";
+
 import type { InputWrapperProps } from "./input";
 
 export type DatePickerBaseProps = {
@@ -14,6 +16,17 @@ export type DatePickerProps = InputWrapperProps &
 	};
 
 export type RHFDatePickerProps = InputWrapperProps &
+	DatePickerBaseProps & {
+		name: string;
+	};
+
+export type RangeDatePickerProps = InputWrapperProps &
+	DatePickerBaseProps & {
+		value: DateRange | "";
+		onChange: (date: DateRange | "") => void;
+	};
+
+export type RHFRangeDatePickerProps = InputWrapperProps &
 	DatePickerBaseProps & {
 		name: string;
 	};

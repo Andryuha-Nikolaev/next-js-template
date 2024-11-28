@@ -11,7 +11,6 @@ import {
 	phoneSchema,
 	radioButtonSchema,
 	selectSchema,
-	singleDateSchemaRequired,
 	textSchema,
 } from "@/schemas/fields";
 import {
@@ -54,7 +53,7 @@ export const formSchema = z.object({
 	radio: radioButtonSchema,
 	select: selectSchema,
 	"multi-select": multiSelectSchemaRequired,
-	date: singleDateSchemaRequired,
+	// date: singleDateSchemaRequired,
 });
 
 export type FormSchemaType = z.infer<typeof formSchema>;
@@ -73,5 +72,7 @@ export const formDefaultValues: FormSchemaType = {
 	radio: "",
 	select: null,
 	"multi-select": [{ value: "ccc", label: "ccc" }],
-	date: new Date(),
+	// date: new Date(
+	// 	"Mon Nov 25 2023 20:44:51 GMT+0300 (Москва, стандартное время)"
+	// ),
 };
