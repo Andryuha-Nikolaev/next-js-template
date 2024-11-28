@@ -12,7 +12,7 @@ export const nameSchemaRequired = z
 	.max(25, "Максимальная длина - 25 символов")
 	.refine(
 		(value) => validationRegex.ONLY_CYRILLIC.test(value),
-		"Введите имя на русском языке"
+		"Введите данные на русском языке"
 	);
 
 export const nameSchema = nameSchemaRequired.or(z.literal(""));

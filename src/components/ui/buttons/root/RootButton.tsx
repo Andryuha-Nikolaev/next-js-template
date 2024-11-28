@@ -57,6 +57,7 @@ const RootButton = <C extends React.ElementType = "button">({
 				isLoading && s.loading,
 				className && className
 			)}
+			{...(Component === "button" && { type: "button" })}
 			{...restProps}
 		>
 			{buttonContent}

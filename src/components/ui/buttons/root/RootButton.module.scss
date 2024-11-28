@@ -46,15 +46,18 @@
 	&.var1 {
 		background-color: var(--bg-button-1);
 		color: var(--fg-button-1);
+		border: 1px solid var(--bg-button-1);
 
 		@include hover-wrapper {
 			background-color: var(--bg-button-1-hover);
 			color: var(--fg-button-1-hover);
+			border-color: var(--bg-button-1-hover);
 		}
 
 		@include active-wrapper {
 			background-color: var(--bg-button-1-active);
 			color: var(--fg-button-1-active);
+			border-color: var(--bg-button-1-active);
 		}
 	}
 

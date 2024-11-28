@@ -12,11 +12,12 @@ import RHFRadioButton from "@/components/ui/fields/radio-button/RHFRadioButton";
 import RHFSelect from "@/components/ui/fields/select/RHFSelect";
 import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
+import { FieldName } from "@/constants/fields";
 import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
-import { formDefaultValues, formSchema, type FormSchemaType } from "./schema";
+import { defaultValues, formSchema, type FormSchemaType } from "./schema";
 import s from "./TestForm.module.scss";
 
 import FormWrapper from "../wrapper/FormWrapper";
@@ -24,7 +25,7 @@ import FormWrapper from "../wrapper/FormWrapper";
 const TestForm = () => {
 	const methods = useForm<FormSchemaType>({
 		resolver: zodResolver(formSchema),
-		defaultValues: formDefaultValues,
+		defaultValues: defaultValues,
 	});
 
 	const {
@@ -52,32 +53,51 @@ const TestForm = () => {
 			<FormProvider {...methods}>
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
-						<RHFInput name="name" placeholder="Имя" label="Имя" />
-						<RHFInput name="email" placeholder="Email" label="Email" />
-						<RHFPhoneInput name="phone" label="Телефон" />
 						<RHFInput
-							name="password"
+							name={FieldName.FIRST_NAME}
+							placeholder="Имя"
+							label="Имя"
+						/>
+						<RHFInput
+							disabled
+							name={FieldName.LAST_NAME}
+							placeholder="Фамилия"
+							label="Фамилия disabled"
+						/>
+						<RHFPhoneInput name={FieldName.PHONE} label="Телефон" />
+						<RHFInput
+							name={FieldName.EMAIL}
+							placeholder="Email"
+							label="Email"
+						/>
+
+						<RHFInput
+							name={FieldName.PASSWORD}
 							placeholder="Пароль"
 							label="Пароль"
 							type="password"
 						/>
-						<RHFTextarea name="text" placeholder="Текст" label="Текст" />
+						<RHFTextarea
+							name={FieldName.TEXT}
+							placeholder="Текст"
+							label="Текст"
+						/>
 						<RHFFileInput
 							label="Файл с превью"
-							name="file"
+							name={FieldName.FILE}
 							fileSize="Максимальный размер файла - 5MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
 						/>
 						<RHFFileInput
-							name="files"
+							name={FieldName.FILES}
 							multiple
 							label="Несколько файлов"
 							buttonText="Прикрепить файлы"
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
-						<RHFCheckbox name="policy">
+						<RHFCheckbox name={FieldName.POLICY}>
 							<small>
 								Я&nbsp;ознакомлен(а) с&nbsp;
 								<a
@@ -91,7 +111,7 @@ const TestForm = () => {
 							</small>
 						</RHFCheckbox>
 						<RHFCheckboxGroup
-							name="checkbox-group"
+							name={FieldName.CHECKBOX_GROUP}
 							items={[
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
 								{
@@ -104,7 +124,7 @@ const TestForm = () => {
 							chooseAllCheckbox="Выбрать всё"
 						/>
 						<RHFCheckboxGroup
-							name="checkbox-group2"
+							name={FieldName.CHECKBOX_GROUP_2}
 							items={[
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
 								{
@@ -125,7 +145,7 @@ const TestForm = () => {
 						<RHFRadioButton
 							variant="horizontal"
 							label="RadioButton"
-							name="radio"
+							name={FieldName.RADIO}
 							items={[
 								{
 									value: "Да",
@@ -140,7 +160,7 @@ const TestForm = () => {
 						<RHFSelect
 							label="Выбор"
 							placeholder="Выбор"
-							name="select"
+							name={FieldName.SELECT}
 							options={[
 								{ value: "aaaaa", label: "aaaaa" },
 								{ value: "bbb", label: "bbb" },
@@ -149,7 +169,7 @@ const TestForm = () => {
 						<RHFSelect
 							label="Мульти выбор"
 							placeholder="Мульти выбор"
-							name="multi-select"
+							name={FieldName.MULTI_SELECT}
 							isMulti
 							options={[
 								{ value: "aaaaa", label: "aaaaa" },
