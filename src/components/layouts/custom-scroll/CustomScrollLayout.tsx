@@ -7,8 +7,6 @@ import SimpleBar from "simplebar-react";
 
 import s from "./CustomScrollLayout.module.scss";
 
-import "simplebar-react/dist/simplebar.min.css";
-
 interface CustomScrollLayoutProps {
 	children: React.ReactNode;
 	className: string;

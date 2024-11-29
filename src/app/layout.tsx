@@ -15,6 +15,8 @@ import viewportConstants from "@/constants/viewport";
 import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
 
+import "simplebar-react/dist/simplebar.min.css";
+
 export const metadata: Metadata = metaConstants;
 
 export const viewport: Viewport = viewportConstants;
