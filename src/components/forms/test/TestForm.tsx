@@ -5,6 +5,8 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import RHFCheckboxGroup from "@/components/ui/fields/checkbox-group/RHFCheckboxGroup";
 import RHFCheckbox from "@/components/ui/fields/checkbox/RHFCheckbox";
+import DatePickerComponent from "@/components/ui/fields/date-picker/DatePickerComponent";
+import RHFDatePicker from "@/components/ui/fields/date-picker/RHFDatePicker";
 import RHFFileInput from "@/components/ui/fields/file/RHFFileInput";
 import RHFInput from "@/components/ui/fields/input/RHFInput";
 import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
@@ -189,6 +191,7 @@ const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
+						<RHFDatePicker name={FieldName.DATE} />
 					</FormWrapper>
 				</form>
 			</FormProvider>

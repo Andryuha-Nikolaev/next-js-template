@@ -13,4 +13,5 @@ export enum FieldName {
 	RADIO = "radio",
 	SELECT = "select",
 	MULTI_SELECT = "multi-select",
+	DATE = "date",
 }

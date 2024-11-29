@@ -91,9 +91,6 @@ export const multiSelectSchemaRequired = multiSelectSchema.refine(
 	"Поле обязательно"
 );
 
-export const singleDateSchema = z.date().or(z.string());
+export const singleDateSchemaRequired = z.date();
 
-export const singleDateSchemaRequired = singleDateSchema.refine(
-	(value) => !!value,
-	"Поле обязательно"
-);
+export const singleDateSchema = singleDateSchemaRequired.or(z.null());
