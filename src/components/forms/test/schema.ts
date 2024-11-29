@@ -76,7 +76,5 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.RADIO]: "",
 	[FieldName.SELECT]: null,
 	[FieldName.MULTI_SELECT]: [{ value: "ccc", label: "ccc" }],
-	date: new Date(
-		"Mon Nov 24 2024 20:44:51 GMT+0300 (Москва, стандартное время)"
-	),
+	date: new Date("2024-11-24T13:38:22.000000Z"),
 };

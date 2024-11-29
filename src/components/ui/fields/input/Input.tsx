@@ -19,8 +19,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			errorMessage,
 			label,
 			type = "text",
-			value,
-			onChange,
 			onLabelFocus = () => {},
 			onLabelBlur = () => {},
 			onOpenCalendar,
@@ -29,7 +27,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 		},
 		ref
 	) => {
-		const isFilled = !!value;
+		const isFilled = !!restProps.value;
 
 		const [currentType, setCurrentType] = useState(type);
 
@@ -51,7 +49,13 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 		);
 
 		const onReset = () => {
-			onChange("");
+			if (restProps.onChange) {
+				const event = {
+					target: { value: "" },
+				} as React.ChangeEvent<HTMLInputElement>;
+
+				restProps.onChange(event);
+			}
 		};
 
 		return (
@@ -79,8 +83,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 								guide={false}
 								className={inputClassNames}
 								type={currentType}
-								value={value}
-								onChange={(e) => onChange(e.target.value)}
 								autoComplete="new-password"
 								{...restProps}
 							/>
@@ -88,8 +90,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 							<input
 								className={inputClassNames}
 								type={currentType}
-								value={value}
-								onChange={(e) => onChange(e.target.value)}
 								autoComplete="new-password"
 								{...restProps}
 							/>

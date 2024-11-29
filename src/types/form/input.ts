@@ -18,9 +18,9 @@ export interface InputControlsProps {
 }
 
 export interface InputProps
-	extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
+	extends InputHTMLAttributes<HTMLInputElement>,
 		InputWrapperProps {
-	onChange: (value: string) => void;
+	// onChange: (value: string) => void;
 	onLabelFocus?: () => void;
 	onLabelBlur?: () => void;
 	onOpenCalendar?: () => void;

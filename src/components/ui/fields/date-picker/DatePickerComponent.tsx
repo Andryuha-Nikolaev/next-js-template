@@ -28,15 +28,20 @@ const DatePickerComponent = forwardRef<
 				label={label}
 				isRequired={isRequired}
 			>
-				<Input
-					ref={ref}
-					placeholder="dd.мм.yyyy"
-					mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
-					// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-					pipe={autoCorrectedDatePipe}
+				<DatePicker
+					{...restProps}
+					dateFormat="dd.MM.yyyy"
+					customInput={
+						<Input
+							ref={ref}
+							style={{ backgroundColor: "red" }}
+							placeholder="dd.мм.yyyy"
+							mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
+							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+							pipe={autoCorrectedDatePipe}
+						/>
+					}
 				/>
-
-				<DatePicker {...restProps} />
 			</InputWrapper>
 		</div>
 	);

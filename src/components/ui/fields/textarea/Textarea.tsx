@@ -12,8 +12,8 @@ import InputControls from "../components/controls/InputControls";
 import InputWrapper from "../components/wrapper/InputWrapper";
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-	({ errorMessage, label, value, onChange, isRequired, ...restProps }, ref) => {
-		const isFilled = !!value;
+	({ errorMessage, label, isRequired, ...restProps }, ref) => {
+		const isFilled = !!restProps.value;
 
 		const [isFocused, setIsFocused] = useState(false);
 
@@ -25,7 +25,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 		);
 
 		const onReset = () => {
-			onChange("");
+			if (restProps.onChange) {
+				const event = {
+					target: { value: "" },
+				} as React.ChangeEvent<HTMLTextAreaElement>;
+
+				restProps.onChange(event);
+			}
 		};
 
 		return (
@@ -40,13 +46,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 					className={s.label}
 				>
 					<span className={wrapClassNames}>
-						<textarea
-							ref={ref}
-							className={s.input}
-							value={value}
-							onChange={(e) => onChange(e.target.value)}
-							{...restProps}
-						/>
+						<textarea ref={ref} className={s.input} {...restProps} />
 						{!restProps.disabled && (
 							<InputControls isFilled={isFilled} onReset={onReset} />
 						)}
