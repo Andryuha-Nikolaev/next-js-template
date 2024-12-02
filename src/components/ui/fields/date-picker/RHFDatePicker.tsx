@@ -4,6 +4,10 @@ import type { RHFDatePickerComponentProps } from "@/types/form/datePicker";
 
 import DatePickerComponent from "./DatePickerComponent";
 
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
+
 const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 	const { control, watch } = useFormContext();
 
@@ -17,7 +21,7 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 				<DatePickerComponent
 					errorMessage={error?.message}
 					{...props}
-					selected={field.value as Date | null}
+					value={field.value as Value}
 					onChange={field.onChange}
 					ref={field.ref}
 				/>

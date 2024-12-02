@@ -1,8 +1,8 @@
-import type { DatePickerProps } from "react-datepicker";
+import type { DateTimePickerProps } from "react-datetime-picker";
 
 import type { InputWrapperProps } from "./input";
 
-export type DatePickerComponentProps = DatePickerProps & InputWrapperProps;
+export type DatePickerComponentProps = DateTimePickerProps & InputWrapperProps;
 
-export type RHFDatePickerComponentProps = DatePickerProps &
+export type RHFDatePickerComponentProps = DateTimePickerProps &
 	InputWrapperProps & { name: string };
