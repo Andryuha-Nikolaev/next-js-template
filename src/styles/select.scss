@@ -1,0 +1,115 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.react-select {
+	&__control {
+		min-height: convert-px2rem(var(--input-height-number)) !important;
+		font-size: convert-px2rem(16) !important;
+		background-color: transparent !important;
+
+		border: 1px solid var(--color-input-border) !important;
+		border-radius: convert-px2rem(var(--input-border-radius-number)) !important;
+
+		transition: border-color var(--transition-duration) !important;
+		padding: 0 convert-px2rem(16) !important;
+		box-shadow: none !important;
+
+		&--menu-is-open {
+			.react-select__dropdown-indicator {
+				transform: rotate(-180deg) !important;
+			}
+
+			border-color: var(--color-input-border-focused) !important;
+		}
+
+		&--is-focused {
+			border-color: var(--color-input-border-focused) !important;
+		}
+	}
+
+	&__placeholder {
+		opacity: 1 !important;
+		color: var(--color-input-placeholder) !important;
+	}
+
+	&__dropdown-indicator {
+		transition:
+			transform var(--transition-duration),
+			color var(--transition-duration) !important;
+		color: var(--color-dropdown-indicator) !important;
+		cursor: pointer !important;
+	}
+
+	&__clear-indicator {
+		color: var(--color-dropdown-indicator) !important;
+		cursor: pointer !important;
+	}
+
+	&__value-container {
+		padding: 0 !important;
+	}
+
+	&__indicator-separator {
+		display: none !important;
+	}
+
+	&__indicator {
+		padding: 0 !important;
+	}
+
+	&__menu {
+		border-radius: convert-px2rem(var(--input-border-radius-number)) !important;
+		border: 1px solid var(--color-input-border-focused) !important;
+		background-color: var(--bg-input) !important;
+		margin-top: 0 !important;
+	}
+
+	&__menu-list {
+		padding: 0 !important;
+		border-radius: convert-px2rem(var(--input-border-radius-number)) !important;
+		@include scrollbar;
+	}
+
+	&__option {
+		cursor: pointer !important;
+		min-height: convert-px2rem(var(--input-height-number)) !important;
+		padding: convert-px2rem(5) convert-px2rem(16) !important;
+		display: flex !important;
+		align-items: center !important;
+		font-size: convert-px2rem(16) !important;
+		color: var(--foreground) !important;
+		border-bottom: 1px solid var(--color-input-border-focused) !important;
+		border-radius: 0 !important;
+
+		&:last-child {
+			border-bottom: none !important;
+		}
+
+		&--is-focused {
+			background-color: var(--color-option-focused) !important;
+		}
+
+		&--is-selected {
+			background-color: var(--color-option-selected) !important;
+		}
+	}
+}
+
+.react-select-error {
+	.react-select {
+		&__control {
+			border-color: var(--color-alert) !important;
+		}
+	}
+}

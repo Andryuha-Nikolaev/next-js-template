@@ -1,0 +1,20 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	text-align: center;
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.type {
+	width: fit-content;
+	display: flex;
+	margin: 0 auto convert-px2rem(20);
+}

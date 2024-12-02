@@ -1,0 +1,66 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.wrap {
+	position: relative;
+	width: fit-content;
+
+	&.withInput {
+		width: 100%;
+	}
+}
+
+.inputWrap {
+	&.hidden {
+		opacity: 0;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		display: block;
+	}
+}
+
+.picker {
+	width: fit-content;
+	background-color: var(--background);
+	border: 1px solid var(--color-input-border);
+	border-radius: convert-px2rem(var(--input-border-radius-number));
+
+	&.modal {
+		z-index: 1;
+		position: absolute;
+
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+
+		&.open {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		&.bottom {
+			top: 100%;
+		}
+
+		&.top {
+			bottom: 100%;
+		}
+	}
+}
+
+.buttons {
+	display: flex;
+	gap: convert-px2rem(10);
+}

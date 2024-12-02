@@ -1,0 +1,71 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.label {
+	position: relative;
+	display: flex;
+	gap: convert-px2rem(10);
+	text-align: left;
+	cursor: pointer;
+	width: fit-content;
+
+	@include hover-wrapper {
+		.input {
+			border-color: var(--color-checkbox-border-hover);
+		}
+	}
+
+	&.disabled {
+		cursor: not-allowed;
+	}
+}
+
+.input {
+	flex-shrink: 0;
+	appearance: none;
+	background: var(--bg-checkbox);
+	border: 1px solid var(--color-checkbox-border);
+	height: convert-px2rem(20);
+	width: convert-px2rem(20);
+	border-radius: convert-px2rem(3);
+	vertical-align: text-bottom;
+	position: relative;
+	cursor: pointer;
+	transition: border-color var(--transition-duration);
+
+	&.error {
+		border-color: var(--color-alert) !important;
+	}
+
+	&:focus-visible {
+		border-color: var(--color-checkbox-border-focused);
+	}
+
+	&:disabled {
+		background-color: var(--bg-checkbox-disabled) !important;
+		border-color: var(--color-checkbox-border) !important;
+		cursor: not-allowed !important;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		top: 0;
+	}
+
+	&:checked::before {
+		border-radius: 0;
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 6.30088L2.2045 7.6785C2.869 8.43851 3.20125 8.81772 3.57325 8.93772C3.90025 9.04252 4.24825 9.01452 4.5595 8.85772C4.91425 8.67852 5.1985 8.24891 5.7685 7.3889L10 1' stroke='%230A1950' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin: convert-px2rem(3) convert-px2rem(3);
+	}
+}

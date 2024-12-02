@@ -1,0 +1,27 @@
+@import "./functions/convert-px2rem";
+
+.custom-scrollbar-layout {
+	.simplebar-visible {
+		&::before {
+			opacity: 1 !important;
+			background: var(--color-scrollbar-thumb) !important;
+		}
+	}
+
+	.simplebar-vertical {
+		top: 7px !important;
+		bottom: 7px !important;
+		width: 8px !important;
+		right: convert-px2rem(5);
+	}
+
+	.simplebar-horizontal {
+		height: 8px !important;
+
+		.simplebar-scrollbar:before {
+			left: 0 !important;
+
+			right: 0 !important;
+		}
+	}
+}

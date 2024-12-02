@@ -1,0 +1,30 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.buttons {
+	position: absolute;
+	right: convert-px2rem(16);
+	top: 0;
+	height: convert-px2rem(var(--input-height-number));
+	@include flex-center;
+	flex-direction: row;
+	gap: convert-px2rem(4);
+}
+
+.reset {
+	width: convert-px2rem(16) !important;
+	height: convert-px2rem(16) !important;
+}
+
+.calendar {
+	width: convert-px2rem(16) !important;
+	height: convert-px2rem(16) !important;
+	@include flex-center;
+	@include hover-opacity;
+
+	svg {
+	}
+}

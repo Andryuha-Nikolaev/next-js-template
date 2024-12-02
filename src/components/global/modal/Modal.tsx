@@ -1,0 +1,67 @@
+import clsx from "clsx";
+
+import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
+import CloseButton from "@/components/ui/buttons/close/CloseButton";
+import { useModal } from "@/context/modal/ModalProvider";
+import type { ModalComponentsMap } from "@/context/modal/types/modal";
+import useScrollLock from "@/hooks/scroll/useScrollLock";
+
+import DefaultModal from "./components/default/DefaultModal";
+import FeedbackModal from "./components/feedback/FeedbackModal";
+import s from "./Modal.module.scss";
+
+import { MODAL_ID } from "../../../context/modal/constants/constants";
+import Overlay from "../overlay/Overlay";
+
+const Modal = () => {
+	const modalContext = useModal();
+
+	if (!modalContext) {
+		throw new Error("Modal must be used within a ModalProvider");
+	}
+
+	const { modalConfig, hideModal, isShown } = modalContext;
+
+	const modalId = modalConfig?.modalId || MODAL_ID.DEFAULT;
+
+	useScrollLock(isShown);
+
+	if (!modalConfig) {
+		return null;
+	}
+
+	const modalComponents: ModalComponentsMap = {
+		[MODAL_ID.DEFAULT]: <DefaultModal />,
+		[MODAL_ID.FEEDBACK_FORM]: <FeedbackModal />,
+	};
+
+	return (
+		<Overlay
+			onMouseDown={() => {
+				if (!modalConfig.disableOverlayClick) {
+					hideModal();
+				}
+			}}
+			isShown={isShown}
+		>
+			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+			<div
+				onMouseDown={(e) => e.stopPropagation()}
+				className={clsx(s.wrap, s[modalId])}
+			>
+				<CustomScrollLayout className={s.scroll}>
+					<div className={s.content}>
+						{!modalConfig.hiddenCloseButton && (
+							<div className={s.close}>
+								<CloseButton onClick={hideModal} />
+							</div>
+						)}
+						{modalComponents[modalId]}
+					</div>
+				</CustomScrollLayout>
+			</div>
+		</Overlay>
+	);
+};
+
+export default Modal;

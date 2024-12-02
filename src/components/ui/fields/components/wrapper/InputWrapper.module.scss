@@ -1,0 +1,32 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	position: relative;
+	width: 100%;
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.errorMessage {
+	display: block;
+	@include helper-text;
+	color: var(--color-alert);
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+
+.label {
+	margin-bottom: convert-px2rem(5);
+}
+
+.asterisk {
+	color: var(--color-alert);
+}

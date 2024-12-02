@@ -1,0 +1,1 @@
+{"extends": ["@msocial/eslint-config/next"], "rules": { "@typescript-eslint/no-misused-promises": "off"}}
