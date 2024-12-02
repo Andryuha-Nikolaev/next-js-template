@@ -91,6 +91,10 @@ a {
 	@include link-1;
 }
 
+button {
+	color: inherit;
+}
+
 a,
 button {
 	&:focus-visible {
