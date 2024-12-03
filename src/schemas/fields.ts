@@ -2,6 +2,8 @@ import { z } from "zod";
 
 const validationRegex = {
 	ONLY_CYRILLIC: /^[а-яА-ЯёЁ\s-]+$/,
+	CYRILLIC_MARKS_DIGITS: /^[а-яА-ЯёЁ0-9\s.,:/;()"'№#&-]+$/,
+	PASSWORD_REGEX: /^[a-zA-Z0-9.,!?:/;()"'№#&@$%^*_=+-]+$/,
 };
 
 export const nameSchemaRequired = z
@@ -38,7 +40,11 @@ export const passwordSchemaRequired = z
 	.string()
 	.trim()
 	.min(1, "Поле обязательно")
-	.min(8, "Минимальная длина - 8 символов");
+	.min(8, "Минимальная длина - 8 символов")
+	.refine(
+		(value) => validationRegex.PASSWORD_REGEX.test(value),
+		"Пароль может включать латинские буквы, цифры, символы кроме пробела"
+	);
 
 export const passwordSchema = passwordSchemaRequired.or(z.literal(""));
 

@@ -21,43 +21,52 @@ import {
 	checkFilesTypes,
 } from "@/schemas/fileInput";
 
-export const formSchema = z.object({
-	[FieldName.FIRST_NAME]: nameSchema,
-	[FieldName.LAST_NAME]: nameSchema,
-	[FieldName.PHONE]: phoneSchema,
-	[FieldName.EMAIL]: emailSchema,
-	[FieldName.PASSWORD]: passwordSchema,
-	[FieldName.TEXT]: textSchema,
-	[FieldName.FILE]: z
-		.any()
-		// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
-		.refine(
-			(files: FileList) => checkFilesSize(files, 5),
-			"Максимальный размер файла - 5MB"
-		)
-		.refine(
-			(files: FileList) => checkFilesTypes(files),
-			"Допустимые форматы: jpeg, jpg, png"
-		),
+export const formSchema = z
+	.object({
+		[FieldName.FIRST_NAME]: nameSchema,
+		[FieldName.LAST_NAME]: nameSchema,
+		[FieldName.PHONE]: phoneSchema,
+		[FieldName.EMAIL]: emailSchema,
+		[FieldName.PASSWORD]: passwordSchema,
+		[FieldName.CONFIRM_PASSWORD]: passwordSchema,
+		[FieldName.TEXT]: textSchema,
+		[FieldName.FILE]: z
+			.any()
+			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+			.refine(
+				(files: FileList) => checkFilesSize(files, 5),
+				"Максимальный размер файла - 5MB"
+			)
+			.refine(
+				(files: FileList) => checkFilesTypes(files),
+				"Допустимые форматы: jpeg, jpg, png"
+			),
 
-	[FieldName.FILES]: z
-		.any()
-		.refine(
-			(files: FileList) => checkFilesSize(files, 10),
-			"Максимальный размер файлов - 10MB"
-		)
-		.refine(
-			(files: FileList) => checkFilesTypes(files),
-			"Допустимые форматы: jpeg, jpg, png"
-		),
-	[FieldName.POLICY]: checkboxSchema,
-	[FieldName.CHECKBOX_GROUP]: checkboxGroupSchema,
-	[FieldName.CHECKBOX_GROUP_2]: checkboxGroupSchemaRequired,
-	[FieldName.RADIO]: radioButtonSchema,
-	[FieldName.SELECT]: selectSchema,
-	[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
-	[FieldName.DATE]: singleDateSchemaRequired,
-});
+		[FieldName.FILES]: z
+			.any()
+			.refine(
+				(files: FileList) => checkFilesSize(files, 10),
+				"Максимальный размер файлов - 10MB"
+			)
+			.refine(
+				(files: FileList) => checkFilesTypes(files),
+				"Допустимые форматы: jpeg, jpg, png"
+			),
+		[FieldName.POLICY]: checkboxSchema,
+		[FieldName.CHECKBOX_GROUP]: checkboxGroupSchema,
+		[FieldName.CHECKBOX_GROUP_2]: checkboxGroupSchemaRequired,
+		[FieldName.RADIO]: radioButtonSchema,
+		[FieldName.SELECT]: selectSchema,
+		[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
+		[FieldName.DATE]: singleDateSchemaRequired,
+	})
+	.refine(
+		(data) => data[FieldName.PASSWORD] === data[FieldName.CONFIRM_PASSWORD],
+		{
+			message: "Пароли не совпадают",
+			path: [FieldName.CONFIRM_PASSWORD],
+		}
+	);
 
 export type FormSchemaType = z.infer<typeof formSchema>;
 
@@ -67,6 +76,7 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.PHONE]: "",
 	[FieldName.EMAIL]: "",
 	[FieldName.PASSWORD]: "",
+	[FieldName.CONFIRM_PASSWORD]: "",
 	[FieldName.TEXT]: "",
 	[FieldName.FILE]: "",
 	[FieldName.FILES]: "",

@@ -78,6 +78,12 @@ const TestForm = () => {
 							label="Пароль"
 							type="password"
 						/>
+						<RHFInput
+							name={FieldName.CONFIRM_PASSWORD}
+							placeholder="Подтвердите ароль"
+							label="Подтвердите ароль"
+							type="password"
+						/>
 						<RHFTextarea
 							name={FieldName.TEXT}
 							placeholder="Текст"
