@@ -13,9 +13,7 @@ import InputWrapper from "../components/wrapper/InputWrapper";
 const DatePickerComponent = forwardRef<
 	HTMLLabelElement,
 	DatePickerComponentProps
->(({ errorMessage, label, isRequired, ...restProps }, ref) => {
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-
+>(({ errorMessage, label, isRequired, ...restProps }, _ref) => {
 	return (
 		<div className={s.block}>
 			<InputWrapper
