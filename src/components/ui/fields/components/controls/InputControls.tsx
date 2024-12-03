@@ -15,7 +15,7 @@ const InputControls = ({
 }: InputControlsProps) => {
 	return (
 		<span className={s.buttons}>
-			{type === "password" && !!togglePassword && (
+			{type === "password" && !!togglePassword && isFilled && (
 				<EyeButton onClick={togglePassword} isOpen={currentType === "text"} />
 			)}
 			{!!onOpenCalendar && (
