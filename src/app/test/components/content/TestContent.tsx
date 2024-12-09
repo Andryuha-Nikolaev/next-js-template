@@ -20,7 +20,13 @@ const TestContent = () => {
 	const { showModal, showSuccessModal, showErrorModal } = useModal();
 
 	const showDefaultModal = () => {
-		showModal({ title: "Title", text: "Text" });
+		showModal({
+			title: "Title ",
+			text: "Text",
+			onHideCallback() {
+				alert("callbaaaaaaaaaaaack");
+			},
+		});
 	};
 
 	const showDefaultSuccessModal = () => {
@@ -102,7 +108,7 @@ const TestContent = () => {
 					<hr style={{ width: "100%" }} />
 					<h2>Modal:</h2>
 					<RootButton colorVariant="var3" onClick={showDefaultModal}>
-						showDefaultModal
+						showDefaultModal with hide callback
 					</RootButton>
 					<RootButton colorVariant="var3" onClick={showDefaultSuccessModal}>
 						showDefaultSuccessModal

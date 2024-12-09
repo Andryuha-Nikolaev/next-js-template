@@ -7,6 +7,7 @@ export type ModalConfigProps = {
 	type?: "success" | "error";
 	disableOverlayClick?: boolean;
 	hiddenCloseButton?: boolean;
+	onHideCallback?: () => void;
 } | null;
 
 export type ModalProps = {
