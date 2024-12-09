@@ -6,9 +6,7 @@ const BurgerNavbar = () => {
 	return (
 		<div className={s.block}>
 			BurgerNavbar
-			<Link href={"/test#form"} target="_blank">
-				TEST FORM
-			</Link>
+			<Link href={"/test#form"}>TEST FORM</Link>
 		</div>
 	);
 };

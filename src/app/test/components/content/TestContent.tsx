@@ -133,7 +133,7 @@ const TestContent = () => {
 						showFeedbackModal disableOverlayClick
 					</RootButton>
 					<hr style={{ width: "100%" }} />
-					<h2>Forms:</h2>
+					<h2 id="form">Forms:</h2>
 					<TestForm />
 				</div>
 			</ContentLayout>

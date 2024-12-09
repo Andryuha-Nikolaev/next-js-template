@@ -3,7 +3,7 @@
 @import "./mixins/square-size";
 
 html {
-	scroll-padding-top: 120px;
+	scroll-padding-top: calc(var(--header-height-number) * 1px);
 	scroll-behavior: smooth;
 	font-size: var(--font-size_small);
 	@media (min-width: 320px) {
