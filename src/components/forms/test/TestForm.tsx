@@ -52,7 +52,7 @@ const TestForm = () => {
 	return (
 		<>
 			<FormProvider {...methods}>
-				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+				<form id="form" className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
 						<RHFInput
 							name={FieldName.FIRST_NAME}

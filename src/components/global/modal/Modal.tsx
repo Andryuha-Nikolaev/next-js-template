@@ -44,9 +44,19 @@ const Modal = () => {
 			}}
 			isShown={isShown}
 		>
-			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
 			<div
 				onMouseDown={(e) => e.stopPropagation()}
+				onClick={(e) => {
+					if (e.target instanceof Element) {
+						{
+							const link = e.target.closest("a");
+							if (link && link?.target !== "_blank") {
+								hideModal();
+							}
+						}
+					}
+				}}
 				className={clsx(s.wrap, s[modalId])}
 			>
 				<CustomScrollLayout className={s.scroll}>
