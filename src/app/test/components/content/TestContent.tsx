@@ -29,6 +29,12 @@ const TestContent = () => {
 		});
 	};
 
+	const showDefaultModalWithChildren = () => {
+		showModal({
+			children: <Link href={"/"}>На главную</Link>,
+		});
+	};
+
 	const showDefaultSuccessModal = () => {
 		showSuccessModal();
 	};
@@ -110,6 +116,13 @@ const TestContent = () => {
 					<RootButton colorVariant="var3" onClick={showDefaultModal}>
 						showDefaultModal with hide callback
 					</RootButton>
+					<RootButton
+						colorVariant="var2"
+						onClick={showDefaultModalWithChildren}
+					>
+						show Default Modal With Children
+					</RootButton>
+
 					<RootButton colorVariant="var3" onClick={showDefaultSuccessModal}>
 						showDefaultSuccessModal
 					</RootButton>

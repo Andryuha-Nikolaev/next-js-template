@@ -8,6 +8,7 @@ export type ModalConfigProps = {
 	disableOverlayClick?: boolean;
 	hiddenCloseButton?: boolean;
 	onHideCallback?: () => void;
+	children?: React.ReactNode;
 } | null;
 
 export type ModalProps = {
