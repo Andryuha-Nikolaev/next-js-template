@@ -1,9 +1,9 @@
 import Script from "next/script";
 
-const COUNTER_ID: string | null = null;
+const COUNTER_ID: number | null = null;
 
 export default function YandexMetrika() {
-	if (COUNTER_ID === null) {
+	if (!COUNTER_ID) {
 		return null;
 	}
 
@@ -20,7 +20,8 @@ export default function YandexMetrika() {
    ym(${COUNTER_ID}, "init", {
         clickmap:true,
         trackLinks:true,
-        accurateTrackBounce:true
+        accurateTrackBounce:true,
+				webvisor:true
    });`,
 			}}
 		/>
