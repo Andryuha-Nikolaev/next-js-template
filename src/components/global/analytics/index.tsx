@@ -1,12 +1,13 @@
 "use client";
 
-import useIsProd from "@/hooks/environment/useIsProd";
+import { isProd } from "@/utils/environment/isProd";
 
 import YandexMetrika from "./YandexMetrika";
 
 export default function Analytics() {
-	const isProd = useIsProd();
-	if (!isProd) {
+	const prod = isProd();
+
+	if (!prod) {
 		return null;
 	}
 
