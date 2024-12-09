@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useRef, useState } from "react";
+import { forwardRef, useState } from "react";
 
 import clsx from "clsx";
 import MaskedInput from "react-text-mask";
@@ -58,14 +58,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			}
 		};
 
-		const inputRef = useRef<HTMLInputElement | null>(null);
-
-		const handleRef = (ref: MaskedInput | null) => {
-			if (ref && ref.inputElement) {
-				inputRef.current = ref.inputElement as HTMLInputElement;
-			}
-		};
-
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
@@ -74,15 +66,14 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			>
 				<label
 					onFocus={() => {
-						if (inputRef) {
-							inputRef.current?.focus();
-						}
 						setIsFocused(true);
 						onLabelFocus();
 					}}
 					onBlur={() => {
-						setIsFocused(false);
-						onLabelBlur();
+						setTimeout(() => {
+							setIsFocused(false);
+							onLabelBlur();
+						});
 					}}
 					ref={ref}
 					className={s.label}
@@ -90,7 +81,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 					<span className={s.wrap}>
 						{mask ? (
 							<MaskedInput
-								ref={handleRef}
 								mask={mask}
 								guide={false}
 								className={inputClassNames}
@@ -100,7 +90,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 							/>
 						) : (
 							<input
-								ref={inputRef}
 								className={inputClassNames}
 								type={currentType}
 								autoComplete="new-password"
