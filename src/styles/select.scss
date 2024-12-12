@@ -73,6 +73,7 @@
 		border: 1px solid var(--color-input-border-focused) !important;
 		background-color: var(--bg-input) !important;
 		margin-top: 0 !important;
+		z-index: 2 !important;
 	}
 
 	&__menu-list {
