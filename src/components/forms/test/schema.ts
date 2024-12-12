@@ -12,7 +12,7 @@ import {
 	phoneSchema,
 	radioButtonSchema,
 	selectSchema,
-	singleDateSchemaRequired,
+	singleDateSchema,
 	textSchema,
 } from "@/schemas/fields";
 import {
@@ -58,7 +58,7 @@ export const formSchema = z
 		[FieldName.RADIO]: radioButtonSchema,
 		[FieldName.SELECT]: selectSchema,
 		[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
-		[FieldName.DATE]: singleDateSchemaRequired,
+		[FieldName.DATE]: singleDateSchema,
 	})
 	.refine(
 		(data) => data[FieldName.PASSWORD] === data[FieldName.CONFIRM_PASSWORD],
@@ -86,5 +86,5 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.RADIO]: "",
 	[FieldName.SELECT]: null,
 	[FieldName.MULTI_SELECT]: [{ value: "ccc", label: "ccc" }],
-	date: new Date("2024-11-24T13:38:22.000000Z"),
+	date: null,
 };

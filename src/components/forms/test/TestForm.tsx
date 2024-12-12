@@ -196,7 +196,7 @@ const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
-						<RHFDatePicker name={FieldName.DATE} />
+						<RHFDatePicker range name={FieldName.DATE} />
 					</FormWrapper>
 				</form>
 			</FormProvider>

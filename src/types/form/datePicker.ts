@@ -2,9 +2,11 @@ import type { InputWrapperProps } from "./input";
 
 type ValuePiece = Date | null;
 
-export type Value = ValuePiece | [ValuePiece, ValuePiece];
+export type Value = [ValuePiece, ValuePiece] | null;
 
-export type BaseDatePickerProps = InputWrapperProps;
+export type BaseDatePickerProps = InputWrapperProps & {
+	range?: boolean;
+};
 
 export type DatePickerComponentProps = BaseDatePickerProps & {
 	value: Value;

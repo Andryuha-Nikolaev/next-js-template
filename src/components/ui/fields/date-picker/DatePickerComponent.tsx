@@ -21,50 +21,88 @@ const DatePickerComponent = forwardRef<
 	DatePickerComponentProps
 >(
 	(
-		{ errorMessage, label, isRequired, value, onChange, time, ...restProps },
+		{
+			errorMessage,
+			label,
+			isRequired,
+			value,
+			onChange,
+			time,
+			range,
+			...restProps
+		},
 		ref
 	) => {
 		const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
 
 		const [inputValue, setInputValue] = useState(
-			value instanceof Date ? format(value, dateFormat) : ""
+			value && value[0] ? format(value[0], dateFormat) : ""
+		);
+
+		const [inputEndValue, setInputEndValue] = useState(
+			value && value[1] ? format(value[1], dateFormat) : ""
 		);
 
 		const [month, setMonth] = useState(
 			value instanceof Date ? new Date(value) : new Date()
 		);
 
+		console.log(value);
+
 		const handleDayPickerSelect = (date: Value) => {
+			const currentDate = Array.isArray(date) ? date : [date, null];
+
 			onChange(date);
 
 			if (!date) {
 				setInputValue("");
+				setInputEndValue("");
 			} else {
-				const currentMonth =
-					date instanceof Date
-						? date
-						: Array.isArray(date) && date[0]
-							? date[0]
-							: new Date();
-				setMonth(currentMonth);
-				setInputValue(format(currentMonth, dateFormat));
+				// const currentMonth =
+				// 	date instanceof Date
+				// 		? date
+				// 		: Array.isArray(date) && date[0]
+				// 			? date[0]
+				// 			: new Date();
+				// setMonth(currentMonth);
+				setInputValue(format(currentDate[0] ? currentDate[0] : "", dateFormat));
+				setInputEndValue(
+					format(currentDate[1] ? currentDate[1] : "", dateFormat)
+				);
 			}
 		};
 
-		const handleInputChange = (value: string) => {
-			setInputValue(value);
+		const handleInputChange = (inputValue: string) => {
+			setInputValue(inputValue);
 
-			if (value.length === 10) {
-				const parsedDate = parse(value, dateFormat, new Date());
+			if (inputValue.length === 10) {
+				const parsedDate = parse(inputValue, dateFormat, new Date());
 
 				if (isValid(parsedDate)) {
-					onChange(parsedDate);
+					onChange([parsedDate, value ? value[1] : null]);
 					setMonth(parsedDate);
 				} else {
 					onChange(null);
 				}
-			} else if (!value.length) {
-				onChange(null);
+			} else if (!inputValue.length) {
+				onChange([null, value ? value[1] : null]);
+			}
+		};
+
+		const handleInputEndChange = (inputValue: string) => {
+			setInputEndValue(inputValue);
+
+			if (inputValue.length === 10) {
+				const parsedDate = parse(inputValue, dateFormat, new Date());
+
+				if (isValid(parsedDate)) {
+					onChange([value ? value[0] : null, parsedDate]);
+					setMonth(parsedDate);
+				} else {
+					onChange(null);
+				}
+			} else if (!inputValue.length) {
+				onChange([value ? value[0] : null, null]);
 			}
 		};
 
@@ -72,7 +110,6 @@ const DatePickerComponent = forwardRef<
 		const autoCorrectedDatePipe =
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 			createAutoCorrectedDatePipe(dateFormat);
-		console.log(month);
 
 		return (
 			<div className={s.block}>
@@ -84,7 +121,7 @@ const DatePickerComponent = forwardRef<
 					<Input
 						ref={ref}
 						value={inputValue}
-						placeholder="dd.мм.yyyy"
+						placeholder={dateFormat}
 						mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
 						// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 						pipe={autoCorrectedDatePipe}
@@ -93,11 +130,29 @@ const DatePickerComponent = forwardRef<
 						// onOpenCalendar={() => setIsOpen(true)}
 						// onLabelBlur={() => setIsOpen(false)}
 					/>
+
+					{range && (
+						<Input
+							value={inputEndValue}
+							placeholder={dateFormat}
+							mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
+							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+							pipe={autoCorrectedDatePipe}
+							onChange={(e) => handleInputEndChange(e.target.value)}
+							// onLabelFocus={() => setIsOpen(true)}
+							// onOpenCalendar={() => setIsOpen(true)}
+							// onLabelBlur={() => setIsOpen(false)}
+						/>
+					)}
 					<Calendar
-						value={value}
-						onChange={handleDayPickerSelect}
+						selectRange={range}
+						value={range ? value : value && value[0]}
+						onClickDay={(e) => console.log(e)}
+						onChange={(e) => {
+							handleDayPickerSelect(Array.isArray(e) ? e : [e, null]);
+						}}
 						onActiveStartDateChange={(e) => {
-							console.log(e.value instanceof Date);
+							// console.log(e.value instanceof Date);
 
 							setMonth(e.activeStartDate ?? new Date());
 						}}
