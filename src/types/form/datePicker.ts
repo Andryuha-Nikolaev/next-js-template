@@ -1,16 +1,13 @@
 import type { InputWrapperProps } from "./input";
 
-type ValuePiece = Date | null;
-
-export type Value = [ValuePiece, ValuePiece] | null;
-
-export type BaseDatePickerProps = InputWrapperProps & {
-	range?: boolean;
-};
+export type BaseDatePickerProps = InputWrapperProps;
 
 export type DatePickerComponentProps = BaseDatePickerProps & {
-	value: Value;
-	onChange: (value: Value) => void;
+	variant: {
+		mode: "single";
+		value: Date | null;
+		onChange: (date: Date | null) => void;
+	};
 	time?: boolean;
 };
 
