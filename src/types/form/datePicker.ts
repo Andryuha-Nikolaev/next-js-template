@@ -1,8 +1,17 @@
-import type { CalendarProps } from "react-calendar";
-
 import type { InputWrapperProps } from "./input";
 
-export type DatePickerComponentProps = CalendarProps & InputWrapperProps;
+type ValuePiece = Date | null;
 
-export type RHFDatePickerComponentProps = CalendarProps &
-	InputWrapperProps & { name: string };
+export type Value = ValuePiece | [ValuePiece, ValuePiece];
+
+export type BaseDatePickerProps = InputWrapperProps;
+
+export type DatePickerComponentProps = BaseDatePickerProps & {
+	value: Value;
+	onChange: (value: Value) => void;
+	time?: boolean;
+};
+
+export type RHFDatePickerComponentProps = BaseDatePickerProps & {
+	name: string;
+};
