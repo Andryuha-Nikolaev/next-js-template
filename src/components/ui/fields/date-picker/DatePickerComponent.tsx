@@ -6,7 +6,11 @@ import { format, isValid, parse } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
-import type { DatePickerComponentProps } from "@/types/form/datePicker";
+import type {
+	DatePickerComponentProps,
+	RangeValue,
+	SingleValue,
+} from "@/types/form/datePicker";
 
 import s from "./DatePickerComponent.module.scss";
 
@@ -33,7 +37,7 @@ const DatePickerComponent = forwardRef<
 	const [inputValue, setInputValue] = useState(currentInputValue);
 	const [month, setMonth] = useState(currentMonthValue);
 
-	const handleSingleSelect = (date: Date | null) => {
+	const handleSingleSelect = (date: SingleValue) => {
 		if (variant.mode === "single") {
 			variant.onChange(date);
 		}
@@ -62,6 +66,18 @@ const DatePickerComponent = forwardRef<
 		}
 	};
 
+	const handleRangeSelect = (date: RangeValue) => {
+		if (variant.mode === "range") {
+			variant.onChange(date);
+		}
+
+		if (!date) {
+			// setInputValue("");
+		} else {
+			// setInputValue(format(date, dateFormat));
+		}
+	};
+
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const autoCorrectedDatePipe =
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
@@ -86,18 +102,29 @@ const DatePickerComponent = forwardRef<
 					// onOpenCalendar={() => setIsOpen(true)}
 					// onLabelBlur={() => setIsOpen(false)}
 				/>
-				<DayPicker
-					mode={variant.mode}
-					month={month}
-					selected={variant.value ?? undefined}
-					onSelect={(e) => {
-						if (variant.mode === "single") {
-							handleSingleSelect(e instanceof Date ? e : null);
-						}
-					}}
-					onMonthChange={setMonth}
-					{...restProps}
-				/>
+				{variant.mode === "single" && (
+					<DayPicker
+						mode={variant.mode}
+						month={month}
+						selected={variant.value ?? undefined}
+						onSelect={(e) => handleSingleSelect(e instanceof Date ? e : null)}
+						onMonthChange={setMonth}
+						{...restProps}
+					/>
+				)}
+				{variant.mode === "range" && (
+					<DayPicker
+						mode={variant.mode}
+						month={month}
+						selected={variant.value ?? undefined}
+						onSelect={(e) => {
+							// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+							handleRangeSelect(e ? e : null);
+						}}
+						onMonthChange={setMonth}
+						{...restProps}
+					/>
+				)}
 			</InputWrapper>
 		</div>
 	);

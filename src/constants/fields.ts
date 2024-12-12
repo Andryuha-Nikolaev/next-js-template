@@ -15,4 +15,5 @@ export enum FieldName {
 	SELECT = "select",
 	MULTI_SELECT = "multi-select",
 	DATE = "date",
+	RANGE_DATE = "range-date",
 }

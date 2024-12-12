@@ -1,14 +1,19 @@
 import { Controller, useFormContext } from "react-hook-form";
 
 import type {
+	RangeValue,
 	RHFDatePickerComponentProps,
-	SingleValue,
 } from "@/types/form/datePicker";
 
 import DatePickerComponent from "./DatePickerComponent";
 
-const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
-	const { control } = useFormContext();
+const RHFRangeDatePicker = ({
+	name,
+	...props
+}: RHFDatePickerComponentProps) => {
+	const { control, watch } = useFormContext();
+
+	console.log(watch(name));
 
 	return (
 		<Controller
@@ -19,8 +24,8 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 					errorMessage={error?.message}
 					{...props}
 					variant={{
-						mode: "single",
-						value: field.value as SingleValue,
+						mode: "range",
+						value: field.value as RangeValue,
 						onChange: field.onChange,
 					}}
 					ref={field.ref}
@@ -30,4 +35,4 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 	);
 };
 
-export default RHFDatePicker;
+export default RHFRangeDatePicker;

@@ -106,3 +106,15 @@ export const singleDateSchemaRequired = singleDateSchema.refine(
 	(value) => !!value,
 	"Поле обязательно"
 );
+
+export const rangeDateSchema = z
+	.object({
+		from: z.date().or(z.undefined()),
+		to: z.date().or(z.undefined()),
+	})
+	.or(z.null());
+
+export const rangeDateSchemaRequired = rangeDateSchema.refine(
+	(value) => value?.from && value?.to,
+	"Поле обязательно"
+);
