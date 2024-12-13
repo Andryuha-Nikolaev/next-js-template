@@ -97,6 +97,23 @@ export const multiSelectSchemaRequired = multiSelectSchema.refine(
 	"Поле обязательно"
 );
 
-export const singleDateSchema = z.date().or(z.null());
+export const singleDateSchema = z.date().or(z.null()).or(z.string());
 
-// TODO requiredDateSchema
+export const singleDateSchemaRequired = singleDateSchema.refine(
+	(value) => !!value,
+	"Поле обязательно"
+);
+
+export const rangeDateSchema = z
+	.array(z.date().or(z.null()))
+	.transform((arr) => {
+		if (arr[0] === null && arr[1] === null) {
+			return [];
+		}
+		return arr;
+	});
+
+export const rangeDateSchemaRequired = rangeDateSchema.refine(
+	(arr) => !!arr.length,
+	"Поле обязательно"
+);
