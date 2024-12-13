@@ -1,14 +1,13 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type {
-	RHFDatePickerComponentProps,
-	SingleValue,
-} from "@/types/form/datePicker";
+import type { RHFDatePickerComponentProps } from "@/types/form/datePicker";
 
 import DatePickerComponent from "./DatePickerComponent";
 
 const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
-	const { control } = useFormContext();
+	const { control, watch } = useFormContext();
+
+	console.log(watch(name));
 
 	return (
 		<Controller
@@ -20,7 +19,7 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 					{...props}
 					variant={{
 						mode: "single",
-						value: field.value as SingleValue,
+						value: field.value as Date,
 						onChange: field.onChange,
 					}}
 					ref={field.ref}

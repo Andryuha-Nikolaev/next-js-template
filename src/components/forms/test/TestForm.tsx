@@ -6,7 +6,6 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import RHFCheckboxGroup from "@/components/ui/fields/checkbox-group/RHFCheckboxGroup";
 import RHFCheckbox from "@/components/ui/fields/checkbox/RHFCheckbox";
 import RHFDatePicker from "@/components/ui/fields/date-picker/RHFDatePicker";
-import RHFRangeDatePicker from "@/components/ui/fields/date-picker/RHFRangeDatePicker";
 import RHFFileInput from "@/components/ui/fields/file/RHFFileInput";
 import RHFInput from "@/components/ui/fields/input/RHFInput";
 import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
@@ -198,7 +197,6 @@ const TestForm = () => {
 							]}
 						/>
 						<RHFDatePicker name={FieldName.DATE} />
-						<RHFRangeDatePicker name={FieldName.RANGE_DATE} />
 					</FormWrapper>
 				</form>
 			</FormProvider>

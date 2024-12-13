@@ -11,7 +11,6 @@ import {
 	passwordSchema,
 	phoneSchema,
 	radioButtonSchema,
-	rangeDateSchemaRequired,
 	selectSchema,
 	singleDateSchemaRequired,
 	textSchema,
@@ -60,7 +59,6 @@ export const formSchema = z
 		[FieldName.SELECT]: selectSchema,
 		[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
 		[FieldName.DATE]: singleDateSchemaRequired,
-		[FieldName.RANGE_DATE]: rangeDateSchemaRequired,
 	})
 	.refine(
 		(data) => data[FieldName.PASSWORD] === data[FieldName.CONFIRM_PASSWORD],
@@ -89,5 +87,4 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.SELECT]: null,
 	[FieldName.MULTI_SELECT]: [{ value: "ccc", label: "ccc" }],
 	[FieldName.DATE]: null,
-	[FieldName.RANGE_DATE]: null,
 };
