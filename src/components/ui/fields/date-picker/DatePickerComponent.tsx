@@ -15,7 +15,6 @@ import Input from "../input/Input";
 
 const DATE_FORMAT = "dd.MM.yyyy";
 const DATE_TIME_FORMAT = "dd.MM.yyyy HH:MM";
-const AUTOCORRECT_FORMAT = "dd.mm.yyyy HH:MM";
 
 const DatePickerComponent = forwardRef<
 	HTMLLabelElement,
@@ -65,7 +64,7 @@ const DatePickerComponent = forwardRef<
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const autoCorrectedDatePipe =
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		createAutoCorrectedDatePipe(AUTOCORRECT_FORMAT);
+		createAutoCorrectedDatePipe("dd.mm.yyyy HH:MM");
 
 	return (
 		<div className={s.block}>
