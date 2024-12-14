@@ -21,8 +21,10 @@ const InputControls = ({
 			{!!onOpenCalendar && (
 				<button
 					className={s.calendar}
-					aria-label="Открыть календарь"
-					onClick={onOpenCalendar}
+					aria-label="Календарь"
+					onClick={() => {
+						onOpenCalendar();
+					}}
 					type="button"
 				>
 					<CalendarIcon />

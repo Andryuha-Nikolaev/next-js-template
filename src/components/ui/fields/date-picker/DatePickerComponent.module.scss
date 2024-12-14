@@ -15,23 +15,9 @@
 .wrap {
 	position: relative;
 	width: 100%;
-
-	&.withInput {
-		width: 100%;
-	}
 }
 
-.inputWrap {
-	&.hidden {
-		opacity: 0;
-		width: 0;
-		height: 0;
-		overflow: hidden;
-		display: block;
-	}
-}
-
-.picker {
+.calendar {
 	width: fit-content;
 	background-color: var(--background);
 	border: 1px solid var(--color-input-border);
@@ -58,9 +44,4 @@
 			bottom: 100%;
 		}
 	}
-}
-
-.buttons {
-	display: flex;
-	gap: convert-px2rem(10);
 }

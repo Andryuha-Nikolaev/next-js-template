@@ -1,11 +1,13 @@
 "use client";
 
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
+import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
 import DatePicker from "react-datepicker";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
+import useClickOutside from "@/hooks/other/useClickOutside";
 import type {
 	DatePickerComponentProps,
 	SingleValue,
@@ -33,7 +35,11 @@ const DatePickerComponent = forwardRef<
 			value,
 			onChange,
 			time,
-			modules = { input: { enabled: true } },
+			modules = {
+				input: { enabled: true },
+				calendar: { enabled: true, inline: false },
+			},
+			modalPosition = "bottom",
 			...props
 		},
 		ref
@@ -44,9 +50,18 @@ const DatePickerComponent = forwardRef<
 			value ? format(value, dateFormat) : ""
 		);
 
-		// const [month, setMonth] = useState(
-		// 	 value ? value : null
-		// );
+		const [customError, setCustomError] = useState("");
+
+		const [isOpen, setIsOpen] = useState(false);
+		const wrapRef = useRef<HTMLDivElement>(null);
+		const closeModal = () => {
+			setIsOpen(false);
+		};
+		useClickOutside({
+			elementRefs: [wrapRef],
+			isOpen: isOpen,
+			onClose: closeModal,
+		});
 
 		useEffect(() => {
 			if (!value) {
@@ -71,7 +86,17 @@ const DatePickerComponent = forwardRef<
 				const parsedDate = parse(inputValue, dateFormat, new Date());
 
 				if (isValid(parsedDate)) {
-					onChange(parsedDate);
+					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
+						setCustomError(`Дата начала не может быть позднее даты окончания`);
+					} else if (
+						props.minDate &&
+						parsedDate.getTime() < props.minDate.getTime()
+					) {
+						setCustomError(`Дата окончания не может быть раньше даты начала`);
+					} else {
+						onChange(parsedDate);
+						setCustomError("");
+					}
 				}
 			} else if (!inputValue.length) {
 				onChange(null);
@@ -86,11 +111,11 @@ const DatePickerComponent = forwardRef<
 		return (
 			<div className={s.block}>
 				<InputWrapper
-					errorMessage={errorMessage}
+					errorMessage={errorMessage || customError}
 					label={label}
 					isRequired={isRequired}
 				>
-					<div className={s.wrap}>
+					<div ref={wrapRef} className={s.wrap}>
 						{modules.input?.enabled && (
 							<div className={s.inputs}>
 								<Input
@@ -101,29 +126,39 @@ const DatePickerComponent = forwardRef<
 									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 									pipe={autoCorrectedDatePipe}
 									onChange={(e) => handleInputChange(e.target.value)}
+									// onLabelFocus={() => setIsOpen(true)}
 									// onOpenCalendar={() => setIsOpen(true)}
 								/>
 							</div>
 						)}
-					</div>
-					<div className={s.calendar}>
-						{/* <div className={s.heading}>
-							{mode === "single" && <p>{inputValue} </p>}
-							{mode === "range" && (
-								<p>
-									{startInputValue}
-									{startInputValue && endInputValue && " - "}
-									{endInputValue}
-								</p>
-							)}
-						</div> */}
+						{modules.calendar?.enabled && (
+							<div
+								className={clsx(
+									s.calendar,
+									!modules.calendar?.inline && s.modal,
+									isOpen && s.open,
+									s[modalPosition]
+								)}
+							>
+								{/* <div className={s.heading}>
+					{mode === "single" && <p>{inputValue} </p>}
+					{mode === "range" && (
+						<p>
+							{startInputValue}
+							{startInputValue && endInputValue && " - "}
+							{endInputValue}
+						</p>
+					)}
+				</div> */}
 
-						<DatePicker
-							selected={value}
-							onChange={(e) => handleSingleSelect(e)}
-							inline
-							{...props}
-						/>
+								<DatePicker
+									selected={value}
+									onChange={(e) => handleSingleSelect(e)}
+									inline
+									{...props}
+								/>
+							</div>
+						)}
 					</div>
 				</InputWrapper>
 			</div>

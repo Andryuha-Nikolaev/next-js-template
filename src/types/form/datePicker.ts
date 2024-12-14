@@ -5,7 +5,7 @@ export type RangeValue = [Date | null, Date | null];
 
 export type BaseDatePickerProps = InputWrapperProps & {
 	time?: boolean;
-
+	modalPosition?: "top" | "bottom";
 	selectsStart?: boolean;
 	selectsEnd?: boolean;
 	startDate?: Date;

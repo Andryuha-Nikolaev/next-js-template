@@ -12,6 +12,7 @@ import {
 	phoneSchema,
 	radioButtonSchema,
 	selectSchema,
+	singleDateSchema,
 	singleDateSchemaRequired,
 	textSchema,
 } from "@/schemas/fields";
@@ -58,7 +59,7 @@ export const formSchema = z
 		[FieldName.RADIO]: radioButtonSchema,
 		[FieldName.SELECT]: selectSchema,
 		[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
-		[FieldName.DATE]: singleDateSchemaRequired,
+		[FieldName.DATE]: singleDateSchema,
 		[FieldName.START_DATE]: singleDateSchemaRequired,
 		[FieldName.END_DATE]: singleDateSchemaRequired,
 	})
