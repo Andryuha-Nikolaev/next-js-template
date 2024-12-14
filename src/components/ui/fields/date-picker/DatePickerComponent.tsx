@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
 import DatePicker from "react-datepicker";
@@ -34,9 +34,30 @@ const DatePickerComponent = forwardRef<
 	const [startInputValue, setStartInputValue] = useState(
 		mode === "range" && value[0] ? format(value[0], dateFormat) : ""
 	);
+
 	const [endInputValue, setEndInputValue] = useState(
 		mode === "range" && value[1] ? format(value[1], dateFormat) : ""
 	);
+
+	const [month, setMonth] = useState(
+		mode === "range" && value[0] ? value[0] : null
+	);
+
+	useEffect(() => {
+		if (mode === "range") {
+			if (!value[0]) {
+				setStartInputValue("");
+			}
+			if (!value[1]) {
+				setEndInputValue("");
+			}
+		}
+		if (mode === "single") {
+			if (!value) {
+				setInputValue("");
+			}
+		}
+	}, [mode, value]);
 
 	const handleSingleSelect = (date: SingleValue) => {
 		if (mode === "single") {
@@ -88,6 +109,7 @@ const DatePickerComponent = forwardRef<
 						setEndInputValue(inputValue);
 					} else {
 						onChange([parsedDate, value[1]]);
+						setMonth(parsedDate);
 					}
 				}
 			} else if (!inputValue.length) {
@@ -111,6 +133,7 @@ const DatePickerComponent = forwardRef<
 						setEndInputValue(startInputValue);
 					} else {
 						onChange([value[0], parsedDate]);
+						setMonth(parsedDate);
 					}
 				}
 			} else if (!inputValue.length) {
@@ -180,8 +203,7 @@ const DatePickerComponent = forwardRef<
 				)}
 				{mode === "range" && (
 					<DatePicker
-						// TODO менять при изменении даты конца через инпут
-						selected={value[0]}
+						selected={month}
 						onChange={(e) => handleRangeSelect(e)}
 						startDate={value[0] ?? undefined}
 						endDate={value[1] ?? undefined}
