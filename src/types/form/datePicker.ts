@@ -5,6 +5,13 @@ export type RangeValue = [Date | null, Date | null];
 
 export type BaseDatePickerProps = InputWrapperProps & {
 	time?: boolean;
+
+	selectsStart?: boolean;
+	selectsEnd?: boolean;
+	startDate?: Date;
+	endDate?: Date;
+	minDate?: Date;
+	maxDate?: Date;
 	modules?: {
 		input?: {
 			enabled?: boolean;
@@ -18,25 +25,10 @@ export type BaseDatePickerProps = InputWrapperProps & {
 	};
 };
 
-type Mode =
-	| {
-			mode: "single";
-			value: SingleValue;
-			onChange: (date: SingleValue) => void;
-			selectsStart?: boolean;
-			selectsEnd?: boolean;
-			startDate?: Date;
-			endDate?: Date;
-			minDate?: Date;
-			maxDate?: Date;
-	  }
-	| {
-			mode: "range";
-			value: RangeValue;
-			onChange: (date: RangeValue) => void;
-	  };
-
-export type DatePickerComponentProps = BaseDatePickerProps & Mode;
+export type DatePickerComponentProps = BaseDatePickerProps & {
+	value: SingleValue;
+	onChange: (date: SingleValue) => void;
+};
 
 export type RHFDatePickerComponentProps = BaseDatePickerProps & {
 	name: string;

@@ -8,7 +8,6 @@ import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrect
 
 import type {
 	DatePickerComponentProps,
-	RangeValue,
 	SingleValue,
 } from "@/types/form/datePicker";
 
@@ -34,126 +33,48 @@ const DatePickerComponent = forwardRef<
 			value,
 			onChange,
 			time,
-			mode,
 			modules = { input: { enabled: true } },
+			...props
 		},
 		ref
 	) => {
 		const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
 
 		const [inputValue, setInputValue] = useState(
-			mode === "single" && value ? format(value, dateFormat) : ""
+			value ? format(value, dateFormat) : ""
 		);
 
-		const [startInputValue, setStartInputValue] = useState(
-			mode === "range" && value[0] ? format(value[0], dateFormat) : ""
-		);
-
-		const [endInputValue, setEndInputValue] = useState(
-			mode === "range" && value[1] ? format(value[1], dateFormat) : ""
-		);
-
-		const [month, setMonth] = useState(
-			mode === "range" && value[0] ? value[0] : null
-		);
+		// const [month, setMonth] = useState(
+		// 	 value ? value : null
+		// );
 
 		useEffect(() => {
-			if (mode === "range") {
-				if (!value[0]) {
-					setStartInputValue("");
-				}
-				if (!value[1]) {
-					setEndInputValue("");
-				}
+			if (!value) {
+				setInputValue("");
 			}
-			if (mode === "single") {
-				if (!value) {
-					setInputValue("");
-				}
-			}
-		}, [mode, value]);
+		}, [value]);
 
 		const handleSingleSelect = (date: SingleValue) => {
-			if (mode === "single") {
-				onChange(date);
+			onChange(date);
 
-				if (!date) {
-					setInputValue("");
-				} else {
-					setInputValue(format(date, dateFormat));
-				}
+			if (!date) {
+				setInputValue("");
+			} else {
+				setInputValue(format(date, dateFormat));
 			}
 		};
 
 		const handleInputChange = (inputValue: string) => {
-			if (mode === "single") {
-				setInputValue(inputValue);
+			setInputValue(inputValue);
 
-				if (inputValue.length === 10) {
-					const parsedDate = parse(inputValue, dateFormat, new Date());
+			if (inputValue.length === 10) {
+				const parsedDate = parse(inputValue, dateFormat, new Date());
 
-					if (isValid(parsedDate)) {
-						onChange(parsedDate);
-					}
-				} else if (!inputValue.length) {
-					onChange(null);
+				if (isValid(parsedDate)) {
+					onChange(parsedDate);
 				}
-			}
-		};
-
-		const handleRangeSelect = (date: RangeValue) => {
-			if (mode === "range") {
-				onChange(date);
-				setMonth(date[0]);
-				setStartInputValue(date[0] ? format(date[0], dateFormat) : "");
-				setEndInputValue(date[1] ? format(date[1], dateFormat) : "");
-			}
-		};
-
-		const handleStartInputChange = (inputValue: string) => {
-			if (mode === "range") {
-				setStartInputValue(inputValue);
-
-				if (inputValue.length === 10) {
-					const parsedDate = parse(inputValue, dateFormat, new Date());
-
-					if (isValid(parsedDate)) {
-						if (value[1] && parsedDate.getTime() > value[1].getTime()) {
-							onChange([value[1], parsedDate]);
-							setStartInputValue(endInputValue);
-							setEndInputValue(inputValue);
-						} else {
-							onChange([parsedDate, value[1]]);
-							setMonth(parsedDate);
-						}
-					}
-				} else if (!inputValue.length) {
-					onChange([null, null]);
-					setEndInputValue("");
-				}
-			}
-		};
-
-		const handleEndInputChange = (inputValue: string) => {
-			if (mode === "range") {
-				setEndInputValue(inputValue);
-
-				if (inputValue.length === 10) {
-					const parsedDate = parse(inputValue, dateFormat, new Date());
-
-					if (isValid(parsedDate)) {
-						if (value[0] && parsedDate.getTime() < value[0].getTime()) {
-							onChange([parsedDate, value[0]]);
-							setStartInputValue(inputValue);
-							setEndInputValue(startInputValue);
-						} else {
-							onChange([value[0], parsedDate]);
-							setMonth(parsedDate);
-						}
-					}
-				} else if (!inputValue.length) {
-					onChange([value[0], null]);
-				}
+			} else if (!inputValue.length) {
+				onChange(null);
 			}
 		};
 
@@ -172,48 +93,21 @@ const DatePickerComponent = forwardRef<
 					<div className={s.wrap}>
 						{modules.input?.enabled && (
 							<div className={s.inputs}>
-								{mode === "single" && (
-									<Input
-										ref={ref}
-										value={inputValue}
-										placeholder={dateFormat}
-										mask={DATE_MASK}
-										// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-										pipe={autoCorrectedDatePipe}
-										onChange={(e) => handleInputChange(e.target.value)}
-										// onOpenCalendar={() => setIsOpen(true)}
-									/>
-								)}
-								{mode === "range" && (
-									<>
-										<Input
-											readOnly
-											ref={ref}
-											value={startInputValue}
-											placeholder={dateFormat}
-											mask={DATE_MASK}
-											// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-											pipe={autoCorrectedDatePipe}
-											onChange={(e) => handleStartInputChange(e.target.value)}
-											// onOpenCalendar={() => setIsOpen(true)}
-										/>
-										<Input
-											readOnly
-											value={endInputValue}
-											placeholder={dateFormat}
-											mask={DATE_MASK}
-											// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-											pipe={autoCorrectedDatePipe}
-											onChange={(e) => handleEndInputChange(e.target.value)}
-											// onOpenCalendar={() => setIsOpen(true)}
-										/>
-									</>
-								)}
+								<Input
+									ref={ref}
+									value={inputValue}
+									placeholder={dateFormat}
+									mask={DATE_MASK}
+									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+									pipe={autoCorrectedDatePipe}
+									onChange={(e) => handleInputChange(e.target.value)}
+									// onOpenCalendar={() => setIsOpen(true)}
+								/>
 							</div>
 						)}
 					</div>
 					<div className={s.calendar}>
-						<div className={s.heading}>
+						{/* <div className={s.heading}>
 							{mode === "single" && <p>{inputValue} </p>}
 							{mode === "range" && (
 								<p>
@@ -222,25 +116,14 @@ const DatePickerComponent = forwardRef<
 									{endInputValue}
 								</p>
 							)}
-						</div>
-						{mode === "single" && (
-							<DatePicker
-								selected={value}
-								onChange={(e) => handleSingleSelect(e)}
-								inline
-							/>
-						)}
+						</div> */}
 
-						{mode === "range" && (
-							<DatePicker
-								selected={month}
-								onChange={(e) => handleRangeSelect(e)}
-								startDate={value[0] ?? undefined}
-								endDate={value[1] ?? undefined}
-								selectsRange
-								inline
-							/>
-						)}
+						<DatePicker
+							selected={value}
+							onChange={(e) => handleSingleSelect(e)}
+							inline
+							{...props}
+						/>
 					</div>
 				</InputWrapper>
 			</div>

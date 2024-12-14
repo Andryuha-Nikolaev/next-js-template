@@ -21,7 +21,6 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 					value={field.value as SingleValue}
 					onChange={field.onChange}
 					ref={field.ref}
-					mode="single"
 				/>
 			)}
 		/>
