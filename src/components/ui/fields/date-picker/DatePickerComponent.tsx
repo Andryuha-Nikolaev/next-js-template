@@ -82,10 +82,17 @@ const DatePickerComponent = forwardRef<
 				const parsedDate = parse(inputValue, dateFormat, new Date());
 
 				if (isValid(parsedDate)) {
-					onChange([parsedDate, value[1]]);
+					if (value[1] && parsedDate.getTime() > value[1].getTime()) {
+						onChange([value[1], parsedDate]);
+						setStartInputValue(endInputValue);
+						setEndInputValue(inputValue);
+					} else {
+						onChange([parsedDate, value[1]]);
+					}
 				}
 			} else if (!inputValue.length) {
-				onChange([null, value[1]]);
+				onChange([null, null]);
+				setEndInputValue("");
 			}
 		}
 	};
@@ -98,7 +105,13 @@ const DatePickerComponent = forwardRef<
 				const parsedDate = parse(inputValue, dateFormat, new Date());
 
 				if (isValid(parsedDate)) {
-					onChange([value[0], parsedDate]);
+					if (value[0] && parsedDate.getTime() < value[0].getTime()) {
+						onChange([parsedDate, value[0]]);
+						setStartInputValue(inputValue);
+						setEndInputValue(startInputValue);
+					} else {
+						onChange([value[0], parsedDate]);
+					}
 				}
 			} else if (!inputValue.length) {
 				onChange([value[0], null]);
