@@ -19,9 +19,29 @@ import InputWrapper from "../components/wrapper/InputWrapper";
 import Input from "../input/Input";
 
 const DATE_FORMAT = "dd.MM.yyyy";
-const DATE_TIME_FORMAT = "dd.MM.yyyy HH:MM";
+const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";
+const DATE_PLACEHOLDER = "dd.MM.yyyy";
+const DATE_TIME_PLACEHOLDER = "dd.mm.yyyy HH:MM";
 const AUTOCORRECT_FORMAT = "dd.mm.yyyy HH:MM";
 const DATE_MASK = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
+const DATE_TIME_MASK = [
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	/\d/,
+	" ",
+	/\d/,
+	/\d/,
+	":",
+	/\d/,
+	/\d/,
+];
 
 const DatePickerComponent = forwardRef<
 	HTMLLabelElement,
@@ -39,18 +59,19 @@ const DatePickerComponent = forwardRef<
 				input: { enabled: true },
 				calendar: { enabled: true, inline: false },
 			},
-			modalPosition = "bottom",
+			modalPositionY = "bottom",
+			modalPositionX = "left",
 			...props
 		},
 		ref
 	) => {
 		const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
+		const placeholder = time ? DATE_TIME_PLACEHOLDER : DATE_PLACEHOLDER;
+		const mask = time ? DATE_TIME_MASK : DATE_MASK;
 
 		const [inputValue, setInputValue] = useState(
 			value ? format(value, dateFormat) : ""
 		);
-
-		const [customError, setCustomError] = useState("");
 
 		const [isOpen, setIsOpen] = useState(false);
 		const wrapRef = useRef<HTMLDivElement>(null);
@@ -81,21 +102,26 @@ const DatePickerComponent = forwardRef<
 
 		const handleInputChange = (inputValue: string) => {
 			setInputValue(inputValue);
+			const trimmedValue = inputValue.trim();
 
-			if (inputValue.length === 10) {
-				const parsedDate = parse(inputValue, dateFormat, new Date());
+			if (trimmedValue.length === 10 || trimmedValue.length === 16) {
+				const parsedDate = parse(
+					trimmedValue,
+					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT,
+					new Date()
+				);
 
 				if (isValid(parsedDate)) {
 					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
-						setCustomError(`Дата начала не может быть позднее даты окончания`);
+						// TODO add RHF validation
+						return;
 					} else if (
 						props.minDate &&
 						parsedDate.getTime() < props.minDate.getTime()
 					) {
-						setCustomError(`Дата окончания не может быть раньше даты начала`);
+						return;
 					} else {
 						onChange(parsedDate);
-						setCustomError("");
 					}
 				}
 			} else if (!inputValue.length) {
@@ -111,7 +137,7 @@ const DatePickerComponent = forwardRef<
 		return (
 			<div className={s.block}>
 				<InputWrapper
-					errorMessage={errorMessage || customError}
+					errorMessage={errorMessage}
 					label={label}
 					isRequired={isRequired}
 				>
@@ -121,8 +147,8 @@ const DatePickerComponent = forwardRef<
 								<Input
 									ref={ref}
 									value={inputValue}
-									placeholder={dateFormat}
-									mask={DATE_MASK}
+									placeholder={placeholder}
+									mask={mask}
 									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 									pipe={autoCorrectedDatePipe}
 									onChange={(e) => handleInputChange(e.target.value)}
@@ -137,7 +163,8 @@ const DatePickerComponent = forwardRef<
 									s.calendar,
 									!modules.calendar?.inline && s.modal,
 									isOpen && s.open,
-									s[modalPosition]
+									s[modalPositionX],
+									s[modalPositionY]
 								)}
 							>
 								<DatePicker

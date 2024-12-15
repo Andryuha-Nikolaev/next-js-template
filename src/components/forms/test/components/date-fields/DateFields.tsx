@@ -11,7 +11,7 @@ const DateFields = () => {
 	const startDate = watch(FieldName.START_DATE) as Date | undefined;
 	const endDate = watch(FieldName.END_DATE) as Date | undefined;
 
-	console.log(watch(FieldName.START_DATE));
+	console.log(startDate);
 
 	return (
 		<>
@@ -23,6 +23,9 @@ const DateFields = () => {
 				endDate={endDate}
 				maxDate={endDate}
 				name={FieldName.START_DATE}
+				time
+				modalPositionY="top"
+				modalPositionX="right"
 			/>
 			<RHFDatePicker
 				label="To"
@@ -31,6 +34,7 @@ const DateFields = () => {
 				endDate={endDate}
 				minDate={startDate}
 				name={FieldName.END_DATE}
+				time
 			/>
 		</>
 	);

@@ -19,9 +19,7 @@
 
 .calendar {
 	width: fit-content;
-	background-color: var(--background);
-	border: 1px solid var(--color-input-border);
-	border-radius: convert-px2rem(var(--input-border-radius-number));
+	display: flex;
 
 	&.modal {
 		z-index: 1;
@@ -42,6 +40,15 @@
 
 		&.top {
 			bottom: 100%;
+		}
+
+		&.left {
+			left: 0;
+		}
+
+		&.right {
+			left: unset;
+			right: 0;
 		}
 	}
 }
