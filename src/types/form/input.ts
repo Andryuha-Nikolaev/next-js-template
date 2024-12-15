@@ -20,6 +20,8 @@ export interface InputControlsProps {
 export interface InputProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		InputWrapperProps {
+	onLabelFocus?: () => void;
+	onLabelBlur?: () => void;
 	onOpenCalendar?: () => void;
 	mask?: MaskedInputProps["mask"];
 	pipe?: MaskedInputProps["pipe"];

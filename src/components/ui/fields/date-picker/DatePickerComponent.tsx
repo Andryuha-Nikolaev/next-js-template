@@ -71,7 +71,7 @@ const DatePickerComponent = forwardRef<
 
 		const handleSingleSelect = (date: SingleValue) => {
 			onChange(date);
-
+			setIsOpen(false);
 			if (!date) {
 				setInputValue("");
 			} else {
@@ -126,7 +126,7 @@ const DatePickerComponent = forwardRef<
 									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 									pipe={autoCorrectedDatePipe}
 									onChange={(e) => handleInputChange(e.target.value)}
-									// onLabelFocus={() => setIsOpen(true)}
+									onLabelFocus={() => setIsOpen(true)}
 									onOpenCalendar={() => setIsOpen(true)}
 								/>
 							</div>
@@ -140,17 +140,6 @@ const DatePickerComponent = forwardRef<
 									s[modalPosition]
 								)}
 							>
-								{/* <div className={s.heading}>
-					{mode === "single" && <p>{inputValue} </p>}
-					{mode === "range" && (
-						<p>
-							{startInputValue}
-							{startInputValue && endInputValue && " - "}
-							{endInputValue}
-						</p>
-					)}
-				</div> */}
-
 								<DatePicker
 									selected={value}
 									onChange={(e) => handleSingleSelect(e)}

@@ -19,7 +19,8 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			errorMessage,
 			label,
 			type = "text",
-
+			onLabelFocus = () => {},
+			onLabelBlur = () => {},
 			onOpenCalendar,
 			isRequired,
 			...restProps
@@ -57,7 +58,16 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 				isRequired={isRequired}
 			>
 				<div className={s.wrap}>
-					<label ref={ref} className={s.label}>
+					<label
+						ref={ref}
+						onFocus={() => {
+							onLabelFocus();
+						}}
+						onBlur={() => {
+							onLabelBlur();
+						}}
+						className={s.label}
+					>
 						{mask ? (
 							<MaskedInput
 								mask={mask}
@@ -83,11 +93,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 							isFilled={isFilled}
 							onReset={onReset}
 							togglePassword={togglePassword}
-							onOpenCalendar={() => {
-								if (onOpenCalendar) {
-									onOpenCalendar();
-								}
-							}}
+							onOpenCalendar={onOpenCalendar}
 						/>
 					)}
 				</div>
