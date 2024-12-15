@@ -19,8 +19,8 @@ const InputControls = ({
 				<EyeButton
 					onMouseDown={(e) => {
 						e.preventDefault();
+						togglePassword();
 					}}
-					onClick={togglePassword}
 					isOpen={currentType === "text"}
 				/>
 			)}
@@ -30,8 +30,6 @@ const InputControls = ({
 					aria-label="Календарь"
 					onMouseDown={(e) => {
 						e.preventDefault();
-					}}
-					onClick={() => {
 						onOpenCalendar();
 					}}
 					type="button"
@@ -43,9 +41,9 @@ const InputControls = ({
 				<CloseButton
 					onMouseDown={(e) => {
 						e.preventDefault();
+						onReset();
 					}}
 					className={s.reset}
-					onClick={onReset}
 				/>
 			)}
 		</span>

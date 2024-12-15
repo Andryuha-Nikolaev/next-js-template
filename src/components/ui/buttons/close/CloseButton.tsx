@@ -7,7 +7,6 @@ import CloseIcon from "@/components/icons/close/CloseIcon";
 import s from "./CloseButton.module.scss";
 
 interface CloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	onClick: () => void;
 	className?: string;
 }
 

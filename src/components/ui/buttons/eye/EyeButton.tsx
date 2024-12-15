@@ -8,7 +8,6 @@ import EyeOpened from "@/components/icons/eye/EyeOpened";
 import s from "./EyeButton.module.scss";
 
 interface EyeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	onClick: () => void;
 	isOpen: boolean;
 }
 
