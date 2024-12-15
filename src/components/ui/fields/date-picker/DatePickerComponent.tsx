@@ -112,17 +112,16 @@ const DatePickerComponent = forwardRef<
 				);
 
 				if (isValid(parsedDate)) {
-					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
-						// TODO add RHF validation
-						return;
-					} else if (
-						props.minDate &&
-						parsedDate.getTime() < props.minDate.getTime()
-					) {
-						return;
-					} else {
-						onChange(parsedDate);
-					}
+					// if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
+					// 	return;
+					// } else if (
+					// 	props.minDate &&
+					// 	parsedDate.getTime() < props.minDate.getTime()
+					// ) {
+					// 	return;
+					// } else {
+					onChange(parsedDate);
+					// }
 				}
 			} else if (!inputValue.length) {
 				onChange(null);

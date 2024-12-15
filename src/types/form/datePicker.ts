@@ -33,3 +33,8 @@ export type DatePickerComponentProps = BaseDatePickerProps & {
 export type RHFDatePickerComponentProps = BaseDatePickerProps & {
 	name: string;
 };
+
+export type RHFRangeDatePickerProps = {
+	startDateName: string;
+	endDateName: string;
+};

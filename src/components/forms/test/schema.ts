@@ -69,6 +69,16 @@ export const formSchema = z
 			message: "Пароли не совпадают",
 			path: [FieldName.CONFIRM_PASSWORD],
 		}
+	)
+	.refine(
+		({ [FieldName.START_DATE]: start, [FieldName.END_DATE]: end }) =>
+			(start instanceof Date && end instanceof Date && start <= end) ||
+			!start ||
+			!end,
+		{
+			message: "Дата начала не может быть позже даты окончания",
+			path: [FieldName.END_DATE],
+		}
 	);
 
 export type FormSchemaType = z.infer<typeof formSchema>;
