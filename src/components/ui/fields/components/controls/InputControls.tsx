@@ -16,12 +16,21 @@ const InputControls = ({
 	return (
 		<span className={s.buttons}>
 			{type === "password" && !!togglePassword && isFilled && (
-				<EyeButton onClick={togglePassword} isOpen={currentType === "text"} />
+				<EyeButton
+					onMouseDown={(e) => {
+						e.preventDefault();
+					}}
+					onClick={togglePassword}
+					isOpen={currentType === "text"}
+				/>
 			)}
 			{!!onOpenCalendar && (
 				<button
 					className={s.calendar}
 					aria-label="Календарь"
+					onMouseDown={(e) => {
+						e.preventDefault();
+					}}
 					onClick={() => {
 						onOpenCalendar();
 					}}
@@ -31,7 +40,13 @@ const InputControls = ({
 				</button>
 			)}
 			{!!onReset && isFilled && (
-				<CloseButton className={s.reset} onClick={onReset} />
+				<CloseButton
+					onMouseDown={(e) => {
+						e.preventDefault();
+					}}
+					className={s.reset}
+					onClick={onReset}
+				/>
 			)}
 		</span>
 	);

@@ -127,7 +127,7 @@ const DatePickerComponent = forwardRef<
 									pipe={autoCorrectedDatePipe}
 									onChange={(e) => handleInputChange(e.target.value)}
 									// onLabelFocus={() => setIsOpen(true)}
-									// onOpenCalendar={() => setIsOpen(true)}
+									onOpenCalendar={() => setIsOpen(true)}
 								/>
 							</div>
 						)}
