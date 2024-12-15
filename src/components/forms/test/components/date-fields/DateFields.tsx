@@ -5,23 +5,22 @@ import { useFormContext } from "react-hook-form";
 import RHFDatePicker from "@/components/ui/fields/date-picker/RHFDatePicker";
 import { FieldName } from "@/constants/fields";
 
+import type { FormSchemaType } from "../../schema";
+
 const DateFields = () => {
-	const { watch } = useFormContext();
+	const { watch } = useFormContext<FormSchemaType>();
 
-	const startDate = watch(FieldName.START_DATE) as Date | undefined;
-	const endDate = watch(FieldName.END_DATE) as Date | undefined;
-
-	console.log(startDate);
+	const startDate = watch(FieldName.START_DATE) as Date | null;
+	const endDate = watch(FieldName.END_DATE) as Date | null;
 
 	return (
 		<>
-			<RHFDatePicker label="Просто дата" name={FieldName.DATE} />
 			<RHFDatePicker
 				label="From"
 				selectsStart
-				startDate={startDate}
-				endDate={endDate}
-				maxDate={endDate}
+				startDate={startDate ?? undefined}
+				endDate={endDate ?? undefined}
+				maxDate={endDate ?? undefined}
 				name={FieldName.START_DATE}
 				time
 				modalPositionY="top"
@@ -30,9 +29,9 @@ const DateFields = () => {
 			<RHFDatePicker
 				label="To"
 				selectsEnd
-				startDate={startDate}
-				endDate={endDate}
-				minDate={startDate}
+				startDate={startDate ?? undefined}
+				endDate={endDate ?? undefined}
+				minDate={startDate ?? undefined}
 				name={FieldName.END_DATE}
 				time
 			/>
