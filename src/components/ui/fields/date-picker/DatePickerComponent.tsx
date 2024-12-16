@@ -55,12 +55,11 @@ const DatePickerComponent = forwardRef<
 			value,
 			onChange,
 			time,
-			modules = {
-				input: { enabled: true },
-				calendar: { enabled: true, inline: false },
-			},
+			inline,
+			withInput = true,
 			modalPositionY = "bottom",
 			modalPositionX = "left",
+			maskGuide = true,
 			...props
 		},
 		ref
@@ -84,15 +83,21 @@ const DatePickerComponent = forwardRef<
 			onClose: closeModal,
 		});
 
-		// const [isInputChanging, setIsInputChanging] = useState(false)
-
-		// 		useEffect(() => {
-		// 			if (!value) {
-		// 				setInputValue("");
-		// 			}
-		// 		}, [value]);
+		// for reset form
+		const [isInputChanging, setIsInputChanging] = useState(false);
+		useEffect(() => {
+			if (!isInputChanging) {
+				if (!value) {
+					setInputValue("");
+				} else {
+					setInputValue(format(value, dateFormat));
+				}
+			}
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+		}, [value]);
 
 		const handleSingleSelect = (date: SingleValue) => {
+			setIsInputChanging(true);
 			onChange(date);
 			setIsOpen(false);
 			if (!date) {
@@ -100,9 +105,11 @@ const DatePickerComponent = forwardRef<
 			} else {
 				setInputValue(format(date, dateFormat));
 			}
+			setTimeout(() => setIsInputChanging(false));
 		};
 
 		const handleInputChange = (inputValue: string) => {
+			setIsInputChanging(true);
 			setInputValue(inputValue);
 			const trimmedValue = inputValue.trim();
 
@@ -133,6 +140,8 @@ const DatePickerComponent = forwardRef<
 			} else {
 				onChange(null);
 			}
+
+			setTimeout(() => setIsInputChanging(false));
 		};
 
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -148,13 +157,14 @@ const DatePickerComponent = forwardRef<
 					isRequired={isRequired}
 				>
 					<div ref={wrapRef} className={s.wrap}>
-						{modules.input?.enabled && (
+						{withInput && (
 							<div className={s.inputs}>
 								<Input
 									ref={ref}
 									value={inputValue}
 									placeholder={placeholder}
 									mask={mask}
+									maskGuide={maskGuide}
 									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 									pipe={autoCorrectedDatePipe}
 									onChange={(e) => handleInputChange(e.target.value)}
@@ -163,24 +173,23 @@ const DatePickerComponent = forwardRef<
 								/>
 							</div>
 						)}
-						{modules.calendar?.enabled && (
-							<div
-								className={clsx(
-									s.calendar,
-									!modules.calendar?.inline && s.modal,
-									isOpen && s.open,
-									s[modalPositionX],
-									s[modalPositionY]
-								)}
-							>
-								<DatePicker
-									selected={value}
-									onChange={(e) => handleSingleSelect(e)}
-									inline
-									{...props}
-								/>
-							</div>
-						)}
+
+						<div
+							className={clsx(
+								s.calendar,
+								!inline && s.modal,
+								isOpen && s.open,
+								s[modalPositionX],
+								s[modalPositionY]
+							)}
+						>
+							<DatePicker
+								selected={value}
+								onChange={(e) => handleSingleSelect(e)}
+								inline
+								{...props}
+							/>
+						</div>
 					</div>
 				</InputWrapper>
 			</div>

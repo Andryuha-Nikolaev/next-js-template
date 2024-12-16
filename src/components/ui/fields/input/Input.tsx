@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 	(
 		{
 			mask,
+			maskGuide = false,
 			errorMessage,
 			label,
 			type = "text",
@@ -71,7 +72,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 						{mask ? (
 							<MaskedInput
 								mask={mask}
-								guide={false}
+								guide={maskGuide}
 								className={inputClassNames}
 								type={currentType}
 								autoComplete="new-password"

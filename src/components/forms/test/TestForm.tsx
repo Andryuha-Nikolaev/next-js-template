@@ -190,6 +190,7 @@ const TestForm = () => {
 						<RHFRangeDatePicker
 							startDateName={FieldName.START_DATE}
 							endDateName={FieldName.END_DATE}
+							time
 						/>
 					</FormWrapper>
 				</form>

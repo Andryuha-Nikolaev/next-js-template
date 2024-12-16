@@ -24,6 +24,7 @@ export interface InputProps
 	onLabelBlur?: () => void;
 	onOpenCalendar?: () => void;
 	mask?: MaskedInputProps["mask"];
+	maskGuide?: boolean;
 	pipe?: MaskedInputProps["pipe"];
 }
 

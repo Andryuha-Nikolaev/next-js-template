@@ -7,34 +7,32 @@ export type BaseDatePickerProps = InputWrapperProps & {
 	time?: boolean;
 	modalPositionY?: "top" | "bottom";
 	modalPositionX?: "left" | "right";
+	inline?: boolean;
+	withInput?: boolean;
+	maskGuide?: boolean;
+};
+
+export type SingleDatePickerProps = BaseDatePickerProps & {
 	selectsStart?: boolean;
 	selectsEnd?: boolean;
 	startDate?: Date;
 	endDate?: Date;
 	minDate?: Date;
 	maxDate?: Date;
-	modules?: {
-		input?: {
-			enabled?: boolean;
-		};
-		calendar?: {
-			enabled?: boolean;
-			inline?: boolean;
-			heading?: boolean;
-		};
-	};
 };
 
-export type DatePickerComponentProps = BaseDatePickerProps & {
+export type DatePickerComponentProps = SingleDatePickerProps & {
 	value: SingleValue;
 	onChange: (date: SingleValue) => void;
 };
 
-export type RHFDatePickerComponentProps = BaseDatePickerProps & {
+export type RHFDatePickerComponentProps = SingleDatePickerProps & {
 	name: string;
 };
 
-export type RHFRangeDatePickerProps = {
+export type RHFRangeDatePickerProps = BaseDatePickerProps & {
 	startDateName: string;
 	endDateName: string;
+	startLabel?: string;
+	endLabel?: string;
 };
