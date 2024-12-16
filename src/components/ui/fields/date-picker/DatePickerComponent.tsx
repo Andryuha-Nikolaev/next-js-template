@@ -84,11 +84,13 @@ const DatePickerComponent = forwardRef<
 			onClose: closeModal,
 		});
 
-		useEffect(() => {
-			if (!value) {
-				setInputValue("");
-			}
-		}, [value]);
+		// const [isInputChanging, setIsInputChanging] = useState(false)
+
+		// 		useEffect(() => {
+		// 			if (!value) {
+		// 				setInputValue("");
+		// 			}
+		// 		}, [value]);
 
 		const handleSingleSelect = (date: SingleValue) => {
 			onChange(date);
@@ -104,7 +106,10 @@ const DatePickerComponent = forwardRef<
 			setInputValue(inputValue);
 			const trimmedValue = inputValue.trim();
 
-			if (trimmedValue.length === 10 || trimmedValue.length === 16) {
+			if (
+				(!time && trimmedValue.length === 10) ||
+				(time && trimmedValue.length === 16)
+			) {
 				const parsedDate = parse(
 					trimmedValue,
 					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT,
@@ -112,18 +117,20 @@ const DatePickerComponent = forwardRef<
 				);
 
 				if (isValid(parsedDate)) {
-					// if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
-					// 	return;
-					// } else if (
-					// 	props.minDate &&
-					// 	parsedDate.getTime() < props.minDate.getTime()
-					// ) {
-					// 	return;
-					// } else {
-					onChange(parsedDate);
-					// }
+					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
+						onChange(null);
+					} else if (
+						props.minDate &&
+						parsedDate.getTime() < props.minDate.getTime()
+					) {
+						onChange(null);
+					} else {
+						onChange(parsedDate);
+					}
+				} else {
+					onChange(null);
 				}
-			} else if (!inputValue.length) {
+			} else {
 				onChange(null);
 			}
 		};
