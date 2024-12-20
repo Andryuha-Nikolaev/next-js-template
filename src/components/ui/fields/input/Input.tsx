@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useRef, useState } from "react";
+import { forwardRef, useState } from "react";
 
 import clsx from "clsx";
 import MaskedInput from "react-text-mask";
@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 	(
 		{
 			mask,
+			maskGuide = false,
 			errorMessage,
 			label,
 			type = "text",
@@ -39,14 +40,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			}
 		};
 
-		const [isFocused, setIsFocused] = useState(false);
-
-		const inputClassNames = clsx(
-			s.input,
-			isFocused && s.focused,
-			errorMessage && s.error,
-			s[type]
-		);
+		const inputClassNames = clsx(s.input, errorMessage && s.error, s[type]);
 
 		const onReset = () => {
 			if (restProps.onChange) {
@@ -58,41 +52,27 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			}
 		};
 
-		const inputRef = useRef<HTMLInputElement | null>(null);
-
-		const handleRef = (ref: MaskedInput | null) => {
-			if (ref && ref.inputElement) {
-				inputRef.current = ref.inputElement as HTMLInputElement;
-			}
-		};
-
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
 				label={label}
 				isRequired={isRequired}
 			>
-				<label
-					onFocus={() => {
-						if (inputRef) {
-							inputRef.current?.focus();
-						}
-						setIsFocused(true);
-						onLabelFocus();
-					}}
-					onBlur={() => {
-						setIsFocused(false);
-						onLabelBlur();
-					}}
-					ref={ref}
-					className={s.label}
-				>
-					<span className={s.wrap}>
+				<div className={s.wrap}>
+					<label
+						ref={ref}
+						onFocus={() => {
+							onLabelFocus();
+						}}
+						onBlur={() => {
+							onLabelBlur();
+						}}
+						className={s.label}
+					>
 						{mask ? (
 							<MaskedInput
-								ref={handleRef}
 								mask={mask}
-								guide={false}
+								guide={maskGuide}
 								className={inputClassNames}
 								type={currentType}
 								autoComplete="new-password"
@@ -100,25 +80,24 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 							/>
 						) : (
 							<input
-								ref={inputRef}
 								className={inputClassNames}
 								type={currentType}
 								autoComplete="new-password"
 								{...restProps}
 							/>
 						)}
-						{!restProps.disabled && (
-							<InputControls
-								type={type}
-								currentType={currentType}
-								isFilled={isFilled}
-								onReset={onReset}
-								togglePassword={togglePassword}
-								onOpenCalendar={onOpenCalendar}
-							/>
-						)}
-					</span>
-				</label>
+					</label>
+					{!restProps.disabled && (
+						<InputControls
+							type={type}
+							currentType={currentType}
+							isFilled={isFilled}
+							onReset={onReset}
+							togglePassword={togglePassword}
+							onOpenCalendar={onOpenCalendar}
+						/>
+					)}
+				</div>
 			</InputWrapper>
 		);
 	}

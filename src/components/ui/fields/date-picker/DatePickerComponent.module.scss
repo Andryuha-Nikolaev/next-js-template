@@ -14,28 +14,12 @@
 
 .wrap {
 	position: relative;
-	width: fit-content;
-
-	&.withInput {
-		width: 100%;
-	}
+	width: 100%;
 }
 
-.inputWrap {
-	&.hidden {
-		opacity: 0;
-		width: 0;
-		height: 0;
-		overflow: hidden;
-		display: block;
-	}
-}
-
-.picker {
+.calendar {
 	width: fit-content;
-	background-color: var(--background);
-	border: 1px solid var(--color-input-border);
-	border-radius: convert-px2rem(var(--input-border-radius-number));
+	display: flex;
 
 	&.modal {
 		z-index: 1;
@@ -57,10 +41,14 @@
 		&.top {
 			bottom: 100%;
 		}
-	}
-}
 
-.buttons {
-	display: flex;
-	gap: convert-px2rem(10);
+		&.left {
+			left: 0;
+		}
+
+		&.right {
+			left: unset;
+			right: 0;
+		}
+	}
 }

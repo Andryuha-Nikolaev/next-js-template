@@ -1,7 +1,6 @@
 "use client";
 
 import { useSiteState } from "@/context/site/SiteStateProvider";
-import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import s from "./BurgerSwitch.module.scss";
 
@@ -10,8 +9,6 @@ import CloseButton from "../../buttons/close/CloseButton";
 
 const BurgerSwitch = () => {
 	const { isOpenBurger, switchBurger } = useSiteState();
-
-	useScrollLock(isOpenBurger);
 
 	return (
 		<div className={s.block}>

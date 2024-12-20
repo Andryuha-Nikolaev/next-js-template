@@ -42,7 +42,9 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 			>
 				<label
 					onFocus={() => setIsFocused(true)}
-					onBlur={() => setIsFocused(false)}
+					onBlur={() => {
+						setIsFocused(false);
+					}}
 					className={s.label}
 				>
 					<span className={wrapClassNames}>

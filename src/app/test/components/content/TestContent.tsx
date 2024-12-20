@@ -20,7 +20,19 @@ const TestContent = () => {
 	const { showModal, showSuccessModal, showErrorModal } = useModal();
 
 	const showDefaultModal = () => {
-		showModal({ title: "Title", text: "Text" });
+		showModal({
+			title: "Title ",
+			text: "Text",
+			onHideCallback() {
+				alert("callbaaaaaaaaaaaack");
+			},
+		});
+	};
+
+	const showDefaultModalWithChildren = () => {
+		showModal({
+			children: <Link href={"/"}>На главную</Link>,
+		});
 	};
 
 	const showDefaultSuccessModal = () => {
@@ -102,8 +114,15 @@ const TestContent = () => {
 					<hr style={{ width: "100%" }} />
 					<h2>Modal:</h2>
 					<RootButton colorVariant="var3" onClick={showDefaultModal}>
-						showDefaultModal
+						showDefaultModal with hide callback
 					</RootButton>
+					<RootButton
+						colorVariant="var2"
+						onClick={showDefaultModalWithChildren}
+					>
+						show Default Modal With Children
+					</RootButton>
+
 					<RootButton colorVariant="var3" onClick={showDefaultSuccessModal}>
 						showDefaultSuccessModal
 					</RootButton>
@@ -114,7 +133,7 @@ const TestContent = () => {
 						showFeedbackModal disableOverlayClick
 					</RootButton>
 					<hr style={{ width: "100%" }} />
-					<h2>Forms:</h2>
+					<h2 id="form">Forms:</h2>
 					<TestForm />
 				</div>
 			</ContentLayout>

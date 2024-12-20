@@ -48,6 +48,10 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		setTimeout(() => {
 			setModalConfig(null);
 		}, 200);
+
+		if (modalConfig?.onHideCallback) {
+			modalConfig.onHideCallback();
+		}
 	};
 
 	return (

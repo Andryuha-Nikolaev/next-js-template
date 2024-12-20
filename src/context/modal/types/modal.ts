@@ -1,4 +1,4 @@
-import { MODAL_ID } from "../constants/constants";
+import type { MODAL_ID } from "../constants/constants";
 
 export type ModalConfigProps = {
 	modalId?: MODAL_ID;
@@ -7,6 +7,8 @@ export type ModalConfigProps = {
 	type?: "success" | "error";
 	disableOverlayClick?: boolean;
 	hiddenCloseButton?: boolean;
+	onHideCallback?: () => void;
+	children?: React.ReactNode;
 } | null;
 
 export type ModalProps = {

@@ -4,6 +4,7 @@ export enum FieldName {
 	PHONE = "phone",
 	EMAIL = "email",
 	PASSWORD = "password",
+	CONFIRM_PASSWORD = "confirm-password",
 	TEXT = "text",
 	FILE = "file",
 	FILES = "files",
@@ -14,4 +15,6 @@ export enum FieldName {
 	SELECT = "select",
 	MULTI_SELECT = "multi-select",
 	DATE = "date",
+	START_DATE = "start-date",
+	END_DATE = "end-date",
 }
