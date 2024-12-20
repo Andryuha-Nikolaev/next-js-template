@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import type { CustomPage } from "@/types/customPage";
+import { isProd } from "@/utils/environment/isProd";
 
 const data: CustomPage = {
 	data: {
@@ -23,6 +24,15 @@ export async function GET(req: NextRequest) {
 		"authorizationauthorizationauthorization",
 		req.headers.get("authorization")
 	);
+
+	if (isProd()) {
+		return NextResponse.json(
+			{ error: "Resource not found." },
+			{
+				status: 404,
+			}
+		);
+	}
 
 	return NextResponse.json(data, {
 		status: 200,

@@ -1,14 +1,15 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
+import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import DatePicker from "react-datepicker";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
+import useClickOutside from "@/hooks/other/useClickOutside";
 import type {
 	DatePickerComponentProps,
-	RangeValue,
 	SingleValue,
 } from "@/types/form/datePicker";
 
@@ -18,7 +19,9 @@ import InputWrapper from "../components/wrapper/InputWrapper";
 import Input from "../input/Input";
 
 const DATE_FORMAT = "dd.MM.yyyy";
-const DATE_TIME_FORMAT = "dd.MM.yyyy HH:MM";
+const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";
+const DATE_PLACEHOLDER = "dd.MM.yyyy";
+const DATE_TIME_PLACEHOLDER = "dd.mm.yyyy HH:MM";
 const AUTOCORRECT_FORMAT = "dd.mm.yyyy HH:MM";
 const DATE_MASK = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
 const DATE_TIME_MASK = [
@@ -43,167 +46,156 @@ const DATE_TIME_MASK = [
 const DatePickerComponent = forwardRef<
 	HTMLLabelElement,
 	DatePickerComponentProps
->(({ errorMessage, label, isRequired, variant, time, ...restProps }, ref) => {
-	const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
-	const dateMask = time ? DATE_TIME_MASK : DATE_MASK;
+>(
+	(
+		{
+			errorMessage,
+			label,
+			isRequired,
+			value,
+			onChange,
+			time,
+			inline,
+			withInput = true,
+			modalPositionY = "bottom",
+			modalPositionX = "left",
+			maskGuide = true,
+			...props
+		},
+		ref
+	) => {
+		const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
+		const placeholder = time ? DATE_TIME_PLACEHOLDER : DATE_PLACEHOLDER;
+		const mask = time ? DATE_TIME_MASK : DATE_MASK;
 
-	const currentInputValue =
-		variant.mode === "single" && variant.value
-			? format(variant.value, dateFormat)
-			: "";
+		const [inputValue, setInputValue] = useState(
+			value ? format(value, dateFormat) : ""
+		);
 
-	const currentInputFromValue =
-		variant.mode === "range" && variant.value?.from
-			? format(variant.value.from, dateFormat)
-			: "";
-	const currentInputToValue =
-		variant.mode === "range" && variant.value?.to
-			? format(variant.value.to, dateFormat)
-			: "";
+		const [isOpen, setIsOpen] = useState(false);
+		const wrapRef = useRef<HTMLDivElement>(null);
+		const closeModal = () => {
+			setIsOpen(false);
+		};
+		useClickOutside({
+			elementRefs: [wrapRef],
+			isOpen: isOpen,
+			onClose: closeModal,
+		});
 
-	const currentMonthValue =
-		variant.mode === "single" && variant.value
-			? variant.value
-			: variant.mode === "range" && variant.value?.to
-				? variant.value.to
-				: new Date();
+		// for reset form
+		const [isInputChanging, setIsInputChanging] = useState(false);
+		useEffect(() => {
+			if (!isInputChanging) {
+				if (!value) {
+					setInputValue("");
+				} else {
+					setInputValue(format(value, dateFormat));
+				}
+			}
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+		}, [value]);
 
-	const [inputValue, setInputValue] = useState(currentInputValue);
-	const [inputFromValue, setInputFromValue] = useState(currentInputFromValue);
-	const [inputToValue, setInputToValue] = useState(currentInputToValue);
+		const handleSingleSelect = (date: SingleValue) => {
+			setIsInputChanging(true);
+			onChange(date);
+			setIsOpen(false);
+			if (!date) {
+				setInputValue("");
+			} else {
+				setInputValue(format(date, dateFormat));
+			}
+			setTimeout(() => setIsInputChanging(false));
+		};
 
-	const [month, setMonth] = useState(currentMonthValue);
+		const handleInputChange = (inputValue: string) => {
+			setIsInputChanging(true);
+			setInputValue(inputValue);
+			const trimmedValue = inputValue.trim();
 
-	const handleSingleSelect = (date: SingleValue) => {
-		if (variant.mode === "single") {
-			variant.onChange(date);
-		}
-
-		if (!date) {
-			setInputValue("");
-		} else {
-			setInputValue(format(date, dateFormat));
-		}
-	};
-
-	const handleInputChange = (inputValue: string) => {
-		setInputValue(inputValue);
-
-		if (variant.mode === "single") {
-			if (inputValue.length === 10) {
-				const parsedDate = parse(inputValue, dateFormat, new Date());
+			if (
+				(!time && trimmedValue.length === 10) ||
+				(time && trimmedValue.length === 16)
+			) {
+				const parsedDate = parse(
+					trimmedValue,
+					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT,
+					new Date()
+				);
 
 				if (isValid(parsedDate)) {
-					variant.onChange(parsedDate);
-					setMonth(parsedDate);
+					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
+						onChange(null);
+					} else if (
+						props.minDate &&
+						parsedDate.getTime() < props.minDate.getTime()
+					) {
+						onChange(null);
+					} else {
+						onChange(parsedDate);
+					}
+				} else {
+					onChange(null);
 				}
-			} else if (!inputValue.length) {
-				variant.onChange(null);
+			} else {
+				onChange(null);
 			}
-		}
-	};
 
-	const handleRangeSelect = (date: RangeValue) => {
-		if (variant.mode === "range") {
-			variant.onChange(date);
-		}
+			setTimeout(() => setIsInputChanging(false));
+		};
 
-		if (!date) {
-			setInputFromValue("");
-			setInputToValue("");
-		} else {
-			if (date.from) {
-				setInputFromValue(format(date.from, dateFormat));
-			}
-			if (date.to) {
-				setInputToValue(format(date.to, dateFormat));
-			}
-		}
-	};
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		const autoCorrectedDatePipe =
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+			createAutoCorrectedDatePipe(AUTOCORRECT_FORMAT);
 
-	const handleInputFromChange = (inputValue: string) => {
-		setInputFromValue(inputValue);
+		return (
+			<div className={s.block}>
+				<InputWrapper
+					errorMessage={errorMessage}
+					label={label}
+					isRequired={isRequired}
+				>
+					<div ref={wrapRef} className={s.wrap}>
+						{withInput && (
+							<div className={s.inputs}>
+								<Input
+									ref={ref}
+									value={inputValue}
+									placeholder={placeholder}
+									mask={mask}
+									maskGuide={maskGuide}
+									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+									pipe={autoCorrectedDatePipe}
+									onChange={(e) => handleInputChange(e.target.value)}
+									onLabelFocus={() => setIsOpen(true)}
+									onOpenCalendar={() => setIsOpen(true)}
+								/>
+							</div>
+						)}
 
-		if (variant.mode === "range") {
-			if (inputValue.length === 10) {
-				const parsedDate = parse(inputValue, dateFormat, new Date());
-
-				if (isValid(parsedDate)) {
-					variant.onChange({ from: parsedDate, to: variant.value?.to });
-					setMonth(parsedDate);
-				}
-			} else if (!inputValue.length) {
-				variant.onChange({ from: variant.value?.to, to: variant.value?.to });
-			}
-		}
-	};
-
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-	const autoCorrectedDatePipe =
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		createAutoCorrectedDatePipe(AUTOCORRECT_FORMAT);
-
-	return (
-		<div className={s.block}>
-			<InputWrapper
-				errorMessage={errorMessage}
-				label={label}
-				isRequired={isRequired}
-			>
-				{variant.mode === "single" && (
-					<>
-						<Input
-							ref={ref}
-							value={inputValue}
-							placeholder={dateFormat}
-							mask={dateMask}
-							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-							pipe={autoCorrectedDatePipe}
-							onChange={(e) => handleInputChange(e.target.value)}
-							// onOpenCalendar={() => setIsOpen(true)}
-						/>
-						<DayPicker
-							mode={variant.mode}
-							month={month}
-							selected={variant.value ?? undefined}
-							onSelect={(e) => handleSingleSelect(e instanceof Date ? e : null)}
-							onMonthChange={setMonth}
-							{...restProps}
-						/>
-					</>
-				)}
-
-				{variant.mode === "range" && (
-					<>
-						<div className={s.inputs}>
-							<Input
-								ref={ref}
-								value={inputFromValue}
-								placeholder={dateFormat}
-								mask={dateMask}
-								// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-								pipe={autoCorrectedDatePipe}
-								onChange={(e) => handleInputFromChange(e.target.value)}
-								// onOpenCalendar={() => setIsOpen(true)}
+						<div
+							className={clsx(
+								s.calendar,
+								!inline && s.modal,
+								isOpen && s.open,
+								s[modalPositionX],
+								s[modalPositionY]
+							)}
+						>
+							<DatePicker
+								selected={value}
+								onChange={(e) => handleSingleSelect(e)}
+								inline
+								{...props}
 							/>
 						</div>
-						<DayPicker
-							mode={variant.mode}
-							month={month}
-							selected={variant.value ?? undefined}
-							onSelect={(e) => {
-								// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-								handleRangeSelect(e ? e : null);
-							}}
-							onMonthChange={setMonth}
-							{...restProps}
-						/>
-					</>
-				)}
-			</InputWrapper>
-		</div>
-	);
-});
+					</div>
+				</InputWrapper>
+			</div>
+		);
+	}
+);
 
 DatePickerComponent.displayName = "DatePickerComponent";
 

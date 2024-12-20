@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 	(
 		{
 			mask,
+			maskGuide = false,
 			errorMessage,
 			label,
 			type = "text",
@@ -39,14 +40,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			}
 		};
 
-		const [isFocused, setIsFocused] = useState(false);
-
-		const inputClassNames = clsx(
-			s.input,
-			isFocused && s.focused,
-			errorMessage && s.error,
-			s[type]
-		);
+		const inputClassNames = clsx(s.input, errorMessage && s.error, s[type]);
 
 		const onReset = () => {
 			if (restProps.onChange) {
@@ -64,25 +58,21 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 				label={label}
 				isRequired={isRequired}
 			>
-				<label
-					onFocus={() => {
-						setIsFocused(true);
-						onLabelFocus();
-					}}
-					onBlur={() => {
-						setTimeout(() => {
-							setIsFocused(false);
+				<div className={s.wrap}>
+					<label
+						ref={ref}
+						onFocus={() => {
+							onLabelFocus();
+						}}
+						onBlur={() => {
 							onLabelBlur();
-						});
-					}}
-					ref={ref}
-					className={s.label}
-				>
-					<span className={s.wrap}>
+						}}
+						className={s.label}
+					>
 						{mask ? (
 							<MaskedInput
 								mask={mask}
-								guide={false}
+								guide={maskGuide}
 								className={inputClassNames}
 								type={currentType}
 								autoComplete="new-password"
@@ -96,18 +86,18 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 								{...restProps}
 							/>
 						)}
-						{!restProps.disabled && (
-							<InputControls
-								type={type}
-								currentType={currentType}
-								isFilled={isFilled}
-								onReset={onReset}
-								togglePassword={togglePassword}
-								onOpenCalendar={onOpenCalendar}
-							/>
-						)}
-					</span>
-				</label>
+					</label>
+					{!restProps.disabled && (
+						<InputControls
+							type={type}
+							currentType={currentType}
+							isFilled={isFilled}
+							onReset={onReset}
+							togglePassword={togglePassword}
+							onOpenCalendar={onOpenCalendar}
+						/>
+					)}
+				</div>
 			</InputWrapper>
 		);
 	}

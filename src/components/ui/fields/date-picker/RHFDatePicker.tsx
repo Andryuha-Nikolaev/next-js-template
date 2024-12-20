@@ -18,11 +18,8 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 				<DatePickerComponent
 					errorMessage={error?.message}
 					{...props}
-					variant={{
-						mode: "single",
-						value: field.value as SingleValue,
-						onChange: field.onChange,
-					}}
+					value={field.value as SingleValue}
+					onChange={field.onChange}
 					ref={field.ref}
 				/>
 			)}

@@ -5,8 +5,8 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import RHFCheckboxGroup from "@/components/ui/fields/checkbox-group/RHFCheckboxGroup";
 import RHFCheckbox from "@/components/ui/fields/checkbox/RHFCheckbox";
+import RHFRangeDatePicker from "@/components/ui/fields/date-picker/components/rhf-range-date-picker/RHFRangeDatePicker";
 import RHFDatePicker from "@/components/ui/fields/date-picker/RHFDatePicker";
-import RHFRangeDatePicker from "@/components/ui/fields/date-picker/RHFRangeDatePicker";
 import RHFFileInput from "@/components/ui/fields/file/RHFFileInput";
 import RHFInput from "@/components/ui/fields/input/RHFInput";
 import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
@@ -19,6 +19,7 @@ import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
+import PasswordFields from "./components/password-fields/PasswordFields";
 import { defaultValues, formSchema, type FormSchemaType } from "./schema";
 import s from "./TestForm.module.scss";
 
@@ -72,19 +73,7 @@ const TestForm = () => {
 							placeholder="Email"
 							label="Email"
 						/>
-
-						<RHFInput
-							name={FieldName.PASSWORD}
-							placeholder="Пароль"
-							label="Пароль"
-							type="password"
-						/>
-						<RHFInput
-							name={FieldName.CONFIRM_PASSWORD}
-							placeholder="Подтвердите ароль"
-							label="Подтвердите ароль"
-							type="password"
-						/>
+						<PasswordFields />
 						<RHFTextarea
 							name={FieldName.TEXT}
 							placeholder="Текст"
@@ -197,8 +186,12 @@ const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
-						<RHFDatePicker name={FieldName.DATE} />
-						<RHFRangeDatePicker name={FieldName.RANGE_DATE} />
+						<RHFDatePicker label="Просто дата" name={FieldName.DATE} />
+						<RHFRangeDatePicker
+							startDateName={FieldName.START_DATE}
+							endDateName={FieldName.END_DATE}
+							time
+						/>
 					</FormWrapper>
 				</form>
 			</FormProvider>

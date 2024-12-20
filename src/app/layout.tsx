@@ -16,7 +16,7 @@ import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
 
 import "simplebar-react/dist/simplebar.min.css";
-import "react-day-picker/style.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const metadata: Metadata = metaConstants;
 
