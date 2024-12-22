@@ -188,7 +188,17 @@ const DatePickerComponent = forwardRef<
 								onChange={(e) => handleSingleSelect(e)}
 								inline
 								{...props}
-							/>
+							>
+								{props.selectsStart || props.selectsEnd ? (
+									<>
+										{props.startDate ? format(props.startDate, dateFormat) : ""}
+										{(props.startDate || props.endDate) && " - "}
+										{props.endDate ? format(props.endDate, dateFormat) : ""}
+									</>
+								) : (
+									<>{value ? format(value, dateFormat) : ""}</>
+								)}
+							</DatePicker>
 						</div>
 					</div>
 				</InputWrapper>

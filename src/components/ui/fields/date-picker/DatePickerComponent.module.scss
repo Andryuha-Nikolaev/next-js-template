@@ -18,8 +18,10 @@
 }
 
 .calendar {
+	background-color: var(--background);
 	width: fit-content;
 	display: flex;
+	flex-direction: column;
 
 	&.modal {
 		z-index: 1;
