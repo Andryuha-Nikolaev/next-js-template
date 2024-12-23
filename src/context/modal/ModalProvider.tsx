@@ -65,7 +65,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 		if (modalQuery) {
 			params.delete(MODAL_QUERY_NAME);
-			handleChange(params.toString());
+			handleChange(params.toString(), "replace");
 		}
 
 		if (modalConfig?.onHideCallback) {

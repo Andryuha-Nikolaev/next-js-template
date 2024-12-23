@@ -132,6 +132,14 @@ const TestContent = () => {
 					<RootButton colorVariant="var3" onClick={showFeedbackModal}>
 						showFeedbackModal disableOverlayClick
 					</RootButton>
+					<RootButton
+						colorVariant="var2"
+						as={Link}
+						href={"/test?modal=feedback-form"}
+						scroll={false}
+					>
+						showFeedbackModal with query
+					</RootButton>
 					<hr style={{ width: "100%" }} />
 					<h2 id="form">Forms:</h2>
 					<TestForm />
