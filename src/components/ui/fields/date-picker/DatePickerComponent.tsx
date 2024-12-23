@@ -113,31 +113,25 @@ const DatePickerComponent = forwardRef<
 			setInputValue(inputValue);
 			const trimmedValue = inputValue.trim();
 
-			if (
+			const isProperLength =
 				(!time && trimmedValue.length === 10) ||
-				(time && trimmedValue.length === 16)
-			) {
-				const parsedDate = parse(
-					trimmedValue,
-					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT,
-					new Date()
-				);
+				(time && trimmedValue.length === 16);
 
-				if (isValid(parsedDate)) {
-					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
-						onChange(null);
-					} else if (
-						props.minDate &&
-						parsedDate.getTime() < props.minDate.getTime()
-					) {
-						onChange(null);
-					} else {
-						onChange(parsedDate);
-					}
-				} else {
+			if (isProperLength) {
+				const format =
+					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT;
+				const parsedDate = parse(trimmedValue, format, new Date());
+
+				const isOutOfRange =
+					(props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) ||
+					(props.minDate && parsedDate.getTime() < props.minDate.getTime());
+
+				if (isValid(parsedDate) && !isOutOfRange) {
+					onChange(parsedDate);
+				} else if (value) {
 					onChange(null);
 				}
-			} else {
+			} else if (value) {
 				onChange(null);
 			}
 
