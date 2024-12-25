@@ -40,7 +40,7 @@ const TestForm = () => {
 	const { showSuccessModal, showErrorModal } = useModal();
 
 	const onSubmit: SubmitHandler<FormSchemaType> = async (values) => {
-		await sendFormData("/test", valuesToFormData(values))
+		await sendFormData("/test-form", valuesToFormData(values))
 			.then(() => {
 				reset();
 				showSuccessModal();

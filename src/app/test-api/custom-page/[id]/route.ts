@@ -34,6 +34,13 @@ export async function GET(req: NextRequest) {
 		);
 	}
 
+	// return NextResponse.json(
+	// 	{ error: "Resource not found." },
+	// 	{
+	// 		status: 401,
+	// 	}
+	// );
+
 	return NextResponse.json(data, {
 		status: 200,
 	});

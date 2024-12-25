@@ -4,7 +4,6 @@ import axios, {
 	type CreateAxiosDefaults,
 	type InternalAxiosRequestConfig,
 } from "axios";
-import { notFound } from "next/navigation";
 
 import { getAccessToken, removeFromStorage } from "@/services/authTokenService";
 
@@ -18,22 +17,9 @@ const options: CreateAxiosDefaults = {
 	withCredentials: true,
 };
 
-const axiosClassic = axios.create(options);
+const axiosClient = axios.create(options);
 
-const axiosWithAuth = axios.create(options);
-
-axiosClassic.interceptors.response.use(
-	(response: AxiosResponse) => response,
-	(error: AxiosError) => {
-		if (error?.response?.status === 404 && error.config) {
-			notFound();
-		}
-
-		throw error;
-	}
-);
-
-axiosWithAuth.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+axiosClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 	const accessToken = getAccessToken();
 
 	if (config?.headers && accessToken) {
@@ -43,7 +29,7 @@ axiosWithAuth.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 	return config;
 });
 
-axiosWithAuth.interceptors.response.use(
+axiosClient.interceptors.response.use(
 	(response: AxiosResponse) => response,
 	(error: AxiosError) => {
 		if (error?.response?.status === 401 && error.config) {
@@ -53,4 +39,4 @@ axiosWithAuth.interceptors.response.use(
 	}
 );
 
-export { axiosClassic, axiosWithAuth };
+export { axiosClient, options };
