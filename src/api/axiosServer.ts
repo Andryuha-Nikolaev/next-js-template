@@ -3,7 +3,7 @@ import axios, {
 	type AxiosResponse,
 	type InternalAxiosRequestConfig,
 } from "axios";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { getAccessTokenServer } from "@/services/authTokenServerService";
 
@@ -27,9 +27,9 @@ axiosServer.interceptors.response.use(
 		if (error?.response?.status === 404 && error.config) {
 			notFound();
 		}
-		if (error?.response?.status === 401 && error.config) {
-			redirect("/");
-		}
+		// if (error?.response?.status === 401 && error.config) {
+		// 	redirect("/");
+		// }
 		throw error;
 	}
 );
