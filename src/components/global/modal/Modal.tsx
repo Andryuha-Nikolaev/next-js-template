@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+
 import clsx from "clsx";
+import { useSearchParams } from "next/navigation";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
@@ -10,7 +13,10 @@ import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import { MODAL_ID } from "../../../context/modal/constants/constants";
+import {
+	MODAL_ID,
+	MODAL_QUERY_NAME,
+} from "../../../context/modal/constants/constants";
 import Overlay from "../overlay/Overlay";
 
 const Modal = () => {
@@ -20,11 +26,24 @@ const Modal = () => {
 		throw new Error("Modal must be used within a ModalProvider");
 	}
 
-	const { modalConfig, hideModal, isShown } = modalContext;
+	const { modalConfig, hideModal, isShown, showModal } = modalContext;
 
 	const modalId = modalConfig?.modalId || MODAL_ID.DEFAULT;
 
 	useScrollLock(isShown);
+
+	const searchParams = useSearchParams();
+	const params = new URLSearchParams(searchParams.toString());
+	const modalQuery = params.get(MODAL_QUERY_NAME);
+
+	const validModalIds = Object.values(MODAL_ID);
+
+	useEffect(() => {
+		if (modalQuery && validModalIds.includes(modalQuery as MODAL_ID)) {
+			showModal({ modalId: modalQuery as MODAL_ID });
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [modalQuery]);
 
 	if (!modalConfig) {
 		return null;
