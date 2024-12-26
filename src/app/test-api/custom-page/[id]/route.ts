@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+import { EnumTokens } from "@/services/authTokenService";
 import type { CustomPage } from "@/types/customPage";
 import { isProd } from "@/utils/environment/isProd";
 
@@ -20,11 +21,6 @@ const data: CustomPage = {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function GET(req: NextRequest) {
-	console.log(
-		"authorizationauthorizationauthorization",
-		req.headers.get("authorization")
-	);
-
 	if (isProd()) {
 		return NextResponse.json(
 			{ error: "Resource not found." },
@@ -34,12 +30,14 @@ export async function GET(req: NextRequest) {
 		);
 	}
 
-	// return NextResponse.json(
-	// 	{ error: "Resource not found." },
-	// 	{
-	// 		status: 401,
-	// 	}
-	// );
+	if (req.cookies.get(EnumTokens.ACCESS_TOKEN)?.value !== "aa1") {
+		return NextResponse.json(
+			{ error: "Unauthorized." },
+			{
+				status: 401,
+			}
+		);
+	}
 
 	return NextResponse.json(data, {
 		status: 200,

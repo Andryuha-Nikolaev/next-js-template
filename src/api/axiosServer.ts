@@ -3,6 +3,7 @@ import axios, {
 	type AxiosResponse,
 	type InternalAxiosRequestConfig,
 } from "axios";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { getAccessTokenServer } from "@/services/authTokenServerService";
@@ -17,6 +18,8 @@ axiosServer.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 	if (config?.headers && accessToken) {
 		config.headers.Authorization = `Bearer ${accessToken}`;
 	}
+
+	config.headers["Cookie"] = cookies();
 
 	return config;
 });
