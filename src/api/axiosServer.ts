@@ -4,20 +4,18 @@ import axios, {
 	type InternalAxiosRequestConfig,
 } from "axios";
 import { cookies } from "next/headers";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
-import { getAccessTokenServer } from "@/services/authTokenServerService";
-
-import { options } from "./interceptors";
+import { options } from "./options";
 
 const axiosServer = axios.create(options);
 
 axiosServer.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-	const accessToken = getAccessTokenServer();
-
-	if (config?.headers && accessToken) {
-		config.headers.Authorization = `Bearer ${accessToken}`;
-	}
+	//// Bearer token auth
+	// const accessToken = getAccessTokenServer();
+	// if (config?.headers && accessToken) {
+	// 	config.headers.Authorization = `Bearer ${accessToken}`;
+	// }
 
 	config.headers["Cookie"] = cookies();
 
@@ -30,11 +28,11 @@ axiosServer.interceptors.response.use(
 		if (error?.response?.status === 404 && error.config) {
 			notFound();
 		}
-		// if (error?.response?.status === 401 && error.config) {
-		// 	redirect("/");
-		// }
+		if (error?.response?.status === 401 && error.config) {
+			redirect("/test/auth");
+		}
 		throw error;
 	}
 );
 
-export { axiosServer };
+export default axiosServer;

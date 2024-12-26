@@ -4,8 +4,6 @@ import { isProd } from "@/utils/environment/isProd";
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function POST(req: NextRequest) {
-	console.log("authorization form", req.headers.get("authorization"));
-
 	if (isProd()) {
 		return NextResponse.json(
 			{ error: "Resource not found." },
@@ -14,13 +12,6 @@ export async function POST(req: NextRequest) {
 			}
 		);
 	}
-
-	// return NextResponse.json(
-	// 	{ error: "Resource not found." },
-	// 	{
-	// 		status: 401,
-	// 	}
-	// );
 
 	console.log(req);
 

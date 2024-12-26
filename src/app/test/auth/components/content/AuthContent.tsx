@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { axiosClient } from "@/api/interceptors";
+import axiosClient from "@/api/axiosClient";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 
 const AuthContent = () => {
@@ -11,10 +11,8 @@ const AuthContent = () => {
 	const login = () => {
 		axiosClient
 			.post("/login")
-			.then((data) => {
+			.then(() => {
 				router.refresh();
-
-				console.log(data.data);
 			})
 			.catch(() => {});
 	};
@@ -22,9 +20,8 @@ const AuthContent = () => {
 	const logout = () => {
 		axiosClient
 			.post("/logout")
-			.then((data) => {
+			.then(() => {
 				router.refresh();
-				console.log(data.data);
 			})
 			.catch(() => {});
 	};

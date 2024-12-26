@@ -1,4 +1,4 @@
-import { axiosClient } from "@/api/interceptors";
+import axiosClient from "@/api/axiosClient";
 
 export const sendFormData = (url: string, data: FormData) => {
 	return axiosClient.post(url, data, {

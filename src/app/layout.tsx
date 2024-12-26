@@ -27,8 +27,6 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	console.log("refreeeeeeeeeeeeeeesh");
-
 	return (
 		<html lang="ru">
 			<body className={primaryFont.variable}>
