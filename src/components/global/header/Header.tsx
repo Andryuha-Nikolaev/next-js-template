@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from "clsx";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
