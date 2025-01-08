@@ -50,6 +50,7 @@ const TestContent = () => {
 	return (
 		<div className={s.block}>
 			<ContentLayout>
+				<h1 style={{ textAlign: "center" }}>TEST</h1>
 				<div className={s.wrap}>
 					<hr style={{ width: "100%" }} />
 					<h2>Typography:</h2>
