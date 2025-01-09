@@ -17,6 +17,7 @@ import { Providers } from "./providers";
 
 import "simplebar-react/dist/simplebar.min.css";
 import "react-datepicker/dist/react-datepicker.css";
+import "rc-slider/assets/index.css";
 
 export const metadata: Metadata = metaConstants;
 

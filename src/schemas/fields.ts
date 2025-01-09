@@ -103,3 +103,7 @@ export const singleDateSchemaRequired = singleDateSchema.refine(
 	(value) => !!value,
 	"Поле обязательно"
 );
+
+export const singleSliderSchema = z
+	.number()
+	.transform((value) => value.toString());

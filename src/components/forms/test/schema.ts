@@ -14,6 +14,7 @@ import {
 	selectSchema,
 	singleDateSchema,
 	singleDateSchemaRequired,
+	singleSliderSchema,
 	textSchema,
 } from "@/schemas/fields";
 import {
@@ -62,6 +63,7 @@ export const formSchema = z
 		[FieldName.DATE]: singleDateSchema,
 		[FieldName.START_DATE]: singleDateSchemaRequired,
 		[FieldName.END_DATE]: singleDateSchemaRequired,
+		[FieldName.SINGLE_SLIDER]: singleSliderSchema,
 	})
 	.refine(
 		(data) => data[FieldName.PASSWORD] === data[FieldName.CONFIRM_PASSWORD],
@@ -92,4 +94,5 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.DATE]: null,
 	[FieldName.START_DATE]: null,
 	[FieldName.END_DATE]: null,
+	[FieldName.SINGLE_SLIDER]: "49",
 };

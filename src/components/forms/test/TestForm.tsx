@@ -12,6 +12,7 @@ import RHFInput from "@/components/ui/fields/input/RHFInput";
 import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
 import RHFRadioButton from "@/components/ui/fields/radio-button/RHFRadioButton";
 import RHFSelect from "@/components/ui/fields/select/RHFSelect";
+import RHFSliderField from "@/components/ui/fields/slider/RHFSliderField";
 import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { FieldName } from "@/constants/fields";
@@ -192,6 +193,7 @@ const TestForm = () => {
 							endDateName={FieldName.END_DATE}
 							time
 						/>
+						<RHFSliderField name={FieldName.SINGLE_SLIDER} />
 					</FormWrapper>
 				</form>
 			</FormProvider>
