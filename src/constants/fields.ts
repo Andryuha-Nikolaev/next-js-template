@@ -18,4 +18,5 @@ export enum FieldName {
 	START_DATE = "start-date",
 	END_DATE = "end-date",
 	SINGLE_SLIDER = "single-slider",
+	RANGE_SLIDER = "range-slider",
 }
