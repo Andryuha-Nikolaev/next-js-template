@@ -82,6 +82,8 @@ const SliderField = ({
 						onChange(e);
 					}}
 					range={type === "range"}
+					min={min}
+					max={max}
 				/>
 				<div className={s.inputs}>
 					{isSingle && (

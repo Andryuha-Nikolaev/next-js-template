@@ -201,6 +201,7 @@ const TestForm = () => {
 						<RHFRangeSliderField
 							label="Range slider"
 							name={FieldName.RANGE_SLIDER}
+							max={1000000000}
 						/>
 					</FormWrapper>
 				</form>
