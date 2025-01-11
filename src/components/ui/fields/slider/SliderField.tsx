@@ -50,18 +50,14 @@ const SliderField = ({
 		return false;
 	};
 
-	// const handleChange = useCallback(
-	// 	debounce((value: number | number[]) => {
-	// 		if (typeof value !== "number" && value[0] > value[1]) {
-	// 			onChange([value[1], value[0]]);
-	// 			setFirstValue(secondValue);
-	// 			setSecondValue(firstValue);
-	// 		} else {
-	// 			onChange(value);
-	// 		}
-	// 	}, 500),
-	// 	[]
-	// );
+	function insertSpaces(inputStr: string) {
+		const str = inputStr.toString();
+		return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+	}
+
+	function removeSpaces(inputStr: string) {
+		return inputStr.replace(/\s+/g, "");
+	}
 
 	return (
 		<div className={s.block}>
@@ -88,9 +84,9 @@ const SliderField = ({
 				<div className={s.inputs}>
 					{isSingle && (
 						<Input
-							value={sliderValue.toString()}
+							value={insertSpaces(sliderValue.toString())}
 							onChange={(event) => {
-								const newValue = event.target.value;
+								const newValue = removeSpaces(event.target.value);
 
 								if (handleInputValidate(newValue)) {
 									onChange(+newValue);
@@ -101,9 +97,9 @@ const SliderField = ({
 					{!isSingle && (
 						<>
 							<Input
-								value={firstValue.toString()}
+								value={insertSpaces(firstValue.toString())}
 								onChange={(event) => {
-									const newValue = event.target.value;
+									const newValue = removeSpaces(event.target.value);
 
 									if (handleInputValidate(newValue)) {
 										setFirstValue(+newValue);
@@ -116,9 +112,9 @@ const SliderField = ({
 							/>
 							<p>-</p>
 							<Input
-								value={secondValue.toString()}
+								value={insertSpaces(secondValue.toString())}
 								onChange={(event) => {
-									const newValue = event.target.value;
+									const newValue = removeSpaces(event.target.value);
 
 									if (handleInputValidate(newValue)) {
 										setSecondValue(+newValue);

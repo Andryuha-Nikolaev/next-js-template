@@ -14,7 +14,6 @@ import {
 	rangeSliderSchema,
 	selectSchema,
 	singleDateSchema,
-	singleDateSchemaRequired,
 	singleSliderSchema,
 	textSchema,
 } from "@/schemas/fields";
@@ -62,8 +61,8 @@ export const formSchema = z
 		[FieldName.SELECT]: selectSchema,
 		[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
 		[FieldName.DATE]: singleDateSchema,
-		[FieldName.START_DATE]: singleDateSchemaRequired,
-		[FieldName.END_DATE]: singleDateSchemaRequired,
+		[FieldName.START_DATE]: singleDateSchema,
+		[FieldName.END_DATE]: singleDateSchema,
 		[FieldName.SINGLE_SLIDER]: singleSliderSchema,
 		[FieldName.RANGE_SLIDER]: rangeSliderSchema,
 	})
@@ -97,5 +96,5 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.START_DATE]: null,
 	[FieldName.END_DATE]: null,
 	[FieldName.SINGLE_SLIDER]: "49",
-	[FieldName.RANGE_SLIDER]: [0, 100],
+	[FieldName.RANGE_SLIDER]: [0, 1000000000],
 };
