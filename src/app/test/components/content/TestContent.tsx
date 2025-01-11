@@ -100,7 +100,7 @@ const TestContent = () => {
 				<hr style={{ width: "100%" }} />
 				<h2>Links:</h2>
 				<RootLink as={"button"}>RootLink as=button</RootLink>
-				<RootLink href={"/"}>RootLink var1</RootLink>
+				<RootLink href={"/test/aaa"}>RootLink var1 to dynamic route</RootLink>
 				<RootLink colorVariant="var2" href={"/"}>
 					RootLink var2
 				</RootLink>
