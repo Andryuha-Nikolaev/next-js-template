@@ -75,6 +75,8 @@ const SliderField = ({
 					value={sliderValue}
 					onChange={(e) => {
 						setSliderValue(e);
+						setFirstValue(typeof e === "number" ? e : e[0]);
+						setSecondValue(typeof e === "number" ? e : e[1]);
 					}}
 					onChangeComplete={(e) => {
 						onChange(e);
@@ -84,7 +86,7 @@ const SliderField = ({
 				<div className={s.inputs}>
 					{isSingle && (
 						<Input
-							value={value.toString()}
+							value={sliderValue.toString()}
 							onChange={(event) => {
 								const newValue = event.target.value;
 
@@ -108,8 +110,9 @@ const SliderField = ({
 										}
 									}
 								}}
+								hiddenReset={firstValue === min}
 							/>
-
+							<p>-</p>
 							<Input
 								value={secondValue.toString()}
 								onChange={(event) => {
@@ -126,6 +129,7 @@ const SliderField = ({
 									setSecondValue(max);
 									onChange([value[0], max]);
 								}}
+								hiddenReset={secondValue === max}
 							/>
 						</>
 					)}

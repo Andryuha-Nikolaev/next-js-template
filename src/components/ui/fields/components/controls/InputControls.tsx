@@ -12,6 +12,7 @@ const InputControls = ({
 	togglePassword,
 	onOpenCalendar,
 	onReset,
+	hiddenReset,
 }: InputControlsProps) => {
 	return (
 		<span className={s.buttons}>
@@ -37,7 +38,7 @@ const InputControls = ({
 					<CalendarIcon />
 				</button>
 			)}
-			{!!onReset && isFilled && (
+			{!!onReset && isFilled && !hiddenReset && (
 				<CloseButton
 					onMouseDown={(e) => {
 						e.preventDefault();

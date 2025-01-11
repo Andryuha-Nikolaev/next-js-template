@@ -25,6 +25,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			onOpenCalendar,
 			isRequired,
 			onResetField,
+			hiddenReset,
 			...restProps
 		},
 		ref
@@ -96,6 +97,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 							currentType={currentType}
 							isFilled={isFilled}
 							onReset={onReset}
+							hiddenReset={hiddenReset}
 							togglePassword={togglePassword}
 							onOpenCalendar={onOpenCalendar}
 						/>
