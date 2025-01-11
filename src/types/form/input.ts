@@ -23,6 +23,7 @@ export interface InputProps
 	onLabelFocus?: () => void;
 	onLabelBlur?: () => void;
 	onOpenCalendar?: () => void;
+	onResetField?: () => void;
 	mask?: MaskedInputProps["mask"];
 	maskGuide?: boolean;
 	pipe?: MaskedInputProps["pipe"];

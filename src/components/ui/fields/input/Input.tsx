@@ -24,6 +24,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			onLabelBlur = () => {},
 			onOpenCalendar,
 			isRequired,
+			onResetField,
 			...restProps
 		},
 		ref
@@ -43,7 +44,9 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 		const inputClassNames = clsx(s.input, errorMessage && s.error, s[type]);
 
 		const onReset = () => {
-			if (restProps.onChange) {
+			if (onResetField) {
+				onResetField();
+			} else if (restProps.onChange) {
 				const event = {
 					target: { value: "" },
 				} as React.ChangeEvent<HTMLInputElement>;
