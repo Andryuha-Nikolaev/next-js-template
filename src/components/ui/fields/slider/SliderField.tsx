@@ -66,21 +66,26 @@ const SliderField = ({
 				label={label}
 				isRequired={isRequired}
 			>
-				<Slider
-					{...restProps}
-					value={sliderValue}
-					onChange={(e) => {
-						setSliderValue(e);
-						setFirstValue(typeof e === "number" ? e : e[0]);
-						setSecondValue(typeof e === "number" ? e : e[1]);
-					}}
-					onChangeComplete={(e) => {
-						onChange(e);
-					}}
-					range={type === "range"}
-					min={min}
-					max={max}
-				/>
+				<div className={s.sliderWrap}>
+					<Slider
+						className={s.slider}
+						classNames={{ rail: s.rail, handle: s.handle, track: s.track }}
+						{...restProps}
+						value={sliderValue}
+						onChange={(e) => {
+							setSliderValue(e);
+							setFirstValue(typeof e === "number" ? e : e[0]);
+							setSecondValue(typeof e === "number" ? e : e[1]);
+						}}
+						onChangeComplete={(e) => {
+							onChange(e);
+						}}
+						range={type === "range"}
+						min={min}
+						max={max}
+					/>
+				</div>
+
 				<div className={s.inputs}>
 					{isSingle && (
 						<Input
@@ -92,6 +97,7 @@ const SliderField = ({
 									onChange(+newValue);
 								}
 							}}
+							hiddenReset={firstValue === min}
 						/>
 					)}
 					{!isSingle && (
