@@ -60,6 +60,7 @@ const DatePickerComponent = forwardRef<
 			modalPositionY = "bottom",
 			modalPositionX = "left",
 			maskGuide = true,
+			disabled,
 			...props
 		},
 		ref
@@ -164,6 +165,7 @@ const DatePickerComponent = forwardRef<
 									onChange={(e) => handleInputChange(e.target.value)}
 									onLabelFocus={() => setIsOpen(true)}
 									onOpenCalendar={() => setIsOpen(true)}
+									disabled={disabled}
 								/>
 							</div>
 						)}
@@ -174,7 +176,8 @@ const DatePickerComponent = forwardRef<
 								!inline && s.modal,
 								isOpen && s.open,
 								s[modalPositionX],
-								s[modalPositionY]
+								s[modalPositionY],
+								disabled && s.isDisabled
 							)}
 						>
 							<DatePicker
