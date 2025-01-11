@@ -8,7 +8,9 @@
 	position: absolute;
 	right: convert-px2rem(16);
 	top: 0;
-	height: convert-px2rem(var(--input-height-number));
+	// height: convert-px2rem(var(--input-height-number));
+	height: 100%;
+	max-height: convert-px2rem(var(--input-height-number));
 	@include flex-center;
 	flex-direction: row;
 	gap: convert-px2rem(4);
@@ -24,7 +26,4 @@
 	height: convert-px2rem(16) !important;
 	@include flex-center;
 	@include hover-opacity;
-
-	svg {
-	}
 }
