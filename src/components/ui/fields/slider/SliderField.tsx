@@ -98,6 +98,7 @@ const SliderField = ({
 								}
 							}}
 							hiddenReset={firstValue === min}
+							disabled={restProps.disabled}
 						/>
 					)}
 					{!isSingle && (
@@ -115,6 +116,7 @@ const SliderField = ({
 									}
 								}}
 								hiddenReset={firstValue === min}
+								disabled={restProps.disabled}
 							/>
 							<p>-</p>
 							<Input
@@ -134,6 +136,7 @@ const SliderField = ({
 									onChange([value[0], max]);
 								}}
 								hiddenReset={secondValue === max}
+								disabled={restProps.disabled}
 							/>
 						</>
 					)}
