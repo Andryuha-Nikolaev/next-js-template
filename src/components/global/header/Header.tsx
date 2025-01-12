@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+
 import clsx from "clsx";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
@@ -13,6 +15,27 @@ import s from "./Header.module.scss";
 
 const Header = () => {
 	const { closeBurger } = useSiteState();
+
+	useEffect(() => {
+		const handleSmoothScrollWithHash = (e: Event) => {
+			if (e.target instanceof Element) {
+				const link = e.target.closest<HTMLAnchorElement>("a");
+				if (link && link.href.includes("#")) {
+					document.documentElement.style.scrollBehavior = "smooth";
+
+					setTimeout(() => {
+						document.documentElement.style.scrollBehavior = "auto";
+					}, 1000);
+				}
+			}
+		};
+
+		document.body.addEventListener("click", handleSmoothScrollWithHash);
+
+		return () => {
+			document.body.removeEventListener("click", handleSmoothScrollWithHash);
+		};
+	}, []);
 
 	return (
 		<header
