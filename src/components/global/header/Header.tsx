@@ -20,6 +20,7 @@ const Header = () => {
 		const handleSmoothScrollWithHash = (e: Event) => {
 			if (e.target instanceof Element) {
 				const link = e.target.closest<HTMLAnchorElement>("a");
+
 				if (link && link.href.includes("#")) {
 					document.documentElement.style.scrollBehavior = "smooth";
 
