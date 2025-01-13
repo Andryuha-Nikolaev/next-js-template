@@ -17,8 +17,6 @@ const RHFRangeSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
 					{...props}
 					value={field.value as number[]}
 					onChange={(e) => {
-						console.log(e);
-
 						field.onChange(e);
 					}}
 					type="range"

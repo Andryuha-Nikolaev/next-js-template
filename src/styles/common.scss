@@ -4,7 +4,7 @@
 
 html {
 	scroll-padding-top: calc(var(--header-height-number) * 1px);
-	// scroll-behavior: smooth;
+	scroll-behavior: smooth;
 	font-size: var(--font-size_small);
 	@media (min-width: 320px) {
 		font-size: var(--font-size_normal);
