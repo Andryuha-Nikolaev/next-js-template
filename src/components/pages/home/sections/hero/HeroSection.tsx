@@ -33,14 +33,21 @@ const HeroSection = () => {
 						ref={swiperRef}
 						spaceBetween={20}
 						modules={[Pagination]}
-						pagination={{ clickable: true }}
+						pagination={{ clickable: true, dynamicBullets: true }}
 						loop
 					>
-						{Array(5)
+						{Array(10)
 							.fill("slide")
 							.map((_, i) => (
 								<SwiperSlide key={i}>
-									<div className={s.slideContent}>index: {i}</div>
+									<div
+										className={s.slideContent}
+										style={{
+											backgroundColor: `rgb(${i + 5 * 8}, ${i + 5 * 8}, ${i + 5 * 8})`,
+										}}
+									>
+										index: {i}
+									</div>
 								</SwiperSlide>
 							))}
 					</Swiper>
