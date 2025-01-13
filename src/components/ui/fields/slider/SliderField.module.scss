@@ -1,0 +1,43 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.inputs {
+	display: flex;
+	align-items: center;
+	gap: convert-px2rem(5);
+	margin-top: convert-px2rem(12);
+}
+
+.sliderWrap {
+	padding: 0 convert-px2rem(8);
+}
+
+.handle {
+	width: 16px !important;
+	height: 16px !important;
+	margin-top: -7px !important;
+}
+
+.slider {
+	padding: 6px 0 !important;
+	height: 16px !important;
+}
+
+.rail {
+	height: 2px !important;
+}
+
+.track {
+	height: 2px !important;
+}

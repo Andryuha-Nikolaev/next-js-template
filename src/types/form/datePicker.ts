@@ -10,6 +10,7 @@ export type BaseDatePickerProps = InputWrapperProps & {
 	inline?: boolean;
 	withInput?: boolean;
 	maskGuide?: boolean;
+	disabled?: boolean;
 };
 
 export type SingleDatePickerProps = BaseDatePickerProps & {

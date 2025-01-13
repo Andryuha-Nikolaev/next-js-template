@@ -17,7 +17,8 @@ const useScrollLock = (activeState: boolean) => {
 				}
 			}
 
-			bodyStyle.top = `-${window.scrollY}px`;
+			// bodyStyle.top = `-${window.scrollY}px`;
+			bodyStyle.top = bodyStyle.top ? bodyStyle.top : `-${window.scrollY}px`;
 			bodyStyle.position = "fixed";
 		};
 

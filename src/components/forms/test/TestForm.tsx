@@ -12,6 +12,8 @@ import RHFInput from "@/components/ui/fields/input/RHFInput";
 import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
 import RHFRadioButton from "@/components/ui/fields/radio-button/RHFRadioButton";
 import RHFSelect from "@/components/ui/fields/select/RHFSelect";
+import RHFRangeSliderField from "@/components/ui/fields/slider/RHFRangeSliderField";
+import RHFSliderField from "@/components/ui/fields/slider/RHFSliderField";
 import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { FieldName } from "@/constants/fields";
@@ -40,7 +42,7 @@ const TestForm = () => {
 	const { showSuccessModal, showErrorModal } = useModal();
 
 	const onSubmit: SubmitHandler<FormSchemaType> = async (values) => {
-		await sendFormData("test", valuesToFormData(values))
+		await sendFormData("/test-form", valuesToFormData(values))
 			.then(() => {
 				reset();
 				showSuccessModal();
@@ -191,6 +193,16 @@ const TestForm = () => {
 							startDateName={FieldName.START_DATE}
 							endDateName={FieldName.END_DATE}
 							time
+						/>
+						<RHFSliderField
+							label="Single slider"
+							name={FieldName.SINGLE_SLIDER}
+							disabled
+						/>
+						<RHFRangeSliderField
+							label="Range slider"
+							name={FieldName.RANGE_SLIDER}
+							max={1000000000}
 						/>
 					</FormWrapper>
 				</form>

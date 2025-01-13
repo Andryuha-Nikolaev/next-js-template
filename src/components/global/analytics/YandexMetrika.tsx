@@ -1,9 +1,9 @@
 import Script from "next/script";
 
-const COUNTER_ID: number | null = null;
-
 export default function YandexMetrika() {
-	if (!COUNTER_ID) {
+	const counterId = process.env.NEXT_PUBLIC_YANDEX_METRIKA_KEY;
+
+	if (!counterId || !process.env.NEXT_PUBLIC_YANDEX_METRIKA_ENABLED) {
 		return null;
 	}
 
@@ -17,7 +17,7 @@ export default function YandexMetrika() {
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(${COUNTER_ID}, "init", {
+   ym(${counterId}, "init", {
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,

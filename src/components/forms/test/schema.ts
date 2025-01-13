@@ -11,9 +11,10 @@ import {
 	passwordSchema,
 	phoneSchema,
 	radioButtonSchema,
+	rangeSliderSchema,
 	selectSchema,
 	singleDateSchema,
-	singleDateSchemaRequired,
+	singleSliderSchema,
 	textSchema,
 } from "@/schemas/fields";
 import {
@@ -60,8 +61,10 @@ export const formSchema = z
 		[FieldName.SELECT]: selectSchema,
 		[FieldName.MULTI_SELECT]: multiSelectSchemaRequired,
 		[FieldName.DATE]: singleDateSchema,
-		[FieldName.START_DATE]: singleDateSchemaRequired,
-		[FieldName.END_DATE]: singleDateSchemaRequired,
+		[FieldName.START_DATE]: singleDateSchema,
+		[FieldName.END_DATE]: singleDateSchema,
+		[FieldName.SINGLE_SLIDER]: singleSliderSchema,
+		[FieldName.RANGE_SLIDER]: rangeSliderSchema,
 	})
 	.refine(
 		(data) => data[FieldName.PASSWORD] === data[FieldName.CONFIRM_PASSWORD],
@@ -92,4 +95,6 @@ export const defaultValues: FormSchemaType = {
 	[FieldName.DATE]: null,
 	[FieldName.START_DATE]: null,
 	[FieldName.END_DATE]: null,
+	[FieldName.SINGLE_SLIDER]: "49",
+	[FieldName.RANGE_SLIDER]: [0, 1000000000],
 };

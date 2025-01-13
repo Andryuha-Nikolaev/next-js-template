@@ -60,6 +60,7 @@ const DatePickerComponent = forwardRef<
 			modalPositionY = "bottom",
 			modalPositionX = "left",
 			maskGuide = true,
+			disabled,
 			...props
 		},
 		ref
@@ -113,31 +114,25 @@ const DatePickerComponent = forwardRef<
 			setInputValue(inputValue);
 			const trimmedValue = inputValue.trim();
 
-			if (
+			const isProperLength =
 				(!time && trimmedValue.length === 10) ||
-				(time && trimmedValue.length === 16)
-			) {
-				const parsedDate = parse(
-					trimmedValue,
-					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT,
-					new Date()
-				);
+				(time && trimmedValue.length === 16);
 
-				if (isValid(parsedDate)) {
-					if (props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) {
-						onChange(null);
-					} else if (
-						props.minDate &&
-						parsedDate.getTime() < props.minDate.getTime()
-					) {
-						onChange(null);
-					} else {
-						onChange(parsedDate);
-					}
-				} else {
+			if (isProperLength) {
+				const format =
+					trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT;
+				const parsedDate = parse(trimmedValue, format, new Date());
+
+				const isOutOfRange =
+					(props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) ||
+					(props.minDate && parsedDate.getTime() < props.minDate.getTime());
+
+				if (isValid(parsedDate) && !isOutOfRange) {
+					onChange(parsedDate);
+				} else if (value) {
 					onChange(null);
 				}
-			} else {
+			} else if (value) {
 				onChange(null);
 			}
 
@@ -170,6 +165,7 @@ const DatePickerComponent = forwardRef<
 									onChange={(e) => handleInputChange(e.target.value)}
 									onLabelFocus={() => setIsOpen(true)}
 									onOpenCalendar={() => setIsOpen(true)}
+									disabled={disabled}
 								/>
 							</div>
 						)}
@@ -180,7 +176,8 @@ const DatePickerComponent = forwardRef<
 								!inline && s.modal,
 								isOpen && s.open,
 								s[modalPositionX],
-								s[modalPositionY]
+								s[modalPositionY],
+								disabled && s.isDisabled
 							)}
 						>
 							<DatePicker
@@ -188,7 +185,17 @@ const DatePickerComponent = forwardRef<
 								onChange={(e) => handleSingleSelect(e)}
 								inline
 								{...props}
-							/>
+							>
+								{props.selectsStart || props.selectsEnd ? (
+									<>
+										{props.startDate ? format(props.startDate, dateFormat) : ""}
+										{(props.startDate || props.endDate) && " - "}
+										{props.endDate ? format(props.endDate, dateFormat) : ""}
+									</>
+								) : (
+									<>{value ? format(value, dateFormat) : ""}</>
+								)}
+							</DatePicker>
 						</div>
 					</div>
 				</InputWrapper>

@@ -1,8 +1,11 @@
 import type React from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, Suspense, useContext, useState } from "react";
 
 import Modal from "@/components/global/modal/Modal";
 import type { ModalConfigProps, ModalProps } from "@/context/modal/types/modal";
+import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
+
+import { MODAL_QUERY_NAME } from "./constants/constants";
 
 const ModalContext = createContext<ModalProps>({
 	modalConfig: null,
@@ -42,12 +45,23 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		});
 	};
 
+	const handleChange = useChangeQueryParams();
+
 	const hideModal = () => {
 		setIsShown(false);
 
 		setTimeout(() => {
 			setModalConfig(null);
 		}, 200);
+
+		const params = new URLSearchParams(window.location.search);
+
+		const modalQuery = params.get(MODAL_QUERY_NAME);
+
+		if (modalQuery) {
+			params.delete(MODAL_QUERY_NAME);
+			handleChange(params.toString(), "replace");
+		}
 
 		if (modalConfig?.onHideCallback) {
 			modalConfig.onHideCallback();
@@ -66,7 +80,9 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 			}}
 		>
 			{children}
-			<Modal />
+			<Suspense>
+				<Modal />
+			</Suspense>
 		</ModalContext.Provider>
 	);
 };
