@@ -33,7 +33,8 @@ const HeroSection = () => {
 						ref={swiperRef}
 						spaceBetween={20}
 						modules={[Pagination]}
-						pagination={{ clickable: true, dynamicBullets: true }}
+						pagination={{ dynamicBullets: true }}
+						grabCursor
 						loop
 					>
 						{Array(10)
@@ -43,7 +44,7 @@ const HeroSection = () => {
 									<div
 										className={s.slideContent}
 										style={{
-											backgroundColor: `rgb(${i + 5 * 8}, ${i + 5 * 8}, ${i + 5 * 8})`,
+											backgroundColor: `rgb(${i + 6 * 14}, ${i + 6 * 14}, ${i + 6 * 14})`,
 										}}
 									>
 										index: {i}
