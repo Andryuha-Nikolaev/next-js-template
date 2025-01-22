@@ -18,8 +18,6 @@
 
 .slideContent {
 	aspect-ratio: 16/7;
-	background-color: var(--foreground);
-	color: var(--background);
 	padding: convert-px2rem(20);
 	min-height: convert-px2rem(300);
 }
@@ -37,7 +35,6 @@
 .prev,
 .next {
 	z-index: 1;
-	color: var(--background);
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
