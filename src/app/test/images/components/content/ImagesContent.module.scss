@@ -16,7 +16,7 @@
 	position: relative;
 	width: 100%;
 
-	min-height: calc(100dvh - convert-px2rem(var(--header-height-number)));
+	min-height: calc(100svh - convert-px2rem(var(--header-height-number)));
 }
 
 .image {
