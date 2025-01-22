@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import ContentLayout from "@/components/layouts/content/ContentLayout";
 import { getDataWithCache } from "@/services/getDataWithCacheService";
 import type { CustomPage } from "@/types/customPage";
 
@@ -33,10 +34,10 @@ export default async function TestCustomPage({
 	const data = await getDataWithCache<CustomPage>(`/custom-page/${id}`);
 
 	return (
-		<div>
+		<ContentLayout>
 			<h1 style={{ textAlign: "center" }}>
 				{data.data.title} id:{id}
 			</h1>
-		</div>
+		</ContentLayout>
 	);
 }

@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 
-import ContentLayout from "@/components/layouts/content/ContentLayout";
 import { isProd } from "@/utils/environment/isProd";
 
 export default function TestLayout({
@@ -12,5 +11,5 @@ export default function TestLayout({
 		notFound();
 	}
 
-	return <ContentLayout>{children}</ContentLayout>;
+	return <div>{children}</div>;
 }
