@@ -5,16 +5,16 @@ import { useSearchParams } from "next/navigation";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
+import { ModalId } from "@/constants/modal";
 import { SearchParamsNames } from "@/constants/searchParams";
 import { useModal } from "@/context/modal/ModalProvider";
-import type { ModalComponentsMap } from "@/context/modal/types/modal";
+import type { ModalComponentsMap } from "@/context/modal/types";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import { MODAL_ID } from "../../../context/modal/constants/constants";
 import Overlay from "../overlay/Overlay";
 
 const Modal = () => {
@@ -26,7 +26,7 @@ const Modal = () => {
 
 	const { modalConfig, hideModal, isShown, showModal } = modalContext;
 
-	const modalId = modalConfig?.modalId || MODAL_ID.DEFAULT;
+	const modalId = modalConfig?.modalId || ModalId.DEFAULT;
 
 	useScrollLock(isShown);
 
@@ -34,11 +34,11 @@ const Modal = () => {
 	const params = new URLSearchParams(searchParams.toString());
 	const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
 
-	const validModalIds = Object.values(MODAL_ID);
+	const validModalIds = Object.values(ModalId);
 
 	useEffect(() => {
-		if (modalQuery && validModalIds.includes(modalQuery as MODAL_ID)) {
-			showModal({ modalId: modalQuery as MODAL_ID });
+		if (modalQuery && validModalIds.includes(modalQuery as ModalId)) {
+			showModal({ modalId: modalQuery as ModalId });
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalQuery]);
@@ -48,8 +48,8 @@ const Modal = () => {
 	}
 
 	const modalComponents: ModalComponentsMap = {
-		[MODAL_ID.DEFAULT]: <DefaultModal />,
-		[MODAL_ID.FEEDBACK_FORM]: <FeedbackModal />,
+		[ModalId.DEFAULT]: <DefaultModal />,
+		[ModalId.FEEDBACK_FORM]: <FeedbackModal />,
 	};
 
 	return (

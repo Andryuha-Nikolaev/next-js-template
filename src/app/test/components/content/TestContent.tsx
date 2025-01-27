@@ -8,8 +8,8 @@ import CloseIcon from "@/components/icons/close/CloseIcon";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import RootLink from "@/components/ui/links/root/RootLink";
 import Social from "@/components/ui/social/Social";
+import { ModalId } from "@/constants/modal";
 import { SearchParamsNames } from "@/constants/searchParams";
-import { MODAL_ID } from "@/context/modal/constants/constants";
 import { useModal } from "@/context/modal/ModalProvider";
 
 import s from "./TestContent.module.scss";
@@ -44,7 +44,7 @@ const TestContent = () => {
 	};
 
 	const showFeedbackModal = () => {
-		showModal({ modalId: MODAL_ID.FEEDBACK_FORM, disableOverlayClick: true });
+		showModal({ modalId: ModalId.FEEDBACK_FORM, disableOverlayClick: true });
 	};
 
 	return (

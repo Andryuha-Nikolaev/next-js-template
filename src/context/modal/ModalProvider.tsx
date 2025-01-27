@@ -4,7 +4,7 @@ import { createContext, Suspense, useContext, useState } from "react";
 import Modal from "@/components/global/modal/Modal";
 import { ErrorMessages } from "@/constants/errorMessages";
 import { SearchParamsNames } from "@/constants/searchParams";
-import type { ModalConfigProps, ModalProps } from "@/context/modal/types/modal";
+import type { ModalConfigProps, ModalProps } from "@/context/modal/types";
 import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
 
 const ModalContext = createContext<ModalProps>({

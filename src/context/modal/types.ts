@@ -1,7 +1,7 @@
-import type { MODAL_ID } from "../constants/constants";
+import type { ModalId } from "@/constants/modal";
 
 export type ModalConfigProps = {
-	modalId?: MODAL_ID;
+	modalId?: ModalId;
 	title?: string;
 	text?: string;
 	type?: "success" | "error";
@@ -21,5 +21,5 @@ export type ModalProps = {
 };
 
 export type ModalComponentsMap = {
-	[key in MODAL_ID]: React.ReactNode;
+	[key in ModalId]: React.ReactNode;
 };
