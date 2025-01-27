@@ -8,8 +8,8 @@ import CloseIcon from "@/components/icons/close/CloseIcon";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import RootLink from "@/components/ui/links/root/RootLink";
 import Social from "@/components/ui/social/Social";
-import { ModalId } from "@/constants/modal";
 import { SearchParamsNames } from "@/constants/searchParams";
+import { ModalId } from "@/context/modal/constants";
 import { useModal } from "@/context/modal/ModalProvider";
 
 import s from "./TestContent.module.scss";

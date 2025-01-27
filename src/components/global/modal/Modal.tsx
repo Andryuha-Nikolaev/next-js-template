@@ -5,8 +5,8 @@ import { useSearchParams } from "next/navigation";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
-import { ModalId } from "@/constants/modal";
 import { SearchParamsNames } from "@/constants/searchParams";
+import { ModalId } from "@/context/modal/constants";
 import { useModal } from "@/context/modal/ModalProvider";
 import type { ModalComponentsMap } from "@/context/modal/types";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
