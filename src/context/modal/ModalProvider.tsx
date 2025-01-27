@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 import { createContext, Suspense, useContext, useState } from "react";
 
@@ -45,7 +47,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		});
 	};
 
-	const { params, handleChangeParams } = useChangeQueryParams();
+	const { handleChangeParams } = useChangeQueryParams();
 
 	const hideModal = () => {
 		setIsShown(false);
@@ -54,6 +56,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 			setModalConfig(null);
 		}, 200);
 
+		const params = new URLSearchParams(window.location.search);
 		const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
 
 		if (modalQuery) {

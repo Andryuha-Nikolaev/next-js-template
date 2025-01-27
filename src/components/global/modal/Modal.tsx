@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
@@ -9,6 +8,7 @@ import { SearchParamsNames } from "@/constants/searchParams";
 import { ModalId } from "@/context/modal/constants";
 import { useModal } from "@/context/modal/ModalProvider";
 import type { ModalComponentsMap } from "@/context/modal/types";
+import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import DefaultModal from "./components/default/DefaultModal";
@@ -30,8 +30,8 @@ const Modal = () => {
 
 	useScrollLock(isShown);
 
-	const searchParams = useSearchParams();
-	const params = new URLSearchParams(searchParams.toString());
+	const { params } = useChangeQueryParams();
+
 	const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
 
 	const validModalIds = Object.values(ModalId);
