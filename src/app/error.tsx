@@ -2,15 +2,17 @@
 
 import { useEffect } from "react";
 
+import Link from "next/link";
+
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 import RootButton from "@/components/ui/buttons/root/RootButton";
+import routesConstants from "@/constants/routes";
 
 export default function Error({
 	error,
-	reset,
 }: {
 	error: Error;
-	reset: () => void;
+	// reset: () => void;
 }) {
 	useEffect(() => {
 		console.error(error);
@@ -19,7 +21,10 @@ export default function Error({
 	return (
 		<ContentLayout>
 			<h2>{error.message}</h2>
-			<RootButton onClick={() => reset()}>Try again</RootButton>
+
+			<RootButton as={Link} href={routesConstants.HOME.url}>
+				На главную
+			</RootButton>
 		</ContentLayout>
 	);
 }
