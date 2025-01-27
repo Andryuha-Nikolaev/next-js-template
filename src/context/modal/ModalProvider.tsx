@@ -47,7 +47,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		});
 	};
 
-	const { handleChangeParams } = useChangeQueryParams();
+	const handleChangeParams = useChangeQueryParams();
 
 	const hideModal = () => {
 		setIsShown(false);

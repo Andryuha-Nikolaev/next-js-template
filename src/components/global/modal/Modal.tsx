@@ -8,7 +8,7 @@ import { SearchParamsNames } from "@/constants/searchParams";
 import { ModalId } from "@/context/modal/constants";
 import { useModal } from "@/context/modal/ModalProvider";
 import type { ModalComponentsMap } from "@/context/modal/types";
-import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
+import useGetQueryParams from "@/hooks/query-params/useGetQueryParams";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import DefaultModal from "./components/default/DefaultModal";
@@ -30,7 +30,7 @@ const Modal = () => {
 
 	useScrollLock(isShown);
 
-	const { params } = useChangeQueryParams();
+	const params = useGetQueryParams();
 
 	const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
 
