@@ -1,9 +1,10 @@
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "nextjs-toploader/app";
 
 const useChangeQueryParams = () => {
 	const router = useRouter();
 
-	const handleChange = (
+	const handleChangeParams = (
 		queryString: string,
 		method: "push" | "replace" = "push",
 		scroll: boolean = false
@@ -14,8 +15,10 @@ const useChangeQueryParams = () => {
 			scroll: scroll,
 		});
 	};
+	const searchParams = useSearchParams();
+	const params = new URLSearchParams(searchParams);
 
-	return handleChange;
+	return { handleChangeParams, params };
 };
 
 export default useChangeQueryParams;

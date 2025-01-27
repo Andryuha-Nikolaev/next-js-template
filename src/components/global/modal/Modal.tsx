@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
+import { SearchParamsNames } from "@/constants/searchParams";
 import { useModal } from "@/context/modal/ModalProvider";
 import type { ModalComponentsMap } from "@/context/modal/types/modal";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
@@ -13,10 +14,7 @@ import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import {
-	MODAL_ID,
-	MODAL_QUERY_NAME,
-} from "../../../context/modal/constants/constants";
+import { MODAL_ID } from "../../../context/modal/constants/constants";
 import Overlay from "../overlay/Overlay";
 
 const Modal = () => {
@@ -34,7 +32,7 @@ const Modal = () => {
 
 	const searchParams = useSearchParams();
 	const params = new URLSearchParams(searchParams.toString());
-	const modalQuery = params.get(MODAL_QUERY_NAME);
+	const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
 
 	const validModalIds = Object.values(MODAL_ID);
 

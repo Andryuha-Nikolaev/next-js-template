@@ -8,6 +8,7 @@ import CloseIcon from "@/components/icons/close/CloseIcon";
 import RootButton from "@/components/ui/buttons/root/RootButton";
 import RootLink from "@/components/ui/links/root/RootLink";
 import Social from "@/components/ui/social/Social";
+import { SearchParamsNames } from "@/constants/searchParams";
 import { MODAL_ID } from "@/context/modal/constants/constants";
 import { useModal } from "@/context/modal/ModalProvider";
 
@@ -131,7 +132,7 @@ const TestContent = () => {
 				<RootButton
 					colorVariant="var2"
 					as={Link}
-					href={"/test?modal=feedback-form"}
+					href={`/test?${SearchParamsNames.MODAL_ACTION}=feedback-form`}
 					scroll={false}
 				>
 					showFeedbackModal with query

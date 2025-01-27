@@ -2,10 +2,10 @@ import type React from "react";
 import { createContext, Suspense, useContext, useState } from "react";
 
 import Modal from "@/components/global/modal/Modal";
+import { ErrorMessages } from "@/constants/errorMessages";
+import { SearchParamsNames } from "@/constants/searchParams";
 import type { ModalConfigProps, ModalProps } from "@/context/modal/types/modal";
 import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
-
-import { MODAL_QUERY_NAME } from "./constants/constants";
 
 const ModalContext = createContext<ModalProps>({
 	modalConfig: null,
@@ -39,13 +39,13 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const showErrorModal = (config?: ModalConfigProps) => {
 		showModal({
-			title: "Упс... Что-то пошло не так",
+			title: ErrorMessages.UNKNOWN,
 			type: "error",
 			...config,
 		});
 	};
 
-	const handleChange = useChangeQueryParams();
+	const { params, handleChangeParams } = useChangeQueryParams();
 
 	const hideModal = () => {
 		setIsShown(false);
@@ -54,13 +54,12 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 			setModalConfig(null);
 		}, 200);
 
-		const params = new URLSearchParams(window.location.search);
-
-		const modalQuery = params.get(MODAL_QUERY_NAME);
+		const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
 
 		if (modalQuery) {
-			params.delete(MODAL_QUERY_NAME);
-			handleChange(params.toString(), "replace");
+			params.delete(SearchParamsNames.MODAL_ACTION);
+			params.delete(SearchParamsNames.MODAL_TOKEN);
+			handleChangeParams(params.toString(), "replace");
 		}
 
 		if (modalConfig?.onHideCallback) {
