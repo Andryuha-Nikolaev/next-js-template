@@ -16,7 +16,7 @@ import RHFRangeSliderField from "@/components/ui/fields/slider/RHFRangeSliderFie
 import RHFSliderField from "@/components/ui/fields/slider/RHFSliderField";
 import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
-import { FieldName } from "@/constants/fields";
+import { FieldNames } from "@/constants/fields";
 import { useModal } from "@/context/modal/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
@@ -59,45 +59,45 @@ const TestForm = () => {
 				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
 						<RHFInput
-							name={FieldName.FIRST_NAME}
+							name={FieldNames.FIRST_NAME}
 							placeholder="Имя"
 							label="Имя"
 						/>
 						<RHFInput
 							disabled
-							name={FieldName.LAST_NAME}
+							name={FieldNames.LAST_NAME}
 							placeholder="Фамилия"
 							label="Фамилия disabled"
 						/>
-						<RHFPhoneInput name={FieldName.PHONE} label="Телефон" />
+						<RHFPhoneInput name={FieldNames.PHONE} label="Телефон" />
 						<RHFInput
-							name={FieldName.EMAIL}
+							name={FieldNames.EMAIL}
 							placeholder="Email"
 							label="Email"
 						/>
 						<PasswordFields />
 						<RHFTextarea
-							name={FieldName.TEXT}
+							name={FieldNames.TEXT}
 							placeholder="Текст"
 							label="Текст"
 						/>
 						<RHFFileInput
 							disabled
 							label="Файл с превью"
-							name={FieldName.FILE}
+							name={FieldNames.FILE}
 							fileSize="Максимальный размер файла - 5MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
 						/>
 						<RHFFileInput
-							name={FieldName.FILES}
+							name={FieldNames.FILES}
 							multiple
 							label="Несколько файлов"
 							buttonText="Прикрепить файлы"
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
-						<RHFCheckbox disabled name={FieldName.POLICY}>
+						<RHFCheckbox disabled name={FieldNames.POLICY}>
 							<small>
 								Я&nbsp;ознакомлен(а) с&nbsp;
 								<a
@@ -111,7 +111,7 @@ const TestForm = () => {
 							</small>
 						</RHFCheckbox>
 						<RHFCheckboxGroup
-							name={FieldName.CHECKBOX_GROUP}
+							name={FieldNames.CHECKBOX_GROUP}
 							items={[
 								{
 									value: "Первый чекбокс",
@@ -128,7 +128,7 @@ const TestForm = () => {
 							chooseAllCheckbox="Выбрать всё"
 						/>
 						<RHFCheckboxGroup
-							name={FieldName.CHECKBOX_GROUP_2}
+							name={FieldNames.CHECKBOX_GROUP_2}
 							items={[
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
 								{
@@ -149,7 +149,7 @@ const TestForm = () => {
 						<RHFRadioButton
 							variant="horizontal"
 							label="RadioButton"
-							name={FieldName.RADIO}
+							name={FieldNames.RADIO}
 							items={[
 								{
 									value: "Да",
@@ -165,7 +165,7 @@ const TestForm = () => {
 							isDisabled
 							label="Выбор"
 							placeholder="Выбор"
-							name={FieldName.SELECT}
+							name={FieldNames.SELECT}
 							options={[
 								{ value: "aaaaa", label: "aaaaa" },
 								{ value: "bbb", label: "bbb" },
@@ -174,7 +174,7 @@ const TestForm = () => {
 						<RHFSelect
 							label="Мульти выбор"
 							placeholder="Мульти выбор"
-							name={FieldName.MULTI_SELECT}
+							name={FieldNames.MULTI_SELECT}
 							isMulti
 							options={[
 								{ value: "aaaaa", label: "aaaaa" },
@@ -188,20 +188,20 @@ const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
-						<RHFDatePicker label="Просто дата" name={FieldName.DATE} />
+						<RHFDatePicker label="Просто дата" name={FieldNames.DATE} />
 						<RHFRangeDatePicker
-							startDateName={FieldName.START_DATE}
-							endDateName={FieldName.END_DATE}
+							startDateName={FieldNames.START_DATE}
+							endDateName={FieldNames.END_DATE}
 							time
 						/>
 						<RHFSliderField
 							label="Single slider"
-							name={FieldName.SINGLE_SLIDER}
+							name={FieldNames.SINGLE_SLIDER}
 							disabled
 						/>
 						<RHFRangeSliderField
 							label="Range slider"
-							name={FieldName.RANGE_SLIDER}
+							name={FieldNames.RANGE_SLIDER}
 							max={1000000000}
 						/>
 					</FormWrapper>

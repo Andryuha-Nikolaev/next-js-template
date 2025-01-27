@@ -1,4 +1,4 @@
-export enum FieldName {
+export enum FieldNames {
 	FIRST_NAME = "first-name",
 	LAST_NAME = "last-name",
 	PHONE = "phone",
