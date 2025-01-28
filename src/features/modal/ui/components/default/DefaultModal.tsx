@@ -2,7 +2,7 @@ import parse from "html-react-parser";
 
 import ErrorIcon from "@/components/icons/error/ErrorIcon";
 import SuccessIcon from "@/components/icons/success/SuccessIcon";
-import { useModal } from "@/context/modal/ModalProvider";
+import { useModal } from "@/features/modal/context/ModalProvider";
 
 import s from "./DefaultModal.module.scss";
 

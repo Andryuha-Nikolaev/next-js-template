@@ -4,10 +4,7 @@ import clsx from "clsx";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
-import { SearchParamsNames } from "@/constants/searchParams";
-import { ModalId } from "@/context/modal/constants";
-import { useModal } from "@/context/modal/ModalProvider";
-import type { ModalComponentsMap } from "@/context/modal/types";
+import { useModal } from "@/features/modal/context/ModalProvider";
 import useGetQueryParams from "@/hooks/query-params/useGetQueryParams";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
 
@@ -15,7 +12,9 @@ import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import Overlay from "../overlay/Overlay";
+import Overlay from "../../../components/global/overlay/Overlay";
+import { ModalId, ModalSearchParams } from "../constants";
+import type { ModalComponentsMap } from "../types";
 
 const Modal = () => {
 	const modalContext = useModal();
@@ -32,7 +31,7 @@ const Modal = () => {
 
 	const params = useGetQueryParams();
 
-	const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
+	const modalQuery = params.get(ModalSearchParams.ACTION);
 
 	const validModalIds = Object.values(ModalId);
 

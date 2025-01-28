@@ -1,7 +1,7 @@
 "use client";
 
-import ModalProvider from "@/context/modal/ModalProvider";
 import SiteStateProvider from "@/context/site/SiteStateProvider";
+import ModalProvider from "@/features/modal/context/ModalProvider";
 
 export interface ProvidersProps {
 	children: React.ReactNode;

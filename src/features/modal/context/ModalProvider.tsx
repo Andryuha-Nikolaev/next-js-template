@@ -3,11 +3,12 @@
 import type React from "react";
 import { createContext, Suspense, useContext, useState } from "react";
 
-import Modal from "@/components/global/modal/Modal";
 import { ErrorMessages } from "@/constants/errorMessages";
-import { SearchParamsNames } from "@/constants/searchParams";
-import type { ModalConfigProps, ModalProps } from "@/context/modal/types";
+import type { ModalConfigProps, ModalProps } from "@/features/modal/types";
+import Modal from "@/features/modal/ui/Modal";
 import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
+
+import { ModalSearchParams } from "../constants";
 
 const ModalContext = createContext<ModalProps>({
 	modalConfig: null,
@@ -57,11 +58,11 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		}, 200);
 
 		const params = new URLSearchParams(window.location.search);
-		const modalQuery = params.get(SearchParamsNames.MODAL_ACTION);
+		const modalQuery = params.get(ModalSearchParams.ACTION);
 
 		if (modalQuery) {
-			params.delete(SearchParamsNames.MODAL_ACTION);
-			params.delete(SearchParamsNames.MODAL_TOKEN);
+			params.delete(ModalSearchParams.ACTION);
+			params.delete(ModalSearchParams.TOKEN);
 			handleChangeParams(params.toString(), "replace");
 		}
 

@@ -17,7 +17,7 @@ import RHFSliderField from "@/components/ui/fields/slider/RHFSliderField";
 import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { FieldNames } from "@/constants/fields";
-import { useModal } from "@/context/modal/ModalProvider";
+import { useModal } from "@/features/modal/context/ModalProvider";
 import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
