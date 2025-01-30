@@ -43,9 +43,7 @@ const HeroSection = () => {
 								<SwiperSlide key={i}>
 									<div
 										className={s.slideContent}
-										style={{
-											backgroundColor: `rgb(${i + 6 * 14}, ${i + 6 * 14}, ${i + 6 * 14})`,
-										}}
+										style={{ backgroundColor: i % 2 ? "#9ba986" : "#eddcae" }}
 									>
 										index: {i}
 									</div>

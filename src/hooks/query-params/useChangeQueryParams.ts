@@ -3,7 +3,7 @@ import { useRouter } from "nextjs-toploader/app";
 const useChangeQueryParams = () => {
 	const router = useRouter();
 
-	const handleChange = (
+	const handleChangeParams = (
 		queryString: string,
 		method: "push" | "replace" = "push",
 		scroll: boolean = false
@@ -15,7 +15,7 @@ const useChangeQueryParams = () => {
 		});
 	};
 
-	return handleChange;
+	return handleChangeParams;
 };
 
 export default useChangeQueryParams;

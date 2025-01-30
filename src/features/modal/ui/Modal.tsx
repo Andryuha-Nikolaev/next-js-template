@@ -1,23 +1,20 @@
 import { useEffect } from "react";
 
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
-import { useModal } from "@/context/modal/ModalProvider";
-import type { ModalComponentsMap } from "@/context/modal/types/modal";
+import { useModal } from "@/features/modal/context/ModalProvider";
+import useGetQueryParams from "@/hooks/query-params/useGetQueryParams";
 import useScrollLock from "@/hooks/scroll/useScrollLock";
 
 import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import {
-	MODAL_ID,
-	MODAL_QUERY_NAME,
-} from "../../../context/modal/constants/constants";
-import Overlay from "../overlay/Overlay";
+import Overlay from "../../../components/global/overlay/Overlay";
+import { ModalId, ModalSearchParams } from "../constants";
+import type { ModalComponentsMap } from "../types";
 
 const Modal = () => {
 	const modalContext = useModal();
@@ -28,19 +25,19 @@ const Modal = () => {
 
 	const { modalConfig, hideModal, isShown, showModal } = modalContext;
 
-	const modalId = modalConfig?.modalId || MODAL_ID.DEFAULT;
+	const modalId = modalConfig?.modalId || ModalId.DEFAULT;
 
 	useScrollLock(isShown);
 
-	const searchParams = useSearchParams();
-	const params = new URLSearchParams(searchParams.toString());
-	const modalQuery = params.get(MODAL_QUERY_NAME);
+	const params = useGetQueryParams();
 
-	const validModalIds = Object.values(MODAL_ID);
+	const modalQuery = params.get(ModalSearchParams.ACTION);
+
+	const validModalIds = Object.values(ModalId);
 
 	useEffect(() => {
-		if (modalQuery && validModalIds.includes(modalQuery as MODAL_ID)) {
-			showModal({ modalId: modalQuery as MODAL_ID });
+		if (modalQuery && validModalIds.includes(modalQuery as ModalId)) {
+			showModal({ modalId: modalQuery as ModalId });
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalQuery]);
@@ -50,8 +47,8 @@ const Modal = () => {
 	}
 
 	const modalComponents: ModalComponentsMap = {
-		[MODAL_ID.DEFAULT]: <DefaultModal />,
-		[MODAL_ID.FEEDBACK_FORM]: <FeedbackModal />,
+		[ModalId.DEFAULT]: <DefaultModal />,
+		[ModalId.FEEDBACK_FORM]: <FeedbackModal />,
 	};
 
 	return (
