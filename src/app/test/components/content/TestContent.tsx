@@ -13,6 +13,8 @@ import { useModal } from "@/features/modal/context/ModalProvider";
 
 import s from "./TestContent.module.scss";
 
+import ShakeDetector from "../shake-detector/ShakeDetector";
+
 const TestContent = () => {
 	const router = useRouter();
 
@@ -139,6 +141,7 @@ const TestContent = () => {
 				<hr style={{ width: "100%" }} />
 				<h2 id="form">Forms:</h2>
 				<TestForm />
+				<ShakeDetector />
 			</div>
 		</div>
 	);
