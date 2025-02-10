@@ -1,6 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { EnumTokens } from "@/services/authTokenService";
 import type { CustomPage } from "@/types/customPage";
 import { isProd } from "@/utils/environment/isProd";
 
@@ -30,16 +29,16 @@ export async function GET(req: NextRequest) {
 		);
 	}
 
-	console.log("req.cookies", req.cookies.get(EnumTokens.ACCESS_TOKEN)?.value);
+	console.log("req.cookies", req.cookies.getAll().toString());
 
-	if (req.cookies.get(EnumTokens.ACCESS_TOKEN)?.value !== "aa1") {
-		return NextResponse.json(
-			{ error: "Unauthorized." },
-			{
-				status: 401,
-			}
-		);
-	}
+	// if (req.cookies.get(EnumTokens.ACCESS_TOKEN)?.value !== "aa1") {
+	// 	return NextResponse.json(
+	// 		{ error: "Unauthorized." },
+	// 		{
+	// 			status: 401,
+	// 		}
+	// 	);
+	// }
 
 	return NextResponse.json(data, {
 		status: 200,
