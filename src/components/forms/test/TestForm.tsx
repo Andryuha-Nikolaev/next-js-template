@@ -197,7 +197,6 @@ const TestForm = () => {
 						<RHFSliderField
 							label="Single slider"
 							name={FieldNames.SINGLE_SLIDER}
-							disabled
 						/>
 						<RHFRangeSliderField
 							label="Range slider"

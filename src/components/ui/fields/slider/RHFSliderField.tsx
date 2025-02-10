@@ -16,7 +16,7 @@ const RHFSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
 					errorMessage={error?.message}
 					{...props}
 					value={field.value as number}
-					onChange={field.onChange}
+					onChange={(e) => field.onChange(e)}
 					type="single"
 					// ref={field.ref}
 				/>
