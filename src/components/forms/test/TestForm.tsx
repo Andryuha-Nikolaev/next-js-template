@@ -18,18 +18,22 @@ import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
 import { FieldNames } from "@/constants/fields";
 import { useModal } from "@/features/modal/context/ModalProvider";
-import { sendFormData } from "@/services/sendFormDataService";
 import { valuesToFormData } from "@/utils/form/submitUtils";
 
+import { sendTestForm } from "./actions";
 import PasswordFields from "./components/password-fields/PasswordFields";
-import { defaultValues, formSchema, type FormSchemaType } from "./schema";
+import {
+	defaultValues,
+	testFormSchema,
+	type TestFormSchemaType,
+} from "./schema";
 import s from "./TestForm.module.scss";
 
 import FormWrapper from "../wrapper/FormWrapper";
 
 const TestForm = () => {
-	const methods = useForm<FormSchemaType>({
-		resolver: zodResolver(formSchema),
+	const methods = useForm<TestFormSchemaType>({
+		resolver: zodResolver(testFormSchema),
 		defaultValues: defaultValues,
 	});
 
@@ -41,16 +45,23 @@ const TestForm = () => {
 
 	const { showSuccessModal, showErrorModal } = useModal();
 
-	const onSubmit: SubmitHandler<FormSchemaType> = async (values) => {
-		await sendFormData("/test-form", valuesToFormData(values))
-			.then(() => {
-				reset();
-				showSuccessModal();
-			})
-			.catch((e) => {
-				console.error(e);
-				showErrorModal();
-			});
+	const onSubmit: SubmitHandler<TestFormSchemaType> = async (values) => {
+		const error = await sendTestForm(valuesToFormData(values));
+
+		if (!error) {
+			reset();
+			showSuccessModal({ title: "Данные успешно отправлены" });
+
+			return;
+		}
+
+		const { error: errorType } = error;
+
+		if (errorType === "unknown") {
+			showErrorModal();
+		} else {
+			showErrorModal({ title: errorType });
+		}
 	};
 
 	return (

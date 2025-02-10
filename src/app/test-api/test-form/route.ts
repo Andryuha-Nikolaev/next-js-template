@@ -13,7 +13,8 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	console.log(req);
+	const reqData = await req.formData();
+	console.log(Object.fromEntries(reqData.entries()));
 
 	return NextResponse.json(
 		{},

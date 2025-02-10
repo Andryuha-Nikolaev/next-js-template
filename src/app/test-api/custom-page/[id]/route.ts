@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
 		);
 	}
 
-	console.log("req.cookies", req.cookies.getAll().toString());
+	console.log("req.cookies", req.cookies.getAll());
 
 	// if (req.cookies.get(EnumTokens.ACCESS_TOKEN)?.value !== "aa1") {
 	// 	return NextResponse.json(

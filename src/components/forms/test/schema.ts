@@ -23,7 +23,7 @@ import {
 	checkFilesTypes,
 } from "@/schemas/fileInput";
 
-export const formSchema = z
+export const testFormSchema = z
 	.object({
 		[FieldNames.FIRST_NAME]: nameSchema,
 		[FieldNames.LAST_NAME]: nameSchema,
@@ -74,9 +74,9 @@ export const formSchema = z
 		}
 	);
 
-export type FormSchemaType = z.infer<typeof formSchema>;
+export type TestFormSchemaType = z.infer<typeof testFormSchema>;
 
-export const defaultValues: FormSchemaType = {
+export const defaultValues: TestFormSchemaType = {
 	[FieldNames.FIRST_NAME]: "",
 	[FieldNames.LAST_NAME]: "Николаев",
 	[FieldNames.PHONE]: "",

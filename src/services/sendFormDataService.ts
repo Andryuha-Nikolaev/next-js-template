@@ -1,7 +1,9 @@
-import axiosClient from "@/api/axiosClient";
+import { apiFlow, createApi } from "@/api/flow";
 
 export const sendFormData = (url: string, data: FormData) => {
-	return axiosClient.post(url, data, {
+	const api = createApi(apiFlow.cookies);
+
+	return api.post(url, data, {
 		headers: { "Content-Type": "multipart/form-data" },
 	});
 };
