@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
+import { debounce } from "lodash";
 import Slider from "rc-slider";
 
 import type { SliderFieldProps } from "@/types/form/sliderField";
@@ -11,7 +12,8 @@ import s from "./SliderField.module.scss";
 import InputWrapper from "../components/wrapper/InputWrapper";
 import Input from "../input/Input";
 
-const NUMBER_REGEX = /^-?\d+$/;
+const NUMBER_REGEX = /^\d+$/;
+const DEBOUNCE_MS = 700;
 
 const SliderField = ({
 	type,
@@ -30,25 +32,24 @@ const SliderField = ({
 	const [secondValue, setSecondValue] = useState(isSingle ? value : value[1]);
 	const [sliderValue, setSliderValue] = useState(value);
 
-	// for reset form
-
+	// Reset form values when `value` prop changes
 	useEffect(() => {
-		setFirstValue(isSingle ? value : value[0]);
-		setSecondValue(isSingle ? value : value[1]);
+		const newFirstValue = isSingle ? (value as number) : (value as number[])[0];
+		const newSecondValue = isSingle
+			? (value as number)
+			: (value as number[])[1];
+
+		setFirstValue(newFirstValue);
+		setSecondValue(newSecondValue);
 		setSliderValue(value);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [value]);
 
-	const handleInputValidate = (value: string) => {
-		if (!value) {
-			return true;
-		}
-		if (NUMBER_REGEX.test(value) && +value >= min && +value <= max) {
-			return true;
-		}
-		return false;
-	};
+	const handleInputValidate = (value: number) => value >= min && value <= max;
+
+	const handleInputNumberValidate = (value: string) =>
+		!value || NUMBER_REGEX.test(value);
 
 	function insertSpaces(inputStr: string) {
 		const str = inputStr.toString();
@@ -58,6 +59,60 @@ const SliderField = ({
 	function removeSpaces(inputStr: string) {
 		return inputStr.replace(/\s+/g, "");
 	}
+
+	const handleSingleValue = useCallback(
+		debounce((newValue: string) => {
+			const numericValue = +newValue;
+			if (handleInputValidate(numericValue)) {
+				onChange(numericValue);
+			} else {
+				setFirstValue(value as number);
+			}
+		}, DEBOUNCE_MS),
+		[value, onChange]
+	);
+
+	const handleChangeFirstValue = useCallback(
+		debounce((newValue: string) => {
+			const numericValue = +newValue;
+			if (handleInputValidate(numericValue) && numericValue <= secondValue) {
+				onChange([numericValue, secondValue]);
+			} else {
+				setFirstValue((value as number[])[0]);
+			}
+		}, DEBOUNCE_MS),
+		[value, secondValue, onChange]
+	);
+
+	const handleChangeSecondValue = useCallback(
+		debounce((newValue: string) => {
+			const numericValue = +newValue;
+			if (handleInputValidate(numericValue) && firstValue <= numericValue) {
+				onChange([firstValue, numericValue]);
+			} else {
+				setSecondValue((value as number[])[1]);
+			}
+		}, DEBOUNCE_MS),
+		[value, firstValue, onChange]
+	);
+
+	const handleInputChange = (newValue: string, isFirstInput: boolean) => {
+		const numericValue = removeSpaces(newValue);
+		console.log(numericValue);
+
+		if (handleInputNumberValidate(numericValue)) {
+			if (isSingle) {
+				setFirstValue(+numericValue);
+				handleSingleValue(numericValue);
+			} else if (isFirstInput) {
+				setFirstValue(+numericValue);
+				handleChangeFirstValue(numericValue);
+			} else {
+				setSecondValue(+numericValue);
+				handleChangeSecondValue(numericValue);
+			}
+		}
+	};
 
 	return (
 		<div className={s.block}>
@@ -74,13 +129,18 @@ const SliderField = ({
 						value={sliderValue}
 						onChange={(e) => {
 							setSliderValue(e);
-							setFirstValue(typeof e === "number" ? e : e[0]);
-							setSecondValue(typeof e === "number" ? e : e[1]);
+							if (isSingle) {
+								setFirstValue(e as number);
+							} else {
+								const [first, second] = e as number[];
+								setFirstValue(first);
+								setSecondValue(second);
+							}
 						}}
 						onChangeComplete={(e) => {
 							onChange(e);
 						}}
-						range={type === "range"}
+						range={!isSingle}
 						min={min}
 						max={max}
 					/>
@@ -89,14 +149,8 @@ const SliderField = ({
 				<div className={s.inputs}>
 					{isSingle && (
 						<Input
-							value={insertSpaces(sliderValue.toString())}
-							onChange={(event) => {
-								const newValue = removeSpaces(event.target.value);
-
-								if (handleInputValidate(newValue)) {
-									onChange(+newValue);
-								}
-							}}
+							value={insertSpaces(firstValue.toString())}
+							onChange={(event) => handleInputChange(event.target.value, true)}
 							hiddenReset={firstValue === min}
 							disabled={restProps.disabled}
 						/>
@@ -105,32 +159,18 @@ const SliderField = ({
 						<>
 							<Input
 								value={insertSpaces(firstValue.toString())}
-								onChange={(event) => {
-									const newValue = removeSpaces(event.target.value);
-
-									if (handleInputValidate(newValue)) {
-										setFirstValue(+newValue);
-										if (+newValue <= value[1]) {
-											onChange([+newValue, value[1]]);
-										}
-									}
-								}}
+								onChange={(event) =>
+									handleInputChange(event.target.value, true)
+								}
 								hiddenReset={firstValue === min}
 								disabled={restProps.disabled}
 							/>
 							<p>-</p>
 							<Input
 								value={insertSpaces(secondValue.toString())}
-								onChange={(event) => {
-									const newValue = removeSpaces(event.target.value);
-
-									if (handleInputValidate(newValue)) {
-										setSecondValue(+newValue);
-										if (value[0] <= +newValue) {
-											onChange([value[0], +newValue]);
-										}
-									}
-								}}
+								onChange={(event) =>
+									handleInputChange(event.target.value, false)
+								}
 								onResetField={() => {
 									setSecondValue(max);
 									onChange([value[0], max]);

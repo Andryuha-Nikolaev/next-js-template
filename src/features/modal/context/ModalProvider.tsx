@@ -34,7 +34,6 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const showSuccessModal = (config?: ModalConfigProps) => {
 		showModal({
-			title: "Данные успешно отправлены",
 			type: "success",
 			...config,
 		});
