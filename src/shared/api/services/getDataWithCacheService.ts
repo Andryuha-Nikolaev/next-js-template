@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { apiFlow, createApi } from "@/api/flow";
+import { apiFlow, createApi } from "@/shared/api/flow";
 
 export const getDataWithCache = cache(async <T>(url: string): Promise<T> => {
 	const api = createApi(apiFlow.cookies);

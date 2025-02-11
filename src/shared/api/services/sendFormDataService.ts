@@ -1,4 +1,4 @@
-import { apiFlow, createApi } from "@/api/flow";
+import { apiFlow, createApi } from "@/shared/api/flow";
 
 export const sendFormData = (url: string, data: FormData) => {
 	const api = createApi(apiFlow.cookies);

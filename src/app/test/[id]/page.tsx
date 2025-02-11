@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
-import { getDataWithCache } from "@/services/getDataWithCacheService";
+import { getDataWithCache } from "@/shared/api/services";
 import type { CustomPage } from "@/types/customPage";
 
 interface CustomPageProps {
