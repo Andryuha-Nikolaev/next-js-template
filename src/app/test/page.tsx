@@ -1,11 +1,5 @@
-import ContentLayout from "@/components/layouts/content/ContentLayout";
+import { TestPage } from "@/pages/test";
 
-import TestContent from "./components/content/TestContent";
-
-export default function TestPage() {
-	return (
-		<ContentLayout>
-			<TestContent />
-		</ContentLayout>
-	);
+export default function Test() {
+	return <TestPage />;
 }

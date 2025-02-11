@@ -15,7 +15,7 @@ export const revalidate = 0;
 export async function generateMetadata({
 	params: { id },
 }: CustomPageProps): Promise<Metadata> {
-	const data = await getDataWithCache<CustomPage>(`/custom-page/${id}`);
+	const data = await getDataWithCache<CustomPage>(`custom-page/${id}`);
 
 	const {
 		data: { title },
@@ -31,7 +31,7 @@ export async function generateMetadata({
 export default async function TestCustomPage({
 	params: { id },
 }: CustomPageProps) {
-	const data = await getDataWithCache<CustomPage>(`/custom-page/${id}`);
+	const data = await getDataWithCache<CustomPage>(`custom-page/${id}`);
 
 	return (
 		<ContentLayout>

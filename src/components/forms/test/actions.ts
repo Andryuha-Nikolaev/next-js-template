@@ -9,7 +9,7 @@ export async function sendTestForm(
 	values: FormData
 ): Promise<TestFormResponse> {
 	try {
-		await sendFormData("/test-form", values);
+		await sendFormData("test-form", values);
 		return;
 	} catch (error) {
 		const errorCode = tryParseErrorCode(error);
