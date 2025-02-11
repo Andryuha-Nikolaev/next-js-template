@@ -1,5 +1,5 @@
-import ImagesContent from "./components/content/ImagesContent";
+import TestImagesPage from "@/pages/test-images/ui/TestImagesPage";
 
-export default function ImagesPage() {
-	return <ImagesContent />;
+export default function TestImages() {
+	return <TestImagesPage />;
 }

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 import image2 from "./images/test-image-4k-2.jpg";
 import image from "./images/test-image-4k.jpg";
-import s from "./ImagesContent.module.scss";
+import s from "./TestImagesPage.module.scss";
 
-const ImagesContent = () => {
+const TestImagesPage = () => {
 	return (
 		<div className={s.block}>
 			<div className={s.imageWrap}>
@@ -29,4 +29,4 @@ const ImagesContent = () => {
 	);
 };
 
-export default ImagesContent;
+export default TestImagesPage;
