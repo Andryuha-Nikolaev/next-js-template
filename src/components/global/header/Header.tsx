@@ -3,8 +3,8 @@
 import clsx from "clsx";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
-import { useSiteState } from "@/context/site/SiteStateProvider";
 import siteConstants from "@/shared/constants/site";
+import { useSiteState } from "@/shared/context/site";
 
 import HeaderButtons from "./components/buttons/HeaderButtons";
 import HeaderLogo from "./components/logo/HeaderLogo";
