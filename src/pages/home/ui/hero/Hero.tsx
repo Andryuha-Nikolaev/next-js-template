@@ -8,9 +8,9 @@ import { Swiper, SwiperSlide, type SwiperRef } from "swiper/react";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
 
-import s from "./HeroSection.module.scss";
+import s from "./Hero.module.scss";
 
-const HeroSection = () => {
+const Hero = () => {
 	const swiperRef = useRef<SwiperRef>(null);
 
 	const [isSwiperLock, setIsSwiperLock] = useState(true);
@@ -64,4 +64,4 @@ const HeroSection = () => {
 	);
 };
 
-export default HeroSection;
+export default Hero;

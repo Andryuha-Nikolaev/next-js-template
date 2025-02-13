@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
-import Home from "@/components/pages/home/Home";
+import { HomePage } from "@/pages/home";
 
-export default function HomePage() {
+export default function Home() {
 	return (
 		<>
-			<Home />
+			<HomePage />
 			<ContentLayout>
 				HOME <Link href={"/test"}>TEST</Link>{" "}
 				<Link href={"/test/auth"}>AUTH</Link>{" "}

@@ -1,4 +1,4 @@
-import TestImagesPage from "@/pages/test-images/ui/TestImagesPage";
+import { TestImagesPage } from "@/pages/test-images";
 
 export default function TestImages() {
 	return <TestImagesPage />;

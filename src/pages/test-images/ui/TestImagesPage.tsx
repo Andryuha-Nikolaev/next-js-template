@@ -4,7 +4,7 @@ import image2 from "./images/test-image-4k-2.jpg";
 import image from "./images/test-image-4k.jpg";
 import s from "./TestImagesPage.module.scss";
 
-const TestImagesPage = () => {
+export const TestImagesPage = () => {
 	return (
 		<div className={s.block}>
 			<div className={s.imageWrap}>
@@ -28,5 +28,3 @@ const TestImagesPage = () => {
 		</div>
 	);
 };
-
-export default TestImagesPage;
