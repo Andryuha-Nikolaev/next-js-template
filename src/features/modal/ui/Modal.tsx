@@ -5,8 +5,8 @@ import clsx from "clsx";
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import { useModal } from "@/features/modal/context/ModalProvider";
-import useGetQueryParams from "@/hooks/query-params/useGetQueryParams";
-import useScrollLock from "@/hooks/scroll/useScrollLock";
+import useGetQueryParams from "@/shared/hooks/query-params/useGetQueryParams";
+import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
 
 import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";

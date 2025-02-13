@@ -1,7 +1,7 @@
 "use server";
 
 import { sendFormData } from "@/shared/api/services";
-import { tryParseErrorCode } from "@/utils/api/error";
+import { tryParseErrorCode } from "@/shared/utils/api/error";
 
 export type TestFormResponse = { error: string } | undefined;
 

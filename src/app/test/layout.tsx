@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { isProd } from "@/utils/environment/isProd";
+import { isProd } from "@/shared/utils/environment/isProd";
 
 export default function TestLayout({
 	children,

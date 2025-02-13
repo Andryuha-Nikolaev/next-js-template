@@ -3,10 +3,10 @@
 import type React from "react";
 import { createContext, Suspense, useContext, useState } from "react";
 
-import { ErrorMessages } from "@/constants/errorMessages";
 import type { ModalConfigProps, ModalProps } from "@/features/modal/types";
 import Modal from "@/features/modal/ui/Modal";
-import useChangeQueryParams from "@/hooks/query-params/useChangeQueryParams";
+import { ErrorMessages } from "@/shared/constants/errorMessages";
+import useChangeQueryParams from "@/shared/hooks/query-params/useChangeQueryParams";
 
 import { ModalSearchParams } from "../constants";
 

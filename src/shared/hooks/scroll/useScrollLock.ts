@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import siteConstants from "@/constants/site";
+import siteConstants from "@/shared/constants/site";
 
 const useScrollLock = (activeState: boolean) => {
 	useEffect(() => {

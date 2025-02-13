@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-import { FieldNames } from "@/constants/fields";
 import {
 	checkboxGroupSchema,
 	checkboxGroupSchemaRequired,
@@ -22,6 +21,7 @@ import {
 	checkFilesSize,
 	checkFilesTypes,
 } from "@/schemas/fileInput";
+import { FieldNames } from "@/shared/constants/fields";
 
 export const testFormSchema = z
 	.object({

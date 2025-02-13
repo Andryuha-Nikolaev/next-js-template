@@ -8,9 +8,9 @@ import Burger from "@/components/global/burger/Burger";
 import Footer from "@/components/global/footer/Footer";
 import Header from "@/components/global/header/Header";
 import PageLayout from "@/components/layouts/page/PageLayout";
-import metaConstants from "@/constants/meta";
-import siteConstants from "@/constants/site";
-import viewportConstants from "@/constants/viewport";
+import metaConstants from "@/shared/constants/meta";
+import siteConstants from "@/shared/constants/site";
+import viewportConstants from "@/shared/constants/viewport";
 
 import { primaryFont } from "./fonts";
 import { Providers } from "./providers";

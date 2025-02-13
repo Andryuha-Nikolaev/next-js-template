@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import routesConstants from "@/constants/routes";
+import routesConstants from "@/shared/constants/routes";
 
 import s from "./HeaderLogo.module.scss";
 

@@ -7,7 +7,7 @@ import { format, isValid, parse } from "date-fns";
 import DatePicker from "react-datepicker";
 import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
-import useClickOutside from "@/hooks/other/useClickOutside";
+import useClickOutside from "@/shared/hooks/other/useClickOutside";
 import type {
 	DatePickerComponentProps,
 	SingleValue,

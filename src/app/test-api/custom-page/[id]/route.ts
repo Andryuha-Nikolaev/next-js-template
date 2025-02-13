@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+import { isProd } from "@/shared/utils/environment/isProd";
 import type { CustomPage } from "@/types/customPage";
-import { isProd } from "@/utils/environment/isProd";
 
 const data: CustomPage = {
 	data: {

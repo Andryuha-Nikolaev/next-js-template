@@ -1,5 +1,5 @@
 import RHFInput from "@/components/ui/fields/input/RHFInput";
-import { FieldNames } from "@/constants/fields";
+import { FieldNames } from "@/shared/constants/fields";
 
 const PasswordFields = () => {
 	return (

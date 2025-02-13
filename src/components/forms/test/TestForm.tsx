@@ -16,9 +16,9 @@ import RHFRangeSliderField from "@/components/ui/fields/slider/RHFRangeSliderFie
 import RHFSliderField from "@/components/ui/fields/slider/RHFSliderField";
 import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/components/ui/links/root/RootLink";
-import { FieldNames } from "@/constants/fields";
 import { useModal } from "@/features/modal/context/ModalProvider";
-import { valuesToFormData } from "@/utils/form/submitUtils";
+import { FieldNames } from "@/shared/constants/fields";
+import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
 import { sendTestForm } from "./actions";
 import PasswordFields from "./components/password-fields/PasswordFields";

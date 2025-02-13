@@ -2,7 +2,7 @@ import type React from "react";
 
 import clsx from "clsx";
 
-import siteConstants from "@/constants/site";
+import siteConstants from "@/shared/constants/site";
 
 import s from "./PageLayout.module.scss";
 
