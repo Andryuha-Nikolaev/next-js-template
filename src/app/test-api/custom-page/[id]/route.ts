@@ -1,9 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { isProd } from "@/shared/utils/environment/isProd";
-import type { CustomPage } from "@/types/customPage";
+import type { CustomPage } from "@/views/test-custom";
 
-const data: CustomPage = {
+const data: { data: CustomPage } = {
 	data: {
 		title: "Custom page",
 		text: `<figure class="image image_resized" style="width:32.53%;">

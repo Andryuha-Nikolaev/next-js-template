@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import ContentLayout from "@/components/layouts/content/ContentLayout";
 import { getDataWithCache } from "@/shared/api/services";
-import type { CustomPage } from "@/types/customPage";
+import { TestCustomPage, type CustomPage } from "@/views/test-custom";
 
 interface CustomPageProps {
 	params: {
@@ -10,12 +9,12 @@ interface CustomPageProps {
 	};
 }
 
-export const revalidate = 0;
-
 export async function generateMetadata({
 	params: { id },
 }: CustomPageProps): Promise<Metadata> {
-	const data = await getDataWithCache<CustomPage>(`custom-page/${id}`);
+	const data = await getDataWithCache<{ data: CustomPage }>(
+		`custom-page/${id}`
+	);
 
 	const {
 		data: { title },
@@ -28,16 +27,10 @@ export async function generateMetadata({
 	return meta;
 }
 
-export default async function TestCustomPage({
-	params: { id },
-}: CustomPageProps) {
-	const data = await getDataWithCache<CustomPage>(`custom-page/${id}`);
-
-	return (
-		<ContentLayout>
-			<h1 style={{ textAlign: "center" }}>
-				{data.data.title} id:{id}
-			</h1>
-		</ContentLayout>
+export default async function CustomPage({ params: { id } }: CustomPageProps) {
+	const data = await getDataWithCache<{ data: CustomPage }>(
+		`custom-page/${id}`
 	);
+
+	return <TestCustomPage slug={id} {...data} />;
 }
