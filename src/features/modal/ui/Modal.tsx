@@ -12,7 +12,7 @@ import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import Overlay from "../../../components/global/overlay/Overlay";
+import Overlay from "../../../components/ui/overlay/Overlay";
 import { ModalId, ModalSearchParams } from "../constants";
 import type { ModalComponentsMap } from "../types";
 
