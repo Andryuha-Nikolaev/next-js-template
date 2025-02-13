@@ -6,12 +6,12 @@ import ContentLayout from "@/components/layouts/content/ContentLayout";
 import siteConstants from "@/shared/constants/site";
 import { useSiteState } from "@/shared/context/site";
 
-import HeaderButtons from "./components/buttons/HeaderButtons";
-import HeaderLogo from "./components/logo/HeaderLogo";
-import HeaderNavbar from "./components/navbar/HeaderNavbar";
+import HeaderButtons from "./buttons/HeaderButtons";
 import s from "./Header.module.scss";
+import HeaderLogo from "./logo/HeaderLogo";
+import HeaderNavbar from "./navbar/HeaderNavbar";
 
-const Header = () => {
+export const Header = () => {
 	const { closeBurger } = useSiteState();
 
 	return (
@@ -44,5 +44,3 @@ const Header = () => {
 		</header>
 	);
 };
-
-export default Header;

@@ -8,9 +8,9 @@ import { useSiteState } from "@/shared/context/site";
 import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
 
 import s from "./Burger.module.scss";
-import BurgerNavbar from "./components/navbar/BurgerNavbar";
+import BurgerNavbar from "./navbar/BurgerNavbar";
 
-const Burger = () => {
+export const Burger = () => {
 	const { isOpenBurger, isBurgerViewed, closeBurger } = useSiteState();
 
 	useScrollLock(isOpenBurger);
@@ -44,5 +44,3 @@ const Burger = () => {
 		</div>
 	);
 };
-
-export default Burger;

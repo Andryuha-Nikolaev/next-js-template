@@ -2,7 +2,7 @@ import ContentLayout from "@/components/layouts/content/ContentLayout";
 
 import s from "./Footer.module.scss";
 
-const Footer = () => {
+export const Footer = () => {
 	return (
 		<footer className={s.block}>
 			<ContentLayout>
@@ -11,5 +11,3 @@ const Footer = () => {
 		</footer>
 	);
 };
-
-export default Footer;
