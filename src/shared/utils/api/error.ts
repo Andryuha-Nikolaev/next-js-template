@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { errorResponseWithCodeSchema } from "@/schemas/error";
+import { errorResponseWithCodeSchema } from "@/shared/schemas/error";
 
 export const tryParseErrorCode = (error: unknown) => {
 	if (!axios.isAxiosError(error)) {
