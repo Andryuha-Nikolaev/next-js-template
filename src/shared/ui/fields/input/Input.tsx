@@ -5,9 +5,8 @@ import { forwardRef, useState } from "react";
 import clsx from "clsx";
 import MaskedInput from "react-text-mask";
 
-import type { InputProps } from "@/types/form/input";
-
 import s from "./Input.module.scss";
+import type { InputProps } from "./types";
 
 import InputControls from "../components/controls/InputControls";
 import InputWrapper from "../components/wrapper/InputWrapper";

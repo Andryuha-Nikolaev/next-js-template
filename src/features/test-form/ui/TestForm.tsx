@@ -20,18 +20,18 @@ import RHFTextarea from "@/shared/ui/fields/textarea/RHFTextarea";
 import RootLink from "@/shared/ui/links/root/RootLink";
 import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
-import { sendTestForm } from "./actions";
-import PasswordFields from "./components/password-fields/PasswordFields";
+import PasswordFields from "./password-fields/PasswordFields";
+import s from "./TestForm.module.scss";
+
+import FormWrapper from "../../../shared/ui/form/form-wrapper/FormWrapper";
+import { sendTestForm } from "../api/actions";
 import {
 	defaultValues,
 	testFormSchema,
 	type TestFormSchemaType,
-} from "./schema";
-import s from "./TestForm.module.scss";
+} from "../model/schema";
 
-import FormWrapper from "../../../shared/ui/form/form-wrapper/FormWrapper";
-
-const TestForm = () => {
+export const TestForm = () => {
 	const methods = useForm<TestFormSchemaType>({
 		resolver: zodResolver(testFormSchema),
 		defaultValues: defaultValues,
@@ -221,5 +221,3 @@ const TestForm = () => {
 		</>
 	);
 };
-
-export default TestForm;

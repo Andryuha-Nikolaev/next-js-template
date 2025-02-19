@@ -2,9 +2,8 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFInputProps } from "@/types/form/input";
-
 import Input from "./Input";
+import type { RHFInputProps } from "./types";
 
 const RHFInput = ({ name, ...restProps }: RHFInputProps) => {
 	const { control } = useFormContext();

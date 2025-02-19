@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes } from "react";
 
-import type { InputWrapperProps } from "./input";
+import type { InputWrapperProps } from "@/shared/ui/fields/input/types";
 
 export interface FileInputProps
 	extends InputHTMLAttributes<HTMLInputElement>,

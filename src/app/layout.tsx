@@ -3,10 +3,10 @@ import "@/styles/index.scss";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 
-import PageLayout from "@/components/layouts/page/PageLayout";
 import metaConstants from "@/shared/constants/meta";
 import siteConstants from "@/shared/constants/site";
 import viewportConstants from "@/shared/constants/viewport";
+import PageLayout from "@/shared/layouts/page/PageLayout";
 import { Analytics } from "@/widgets/analytics";
 import { Burger } from "@/widgets/burger";
 

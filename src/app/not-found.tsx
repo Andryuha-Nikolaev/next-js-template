@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import ContentLayout from "@/components/layouts/content/ContentLayout";
 import routesConstants from "@/shared/constants/routes";
+import ContentLayout from "@/shared/layouts/content/ContentLayout";
 import RootButton from "@/shared/ui/buttons/root/RootButton";
 
 export default function NotFound() {

@@ -11,7 +11,7 @@ import useClickOutside from "@/shared/hooks/other/useClickOutside";
 import type {
 	DatePickerComponentProps,
 	SingleValue,
-} from "@/types/form/datePicker";
+} from "@/shared/ui/fields/date-picker/types";
 
 import s from "./DatePickerComponent.module.scss";
 

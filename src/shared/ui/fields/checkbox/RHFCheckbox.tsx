@@ -1,8 +1,7 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFCheckboxProps } from "@/types/form/checkbox";
-
 import Checkbox from "./Checkbox";
+import type { RHFCheckboxProps } from "./types";
 
 const RHFCheckbox = ({ name, ...restProps }: RHFCheckboxProps) => {
 	const { control } = useFormContext();

@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 
-import ContentLayout from "@/components/layouts/content/ContentLayout";
-import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
 import { useSiteState } from "@/shared/context/site";
 import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
+import ContentLayout from "@/shared/layouts/content/ContentLayout";
+import CustomScrollLayout from "@/shared/layouts/custom-scroll/CustomScrollLayout";
 
 import s from "./Burger.module.scss";
 import BurgerNavbar from "./navbar/BurgerNavbar";

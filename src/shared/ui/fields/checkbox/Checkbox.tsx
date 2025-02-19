@@ -2,9 +2,8 @@ import { forwardRef } from "react";
 
 import clsx from "clsx";
 
-import type { CheckboxProps } from "@/types/form/checkbox";
-
 import s from "./Checkbox.module.scss";
+import type { CheckboxProps } from "./types";
 
 import InputWrapper from "../components/wrapper/InputWrapper";
 

@@ -3,7 +3,7 @@
 import { forwardRef, useEffect, useMemo, useRef } from "react";
 
 import AttachIcon from "@/shared/ui/fields/file/icons/attach-icon/AttachIcon";
-import type { FileInputProps } from "@/types/form/fileInput";
+import type { FileInputProps } from "@/shared/ui/fields/file/types";
 
 import FileInputPreview from "./componens/preview/FileInputPreview";
 import FileInputRules from "./componens/rules/FileInputRules";

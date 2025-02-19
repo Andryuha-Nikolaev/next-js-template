@@ -1,6 +1,5 @@
-import type { RHFInputProps } from "@/types/form/input";
-
 import RHFInput from "./RHFInput";
+import type { RHFInputProps } from "./types";
 
 const RHFPhoneInput = ({ ...props }: RHFInputProps) => {
 	return (

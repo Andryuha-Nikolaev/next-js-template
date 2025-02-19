@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import ContentLayout from "@/components/layouts/content/ContentLayout";
+import ContentLayout from "@/shared/layouts/content/ContentLayout";
 import { HomePage } from "@/views/home";
 
 export default function Home() {

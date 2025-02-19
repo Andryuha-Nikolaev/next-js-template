@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFRadioButtonProps } from "@/types/form/radioButton";
+import type { RHFRadioButtonProps } from "@/shared/ui/fields/radio-button/types";
 
 import RadioButton from "./RadioButton";
 

@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 
-import type { RHFRangeDatePickerProps } from "@/types/form/datePicker";
+import type { RHFRangeDatePickerProps } from "@/shared/ui/fields/date-picker/types";
 
 import RHFDatePicker from "../../RHFDatePicker";
 

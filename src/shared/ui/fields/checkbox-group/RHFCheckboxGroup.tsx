@@ -1,8 +1,8 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFCheckboxGroupProps } from "@/types/form/checkbox";
-
 import CheckboxGroup from "./CheckboxGroup";
+
+import type { RHFCheckboxGroupProps } from "../checkbox/types";
 
 const RHFCheckboxGroup = ({ name, ...restProps }: RHFCheckboxGroupProps) => {
 	const { control } = useFormContext();

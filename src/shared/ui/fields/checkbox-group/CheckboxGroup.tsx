@@ -2,11 +2,10 @@ import { forwardRef } from "react";
 
 import parse from "html-react-parser";
 
-import type { CheckboxGroupProps } from "@/types/form/checkbox";
-
 import s from "./CheckboxGroup.module.scss";
 
 import Checkbox from "../checkbox/Checkbox";
+import type { CheckboxGroupProps } from "../checkbox/types";
 import InputWrapper from "../components/wrapper/InputWrapper";
 
 const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(

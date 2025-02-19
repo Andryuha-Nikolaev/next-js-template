@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { debounce } from "lodash";
 import Slider from "rc-slider";
 
-import type { SliderFieldProps } from "@/types/form/sliderField";
+import type { SliderFieldProps } from "@/shared/ui/fields/slider/types";
 
 import s from "./SliderField.module.scss";
 
