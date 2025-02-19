@@ -1,5 +1,5 @@
-import TgIcon from "@/components/icons/social/TgIcon";
-import VkIcon from "@/components/icons/social/VkIcon";
+import TgIcon from "@/shared/ui/social/icons/tg-icon/TgIcon";
+import VkIcon from "@/shared/ui/social/icons/vk-icon/VkIcon";
 
 import s from "./Social.module.scss";
 

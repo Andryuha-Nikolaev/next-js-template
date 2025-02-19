@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import BurgerSwitch from "@/components/ui/switches/burger/BurgerSwitch";
+import BurgerSwitch from "@/shared/ui/switches/burger/BurgerSwitch";
 
 import s from "./HeaderButtons.module.scss";
 

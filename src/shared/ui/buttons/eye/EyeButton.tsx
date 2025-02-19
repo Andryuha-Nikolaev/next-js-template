@@ -2,8 +2,8 @@
 
 import type { ButtonHTMLAttributes } from "react";
 
-import EyeClosed from "@/components/icons/eye/EyeClosed";
-import EyeOpened from "@/components/icons/eye/EyeOpened";
+import EyeClosed from "@/shared/ui/buttons/eye/icons/eye/EyeClosed";
+import EyeOpened from "@/shared/ui/buttons/eye/icons/eye/EyeOpened";
 
 import s from "./EyeButton.module.scss";
 

@@ -4,13 +4,12 @@ import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
 import TestForm from "@/components/forms/test/TestForm";
-import CloseIcon from "@/components/icons/close/CloseIcon";
 import ContentLayout from "@/components/layouts/content/ContentLayout";
-import RootButton from "@/components/ui/buttons/root/RootButton";
-import RootLink from "@/components/ui/links/root/RootLink";
-import Social from "@/components/ui/social/Social";
 import { ModalId, ModalSearchParams } from "@/features/modal/constants";
 import { useModal } from "@/features/modal/context/ModalProvider";
+import RootButton from "@/shared/ui/buttons/root/RootButton";
+import RootLink from "@/shared/ui/links/root/RootLink";
+import Social from "@/shared/ui/social/Social";
 
 import s from "./TestPage.module.scss";
 
@@ -88,11 +87,30 @@ export const TestPage = () => {
 						Root Button Loading
 					</RootButton>
 
-					<RootButton Icon={<CloseIcon />} colorVariant="var3">
+					<RootButton
+						Icon={
+							<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+								<path
+									stroke="currentColor"
+									strokeLinecap="round"
+									d="M20 4 4 20M4 4l16 16"
+								></path>
+							</svg>
+						}
+						colorVariant="var3"
+					>
 						Root Button With Icon
 					</RootButton>
 					<RootButton
-						Icon={<CloseIcon />}
+						Icon={
+							<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+								<path
+									stroke="currentColor"
+									strokeLinecap="round"
+									d="M20 4 4 20M4 4l16 16"
+								></path>
+							</svg>
+						}
 						iconPosition="right"
 						size="sm"
 						colorVariant="var2"

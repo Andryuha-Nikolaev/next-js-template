@@ -3,21 +3,21 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import RHFCheckboxGroup from "@/components/ui/fields/checkbox-group/RHFCheckboxGroup";
-import RHFCheckbox from "@/components/ui/fields/checkbox/RHFCheckbox";
-import RHFRangeDatePicker from "@/components/ui/fields/date-picker/components/rhf-range-date-picker/RHFRangeDatePicker";
-import RHFDatePicker from "@/components/ui/fields/date-picker/RHFDatePicker";
-import RHFFileInput from "@/components/ui/fields/file/RHFFileInput";
-import RHFInput from "@/components/ui/fields/input/RHFInput";
-import RHFPhoneInput from "@/components/ui/fields/input/RHFPhoneInput";
-import RHFRadioButton from "@/components/ui/fields/radio-button/RHFRadioButton";
-import RHFSelect from "@/components/ui/fields/select/RHFSelect";
-import RHFRangeSliderField from "@/components/ui/fields/slider/RHFRangeSliderField";
-import RHFSliderField from "@/components/ui/fields/slider/RHFSliderField";
-import RHFTextarea from "@/components/ui/fields/textarea/RHFTextarea";
-import RootLink from "@/components/ui/links/root/RootLink";
 import { useModal } from "@/features/modal/context/ModalProvider";
 import { FieldNames } from "@/shared/constants/fields";
+import RHFCheckboxGroup from "@/shared/ui/fields/checkbox-group/RHFCheckboxGroup";
+import RHFCheckbox from "@/shared/ui/fields/checkbox/RHFCheckbox";
+import RHFRangeDatePicker from "@/shared/ui/fields/date-picker/components/rhf-range-date-picker/RHFRangeDatePicker";
+import RHFDatePicker from "@/shared/ui/fields/date-picker/RHFDatePicker";
+import RHFFileInput from "@/shared/ui/fields/file/RHFFileInput";
+import RHFInput from "@/shared/ui/fields/input/RHFInput";
+import RHFPhoneInput from "@/shared/ui/fields/input/RHFPhoneInput";
+import RHFRadioButton from "@/shared/ui/fields/radio-button/RHFRadioButton";
+import RHFSelect from "@/shared/ui/fields/select/RHFSelect";
+import RHFRangeSliderField from "@/shared/ui/fields/slider/RHFRangeSliderField";
+import RHFSliderField from "@/shared/ui/fields/slider/RHFSliderField";
+import RHFTextarea from "@/shared/ui/fields/textarea/RHFTextarea";
+import RootLink from "@/shared/ui/links/root/RootLink";
 import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
 import { sendTestForm } from "./actions";
@@ -29,7 +29,7 @@ import {
 } from "./schema";
 import s from "./TestForm.module.scss";
 
-import FormWrapper from "../wrapper/FormWrapper";
+import FormWrapper from "../../../shared/ui/form/form-wrapper/FormWrapper";
 
 const TestForm = () => {
 	const methods = useForm<TestFormSchemaType>({

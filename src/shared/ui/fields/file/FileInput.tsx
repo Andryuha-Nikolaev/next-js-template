@@ -2,14 +2,14 @@
 
 import { forwardRef, useEffect, useMemo, useRef } from "react";
 
-import AttachIcon from "@/components/icons/attach/AttachIcon";
-import RootButton from "@/components/ui/buttons/root/RootButton";
+import AttachIcon from "@/shared/ui/fields/file/icons/attach-icon/AttachIcon";
 import type { FileInputProps } from "@/types/form/fileInput";
 
 import FileInputPreview from "./componens/preview/FileInputPreview";
 import FileInputRules from "./componens/rules/FileInputRules";
 import s from "./FileInput.module.scss";
 
+import RootButton from "../../buttons/root/RootButton";
 import InputWrapper from "../components/wrapper/InputWrapper";
 
 const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(

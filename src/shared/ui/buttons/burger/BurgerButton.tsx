@@ -1,4 +1,4 @@
-import BurgerIcon from "@/components/icons/burger/BurgerIcon";
+import BurgerIcon from "@/shared/ui/buttons/burger/icons/burger-icon/BurgerIcon";
 
 import s from "./BurgerButton.module.scss";
 

@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 import ContentLayout from "@/components/layouts/content/ContentLayout";
-import RootButton from "@/components/ui/buttons/root/RootButton";
 import routesConstants from "@/shared/constants/routes";
+import RootButton from "@/shared/ui/buttons/root/RootButton";
 
 export default function Error({
 	error,

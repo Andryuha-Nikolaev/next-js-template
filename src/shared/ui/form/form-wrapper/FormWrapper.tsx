@@ -2,7 +2,7 @@ import type React from "react";
 
 import parse from "html-react-parser";
 
-import RootButton from "@/components/ui/buttons/root/RootButton";
+import RootButton from "@/shared/ui/buttons/root/RootButton";
 
 import s from "./FormWrapper.module.scss";
 

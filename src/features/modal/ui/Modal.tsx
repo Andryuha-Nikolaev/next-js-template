@@ -3,16 +3,16 @@ import { useEffect } from "react";
 import clsx from "clsx";
 
 import CustomScrollLayout from "@/components/layouts/custom-scroll/CustomScrollLayout";
-import CloseButton from "@/components/ui/buttons/close/CloseButton";
 import { useModal } from "@/features/modal/context/ModalProvider";
 import useGetQueryParams from "@/shared/hooks/query-params/useGetQueryParams";
 import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
+import CloseButton from "@/shared/ui/buttons/close/CloseButton";
+import Overlay from "@/shared/ui/overlay/Overlay";
 
 import DefaultModal from "./components/default/DefaultModal";
 import FeedbackModal from "./components/feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import Overlay from "../../../components/ui/overlay/Overlay";
 import { ModalId, ModalSearchParams } from "../constants";
 import type { ModalComponentsMap } from "../types";
 

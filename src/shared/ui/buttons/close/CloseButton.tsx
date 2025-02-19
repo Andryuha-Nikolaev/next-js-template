@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from "react";
 
 import clsx from "clsx";
 
-import CloseIcon from "@/components/icons/close/CloseIcon";
+import CloseIcon from "@/shared/ui/buttons/close/icons/close-icon/CloseIcon";
 
 import s from "./CloseButton.module.scss";
 
