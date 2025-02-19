@@ -1,6 +1,6 @@
 import type { SliderProps } from "rc-slider";
 
-import type { InputWrapperProps } from "@/shared/ui/fields/input/types";
+import type { InputWrapperProps } from "../input-wrapper/types";
 
 type BaseSliderFieldProps = InputWrapperProps & SliderProps;
 

@@ -1,22 +1,8 @@
-import type { HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes } from "react";
 
 import type { MaskedInputProps } from "react-text-mask";
 
-export interface InputWrapperProps {
-	label?: string;
-	errorMessage?: string;
-	isRequired?: boolean;
-}
-
-export interface InputControlsProps {
-	type?: HTMLInputTypeAttribute;
-	currentType?: HTMLInputTypeAttribute;
-	togglePassword?: () => void;
-	onReset?: () => void;
-	hiddenReset?: boolean;
-	onOpenCalendar?: () => void;
-	isFilled: boolean;
-}
+import type { InputWrapperProps } from "../input-wrapper/types";
 
 export interface InputProps
 	extends InputHTMLAttributes<HTMLInputElement>,

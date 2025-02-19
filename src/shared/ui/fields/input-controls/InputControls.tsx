@@ -1,10 +1,9 @@
 import CloseButton from "@/shared/ui/buttons/close/CloseButton";
 import EyeButton from "@/shared/ui/buttons/eye/EyeButton";
-import CalendarIcon from "@/shared/ui/fields/components/controls/icons/calendar-icon/CalendarIcon";
+import CalendarIcon from "@/shared/ui/fields/input-controls/icons/calendar-icon/CalendarIcon";
 
 import s from "./InputControls.module.scss";
-
-import type { InputControlsProps } from "../../input/types";
+import type { InputControlsProps } from "./types";
 
 const InputControls = ({
 	type,

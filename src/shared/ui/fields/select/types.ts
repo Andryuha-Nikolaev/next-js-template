@@ -1,6 +1,6 @@
 import type { Props } from "react-select";
 
-import type { InputWrapperProps } from "@/shared/ui/fields/input/types";
+import type { InputWrapperProps } from "../input-wrapper/types";
 
 export interface RootSelectItem {
 	value: string;

@@ -1,4 +1,4 @@
-import type { InputWrapperProps } from "@/shared/ui/fields/input/types";
+import type { InputWrapperProps } from "../input-wrapper/types";
 
 export type SingleValue = Date | null;
 export type RangeValue = [Date | null, Date | null];

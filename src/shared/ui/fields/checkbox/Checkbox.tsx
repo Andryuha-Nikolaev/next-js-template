@@ -5,7 +5,7 @@ import clsx from "clsx";
 import s from "./Checkbox.module.scss";
 import type { CheckboxProps } from "./types";
 
-import InputWrapper from "../components/wrapper/InputWrapper";
+import InputWrapper from "../input-wrapper/InputWrapper";
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(

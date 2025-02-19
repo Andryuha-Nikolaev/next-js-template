@@ -1,8 +1,7 @@
 import { type PropsWithChildren } from "react";
 
 import s from "./InputWrapper.module.scss";
-
-import type { InputWrapperProps } from "../../input/types";
+import type { InputWrapperProps } from "./types";
 
 const InputWrapper = ({
 	children,

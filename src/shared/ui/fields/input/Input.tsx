@@ -8,8 +8,8 @@ import MaskedInput from "react-text-mask";
 import s from "./Input.module.scss";
 import type { InputProps } from "./types";
 
-import InputControls from "../components/controls/InputControls";
-import InputWrapper from "../components/wrapper/InputWrapper";
+import InputControls from "../input-controls/InputControls";
+import InputWrapper from "../input-wrapper/InputWrapper";
 
 const Input = forwardRef<HTMLLabelElement, InputProps>(
 	(

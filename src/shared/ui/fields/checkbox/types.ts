@@ -1,7 +1,7 @@
 import type React from "react";
 import type { InputHTMLAttributes } from "react";
 
-import type { InputWrapperProps } from "../input/types";
+import type { InputWrapperProps } from "../input-wrapper/types";
 
 export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
