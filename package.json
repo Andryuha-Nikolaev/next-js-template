@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "npx prettier --write --ignore-unknown ./src",
     "prepare": "cd ./ && husky .husky"
   },
   "dependencies": {
@@ -51,18 +50,10 @@
     "sass": "^1.80.4",
     "typescript": "^5.5.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --quiet --fix",
-      "prettier --write --ignore-unknown"
-    ],
-    "*.{json,html}": [
-      "prettier --write --ignore-unknown"
-    ]
-  }
+		"*.{ts,tsx, js, jsx}": [
+			"prettier -w",
+			"eslint --fix"
+		]
+	}
 }
