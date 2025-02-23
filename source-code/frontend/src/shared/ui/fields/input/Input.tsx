@@ -15,6 +15,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
 			mask,
+			unmask = true,
 			errorMessage,
 			label,
 			type = "text",
@@ -76,7 +77,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 							<IMaskInput
 								mask={mask}
 								className={inputClassNames}
-								unmask={true}
+								unmask={unmask}
 								inputRef={ref}
 								type={currentType}
 								autoComplete="new-password"

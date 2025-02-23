@@ -1,7 +1,5 @@
 import type { InputHTMLAttributes } from "react";
 
-import type { MaskedInputProps } from "react-text-mask";
-
 import type { InputWrapperProps } from "../input-wrapper/types";
 
 export interface InputProps
@@ -13,7 +11,7 @@ export interface InputProps
 	onResetField?: () => void;
 	hiddenReset?: boolean;
 	mask?: string;
-	pipe?: MaskedInputProps["pipe"];
+	unmask?: boolean;
 }
 
 export interface RHFInputProps extends Omit<InputProps, "onChange"> {

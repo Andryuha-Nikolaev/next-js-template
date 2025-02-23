@@ -7,8 +7,8 @@ import { useModal } from "@/features/modal/context/ModalProvider";
 import { FieldNames } from "@/shared/constants/fields";
 import RHFCheckboxGroup from "@/shared/ui/fields/checkbox-group/RHFCheckboxGroup";
 import RHFCheckbox from "@/shared/ui/fields/checkbox/RHFCheckbox";
-// import RHFRangeDatePicker from "@/shared/ui/fields/date-picker/components/rhf-range-date-picker/RHFRangeDatePicker";
-// import RHFDatePicker from "@/shared/ui/fields/date-picker/RHFDatePicker";
+import RHFRangeDatePicker from "@/shared/ui/fields/date-picker/components/rhf-range-date-picker/RHFRangeDatePicker";
+import RHFDatePicker from "@/shared/ui/fields/date-picker/RHFDatePicker";
 import RHFFileInput from "@/shared/ui/fields/file/RHFFileInput";
 import RHFInput from "@/shared/ui/fields/input/RHFInput";
 import RHFPhoneInput from "@/shared/ui/fields/input/RHFPhoneInput";
@@ -199,12 +199,12 @@ export const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
-						{/* <RHFDatePicker label="Просто дата" name={FieldNames.DATE} />
+						<RHFDatePicker label="Просто дата" name={FieldNames.DATE} />
 						<RHFRangeDatePicker
 							startDateName={FieldNames.START_DATE}
 							endDateName={FieldNames.END_DATE}
 							time
-						/> */}
+						/>
 						<RHFSliderField
 							label="Single slider"
 							name={FieldNames.SINGLE_SLIDER}

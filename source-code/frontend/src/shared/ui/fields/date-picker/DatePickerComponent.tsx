@@ -5,7 +5,6 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
 import DatePicker from "react-datepicker";
-import createAutoCorrectedDatePipe from "text-mask-addons/dist/createAutoCorrectedDatePipe";
 
 import useClickOutside from "@/shared/hooks/other/useClickOutside";
 import type {
@@ -22,29 +21,11 @@ const DATE_FORMAT = "dd.MM.yyyy";
 const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";
 const DATE_PLACEHOLDER = "dd.MM.yyyy";
 const DATE_TIME_PLACEHOLDER = "dd.mm.yyyy HH:MM";
-const AUTOCORRECT_FORMAT = "dd.mm.yyyy HH:MM";
-const DATE_MASK = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
-const DATE_TIME_MASK = [
-	/\d/,
-	/\d/,
-	".",
-	/\d/,
-	/\d/,
-	".",
-	/\d/,
-	/\d/,
-	/\d/,
-	/\d/,
-	" ",
-	/\d/,
-	/\d/,
-	":",
-	/\d/,
-	/\d/,
-];
+const DATE_MASK = "00.00.0000";
+const DATE_TIME_MASK = "00.00.0000 00:00";
 
 const DatePickerComponent = forwardRef<
-	HTMLLabelElement,
+	HTMLInputElement,
 	DatePickerComponentProps
 >(
 	(
@@ -59,7 +40,6 @@ const DatePickerComponent = forwardRef<
 			withInput = true,
 			modalPositionY = "bottom",
 			modalPositionX = "left",
-			maskGuide = true,
 			disabled,
 			...props
 		},
@@ -67,7 +47,6 @@ const DatePickerComponent = forwardRef<
 	) => {
 		const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
 		const placeholder = time ? DATE_TIME_PLACEHOLDER : DATE_PLACEHOLDER;
-		const mask = time ? DATE_TIME_MASK : DATE_MASK;
 
 		const [inputValue, setInputValue] = useState(
 			value ? format(value, dateFormat) : ""
@@ -139,11 +118,6 @@ const DatePickerComponent = forwardRef<
 			setTimeout(() => setIsInputChanging(false));
 		};
 
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-		const autoCorrectedDatePipe =
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-			createAutoCorrectedDatePipe(AUTOCORRECT_FORMAT);
-
 		return (
 			<div className={s.block}>
 				<InputWrapper
@@ -158,10 +132,8 @@ const DatePickerComponent = forwardRef<
 									ref={ref}
 									value={inputValue}
 									placeholder={placeholder}
-									mask={mask}
-									maskGuide={maskGuide}
-									// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-									pipe={autoCorrectedDatePipe}
+									unmask={false}
+									mask={time ? DATE_TIME_MASK : DATE_MASK}
 									onChange={(e) => handleInputChange(e.target.value)}
 									onLabelFocus={() => setIsOpen(true)}
 									onOpenCalendar={() => setIsOpen(true)}
