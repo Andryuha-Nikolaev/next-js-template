@@ -23,8 +23,7 @@ export const phoneSchemaRequired = z
 	.string()
 	.trim()
 	.min(1, "Поле обязательно")
-	.min(18, "Введите номер полностью")
-	.transform((str) => str.replace(/\D/g, ""));
+	.min(11, "Введите номер полностью");
 
 export const phoneSchema = phoneSchemaRequired.or(z.literal(""));
 

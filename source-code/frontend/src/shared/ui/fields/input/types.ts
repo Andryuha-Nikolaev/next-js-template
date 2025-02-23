@@ -12,8 +12,7 @@ export interface InputProps
 	onOpenCalendar?: () => void;
 	onResetField?: () => void;
 	hiddenReset?: boolean;
-	mask?: MaskedInputProps["mask"];
-	maskGuide?: boolean;
+	mask?: string;
 	pipe?: MaskedInputProps["pipe"];
 }
 

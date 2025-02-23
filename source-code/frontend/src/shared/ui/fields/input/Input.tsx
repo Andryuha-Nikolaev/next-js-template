@@ -3,7 +3,7 @@
 import { forwardRef, useState } from "react";
 
 import clsx from "clsx";
-import MaskedInput from "react-text-mask";
+import { IMaskInput } from "react-imask";
 
 import s from "./Input.module.scss";
 import type { InputProps } from "./types";
@@ -11,14 +11,15 @@ import type { InputProps } from "./types";
 import InputControls from "../input-controls/InputControls";
 import InputWrapper from "../input-wrapper/InputWrapper";
 
-const Input = forwardRef<HTMLLabelElement, InputProps>(
+const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
 			mask,
-			maskGuide = false,
 			errorMessage,
 			label,
 			type = "text",
+			value,
+			onChange = () => {},
 			onLabelFocus = () => {},
 			onLabelBlur = () => {},
 			onOpenCalendar,
@@ -29,7 +30,7 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 		},
 		ref
 	) => {
-		const isFilled = !!restProps.value;
+		const isFilled = !!value;
 
 		const [currentType, setCurrentType] = useState(type);
 
@@ -46,12 +47,12 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 		const onReset = () => {
 			if (onResetField) {
 				onResetField();
-			} else if (restProps.onChange) {
+			} else {
 				const event = {
 					target: { value: "" },
-				} as React.ChangeEvent<HTMLInputElement>;
+				} as unknown as React.ChangeEvent<HTMLInputElement>;
 
-				restProps.onChange(event);
+				onChange(event);
 			}
 		};
 
@@ -63,7 +64,6 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 			>
 				<div className={s.wrap}>
 					<label
-						ref={ref}
 						onFocus={() => {
 							onLabelFocus();
 						}}
@@ -73,18 +73,28 @@ const Input = forwardRef<HTMLLabelElement, InputProps>(
 						className={s.label}
 					>
 						{mask ? (
-							<MaskedInput
+							<IMaskInput
 								mask={mask}
-								guide={maskGuide}
 								className={inputClassNames}
+								unmask={true}
+								inputRef={ref}
 								type={currentType}
 								autoComplete="new-password"
+								value={value as string}
+								onAccept={(value) => {
+									onChange({
+										target: { value },
+									} as unknown as React.ChangeEvent<HTMLInputElement>);
+								}}
 								{...restProps}
 							/>
 						) : (
 							<input
+								ref={ref}
 								className={inputClassNames}
 								type={currentType}
+								value={value}
+								onChange={onChange}
 								autoComplete="new-password"
 								{...restProps}
 							/>
