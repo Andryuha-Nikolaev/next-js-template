@@ -69,6 +69,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					{mask ? (
 						<IMaskInput
 							id={id}
+							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 							mask={mask}
 							className={inputClassNames}
 							unmask={unmask}

@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useId, useRef, useState } from "react";
 
 import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
@@ -21,7 +21,7 @@ const DATE_FORMAT = "dd.MM.yyyy";
 const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";
 const DATE_PLACEHOLDER = "dd.MM.yyyy";
 const DATE_TIME_PLACEHOLDER = "dd.mm.yyyy HH:MM";
-const DATE_MASK = "00.00.0000";
+const DATE_MASK = Date;
 const DATE_TIME_MASK = "00.00.0000 00:00";
 
 const DatePickerComponent = forwardRef<
@@ -118,17 +118,21 @@ const DatePickerComponent = forwardRef<
 			setTimeout(() => setIsInputChanging(false));
 		};
 
+		const id = useId();
+
 		return (
 			<div className={s.block}>
 				<InputWrapper
 					errorMessage={errorMessage}
 					label={label}
 					isRequired={isRequired}
+					id={id}
 				>
 					<div ref={wrapRef} className={s.wrap}>
 						{withInput && (
 							<div className={s.inputs}>
 								<Input
+									id={id}
 									ref={ref}
 									value={inputValue}
 									placeholder={placeholder}

@@ -99,7 +99,6 @@ const SliderField = ({
 
 	const handleInputChange = (newValue: string, isFirstInput: boolean) => {
 		const numericValue = removeSpaces(newValue);
-		console.log(numericValue);
 
 		if (handleInputNumberValidate(numericValue)) {
 			if (isSingle) {

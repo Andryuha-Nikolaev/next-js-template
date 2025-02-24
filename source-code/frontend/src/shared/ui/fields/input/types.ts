@@ -8,7 +8,7 @@ export interface InputProps
 	onOpenCalendar?: () => void;
 	onResetField?: () => void;
 	hiddenReset?: boolean;
-	mask?: string;
+	mask?: any;
 	unmask?: boolean;
 }
 
