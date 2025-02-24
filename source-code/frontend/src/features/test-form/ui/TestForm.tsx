@@ -101,6 +101,7 @@ export const TestForm = () => {
 							withPreview
 						/>
 						<RHFFileInput
+							isRequired
 							name={FieldNames.FILES}
 							multiple
 							label="Несколько файлов"

@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useMemo, useRef } from "react";
+import { forwardRef, useEffect, useId, useMemo, useRef } from "react";
 
 import AttachIcon from "@/shared/ui/fields/file/icons/attach-icon/AttachIcon";
 import type { FileInputProps } from "@/shared/ui/fields/file/types";
@@ -63,15 +63,19 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 			}
 		};
 
+		const id = useId();
+
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
 				label={label}
 				isRequired={isRequired}
+				id={id}
 			>
 				<div className={s.wrap}>
 					<label className={s.label} ref={ref}>
 						<input
+							id={id}
 							tabIndex={-1}
 							ref={inputRef}
 							type="file"
