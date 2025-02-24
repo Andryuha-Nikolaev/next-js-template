@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, useId, useState } from "react";
 
 import clsx from "clsx";
 import { IMaskInput } from "react-imask";
@@ -21,8 +21,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			type = "text",
 			value,
 			onChange = () => {},
-			onLabelFocus = () => {},
-			onLabelBlur = () => {},
+
 			onOpenCalendar,
 			isRequired,
 			onResetField,
@@ -57,50 +56,46 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			}
 		};
 
+		const id = useId();
+
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
 				label={label}
 				isRequired={isRequired}
+				id={id}
 			>
 				<div className={s.wrap}>
-					<label
-						onFocus={() => {
-							onLabelFocus();
-						}}
-						onBlur={() => {
-							onLabelBlur();
-						}}
-						className={s.label}
-					>
-						{mask ? (
-							<IMaskInput
-								mask={mask}
-								className={inputClassNames}
-								unmask={unmask}
-								inputRef={ref}
-								type={currentType}
-								autoComplete="new-password"
-								value={value as string}
-								onAccept={(value) => {
-									onChange({
-										target: { value },
-									} as unknown as React.ChangeEvent<HTMLInputElement>);
-								}}
-								{...restProps}
-							/>
-						) : (
-							<input
-								ref={ref}
-								className={inputClassNames}
-								type={currentType}
-								value={value}
-								onChange={onChange}
-								autoComplete="new-password"
-								{...restProps}
-							/>
-						)}
-					</label>
+					{mask ? (
+						<IMaskInput
+							id={id}
+							mask={mask}
+							className={inputClassNames}
+							unmask={unmask}
+							inputRef={ref}
+							type={currentType}
+							autoComplete="new-password"
+							value={value as string}
+							onAccept={(value) => {
+								onChange({
+									target: { value },
+								} as unknown as React.ChangeEvent<HTMLInputElement>);
+							}}
+							{...restProps}
+						/>
+					) : (
+						<input
+							id={id}
+							ref={ref}
+							className={inputClassNames}
+							type={currentType}
+							value={value}
+							onChange={onChange}
+							autoComplete="new-password"
+							{...restProps}
+						/>
+					)}
+
 					{!restProps.disabled && (
 						<InputControls
 							type={type}

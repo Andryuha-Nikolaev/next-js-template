@@ -5,8 +5,6 @@ import type { InputWrapperProps } from "../input-wrapper/types";
 export interface InputProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		InputWrapperProps {
-	onLabelFocus?: () => void;
-	onLabelBlur?: () => void;
 	onOpenCalendar?: () => void;
 	onResetField?: () => void;
 	hiddenReset?: boolean;

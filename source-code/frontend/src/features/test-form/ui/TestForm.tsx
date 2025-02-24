@@ -73,6 +73,7 @@ export const TestForm = () => {
 							name={FieldNames.FIRST_NAME}
 							placeholder="Имя"
 							label="Имя"
+							isRequired
 						/>
 						<RHFInput
 							disabled

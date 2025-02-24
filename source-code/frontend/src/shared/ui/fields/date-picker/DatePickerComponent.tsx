@@ -135,7 +135,7 @@ const DatePickerComponent = forwardRef<
 									unmask={false}
 									mask={time ? DATE_TIME_MASK : DATE_MASK}
 									onChange={(e) => handleInputChange(e.target.value)}
-									onLabelFocus={() => setIsOpen(true)}
+									onFocus={() => setIsOpen(true)}
 									onOpenCalendar={() => setIsOpen(true)}
 									disabled={disabled}
 								/>
