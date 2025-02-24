@@ -54,23 +54,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		};
 
 		const id = useId();
-		const ClonedChild = MaskedInputComponent
-			? React.cloneElement(MaskedInputComponent, {
-					id: id,
-
-					inputRef: ref,
-					className: inputClassNames,
-					type: currentType,
-					value: value,
-					onAccept: (value: string) => {
-						onChange({
-							target: { value },
-						} as unknown as React.ChangeEvent<HTMLInputElement>);
-					},
-					autoComplete: "new-password",
-					...restProps,
-				})
-			: null;
 
 		return (
 			<InputWrapper
@@ -81,7 +64,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			>
 				<div className={s.wrap}>
 					{MaskedInputComponent ? (
-						ClonedChild
+						React.cloneElement(MaskedInputComponent, {
+							id,
+							inputRef: ref,
+							className: inputClassNames,
+							type: currentType,
+							value,
+							onAccept: (val: string) =>
+								onChange({
+									target: { value: val },
+								} as React.ChangeEvent<HTMLInputElement>),
+							autoComplete: "new-password",
+							...restProps,
+						})
 					) : (
 						<input
 							id={id}
