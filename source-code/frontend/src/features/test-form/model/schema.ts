@@ -8,7 +8,6 @@ import {
 	emailSchema,
 	multiSelectSchemaRequired,
 	nameSchema,
-	nameSchemaRequired,
 	passwordSchema,
 	phoneSchema,
 	radioButtonSchema,
@@ -26,7 +25,7 @@ import {
 
 export const testFormSchema = z
 	.object({
-		[FieldNames.FIRST_NAME]: nameSchemaRequired,
+		[FieldNames.FIRST_NAME]: nameSchema,
 		[FieldNames.LAST_NAME]: nameSchema,
 		[FieldNames.PHONE]: phoneSchema,
 		[FieldNames.EMAIL]: emailSchema,

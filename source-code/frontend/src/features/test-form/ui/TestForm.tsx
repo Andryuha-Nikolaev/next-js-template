@@ -73,7 +73,6 @@ export const TestForm = () => {
 							name={FieldNames.FIRST_NAME}
 							placeholder="Имя"
 							label="Имя"
-							isRequired
 						/>
 						<RHFInput
 							disabled
@@ -81,7 +80,7 @@ export const TestForm = () => {
 							placeholder="Фамилия"
 							label="Фамилия disabled"
 						/>
-						<RHFPhoneInput name={FieldNames.PHONE} label="Телефон" />
+						<RHFPhoneInput name={FieldNames.PHONE} label="Телефон" isRequired />
 						<RHFInput
 							name={FieldNames.EMAIL}
 							placeholder="Email"
@@ -140,6 +139,7 @@ export const TestForm = () => {
 							chooseAllCheckbox="Выбрать всё"
 						/>
 						<RHFCheckboxGroup
+							isRequired
 							name={FieldNames.CHECKBOX_GROUP_2}
 							items={[
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
@@ -184,6 +184,7 @@ export const TestForm = () => {
 							]}
 						/>
 						<RHFSelect
+							isRequired
 							label="Мульти выбор"
 							placeholder="Мульти выбор"
 							name={FieldNames.MULTI_SELECT}

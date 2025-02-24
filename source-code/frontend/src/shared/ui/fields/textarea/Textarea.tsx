@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, useId } from "react";
 
 import clsx from "clsx";
 
@@ -15,11 +15,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 	({ errorMessage, label, isRequired, ...restProps }, ref) => {
 		const isFilled = !!restProps.value;
 
-		const [isFocused, setIsFocused] = useState(false);
-
 		const wrapClassNames = clsx(
 			s.wrap,
-			isFocused && s.focused,
 			errorMessage && s.error,
 			restProps.disabled && s.disabled
 		);
@@ -34,26 +31,21 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 			}
 		};
 
+		const id = useId();
+
 		return (
 			<InputWrapper
 				errorMessage={errorMessage}
 				label={label}
 				isRequired={isRequired}
+				id={id}
 			>
-				<label
-					onFocus={() => setIsFocused(true)}
-					onBlur={() => {
-						setIsFocused(false);
-					}}
-					className={s.label}
-				>
-					<span className={wrapClassNames}>
-						<textarea ref={ref} className={s.input} {...restProps} />
-						{!restProps.disabled && (
-							<InputControls isFilled={isFilled} onReset={onReset} />
-						)}
-					</span>
-				</label>
+				<span className={wrapClassNames}>
+					<textarea id={id} ref={ref} className={s.input} {...restProps} />
+					{!restProps.disabled && (
+						<InputControls isFilled={isFilled} onReset={onReset} />
+					)}
+				</span>
 			</InputWrapper>
 		);
 	}
