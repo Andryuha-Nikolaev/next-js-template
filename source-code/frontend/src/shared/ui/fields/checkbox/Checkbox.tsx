@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useId } from "react";
 
 import clsx from "clsx";
 
@@ -12,6 +12,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 		{ errorMessage, label, children, isError, isRequired, ...restProps },
 		ref
 	) => {
+		const id = useId();
+
 		const checkboxClassNames = clsx(
 			s.input,
 			(errorMessage || isError) && s.error
@@ -22,9 +24,11 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				errorMessage={errorMessage}
 				isRequired={isRequired}
 				label={label}
+				id={id}
 			>
 				<label className={clsx(s.label, restProps.disabled && s.disabled)}>
 					<input
+						id={id}
 						ref={ref}
 						type="checkbox"
 						className={checkboxClassNames}
