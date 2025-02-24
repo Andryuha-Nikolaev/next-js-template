@@ -1,9 +1,8 @@
 "use client";
 
-import { forwardRef, useId, useState } from "react";
+import React, { forwardRef, useId, useState } from "react";
 
 import clsx from "clsx";
-import { IMaskInput } from "react-imask";
 
 import s from "./Input.module.scss";
 import type { InputProps } from "./types";
@@ -14,14 +13,12 @@ import InputWrapper from "../input-wrapper/InputWrapper";
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
-			mask,
-			unmask = true,
 			errorMessage,
 			label,
 			type = "text",
 			value,
 			onChange = () => {},
-
+			MaskedInputComponent,
 			onOpenCalendar,
 			isRequired,
 			onResetField,
@@ -57,6 +54,23 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		};
 
 		const id = useId();
+		const ClonedChild = MaskedInputComponent
+			? React.cloneElement(MaskedInputComponent, {
+					id: id,
+
+					inputRef: ref,
+					className: inputClassNames,
+					type: currentType,
+					value: value,
+					onAccept: (value: string) => {
+						onChange({
+							target: { value },
+						} as unknown as React.ChangeEvent<HTMLInputElement>);
+					},
+					autoComplete: "new-password",
+					...restProps,
+				})
+			: null;
 
 		return (
 			<InputWrapper
@@ -66,24 +80,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				id={id}
 			>
 				<div className={s.wrap}>
-					{mask ? (
-						<IMaskInput
-							id={id}
-							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-							mask={mask}
-							className={inputClassNames}
-							unmask={unmask}
-							inputRef={ref}
-							type={currentType}
-							autoComplete="new-password"
-							value={value as string}
-							onAccept={(value) => {
-								onChange({
-									target: { value },
-								} as unknown as React.ChangeEvent<HTMLInputElement>);
-							}}
-							{...restProps}
-						/>
+					{MaskedInputComponent ? (
+						ClonedChild
 					) : (
 						<input
 							id={id}

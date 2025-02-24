@@ -9,7 +9,7 @@ import {
 	multiSelectSchemaRequired,
 	nameSchema,
 	passwordSchema,
-	phoneSchema,
+	phoneSchemaRequired,
 	radioButtonSchema,
 	rangeSliderSchema,
 	selectSchema,
@@ -27,7 +27,7 @@ export const testFormSchema = z
 	.object({
 		[FieldNames.FIRST_NAME]: nameSchema,
 		[FieldNames.LAST_NAME]: nameSchema,
-		[FieldNames.PHONE]: phoneSchema,
+		[FieldNames.PHONE]: phoneSchemaRequired,
 		[FieldNames.EMAIL]: emailSchema,
 		[FieldNames.PASSWORD]: passwordSchema,
 		[FieldNames.CONFIRM_PASSWORD]: passwordSchema,
