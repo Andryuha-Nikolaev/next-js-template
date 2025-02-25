@@ -5,7 +5,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import Input from "./Input";
 import type { RHFInputProps } from "./types";
 
-const RHFInput = ({ name, ...restProps }: RHFInputProps) => {
+const RHFInput = ({ name, ...props }: RHFInputProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -13,9 +13,7 @@ const RHFInput = ({ name, ...restProps }: RHFInputProps) => {
 			name={name}
 			control={control}
 			render={({ field, fieldState: { error } }) => {
-				return (
-					<Input errorMessage={error?.message} {...field} {...restProps} />
-				);
+				return <Input errorMessage={error?.message} {...field} {...props} />;
 			}}
 		/>
 	);

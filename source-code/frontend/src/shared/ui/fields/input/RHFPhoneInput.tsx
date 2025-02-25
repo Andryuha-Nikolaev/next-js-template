@@ -1,17 +1,66 @@
-import { IMaskInput } from "react-imask";
+"use client";
 
-import RHFInput from "./RHFInput";
+import type { MaskitoOptions } from "@maskito/core";
+import { useMaskito } from "@maskito/react";
+import { Controller, useFormContext } from "react-hook-form";
+
+import { FieldNames } from "@/shared/constants/fields";
+
+import Input from "./Input";
 import type { RHFInputProps } from "./types";
 
 const RHFPhoneInput = ({ ...props }: RHFInputProps) => {
+	const { control } = useFormContext();
+
+	const phoneMask: MaskitoOptions = {
+		mask: [
+			"+",
+			"7",
+			" ",
+			"(",
+			/\d/,
+			/\d/,
+			/\d/,
+			")",
+			" ",
+			/\d/,
+			/\d/,
+			/\d/,
+			" ",
+			/\d/,
+			/\d/,
+			" ",
+			/\d/,
+			/\d/,
+		],
+	};
+
+	const maskedInputRef = useMaskito({ options: phoneMask });
+
 	return (
-		<RHFInput
-			type="tel"
-			placeholder="+7 (___) ___ __ __"
-			{...props}
-			MaskedInputComponent={
-				<IMaskInput unmask={true} mask="+{7} (000) 000 00 00" />
-			}
+		<Controller
+			name={FieldNames.PHONE}
+			control={control}
+			render={({
+				field: { value, onChange, ref, ...field },
+				fieldState: { error },
+			}) => {
+				return (
+					<Input
+						type="tel"
+						placeholder="+7 (___) ___ __ __"
+						errorMessage={error?.message}
+						ref={(el) => {
+							maskedInputRef(el);
+							ref(el);
+						}}
+						onChange={onChange}
+						onInput={onChange}
+						{...field}
+						{...props}
+					/>
+				);
+			}}
 		/>
 	);
 };
