@@ -2,10 +2,14 @@
 
 import { forwardRef, useEffect, useId, useRef, useState } from "react";
 
+import {
+	maskitoDateOptionsGenerator,
+	maskitoDateTimeOptionsGenerator,
+} from "@maskito/kit";
+import { useMaskito } from "@maskito/react";
 import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
 import DatePicker from "react-datepicker";
-import { IMaskInput } from "react-imask";
 
 import useClickOutside from "@/shared/hooks/other/useClickOutside";
 import type {
@@ -20,10 +24,8 @@ import Input from "../input/Input";
 
 const DATE_FORMAT = "dd.MM.yyyy";
 const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";
-const DATE_PLACEHOLDER = "dd.MM.yyyy";
+const DATE_PLACEHOLDER = "dd.mm.yyyy";
 const DATE_TIME_PLACEHOLDER = "dd.mm.yyyy HH:MM";
-// const DATE_MASK = Date;
-// const DATE_TIME_MASK = "00.00.0000 00:00";
 
 const DatePickerComponent = forwardRef<
 	HTMLInputElement,
@@ -66,6 +68,7 @@ const DatePickerComponent = forwardRef<
 
 		// for reset form
 		const [isInputChanging, setIsInputChanging] = useState(false);
+
 		useEffect(() => {
 			if (!isInputChanging) {
 				if (!value) {
@@ -90,54 +93,46 @@ const DatePickerComponent = forwardRef<
 		};
 
 		const handleInputChange = (inputValue: string) => {
-			console.log(inputValue);
-
 			setIsInputChanging(true);
 			setInputValue(inputValue);
-			const format = inputValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT;
-			const parsedDate = parse(inputValue, format, new Date());
 
-			if (isValid(parsedDate)) {
-				onChange(parsedDate);
-			} else if (value) {
+			if (inputValue.length === 10 || inputValue.length === 16) {
+				const parsedDate = parse(inputValue, dateFormat, new Date());
+				if (isValid(parsedDate)) {
+					onChange(parsedDate);
+				} else {
+					onChange(null);
+				}
+			} else {
 				onChange(null);
 			}
-
-			// const trimmedValue = inputValue.trim();
-
-			// const isProperLength =
-			// 	(!time && trimmedValue.length === 10) ||
-			// 	(time && trimmedValue.length === 16);
-
-			// if (isProperLength) {
-			// 	const format =
-			// 		trimmedValue.length === 10 ? DATE_FORMAT : DATE_TIME_FORMAT;
-			// 	const parsedDate = parse(trimmedValue, format, new Date());
-
-			// 	const isOutOfRange =
-			// 		(props.maxDate && parsedDate.getTime() > props.maxDate.getTime()) ||
-			// 		(props.minDate && parsedDate.getTime() < props.minDate.getTime());
-
-			// 	if (isValid(parsedDate) && !isOutOfRange) {
-			// 		onChange(parsedDate);
-			// 	} else if (value) {
-			// 		onChange(null);
-			// 	}
-			// } else if (value) {
-			// 	onChange(null);
-			// }
-
 			setTimeout(() => setIsInputChanging(false));
 		};
 
-		const id = useId();
+		const dateOptions = maskitoDateOptionsGenerator({
+			mode: "dd/mm/yyyy",
+			separator: ".",
+		});
 
-		console.log(props.minDate, props.maxDate);
+		const dateTimeOptions = maskitoDateTimeOptionsGenerator({
+			dateMode: "dd/mm/yyyy",
+			timeMode: "HH:MM",
+			dateSeparator: ".",
+			dateTimeSeparator: " ",
+			min: props.minDate,
+			max: props.maxDate,
+		});
+
+		const maskedInputRef = useMaskito({
+			options: time ? dateTimeOptions : dateOptions,
+		});
+
+		const id = useId();
 
 		return (
 			<div className={s.block}>
 				<InputWrapper
-					errorMessage={errorMessage}
+					errorMessage={withInput ? undefined : errorMessage}
 					label={label}
 					isRequired={isRequired}
 					id={id}
@@ -147,23 +142,22 @@ const DatePickerComponent = forwardRef<
 							<div className={s.inputs}>
 								<Input
 									id={id}
-									ref={ref}
+									ref={(el: HTMLInputElement | null) => {
+										maskedInputRef(el);
+										if (typeof ref === "function") {
+											ref(el);
+										}
+									}}
 									value={inputValue}
 									placeholder={placeholder}
 									onChange={(e) => handleInputChange(e.target.value)}
+									onInput={(e: React.ChangeEvent<HTMLInputElement>) =>
+										handleInputChange(e.target.value)
+									}
 									onFocus={() => setIsOpen(true)}
 									onOpenCalendar={() => setIsOpen(true)}
 									disabled={disabled}
-									MaskedInputComponent={
-										<IMaskInput
-											mask={Date}
-											pattern={"d.m`.`Y"}
-											autofix={"pad"}
-											min={props.minDate || new Date(1900, 1, 1)}
-											max={props.maxDate || new Date(2500, 1, 1)}
-											overwrite
-										/>
-									}
+									errorMessage={errorMessage}
 								/>
 							</div>
 						)}

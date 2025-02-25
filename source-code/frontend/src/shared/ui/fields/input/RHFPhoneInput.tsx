@@ -12,7 +12,7 @@ import type { RHFInputProps } from "./types";
 const RHFPhoneInput = ({ ...props }: RHFInputProps) => {
 	const { control } = useFormContext();
 
-	const phoneMask: MaskitoOptions = {
+	const options: MaskitoOptions = {
 		mask: [
 			"+",
 			"7",
@@ -35,14 +35,14 @@ const RHFPhoneInput = ({ ...props }: RHFInputProps) => {
 		],
 	};
 
-	const maskedInputRef = useMaskito({ options: phoneMask });
+	const maskedInputRef = useMaskito({ options });
 
 	return (
 		<Controller
 			name={FieldNames.PHONE}
 			control={control}
 			render={({
-				field: { value, onChange, ref, ...field },
+				field: { onChange, ref, ...field },
 				fieldState: { error },
 			}) => {
 				return (

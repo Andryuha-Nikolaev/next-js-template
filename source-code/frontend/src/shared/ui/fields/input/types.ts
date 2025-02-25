@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactElement } from "react";
+import type { InputHTMLAttributes } from "react";
 
 import type { InputWrapperProps } from "../input-wrapper/types";
 
@@ -8,7 +8,6 @@ export interface InputProps
 	onOpenCalendar?: () => void;
 	onResetField?: () => void;
 	hiddenReset?: boolean;
-	MaskedInputComponent?: ReactElement;
 }
 
 export interface RHFInputProps extends Omit<InputProps, "onChange"> {

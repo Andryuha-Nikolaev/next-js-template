@@ -1,6 +1,7 @@
 "use client";
 
-import React, { forwardRef, useId, useState } from "react";
+import type React from "react";
+import { forwardRef, useId, useState } from "react";
 
 import clsx from "clsx";
 
@@ -18,7 +19,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			type = "text",
 			value,
 			onChange = () => {},
-			MaskedInputComponent,
 			onOpenCalendar,
 			isRequired,
 			onResetField,
@@ -27,6 +27,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		},
 		ref
 	) => {
+		console.log(value);
+
 		const isFilled = !!value;
 
 		const [currentType, setCurrentType] = useState(type);
@@ -63,32 +65,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				id={id}
 			>
 				<div className={s.wrap}>
-					{MaskedInputComponent ? (
-						React.cloneElement(MaskedInputComponent, {
-							id,
-							inputRef: ref,
-							className: inputClassNames,
-							type: currentType,
-							value,
-							onAccept: (val: string) =>
-								onChange({
-									target: { value: val },
-								} as React.ChangeEvent<HTMLInputElement>),
-							autoComplete: "new-password",
-							...restProps,
-						})
-					) : (
-						<input
-							id={id}
-							ref={ref}
-							className={inputClassNames}
-							type={currentType}
-							value={value}
-							onChange={onChange}
-							autoComplete="new-password"
-							{...restProps}
-						/>
-					)}
+					<input
+						id={id}
+						ref={ref}
+						className={inputClassNames}
+						type={currentType}
+						value={value}
+						onChange={onChange}
+						autoComplete="new-password"
+						{...restProps}
+					/>
 
 					{!restProps.disabled && (
 						<InputControls

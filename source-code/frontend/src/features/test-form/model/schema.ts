@@ -14,6 +14,7 @@ import {
 	rangeSliderSchema,
 	selectSchema,
 	singleDateSchema,
+	singleDateSchemaRequired,
 	singleSliderSchema,
 	textSchema,
 } from "@/shared/schemas/fields";
@@ -61,7 +62,7 @@ export const testFormSchema = z
 		[FieldNames.RADIO]: radioButtonSchema,
 		[FieldNames.SELECT]: selectSchema,
 		[FieldNames.MULTI_SELECT]: multiSelectSchemaRequired,
-		[FieldNames.DATE]: singleDateSchema,
+		[FieldNames.DATE]: singleDateSchemaRequired,
 		[FieldNames.START_DATE]: singleDateSchema,
 		[FieldNames.END_DATE]: singleDateSchema,
 		[FieldNames.SINGLE_SLIDER]: singleSliderSchema,

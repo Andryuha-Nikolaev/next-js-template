@@ -13,7 +13,6 @@
 	"dependencies": {
 		"@hookform/resolvers": "^3.9.1",
 		"@maskito/core": "^3.2.1",
-		"@maskito/phone": "^3.2.1",
 		"@maskito/react": "^3.2.1",
 		"axios": "^1.7.7",
 		"clsx": "^2.1.1",
@@ -28,7 +27,6 @@
 		"react-datepicker": "^7.5.0",
 		"react-dom": "^18",
 		"react-hook-form": "^7.53.1",
-		"react-imask": "^7.6.1",
 		"react-select": "^5.8.2",
 		"sharp": "^0.33.5",
 		"simplebar-react": "^3.2.6",

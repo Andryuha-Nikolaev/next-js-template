@@ -1,7 +1,6 @@
 import type { InputWrapperProps } from "../input-wrapper/types";
 
 export type SingleValue = Date | null;
-export type RangeValue = [Date | null, Date | null];
 
 export type BaseDatePickerProps = InputWrapperProps & {
 	time?: boolean;
