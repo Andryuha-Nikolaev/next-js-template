@@ -1,10 +1,10 @@
 import type { InputHTMLAttributes } from "react";
 
-import type { InputWrapperProps } from "../input-wrapper/types";
+import type { InputWrapperBaseProps } from "../input-wrapper";
 
 export interface RadioButtonProps
 	extends InputHTMLAttributes<HTMLInputElement>,
-		InputWrapperProps {
+		InputWrapperBaseProps {
 	items: {
 		value: string;
 		label: string | React.ReactNode;

@@ -1,28 +1,29 @@
 import CloseButton from "@/shared/ui/buttons/close/CloseButton";
 import EyeButton from "@/shared/ui/buttons/eye/EyeButton";
-import CalendarIcon from "@/shared/ui/fields/input-controls/icons/calendar-icon/CalendarIcon";
 
+import CalendarIcon from "./icons/calendar-icon/CalendarIcon";
 import s from "./InputControls.module.scss";
-import type { InputControlsProps } from "./types";
 
-const InputControls = ({
+import type { InputControlsProps } from "../model/types";
+
+export const InputControls = ({
 	type,
 	currentType,
 	isFilled,
-	togglePassword,
+	togglePasswordVisibility,
 	onOpenCalendar,
 	onReset,
 	hiddenReset,
 }: InputControlsProps) => {
 	return (
 		<span className={s.buttons}>
-			{type === "password" && !!togglePassword && isFilled && (
+			{type === "password" && !!togglePasswordVisibility && isFilled && (
 				<EyeButton
 					onMouseDown={(e) => {
 						e.preventDefault();
-						togglePassword();
+						togglePasswordVisibility();
 					}}
-					isOpen={currentType === "text"}
+					isVisible={currentType === "text"}
 				/>
 			)}
 			{!!onOpenCalendar && (
@@ -50,5 +51,3 @@ const InputControls = ({
 		</span>
 	);
 };
-
-export default InputControls;

@@ -8,10 +8,10 @@ import EyeOpened from "@/shared/ui/buttons/eye/icons/eye/EyeOpened";
 import s from "./EyeButton.module.scss";
 
 interface EyeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	isOpen: boolean;
+	isVisible: boolean;
 }
 
-const EyeButton = ({ isOpen, onClick, ...restProps }: EyeButtonProps) => {
+const EyeButton = ({ isVisible, onClick, ...restProps }: EyeButtonProps) => {
 	return (
 		<button
 			aria-label="Показать пароль"
@@ -20,7 +20,7 @@ const EyeButton = ({ isOpen, onClick, ...restProps }: EyeButtonProps) => {
 			type="button"
 			{...restProps}
 		>
-			{isOpen ? <EyeOpened /> : <EyeClosed />}
+			{isVisible ? <EyeOpened /> : <EyeClosed />}
 		</button>
 	);
 };

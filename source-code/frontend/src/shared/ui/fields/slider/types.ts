@@ -1,8 +1,8 @@
 import type { SliderProps } from "rc-slider";
 
-import type { InputWrapperProps } from "../input-wrapper/types";
+import type { InputWrapperBaseProps } from "../input-wrapper/model/types";
 
-type BaseSliderFieldProps = InputWrapperProps & SliderProps;
+type BaseSliderFieldProps = InputWrapperBaseProps & SliderProps;
 
 type SliderFieldVariants =
 	| {

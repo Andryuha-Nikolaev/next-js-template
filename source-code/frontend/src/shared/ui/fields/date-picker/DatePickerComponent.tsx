@@ -19,7 +19,7 @@ import type {
 
 import s from "./DatePickerComponent.module.scss";
 
-import InputWrapper from "../input-wrapper/InputWrapper";
+import { InputWrapper } from "../input-wrapper";
 import Input from "../input/Input";
 
 const DATE_FORMAT = "dd.MM.yyyy";

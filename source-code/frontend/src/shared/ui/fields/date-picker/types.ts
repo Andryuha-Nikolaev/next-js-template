@@ -1,8 +1,8 @@
-import type { InputWrapperProps } from "../input-wrapper/types";
+import type { InputWrapperBaseProps } from "../input-wrapper";
 
 export type SingleValue = Date | null;
 
-export type BaseDatePickerProps = InputWrapperProps & {
+export type BaseDatePickerProps = InputWrapperBaseProps & {
 	time?: boolean;
 	modalPositionY?: "top" | "bottom";
 	modalPositionX?: "left" | "right";

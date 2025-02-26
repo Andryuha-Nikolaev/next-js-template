@@ -1,10 +1,10 @@
 import type { TextareaHTMLAttributes } from "react";
 
-import type { InputWrapperProps } from "../input-wrapper/types";
+import type { InputWrapperBaseProps } from "../input-wrapper";
 
 export interface TextareaProps
 	extends TextareaHTMLAttributes<HTMLTextAreaElement>,
-		InputWrapperProps {}
+		InputWrapperBaseProps {}
 
 export interface RHFTextareaProps extends Omit<TextareaProps, "onChange"> {
 	name: string;

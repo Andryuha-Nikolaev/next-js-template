@@ -8,8 +8,8 @@ import clsx from "clsx";
 import s from "./Input.module.scss";
 import type { InputProps } from "./types";
 
-import InputControls from "../input-controls/InputControls";
-import InputWrapper from "../input-wrapper/InputWrapper";
+import { InputControls } from "../input-controls";
+import { InputWrapper } from "../input-wrapper";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
@@ -33,7 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		const [currentType, setCurrentType] = useState(type);
 
-		const togglePassword = () => {
+		const togglePasswordVisibility = () => {
 			if (currentType === "password") {
 				setCurrentType("text");
 			} else {
@@ -83,7 +83,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 							isFilled={isFilled}
 							onReset={onReset}
 							hiddenReset={hiddenReset}
-							togglePassword={togglePassword}
+							togglePasswordVisibility={togglePasswordVisibility}
 							onOpenCalendar={onOpenCalendar}
 						/>
 					)}

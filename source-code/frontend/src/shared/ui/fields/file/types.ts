@@ -1,10 +1,10 @@
 import type { InputHTMLAttributes } from "react";
 
-import type { InputWrapperProps } from "../input-wrapper/types";
+import type { InputWrapperBaseProps } from "../input-wrapper";
 
 export interface FileInputProps
 	extends InputHTMLAttributes<HTMLInputElement>,
-		InputWrapperProps {
+		InputWrapperBaseProps {
 	fileSize?: string;
 	fileFormat?: string;
 	buttonText?: string;

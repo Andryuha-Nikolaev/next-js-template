@@ -10,7 +10,7 @@ import FileInputRules from "./componens/rules/FileInputRules";
 import s from "./FileInput.module.scss";
 
 import RootButton from "../../buttons/root/RootButton";
-import InputWrapper from "../input-wrapper/InputWrapper";
+import { InputWrapper } from "../input-wrapper";
 
 const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 	(

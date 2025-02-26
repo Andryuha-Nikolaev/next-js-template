@@ -6,7 +6,7 @@ import s from "./CheckboxGroup.module.scss";
 
 import Checkbox from "../checkbox/Checkbox";
 import type { CheckboxGroupProps } from "../checkbox/types";
-import InputWrapper from "../input-wrapper/InputWrapper";
+import { InputWrapper } from "../input-wrapper";
 
 const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 	(

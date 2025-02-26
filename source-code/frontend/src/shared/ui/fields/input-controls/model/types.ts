@@ -1,11 +1,11 @@
 import type { HTMLInputTypeAttribute } from "react";
 
-export interface InputControlsProps {
+export type InputControlsProps = {
 	type?: HTMLInputTypeAttribute;
 	currentType?: HTMLInputTypeAttribute;
-	togglePassword?: () => void;
+	togglePasswordVisibility?: () => void;
 	onReset?: () => void;
 	hiddenReset?: boolean;
 	onOpenCalendar?: () => void;
 	isFilled: boolean;
-}
+};

@@ -20,7 +20,6 @@ const RHFRangeSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
 						field.onChange(e);
 					}}
 					type="range"
-					// ref={field.ref}
 				/>
 			)}
 		/>

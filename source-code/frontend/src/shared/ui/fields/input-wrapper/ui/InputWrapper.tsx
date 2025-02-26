@@ -2,19 +2,20 @@ import { type PropsWithChildren } from "react";
 
 import s from "./InputWrapper.module.scss";
 import InputWrapperLabel from "./label/InputWrapperLabel";
-import type { InputWrapperProps } from "./types";
 
-type InputWrapperAdvancedProps = InputWrapperProps & {
+import type { InputWrapperBaseProps } from "../model/types";
+
+type InputWrapperProps = InputWrapperBaseProps & {
 	id?: string;
 };
 
-const InputWrapper = ({
+export const InputWrapper = ({
 	children,
 	errorMessage,
 	label,
 	isRequired,
 	id,
-}: PropsWithChildren<InputWrapperAdvancedProps>) => {
+}: PropsWithChildren<InputWrapperProps>) => {
 	return (
 		<div className={s.block}>
 			{label && (
@@ -25,5 +26,3 @@ const InputWrapper = ({
 		</div>
 	);
 };
-
-export default InputWrapper;

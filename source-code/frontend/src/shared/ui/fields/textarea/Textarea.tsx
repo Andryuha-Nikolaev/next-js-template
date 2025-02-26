@@ -8,8 +8,8 @@ import type { TextareaProps } from "@/shared/ui/fields/textarea/types";
 
 import s from "./Textarea.module.scss";
 
-import InputControls from "../input-controls/InputControls";
-import InputWrapper from "../input-wrapper/InputWrapper";
+import { InputControls } from "../input-controls";
+import { InputWrapper } from "../input-wrapper";
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 	({ errorMessage, label, isRequired, ...restProps }, ref) => {
