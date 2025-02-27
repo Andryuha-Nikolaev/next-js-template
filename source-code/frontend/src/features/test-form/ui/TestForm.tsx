@@ -91,6 +91,7 @@ export const TestForm = () => {
 							name={FieldNames.TEXT}
 							placeholder="Текст"
 							label="Текст"
+							disabled
 						/>
 						<RHFFileInput
 							disabled
