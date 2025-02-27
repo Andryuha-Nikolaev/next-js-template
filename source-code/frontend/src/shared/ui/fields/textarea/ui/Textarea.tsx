@@ -4,14 +4,14 @@ import { forwardRef, useId } from "react";
 
 import clsx from "clsx";
 
-import type { TextareaProps } from "@/shared/ui/fields/textarea/types";
+import type { TextareaProps } from "@/shared/ui/fields/textarea/model/types";
 
 import s from "./Textarea.module.scss";
 
-import { InputControls } from "../input-controls";
-import { InputWrapper } from "../input-wrapper";
+import { InputControls } from "../../input-controls";
+import { InputWrapper } from "../../input-wrapper";
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 	({ errorMessage, label, isRequired, ...restProps }, ref) => {
 		const isFilled = !!restProps.value;
 
@@ -52,5 +52,3 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 Textarea.displayName = "Textarea";
-
-export default Textarea;

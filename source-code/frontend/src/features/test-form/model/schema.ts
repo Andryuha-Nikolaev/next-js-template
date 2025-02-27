@@ -19,7 +19,7 @@ import {
 	textSchema,
 } from "@/shared/schemas/fields";
 import {
-	checkFilesLength,
+	// checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
 } from "@/shared/schemas/fileInput";
@@ -47,7 +47,7 @@ export const testFormSchema = z
 
 		[FieldNames.FILES]: z
 			.any()
-			.refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
 			.refine(
 				(files: FileList) => checkFilesSize(files, 10),
 				"Максимальный размер файлов - 10MB"

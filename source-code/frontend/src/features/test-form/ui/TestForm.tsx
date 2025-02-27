@@ -16,7 +16,7 @@ import RHFRadioButton from "@/shared/ui/fields/radio-button/RHFRadioButton";
 import RHFSelect from "@/shared/ui/fields/select/RHFSelect";
 import RHFRangeSliderField from "@/shared/ui/fields/slider/RHFRangeSliderField";
 import RHFSliderField from "@/shared/ui/fields/slider/RHFSliderField";
-import RHFTextarea from "@/shared/ui/fields/textarea/RHFTextarea";
+import { RHFTextarea } from "@/shared/ui/fields/textarea";
 import RootLink from "@/shared/ui/links/root/RootLink";
 import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
@@ -101,7 +101,6 @@ export const TestForm = () => {
 							withPreview
 						/>
 						<RHFFileInput
-							isRequired
 							name={FieldNames.FILES}
 							multiple
 							label="Несколько файлов"

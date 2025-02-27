@@ -2,11 +2,11 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFTextareaProps } from "@/shared/ui/fields/textarea/types";
+import type { RHFTextareaProps } from "@/shared/ui/fields/textarea/model/types";
 
-import Textarea from "./Textarea";
+import { Textarea } from "./Textarea";
 
-const RHFTextarea = ({ name, ...restProps }: RHFTextareaProps) => {
+export const RHFTextarea = ({ name, ...restProps }: RHFTextareaProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -21,5 +21,3 @@ const RHFTextarea = ({ name, ...restProps }: RHFTextareaProps) => {
 		/>
 	);
 };
-
-export default RHFTextarea;
