@@ -19,8 +19,8 @@ import type {
 
 import s from "./DatePickerComponent.module.scss";
 
+import { Input } from "../input";
 import { InputWrapper } from "../input-wrapper";
-import Input from "../input/Input";
 
 const DATE_FORMAT = "dd.MM.yyyy";
 const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";

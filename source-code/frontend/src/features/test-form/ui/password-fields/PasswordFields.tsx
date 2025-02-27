@@ -1,5 +1,5 @@
 import { FieldNames } from "@/shared/constants/fields";
-import RHFInput from "@/shared/ui/fields/input/RHFInput";
+import { RHFInput } from "@/shared/ui/fields/input";
 
 const PasswordFields = () => {
 	return (

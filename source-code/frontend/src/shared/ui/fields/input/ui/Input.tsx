@@ -6,12 +6,12 @@ import { forwardRef, useId, useState } from "react";
 import clsx from "clsx";
 
 import s from "./Input.module.scss";
-import type { InputProps } from "./types";
 
-import { InputControls } from "../input-controls";
-import { InputWrapper } from "../input-wrapper";
+import { InputControls } from "../../input-controls";
+import { InputWrapper } from "../../input-wrapper";
+import type { InputProps } from "../model/types";
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
 		{
 			errorMessage,
@@ -94,5 +94,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = "Input";
-
-export default Input;

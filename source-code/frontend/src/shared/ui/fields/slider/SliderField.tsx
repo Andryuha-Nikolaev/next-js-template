@@ -9,8 +9,8 @@ import type { SliderFieldProps } from "@/shared/ui/fields/slider/types";
 
 import s from "./SliderField.module.scss";
 
+import { Input } from "../input";
 import { InputWrapper } from "../input-wrapper";
-import Input from "../input/Input";
 
 const NUMBER_REGEX = /^\d+$/;
 const DEBOUNCE_MS = 700;
