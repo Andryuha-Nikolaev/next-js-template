@@ -56,7 +56,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 								)
 							}
 						>
-							<p className={s.text}>{chooseAllCheckbox}</p>
+							{chooseAllCheckbox}
 						</Checkbox>
 					)}
 					{items.map((item, i) => (
