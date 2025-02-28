@@ -6,7 +6,6 @@ export const primaryFont = Open_Sans({
 	display: "swap",
 	variable: "--primary-font",
 	weight: ["400", "500", "600", "700"],
-	adjustFontFallback: false,
 });
 
 export const secondaryFont = localFont({
@@ -29,5 +28,4 @@ export const secondaryFont = localFont({
 			style: "normal",
 		},
 	],
-	adjustFontFallback: false,
 });
