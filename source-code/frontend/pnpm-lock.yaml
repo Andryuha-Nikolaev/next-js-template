@@ -14,6 +14,9 @@ importers:
       '@maskito/core':
         specifier: ^3.2.1
         version: 3.2.1
+      '@maskito/kit':
+        specifier: ^3.2.1
+        version: 3.2.1(@maskito/core@3.2.1)
       '@maskito/react':
         specifier: ^3.2.1
         version: 3.2.1(@maskito/core@3.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -400,6 +403,11 @@ packages:
 
   '@maskito/core@3.2.1':
     resolution: {integrity: sha512-gpoJbFFsq2CFz9smqEvZfTPVMt/gkRoiL14idL1sLXEDbWZyeKce0SgusHzHXaOkEegly4BIJGazCNG2hsPNYg==}
+
+  '@maskito/kit@3.2.1':
+    resolution: {integrity: sha512-p9Tmr4BMZs7geNWMYMQaP4Dc+Sre8OeE6Vynz1RGsJJdjxmocY2mihXKldecS8c9aXfHvLU658F9YtorL3Akjg==}
+    peerDependencies:
+      '@maskito/core': ^3.2.1
 
   '@maskito/react@3.2.1':
     resolution: {integrity: sha512-qTBDYARpGGxXPU2pLBwSkzw7nLox/5z+sMCTUD7/HgYuAR9TJrmZP2MCyQQgqxTeOLNn5NOTgJWfaqIsSOuTvw==}
@@ -2620,6 +2628,10 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@maskito/core@3.2.1': {}
+
+  '@maskito/kit@3.2.1(@maskito/core@3.2.1)':
+    dependencies:
+      '@maskito/core': 3.2.1
 
   '@maskito/react@3.2.1(@maskito/core@3.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:

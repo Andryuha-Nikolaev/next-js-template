@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@hookform/resolvers": "^3.9.1",
 		"@maskito/core": "^3.2.1",
+		"@maskito/kit": "^3.2.1",
 		"@maskito/react": "^3.2.1",
 		"axios": "^1.7.7",
 		"clsx": "^2.1.1",
