@@ -8,7 +8,7 @@ import { FieldNames } from "@/shared/constants/fields";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
 import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
-import RHFFileInput from "@/shared/ui/fields/file/RHFFileInput";
+import { RHFFileInput } from "@/shared/ui/fields/file";
 import { RHFInput } from "@/shared/ui/fields/input";
 import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
 import RHFRadioButton from "@/shared/ui/fields/radio-button/RHFRadioButton";

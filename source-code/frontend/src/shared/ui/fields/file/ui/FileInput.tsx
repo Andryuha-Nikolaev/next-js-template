@@ -2,17 +2,17 @@
 
 import { forwardRef, useEffect, useId, useMemo, useRef } from "react";
 
-import AttachIcon from "@/shared/ui/fields/file/icons/attach-icon/AttachIcon";
-import type { FileInputProps } from "@/shared/ui/fields/file/types";
+import RootButton from "@/shared/ui/buttons/root/RootButton";
+import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
 
-import FileInputPreview from "./componens/preview/FileInputPreview";
-import FileInputRules from "./componens/rules/FileInputRules";
 import s from "./FileInput.module.scss";
+import AttachIcon from "./icons/attach-icon/AttachIcon";
+import FileInputPreview from "./preview/FileInputPreview";
+import FileInputRules from "./rules/FileInputRules";
 
-import RootButton from "../../buttons/root/RootButton";
-import { InputWrapper } from "../input-wrapper";
+import { InputWrapper } from "../../input-wrapper";
 
-const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
+export const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 	(
 		{
 			errorMessage,
@@ -112,5 +112,3 @@ const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 );
 
 FileInput.displayName = "FileInput";
-
-export default FileInput;
