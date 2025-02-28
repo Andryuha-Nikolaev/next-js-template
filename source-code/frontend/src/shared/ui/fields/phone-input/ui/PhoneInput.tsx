@@ -44,6 +44,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, InputProps>(
 						ref(el);
 					}
 				}}
+				autoComplete="tel"
 				onChange={onChange}
 				onInput={onChange}
 				{...props}

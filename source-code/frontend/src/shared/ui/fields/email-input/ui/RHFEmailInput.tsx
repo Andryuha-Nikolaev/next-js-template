@@ -2,11 +2,11 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import { PhoneInput } from "./PhoneInput";
+import { EmailInput } from "./EmailInput";
 
 import type { RHFInputProps } from "../../input/model/types";
 
-export const RHFPhoneInput = ({ name, ...props }: RHFInputProps) => {
+export const RHFEmailInput = ({ name, ...props }: RHFInputProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -15,7 +15,7 @@ export const RHFPhoneInput = ({ name, ...props }: RHFInputProps) => {
 			control={control}
 			render={({ field, fieldState: { error } }) => {
 				return (
-					<PhoneInput errorMessage={error?.message} {...field} {...props} />
+					<EmailInput errorMessage={error?.message} {...field} {...props} />
 				);
 			}}
 		/>

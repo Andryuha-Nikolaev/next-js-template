@@ -8,6 +8,7 @@ import { FieldNames } from "@/shared/constants/fields";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
 import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
+import { EmailInput } from "@/shared/ui/fields/email-input";
 import { RHFFileInput } from "@/shared/ui/fields/file";
 import { RHFInput } from "@/shared/ui/fields/input";
 import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
@@ -80,12 +81,7 @@ export const TestForm = () => {
 							label="Фамилия disabled"
 						/>
 						<RHFPhoneInput name={FieldNames.PHONE} label="Телефон" isRequired />
-						<RHFInput
-							name={FieldNames.EMAIL}
-							placeholder="Email"
-							label="Email"
-							type="email"
-						/>
+						<EmailInput name={FieldNames.EMAIL} label="Email" />
 						<PasswordFields />
 						<RHFTextarea
 							name={FieldNames.TEXT}
@@ -131,7 +127,11 @@ export const TestForm = () => {
 								},
 								{
 									value: "Второй чекбокс",
-									label: <h4>Второй чекбокс h4 element</h4>,
+									label: (
+										<span style={{ fontSize: 18 }}>
+											Второй чекбокс span 18px
+										</span>
+									),
 								},
 								{ value: "Третий чекбокс", label: "Третий чекбокс" },
 							]}
@@ -145,7 +145,7 @@ export const TestForm = () => {
 								{ value: "Первый чекбокс", label: "Первый чекбокс label" },
 								{
 									value: "Второй чекбокс",
-									label: <p>Второй чекбокс P element</p>,
+									label: "Второй чекбокс",
 								},
 								{
 									value: "Третий чекбокс",
@@ -169,7 +169,7 @@ export const TestForm = () => {
 								},
 								{
 									value: "Нет",
-									label: <h4>h4 нет</h4>,
+									label: <span>span нет</span>,
 								},
 							]}
 						/>
