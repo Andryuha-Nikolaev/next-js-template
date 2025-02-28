@@ -14,9 +14,6 @@ importers:
       '@maskito/core':
         specifier: ^3.2.1
         version: 3.2.1
-      '@maskito/phone':
-        specifier: ^3.2.1
-        version: 3.2.1(@maskito/core@3.2.1)(@maskito/kit@3.2.1(@maskito/core@3.2.1))(libphonenumber-js@1.11.20)
       '@maskito/react':
         specifier: ^3.2.1
         version: 3.2.1(@maskito/core@3.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -59,9 +56,6 @@ importers:
       react-hook-form:
         specifier: ^7.53.1
         version: 7.54.2(react@18.3.1)
-      react-imask:
-        specifier: ^7.6.1
-        version: 7.6.1(react@18.3.1)
       react-select:
         specifier: ^5.8.2
         version: 5.10.0(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -150,10 +144,6 @@ packages:
     resolution: {integrity: sha512-81NWa1njQblgZbQHxWHpxxCzNsa3ZwvFqpUg7P+NNUU6f3UU2jBEg4OlF/J6rl8+PQGh1q6/zWScd001YwcA5A==}
     engines: {node: '>=6.0.0'}
     hasBin: true
-
-  '@babel/runtime-corejs3@7.26.9':
-    resolution: {integrity: sha512-5EVjbTegqN7RSJle6hMWYxO4voo4rI+9krITk+DWR+diJgGrjZjrIBnJhjrHYYQsFgI7j1w1QnrvV7YSKBfYGg==}
-    engines: {node: '>=6.9.0'}
 
   '@babel/runtime@7.26.9':
     resolution: {integrity: sha512-aA63XwOkcl4xxQa3HjPMqOP6LiK0ZDv3mUPYEFXkpHbaFjtGggE1A61FjFzJnB+p7/oy2gA8E+rcBNl/zC1tMg==}
@@ -410,18 +400,6 @@ packages:
 
   '@maskito/core@3.2.1':
     resolution: {integrity: sha512-gpoJbFFsq2CFz9smqEvZfTPVMt/gkRoiL14idL1sLXEDbWZyeKce0SgusHzHXaOkEegly4BIJGazCNG2hsPNYg==}
-
-  '@maskito/kit@3.2.1':
-    resolution: {integrity: sha512-p9Tmr4BMZs7geNWMYMQaP4Dc+Sre8OeE6Vynz1RGsJJdjxmocY2mihXKldecS8c9aXfHvLU658F9YtorL3Akjg==}
-    peerDependencies:
-      '@maskito/core': ^3.2.1
-
-  '@maskito/phone@3.2.1':
-    resolution: {integrity: sha512-F1hrnpP1UyMhVO0nZAMoA0kkS8rVTc4kVUZ8mcxz98weIAKYo3wiuLOMXb1cg7/ejcpEnqDTRe1rzBxwtRAKeQ==}
-    peerDependencies:
-      '@maskito/core': ^3.2.1
-      '@maskito/kit': ^3.2.1
-      libphonenumber-js: '>=1.0.0'
 
   '@maskito/react@3.2.1':
     resolution: {integrity: sha512-qTBDYARpGGxXPU2pLBwSkzw7nLox/5z+sMCTUD7/HgYuAR9TJrmZP2MCyQQgqxTeOLNn5NOTgJWfaqIsSOuTvw==}
@@ -910,9 +888,6 @@ packages:
 
   convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
-
-  core-js-pure@3.40.0:
-    resolution: {integrity: sha512-AtDzVIgRrmRKQai62yuSIN5vNiQjcJakJb4fbhVw3ehxx7Lohphvw9SGNWKhLFqSxC4ilD0g/L1huAYFQU3Q6A==}
 
   cosmiconfig@7.1.0:
     resolution: {integrity: sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==}
@@ -1417,10 +1392,6 @@ packages:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
-  imask@7.6.1:
-    resolution: {integrity: sha512-sJlIFM7eathUEMChTh9Mrfw/IgiWgJqBKq2VNbyXvBZ7ev/IlO6/KQTKlV/Fm+viQMLrFLG/zCuudrLIwgK2dg==}
-    engines: {npm: '>=4.0.0'}
-
   immutable@5.0.3:
     resolution: {integrity: sha512-P8IdPQHq3lA1xVeBRi5VPqUm5HDgKnx0Ru51wZz5mjxHr5n3RWhjIpOFU7ybkUxfB+5IToy+OLaHYDBIWsv+uw==}
 
@@ -1630,9 +1601,6 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
-
-  libphonenumber-js@1.11.20:
-    resolution: {integrity: sha512-/ipwAMvtSZRdiQBHqW1qxqeYiBMzncOQLVA+62MWYr7N4m7Q2jqpJ0WgT7zlOEOpyLRSqrMXidbJpC0J77AaKA==}
 
   lilconfig@3.1.3:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
@@ -1934,12 +1902,6 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
-
-  react-imask@7.6.1:
-    resolution: {integrity: sha512-vLNfzcCz62Yzx/GRGh5tiCph9Gbh2cZu+Tz8OiO5it2eNuuhpA0DWhhSlOtVtSJ80+Bx+vFK5De8eQ9AmbkXzA==}
-    engines: {npm: '>=4.0.0'}
-    peerDependencies:
-      react: '>=0.14.0'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2385,11 +2347,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.26.9
 
-  '@babel/runtime-corejs3@7.26.9':
-    dependencies:
-      core-js-pure: 3.40.0
-      regenerator-runtime: 0.14.1
-
   '@babel/runtime@7.26.9':
     dependencies:
       regenerator-runtime: 0.14.1
@@ -2663,16 +2620,6 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@maskito/core@3.2.1': {}
-
-  '@maskito/kit@3.2.1(@maskito/core@3.2.1)':
-    dependencies:
-      '@maskito/core': 3.2.1
-
-  '@maskito/phone@3.2.1(@maskito/core@3.2.1)(@maskito/kit@3.2.1(@maskito/core@3.2.1))(libphonenumber-js@1.11.20)':
-    dependencies:
-      '@maskito/core': 3.2.1
-      '@maskito/kit': 3.2.1(@maskito/core@3.2.1)
-      libphonenumber-js: 1.11.20
 
   '@maskito/react@3.2.1(@maskito/core@3.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -3156,8 +3103,6 @@ snapshots:
   concat-map@0.0.1: {}
 
   convert-source-map@1.9.0: {}
-
-  core-js-pure@3.40.0: {}
 
   cosmiconfig@7.1.0:
     dependencies:
@@ -3825,10 +3770,6 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  imask@7.6.1:
-    dependencies:
-      '@babel/runtime-corejs3': 7.26.9
-
   immutable@5.0.3: {}
 
   import-fresh@3.3.1:
@@ -4038,8 +3979,6 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-
-  libphonenumber-js@1.11.20: {}
 
   lilconfig@3.1.3: {}
 
@@ -4342,12 +4281,6 @@ snapshots:
 
   react-hook-form@7.54.2(react@18.3.1):
     dependencies:
-      react: 18.3.1
-
-  react-imask@7.6.1(react@18.3.1):
-    dependencies:
-      imask: 7.6.1
-      prop-types: 15.8.1
       react: 18.3.1
 
   react-is@16.13.1: {}
