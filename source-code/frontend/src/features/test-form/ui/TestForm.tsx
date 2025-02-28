@@ -5,8 +5,8 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import { useModal } from "@/features/modal/context/ModalProvider";
 import { FieldNames } from "@/shared/constants/fields";
-import RHFCheckboxGroup from "@/shared/ui/fields/checkbox-group/RHFCheckboxGroup";
-import RHFCheckbox from "@/shared/ui/fields/checkbox/RHFCheckbox";
+import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
+import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
 import RHFRangeDatePicker from "@/shared/ui/fields/date-picker/components/rhf-range-date-picker/RHFRangeDatePicker";
 import RHFDatePicker from "@/shared/ui/fields/date-picker/RHFDatePicker";
 import RHFFileInput from "@/shared/ui/fields/file/RHFFileInput";
@@ -91,7 +91,6 @@ export const TestForm = () => {
 							name={FieldNames.TEXT}
 							placeholder="Текст"
 							label="Текст"
-							disabled
 						/>
 						<RHFFileInput
 							disabled
@@ -110,7 +109,7 @@ export const TestForm = () => {
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 						/>
 						<RHFCheckbox label="Согласие" name={FieldNames.POLICY}>
-							<small>
+							<span>
 								Я&nbsp;ознакомлен(а) с&nbsp;
 								<a
 									className={s.link}
@@ -120,7 +119,7 @@ export const TestForm = () => {
 								>
 									Политикой конфиденциальности
 								</a>
-							</small>
+							</span>
 						</RHFCheckbox>
 						<RHFCheckboxGroup
 							name={FieldNames.CHECKBOX_GROUP}

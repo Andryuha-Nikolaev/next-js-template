@@ -11,6 +11,7 @@
 	text-align: left;
 	cursor: pointer;
 	width: fit-content;
+	@include additional-text;
 
 	@include hover-wrapper {
 		.input {

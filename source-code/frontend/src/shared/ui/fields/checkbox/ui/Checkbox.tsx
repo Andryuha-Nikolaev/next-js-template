@@ -3,11 +3,11 @@ import { forwardRef, useId } from "react";
 import clsx from "clsx";
 
 import s from "./Checkbox.module.scss";
-import type { CheckboxProps } from "./types";
 
-import { InputWrapper } from "../input-wrapper";
+import { InputWrapper } from "../../input-wrapper";
+import type { CheckboxProps } from "../model/types";
 
-const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
 		{ errorMessage, label, children, isError, isRequired, ...restProps },
 		ref
@@ -42,5 +42,3 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 );
 
 Checkbox.displayName = "Checkbox";
-
-export default Checkbox;

@@ -4,11 +4,11 @@ import parse from "html-react-parser";
 
 import s from "./CheckboxGroup.module.scss";
 
-import Checkbox from "../checkbox/Checkbox";
-import type { CheckboxGroupProps } from "../checkbox/types";
-import { InputWrapper } from "../input-wrapper";
+import { Checkbox } from "../../checkbox/ui/Checkbox";
+import { InputWrapper } from "../../input-wrapper";
+import type { CheckboxGroupProps } from "../model/types";
 
-const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
+export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 	(
 		{
 			items,
@@ -83,5 +83,3 @@ const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 );
 
 CheckboxGroup.displayName = "CheckboxGroup";
-
-export default CheckboxGroup;
