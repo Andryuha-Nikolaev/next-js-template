@@ -44,8 +44,8 @@
 
 	&:disabled {
 		cursor: not-allowed;
-		color: var(--fg-input-disabled);
-		background-color: var(--bg-input-disabled);
+		color: var(--fg-input-disabled) !important;
+		background-color: var(--bg-input-disabled) !important;
 	}
 
 	&:-webkit-autofill,

@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFSelectProps } from "@/shared/ui/fields/select/types";
+import type { RHFSelectProps } from "@/shared/ui/fields/select/model/types";
 
-import ReactSelect from "./Select";
+import { ReactSelect } from "./Select";
 
-const RHFSelect = ({ name, ...restProps }: RHFSelectProps) => {
+export const RHFSelect = ({ name, ...restProps }: RHFSelectProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -17,5 +17,3 @@ const RHFSelect = ({ name, ...restProps }: RHFSelectProps) => {
 		/>
 	);
 };
-
-export default RHFSelect;

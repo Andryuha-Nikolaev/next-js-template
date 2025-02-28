@@ -36,6 +36,10 @@
 		&--is-focused {
 			border-color: var(--color-input-border-focused) !important;
 		}
+
+		&--is-disabled {
+			background-color: var(--bg-input-disabled) !important;
+		}
 	}
 
 	&__placeholder {

@@ -13,7 +13,7 @@ import { RHFInput } from "@/shared/ui/fields/input";
 import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
 import { RHFRadioButton } from "@/shared/ui/fields/radio-button";
 import { RHFRangeDatePicker } from "@/shared/ui/fields/range-date-picker";
-import RHFSelect from "@/shared/ui/fields/select/RHFSelect";
+import { RHFSelect } from "@/shared/ui/fields/select";
 import RHFRangeSliderField from "@/shared/ui/fields/slider/RHFRangeSliderField";
 import RHFSliderField from "@/shared/ui/fields/slider/RHFSliderField";
 import { RHFTextarea } from "@/shared/ui/fields/textarea";

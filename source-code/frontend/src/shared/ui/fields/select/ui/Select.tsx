@@ -5,13 +5,13 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 import Select from "react-select";
 
-import type { SelectProps } from "@/shared/ui/fields/select/types";
+import type { SelectProps } from "@/shared/ui/fields/select/model/types";
 
 import s from "./Select.module.scss";
 
-import { InputWrapper } from "../input-wrapper";
+import { InputWrapper } from "../../input-wrapper";
 
-const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
+export const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 	(
 		{
 			errorMessage,
@@ -53,5 +53,3 @@ const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 );
 
 ReactSelect.displayName = "ReactSelect";
-
-export default ReactSelect;

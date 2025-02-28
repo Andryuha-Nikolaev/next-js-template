@@ -84,3 +84,7 @@
 		margin: convert-px2rem(3) convert-px2rem(3);
 	}
 }
+
+.text {
+	@include additional-text;
+}
