@@ -84,6 +84,7 @@ export const TestForm = () => {
 							name={FieldNames.EMAIL}
 							placeholder="Email"
 							label="Email"
+							type="email"
 						/>
 						<PasswordFields />
 						<RHFTextarea
