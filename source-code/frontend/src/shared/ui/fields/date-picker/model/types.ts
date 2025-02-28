@@ -1,4 +1,4 @@
-import type { InputWrapperBaseProps } from "../input-wrapper";
+import type { InputWrapperBaseProps } from "../../input-wrapper";
 
 export type SingleValue = Date | null;
 
@@ -28,11 +28,4 @@ export type DatePickerComponentProps = SingleDatePickerProps & {
 
 export type RHFDatePickerComponentProps = SingleDatePickerProps & {
 	name: string;
-};
-
-export type RHFRangeDatePickerProps = BaseDatePickerProps & {
-	startDateName: string;
-	endDateName: string;
-	startLabel?: string;
-	endLabel?: string;
 };

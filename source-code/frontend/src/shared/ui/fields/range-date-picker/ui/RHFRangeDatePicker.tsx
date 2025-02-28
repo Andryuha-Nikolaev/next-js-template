@@ -1,10 +1,9 @@
 import { useFormContext } from "react-hook-form";
 
-import type { RHFRangeDatePickerProps } from "@/shared/ui/fields/date-picker/types";
+import { RHFDatePicker } from "../../date-picker";
+import type { RHFRangeDatePickerProps } from "../model/types";
 
-import RHFDatePicker from "../../RHFDatePicker";
-
-const RHFRangeDatePicker = ({
+export const RHFRangeDatePicker = ({
 	startDateName,
 	endDateName,
 	startLabel = "Дата начала",
@@ -39,5 +38,3 @@ const RHFRangeDatePicker = ({
 		</>
 	);
 };
-
-export default RHFRangeDatePicker;

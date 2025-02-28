@@ -15,19 +15,19 @@ import useClickOutside from "@/shared/hooks/other/useClickOutside";
 import type {
 	DatePickerComponentProps,
 	SingleValue,
-} from "@/shared/ui/fields/date-picker/types";
+} from "@/shared/ui/fields/date-picker/model/types";
 
 import s from "./DatePickerComponent.module.scss";
 
-import { Input } from "../input";
-import { InputWrapper } from "../input-wrapper";
+import { Input } from "../../input";
+import { InputWrapper } from "../../input-wrapper";
 
 const DATE_FORMAT = "dd.MM.yyyy";
 const DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm";
 const DATE_PLACEHOLDER = "dd.mm.yyyy";
 const DATE_TIME_PLACEHOLDER = "dd.mm.yyyy HH:MM";
 
-const DatePickerComponent = forwardRef<
+export const DatePickerComponent = forwardRef<
 	HTMLInputElement,
 	DatePickerComponentProps
 >(
@@ -197,5 +197,3 @@ const DatePickerComponent = forwardRef<
 );
 
 DatePickerComponent.displayName = "DatePickerComponent";
-
-export default DatePickerComponent;

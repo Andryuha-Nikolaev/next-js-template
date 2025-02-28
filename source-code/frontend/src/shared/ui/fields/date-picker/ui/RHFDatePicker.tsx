@@ -1,13 +1,13 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type {
-	RHFDatePickerComponentProps,
-	SingleValue,
-} from "@/shared/ui/fields/date-picker/types";
+import { DatePickerComponent } from "./DatePickerComponent";
 
-import DatePickerComponent from "./DatePickerComponent";
+import type { RHFDatePickerComponentProps, SingleValue } from "../model/types";
 
-const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
+export const RHFDatePicker = ({
+	name,
+	...props
+}: RHFDatePickerComponentProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -26,5 +26,3 @@ const RHFDatePicker = ({ name, ...props }: RHFDatePickerComponentProps) => {
 		/>
 	);
 };
-
-export default RHFDatePicker;
