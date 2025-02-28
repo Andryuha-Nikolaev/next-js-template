@@ -3,13 +3,13 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 import parse from "html-react-parser";
 
-import type { RadioButtonProps } from "@/shared/ui/fields/radio-button/types";
+import type { RadioButtonProps } from "@/shared/ui/fields/radio-button/model/types";
 
 import s from "./RadioButton.module.scss";
 
-import { InputWrapper } from "../input-wrapper";
+import { InputWrapper } from "../../input-wrapper";
 
-const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
+export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 	(
 		{
 			errorMessage,
@@ -57,5 +57,3 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 );
 
 RadioButton.displayName = "RadioButton";
-
-export default RadioButton;

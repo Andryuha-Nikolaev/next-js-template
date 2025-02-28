@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFRadioButtonProps } from "@/shared/ui/fields/radio-button/types";
+import type { RHFRadioButtonProps } from "@/shared/ui/fields/radio-button/model/types";
 
-import RadioButton from "./RadioButton";
+import { RadioButton } from "./RadioButton";
 
-const RHFRadioButton = ({ name, ...restProps }: RHFRadioButtonProps) => {
+export const RHFRadioButton = ({ name, ...restProps }: RHFRadioButtonProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -17,5 +17,3 @@ const RHFRadioButton = ({ name, ...restProps }: RHFRadioButtonProps) => {
 		/>
 	);
 };
-
-export default RHFRadioButton;
