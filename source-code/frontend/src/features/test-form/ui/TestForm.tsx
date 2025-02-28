@@ -179,7 +179,7 @@ export const TestForm = () => {
 							placeholder="Выбор"
 							name={FieldNames.SELECT}
 							options={[
-								{ value: "aaaaa", label: "aaaaa" },
+								{ value: "aaaaaа", label: "aaaaa" },
 								{ value: "bbb", label: "bbb" },
 							]}
 						/>
