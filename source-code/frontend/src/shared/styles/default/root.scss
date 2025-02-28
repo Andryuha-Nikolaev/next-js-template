@@ -1,0 +1,134 @@
+:root {
+	--font-size-init-number: 16;
+	--font-size_normal: calc(var(--font-size-init-number) * 1px);
+	--font-size_small: 14px;
+
+	--font-line-height: normal;
+
+	--transition-duration: 0.2s;
+
+	--transition-duration-long: 0.5s;
+
+	// header
+	--header-height-number: 60;
+
+	@media (min-width: 1280px) {
+		--header-height-number: 80;
+	}
+
+	// colors
+	--color-white: #fff;
+
+	--color-black-light: #303030;
+	--color-black-medium: #212121;
+	--color-black-dark: #000000;
+	--color-black-opacity-10: rgba(33, 33, 33, 0.1);
+	--color-black-opacity-50: rgba(33, 33, 33, 0.5);
+
+	--color-gray-light: #f8f8f8;
+	--color-gray-medium: #e0e0e0;
+	--color-gray-dark: #8c8c8c;
+
+	--color-red-medium: #ff4a4a;
+
+	--color-green-light: #466045;
+	--color-green-medium: #3a4f39;
+	--color-green-dark: #2c3b2b;
+
+	// colors
+	// --background-colored:
+	--background: var(--color-white);
+	--foreground: var(--color-black-medium);
+
+	--bg-overlay: var(--color-black-opacity-10);
+
+	--color-alert: var(--color-red-medium);
+
+	// spinner
+	--bg-spinner: var(--color-gray-medium);
+	--fg-spinner: var(--color-red-medium);
+
+	// button-1
+	--bg-button-1: var(--color-black-medium);
+	--fg-button-1: var(--color-white);
+	--bg-button-1-hover: var(--color-black-dark);
+	--fg-button-1-hover: var(--color-white);
+	--bg-button-1-active: var(--color-black-light);
+	--fg-button-1-active: var(--color-white);
+	// button-2
+	--bg-button-2: var(--color-white);
+	--fg-button-2: var(--color-black-medium);
+	--bg-button-2-hover: var(--color-black-dark);
+	--fg-button-2-hover: var(--color-white);
+	--bg-button-2-active: var(--color-black-light);
+	--fg-button-2-active: var(--color-white);
+	// button-3
+	--bg-button-3: var(--color-green-light);
+	--fg-button-3: var(--color-white);
+	--bg-button-3-hover: var(--color-green-medium);
+	--fg-button-3-hover: var(--color-white);
+	--bg-button-3-active: var(--color-green-dark);
+	--fg-button-3-active: var(--color-white);
+	// button disabled
+	--bg-button-disabled: var(--color-gray-dark);
+	--fg-button-disabled: var(--color-gray-light);
+
+	// link-1
+	--color-link-1-hover: var(--color-green-light);
+	--color-link-1-active: var(--color-green-medium);
+	// link-2
+	--color-link-2-hover: var(--color-red-medium);
+	--color-link-2-active: var(--color-red-medium);
+	// link disabled
+	--color-link-disabled: var(--color-gray-dark);
+
+	// scrollbar
+
+	--color-scrollbar-thumb: var(--color-gray-medium);
+
+	// shadow
+	--box-shadow: 0px 0px 10px 0px #2121211a;
+
+	// z-index
+	--z-index-burger: 98;
+	--z-index-header: 99;
+	--z-index-modal: 100;
+
+	// input
+	--color-input-border: var(--color-gray-dark);
+	--color-input-border-focused: var(--color-black-medium);
+	--bg-input: var(--color-white);
+	--bg-input-autofill: var(--color-white);
+	--fg-input-autofill: var(--color-black-medium);
+	--color-input-placeholder: var(--color-black-opacity-50);
+	--bg-input-disabled: var(--color-gray-medium);
+	--fg-input-disabled: var(--color-gray-dark);
+	--input-height-number: 50;
+	--input-border-radius-number: 10;
+
+	// checkbox
+	--color-checkbox-border: var(--color-gray-dark);
+	--color-checkbox-border-hover: var(--color-black-medium);
+	--color-checkbox-border-focused: var(--color-black-medium);
+	--bg-checkbox: var(--color-white);
+	--bg-checkbox-disabled: var(--color-gray-medium);
+
+	// radio button
+	--color-radio-border: var(--color-gray-dark);
+	--color-radio-border-hover: var(--color-black-medium);
+	--color-radio-border-focused: var(--color-black-medium);
+	--color-radio-point: var(--color-black-medium);
+	--bg-radio: var(--color-white);
+	--bg-radio-disabled: var(--color-gray-medium);
+
+	// select
+
+	--color-dropdown-indicator: var(--color-gray-dark);
+	--color-option-focused: var(--color-gray-light);
+	--color-option-selected: var(--color-gray-medium);
+	// focus
+	--color-outline-focus: var(--color-gray-dark);
+
+	// &.dark {
+	// }
+}

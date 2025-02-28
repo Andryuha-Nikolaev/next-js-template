@@ -1,0 +1,25 @@
+@import "@/styles/functions/convert-px2rem";
+@import "@/styles/mixins/typography";
+@import "@/styles/mixins/square-size";
+@import "@/styles/mixins/breakpoints";
+@import "@/styles/mixins/mixins";
+
+.block {
+	@include md {
+	}
+
+	@include lg {
+	}
+}
+
+.wrap {
+	margin-bottom: convert-px2rem(5);
+	align-self: flex-start;
+
+	label {
+		@include main-text();
+	}
+}
+.asterisk {
+	color: var(--color-alert);
+}
