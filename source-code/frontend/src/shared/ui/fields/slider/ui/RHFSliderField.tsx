@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFSliderFieldProps } from "@/shared/ui/fields/slider/types";
+import type { RHFSliderFieldProps } from "@/shared/ui/fields/slider/model/types";
 
-import SliderField from "./SliderField";
+import { SliderField } from "./SliderField";
 
-const RHFSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
+export const RHFSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -18,11 +18,8 @@ const RHFSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
 					value={field.value as number}
 					onChange={(e) => field.onChange(e)}
 					type="single"
-					// ref={field.ref}
 				/>
 			)}
 		/>
 	);
 };
-
-export default RHFSliderField;

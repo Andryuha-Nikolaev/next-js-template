@@ -1,10 +1,13 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFSliderFieldProps } from "@/shared/ui/fields/slider/types";
+import type { RHFSliderFieldProps } from "@/shared/ui/fields/slider/model/types";
 
-import SliderField from "./SliderField";
+import { SliderField } from "./SliderField";
 
-const RHFRangeSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
+export const RHFRangeSliderField = ({
+	name,
+	...props
+}: RHFSliderFieldProps) => {
 	const { control } = useFormContext();
 
 	return (
@@ -25,5 +28,3 @@ const RHFRangeSliderField = ({ name, ...props }: RHFSliderFieldProps) => {
 		/>
 	);
 };
-
-export default RHFRangeSliderField;

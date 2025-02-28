@@ -5,17 +5,17 @@ import { useCallback, useEffect, useState } from "react";
 import { debounce } from "lodash";
 import Slider from "rc-slider";
 
-import type { SliderFieldProps } from "@/shared/ui/fields/slider/types";
+import type { SliderFieldProps } from "@/shared/ui/fields/slider/model/types";
 
 import s from "./SliderField.module.scss";
 
-import { Input } from "../input";
-import { InputWrapper } from "../input-wrapper";
+import { Input } from "../../input";
+import { InputWrapper } from "../../input-wrapper";
 
 const NUMBER_REGEX = /^\d+$/;
 const DEBOUNCE_MS = 700;
 
-const SliderField = ({
+export const SliderField = ({
 	type,
 	value,
 	onChange,
@@ -185,5 +185,3 @@ const SliderField = ({
 		</div>
 	);
 };
-
-export default SliderField;

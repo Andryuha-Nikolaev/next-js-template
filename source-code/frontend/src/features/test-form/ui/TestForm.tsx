@@ -14,8 +14,7 @@ import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
 import { RHFRadioButton } from "@/shared/ui/fields/radio-button";
 import { RHFRangeDatePicker } from "@/shared/ui/fields/range-date-picker";
 import { RHFSelect } from "@/shared/ui/fields/select";
-import RHFRangeSliderField from "@/shared/ui/fields/slider/RHFRangeSliderField";
-import RHFSliderField from "@/shared/ui/fields/slider/RHFSliderField";
+import { RHFRangeSliderField, RHFSliderField } from "@/shared/ui/fields/slider";
 import { RHFTextarea } from "@/shared/ui/fields/textarea";
 import RootLink from "@/shared/ui/links/root/RootLink";
 import { valuesToFormData } from "@/shared/utils/form/submitUtils";
@@ -208,6 +207,7 @@ export const TestForm = () => {
 							time
 						/>
 						<RHFSliderField
+							disabled
 							label="Single slider"
 							name={FieldNames.SINGLE_SLIDER}
 						/>
