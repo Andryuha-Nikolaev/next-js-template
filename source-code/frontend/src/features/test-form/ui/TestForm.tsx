@@ -8,7 +8,7 @@ import { FieldNames } from "@/shared/constants/fields";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
 import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
-import { EmailInput } from "@/shared/ui/fields/email-input";
+import { RHFEmailInput } from "@/shared/ui/fields/email-input";
 import { RHFFileInput } from "@/shared/ui/fields/file";
 import { RHFInput } from "@/shared/ui/fields/input";
 import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
@@ -80,8 +80,8 @@ export const TestForm = () => {
 							placeholder="Фамилия"
 							label="Фамилия disabled"
 						/>
-						<RHFPhoneInput name={FieldNames.PHONE} label="Телефон" isRequired />
-						<EmailInput name={FieldNames.EMAIL} label="Email" />
+						<RHFPhoneInput name={FieldNames.PHONE} isRequired />
+						<RHFEmailInput name={FieldNames.EMAIL} />
 						<PasswordFields />
 						<RHFTextarea
 							name={FieldNames.TEXT}

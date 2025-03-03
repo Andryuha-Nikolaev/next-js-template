@@ -36,6 +36,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, InputProps>(
 
 		return (
 			<Input
+				label="Телефон"
 				type="tel"
 				placeholder="+7 (___) ___ __ __"
 				ref={(el) => {

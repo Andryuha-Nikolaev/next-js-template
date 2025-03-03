@@ -5,9 +5,10 @@ import { forwardRef } from "react";
 import { Input, type InputProps } from "../../input";
 
 export const EmailInput = forwardRef<HTMLInputElement, InputProps>(
-	({ onChange, ...props }, ref) => {
+	({ ...props }, ref) => {
 		return (
 			<Input
+				label="Email"
 				type="email"
 				placeholder="Email"
 				autoComplete="email"

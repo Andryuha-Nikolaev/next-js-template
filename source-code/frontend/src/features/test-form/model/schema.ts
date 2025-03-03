@@ -79,7 +79,7 @@ export const testFormSchema = z
 export type TestFormSchemaType = z.infer<typeof testFormSchema>;
 
 export const defaultValues: TestFormSchemaType = {
-	[FieldNames.FIRST_NAME]: "",
+	[FieldNames.FIRST_NAME]: "Андрей",
 	[FieldNames.LAST_NAME]: "Николаев",
 	[FieldNames.PHONE]: "",
 	[FieldNames.EMAIL]: "",
