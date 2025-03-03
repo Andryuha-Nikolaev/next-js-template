@@ -13,9 +13,9 @@
 }
 
 .button {
-	width: convert-px2rem(20);
+	width: convert-px2rem(24);
 
-	height: convert-px2rem(20);
+	height: convert-px2rem(24);
 	@include flex-center;
 	@include hover-opacity;
 

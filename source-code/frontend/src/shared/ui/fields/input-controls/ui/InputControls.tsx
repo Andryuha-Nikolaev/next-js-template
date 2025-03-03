@@ -16,7 +16,7 @@ export const InputControls = ({
 	hiddenReset,
 }: InputControlsProps) => {
 	return (
-		<span className={s.buttons}>
+		<div className={s.buttons}>
 			{type === "password" && !!togglePasswordVisibility && isFilled && (
 				<EyeButton
 					onMouseDown={(e) => {
@@ -48,6 +48,6 @@ export const InputControls = ({
 					className={s.reset}
 				/>
 			)}
-		</span>
+		</div>
 	);
 };

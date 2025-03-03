@@ -6,24 +6,32 @@
 
 .buttons {
 	position: absolute;
-	right: convert-px2rem(16);
+	right: convert-px2rem(10);
 	top: 0;
 	// height: convert-px2rem(var(--input-height-number));
 	height: 100%;
 	max-height: convert-px2rem(var(--input-height-number));
 	@include flex-center;
 	flex-direction: row;
-	gap: convert-px2rem(4);
 }
 
 .reset {
-	width: convert-px2rem(16) !important;
-	height: convert-px2rem(16) !important;
+	width: convert-px2rem(24) !important;
+	height: convert-px2rem(24) !important;
+
+	svg {
+		width: 18px !important;
+	}
 }
 
 .calendar {
-	width: convert-px2rem(16) !important;
-	height: convert-px2rem(16) !important;
+	width: convert-px2rem(24) !important;
+	height: convert-px2rem(24) !important;
 	@include flex-center;
 	@include hover-opacity;
+
+	svg {
+		width: 16px;
+		height: auto;
+	}
 }
