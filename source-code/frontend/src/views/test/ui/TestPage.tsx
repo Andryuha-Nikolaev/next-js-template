@@ -5,7 +5,7 @@ import { useRouter } from "nextjs-toploader/app";
 
 import { ModalId, ModalSearchParams } from "@/features/modal/constants";
 import { useModal } from "@/features/modal/context/ModalProvider";
-import { TestForm } from "@/features/test-form";
+import { TestForm } from "@/features/send-test-form";
 import ContentLayout from "@/shared/layouts/content/ContentLayout";
 import RootButton from "@/shared/ui/buttons/root/RootButton";
 import RootLink from "@/shared/ui/links/root/RootLink";
