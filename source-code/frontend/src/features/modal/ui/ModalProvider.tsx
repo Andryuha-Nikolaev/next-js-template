@@ -3,12 +3,15 @@
 import type React from "react";
 import { createContext, Suspense, useContext, useState } from "react";
 
-import type { ModalConfigProps, ModalProps } from "@/features/modal/types";
+import type {
+	ModalConfigProps,
+	ModalProps,
+} from "@/features/modal/model/types";
 import Modal from "@/features/modal/ui/Modal";
 import { ErrorMessages } from "@/shared/constants/errorMessages";
 import useChangeQueryParams from "@/shared/hooks/query-params/useChangeQueryParams";
 
-import { ModalSearchParams } from "../constants";
+import { ModalSearchParams } from "../config/constants";
 
 const ModalContext = createContext<ModalProps>({
 	modalConfig: null,
@@ -21,7 +24,7 @@ const ModalContext = createContext<ModalProps>({
 
 export const useModal = () => useContext(ModalContext);
 
-const ModalProvider = ({ children }: { children: React.ReactNode }) => {
+export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 	const [modalConfig, setModalConfig] = useState<ModalConfigProps>(null);
 	const [isShown, setIsShown] = useState(false);
 
@@ -88,5 +91,3 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		</ModalContext.Provider>
 	);
 };
-
-export default ModalProvider;

@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
-import { ModalId, ModalSearchParams } from "@/features/modal/constants";
-import { useModal } from "@/features/modal/context/ModalProvider";
+import { ModalId, ModalSearchParams } from "@/features/modal/config/constants";
+import { useModal } from "@/features/modal/ui/ModalProvider";
 import { TestForm } from "@/features/send-test-form";
 import ContentLayout from "@/shared/layouts/content/ContentLayout";
 import RootButton from "@/shared/ui/buttons/root/RootButton";

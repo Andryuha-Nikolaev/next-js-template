@@ -2,19 +2,19 @@ import { useEffect } from "react";
 
 import clsx from "clsx";
 
-import { useModal } from "@/features/modal/context/ModalProvider";
+import { useModal } from "@/features/modal/ui/ModalProvider";
 import useGetQueryParams from "@/shared/hooks/query-params/useGetQueryParams";
 import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
 import CustomScrollLayout from "@/shared/layouts/custom-scroll/CustomScrollLayout";
 import CloseButton from "@/shared/ui/buttons/close/CloseButton";
 import Overlay from "@/shared/ui/overlay/Overlay";
 
-import DefaultModal from "./components/default/DefaultModal";
-import FeedbackModal from "./components/feedback/FeedbackModal";
+import DefaultModal from "./default/DefaultModal";
+import FeedbackModal from "./feedback/FeedbackModal";
 import s from "./Modal.module.scss";
 
-import { ModalId, ModalSearchParams } from "../constants";
-import type { ModalComponentsMap } from "../types";
+import { ModalId, ModalSearchParams } from "../config/constants";
+import type { ModalComponentsMap } from "../model/types";
 
 const Modal = () => {
 	const modalContext = useModal();

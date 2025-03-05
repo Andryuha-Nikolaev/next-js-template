@@ -1,6 +1,6 @@
 "use client";
 
-import ModalProvider from "@/features/modal/context/ModalProvider";
+import { ModalProvider } from "@/features/modal";
 import { SiteStateProvider } from "@/shared/context/site";
 
 export interface ProvidersProps {

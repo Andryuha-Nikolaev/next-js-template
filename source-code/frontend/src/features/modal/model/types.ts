@@ -1,4 +1,4 @@
-import type { ModalId } from "@/features/modal/constants";
+import type { ModalId } from "@/features/modal/config/constants";
 
 export type ModalConfigProps = {
 	modalId?: ModalId;

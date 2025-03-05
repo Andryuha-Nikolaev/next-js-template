@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import { useModal } from "@/features/modal/context/ModalProvider";
+import { useModal } from "@/features/modal/ui/ModalProvider";
 import { FieldNames } from "@/shared/constants/fields";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";

@@ -1,10 +1,10 @@
 import parse from "html-react-parser";
 
-import { useModal } from "@/features/modal/context/ModalProvider";
-import ErrorIcon from "@/features/modal/ui/components/default/icons/error/ErrorIcon";
-import SuccessIcon from "@/features/modal/ui/components/default/icons/success/SuccessIcon";
+import { useModal } from "@/features/modal/ui/ModalProvider";
 
 import s from "./DefaultModal.module.scss";
+import ErrorIcon from "./icons/error/ErrorIcon";
+import SuccessIcon from "./icons/success/SuccessIcon";
 
 const DefaultModal = () => {
 	const { modalConfig } = useModal();
