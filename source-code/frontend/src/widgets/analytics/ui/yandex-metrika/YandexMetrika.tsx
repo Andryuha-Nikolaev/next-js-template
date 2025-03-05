@@ -3,7 +3,7 @@ import Script from "next/script";
 export default function YandexMetrika() {
 	const counterId = process.env.NEXT_PUBLIC_YANDEX_METRIKA_KEY;
 
-	if (!counterId || !process.env.NEXT_PUBLIC_YANDEX_METRIKA_ENABLED) {
+	if (!counterId || process.env.NEXT_PUBLIC_YANDEX_METRIKA_ENABLED !== "true") {
 		return null;
 	}
 
