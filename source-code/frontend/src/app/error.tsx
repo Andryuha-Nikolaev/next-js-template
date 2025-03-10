@@ -2,29 +2,14 @@
 
 import { useEffect } from "react";
 
-import Link from "next/link";
+import { ErrorPage } from "@/views/error";
 
-import routesConstants from "@/shared/constants/routes";
-import { ContentLayout } from "@/shared/layouts/content-layout";
-import { RootButton } from "@/shared/ui/buttons/root";
-
-export default function Error({
-	error,
-}: {
-	error: Error;
-	// reset: () => void;
-}) {
+export default function Error({ error }: { error: Error }) {
 	useEffect(() => {
 		console.error(error);
 	}, [error]);
 
 	return (
-		<ContentLayout>
-			<h2>{error.message}</h2>
-
-			<RootButton as={Link} href={routesConstants.HOME.url}>
-				На главную
-			</RootButton>
-		</ContentLayout>
+		<ErrorPage title="Что-то пошло не так" subtitle={error.message ?? ""} />
 	);
 }
