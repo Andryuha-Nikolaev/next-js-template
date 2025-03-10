@@ -1,6 +1,6 @@
 import parse from "html-react-parser";
 
-import ContentLayout from "@/shared/layouts/content/ContentLayout";
+import { ContentLayout } from "@/shared/layouts/content-layout";
 
 import s from "./TestCustomPage.module.scss";
 import type { CustomPage } from "./types";

@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import { useSiteState } from "@/shared/context/site";
 import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
-import ContentLayout from "@/shared/layouts/content/ContentLayout";
+import { ContentLayout } from "@/shared/layouts/content-layout";
 import CustomScrollLayout from "@/shared/layouts/custom-scroll/CustomScrollLayout";
 
 import s from "./Burger.module.scss";

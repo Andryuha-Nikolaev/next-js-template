@@ -4,13 +4,11 @@ import clsx from "clsx";
 
 import s from "./ContentLayout.module.scss";
 
-interface ContentLayoutProps {
+type ContentLayoutProps = {
 	children: React.ReactNode;
 	className?: string;
-}
-
-const ContentLayout = ({ children, className }: ContentLayoutProps) => {
-	return <div className={clsx(s.block, className)}>{children}</div>;
 };
 
-export default ContentLayout;
+export const ContentLayout = ({ children, className }: ContentLayoutProps) => {
+	return <div className={clsx(s.block, className)}>{children}</div>;
+};

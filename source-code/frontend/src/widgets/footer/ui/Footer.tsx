@@ -1,4 +1,4 @@
-import ContentLayout from "@/shared/layouts/content/ContentLayout";
+import { ContentLayout } from "@/shared/layouts/content-layout";
 
 import s from "./Footer.module.scss";
 

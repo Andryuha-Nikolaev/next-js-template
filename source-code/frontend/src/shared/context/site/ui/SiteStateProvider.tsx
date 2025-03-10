@@ -1,7 +1,7 @@
 import type React from "react";
 import { createContext, useContext, useState } from "react";
 
-import type { SiteStateType } from "./types";
+import type { SiteStateType } from "../model/types";
 
 const SiteContext = createContext<SiteStateType>({
 	isOpenBurger: false,
