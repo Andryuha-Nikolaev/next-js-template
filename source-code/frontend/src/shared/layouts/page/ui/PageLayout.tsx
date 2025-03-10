@@ -10,7 +10,7 @@ interface PageLayoutProps {
 	children: React.ReactNode;
 }
 
-const PageLayout = ({ children }: PageLayoutProps) => {
+export const PageLayout = ({ children }: PageLayoutProps) => {
 	return (
 		<div
 			className={clsx(s.block, siteConstants.IS_FIXED_HEADER && s.fixedHeader)}
@@ -19,5 +19,3 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 		</div>
 	);
 };
-
-export default PageLayout;

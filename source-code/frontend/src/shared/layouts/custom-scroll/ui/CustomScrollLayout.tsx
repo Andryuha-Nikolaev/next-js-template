@@ -7,12 +7,12 @@ import SimpleBar from "simplebar-react";
 
 import s from "./CustomScrollLayout.module.scss";
 
-interface CustomScrollLayoutProps {
+type CustomScrollLayoutProps = {
 	children: React.ReactNode;
 	className: string;
-}
+};
 
-const CustomScrollLayout = ({
+export const CustomScrollLayout = ({
 	children,
 	className,
 }: CustomScrollLayoutProps) => {
@@ -25,5 +25,3 @@ const CustomScrollLayout = ({
 		</SimpleBar>
 	);
 };
-
-export default CustomScrollLayout;
