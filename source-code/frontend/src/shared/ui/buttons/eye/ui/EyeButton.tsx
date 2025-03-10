@@ -2,16 +2,19 @@
 
 import type { ButtonHTMLAttributes } from "react";
 
-import EyeClosed from "@/shared/ui/buttons/eye/icons/eye/EyeClosed";
-import EyeOpened from "@/shared/ui/buttons/eye/icons/eye/EyeOpened";
-
 import s from "./EyeButton.module.scss";
+import { EyeClosed } from "./icons/eye/EyeClosed";
+import { EyeOpened } from "./icons/eye/EyeOpened";
 
 interface EyeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	isVisible: boolean;
 }
 
-const EyeButton = ({ isVisible, onClick, ...restProps }: EyeButtonProps) => {
+export const EyeButton = ({
+	isVisible,
+	onClick,
+	...restProps
+}: EyeButtonProps) => {
 	return (
 		<button
 			aria-label="Показать пароль"
@@ -24,5 +27,3 @@ const EyeButton = ({ isVisible, onClick, ...restProps }: EyeButtonProps) => {
 		</button>
 	);
 };
-
-export default EyeButton;

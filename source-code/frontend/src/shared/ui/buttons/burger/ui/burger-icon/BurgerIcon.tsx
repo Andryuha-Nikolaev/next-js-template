@@ -1,4 +1,4 @@
-const BurgerIcon = () => {
+export const BurgerIcon = () => {
 	return (
 		<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
 			<path
@@ -9,5 +9,3 @@ const BurgerIcon = () => {
 		</svg>
 	);
 };
-
-export default BurgerIcon;

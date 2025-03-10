@@ -1,5 +1,5 @@
-import CloseButton from "@/shared/ui/buttons/close/CloseButton";
-import EyeButton from "@/shared/ui/buttons/eye/EyeButton";
+import { CloseButton } from "@/shared/ui/buttons/close";
+import { EyeButton } from "@/shared/ui/buttons/eye";
 
 import CalendarIcon from "./icons/calendar-icon/CalendarIcon";
 import s from "./InputControls.module.scss";

@@ -2,15 +2,14 @@ import type { ButtonHTMLAttributes } from "react";
 
 import clsx from "clsx";
 
-import CloseIcon from "@/shared/ui/buttons/close/icons/close-icon/CloseIcon";
-
 import s from "./CloseButton.module.scss";
+import { CloseIcon } from "./icons/close-icon/CloseIcon";
 
 interface CloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 }
 
-const CloseButton = ({
+export const CloseButton = ({
 	onClick,
 	className,
 	...restProps
@@ -27,5 +26,3 @@ const CloseButton = ({
 		</button>
 	);
 };
-
-export default CloseButton;

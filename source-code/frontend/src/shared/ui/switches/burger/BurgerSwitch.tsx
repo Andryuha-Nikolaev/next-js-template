@@ -4,8 +4,8 @@ import { useSiteState } from "@/shared/context/site";
 
 import s from "./BurgerSwitch.module.scss";
 
-import BurgerButton from "../../buttons/burger/BurgerButton";
-import CloseButton from "../../buttons/close/CloseButton";
+import { BurgerButton } from "../../buttons/burger";
+import { CloseButton } from "../../buttons/close";
 
 const BurgerSwitch = () => {
 	const { isOpenBurger, switchBurger } = useSiteState();

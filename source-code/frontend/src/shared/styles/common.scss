@@ -1,6 +1,5 @@
 @import "./functions/convert-px2rem";
 @import "./mixins/typography";
-@import "./mixins/square-size";
 
 html {
 	scroll-padding-top: calc(var(--header-height-number) * 1px);

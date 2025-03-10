@@ -6,7 +6,7 @@ import { useModal } from "@/features/modal/ui/ModalProvider";
 import useGetQueryParams from "@/shared/hooks/query-params/useGetQueryParams";
 import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
 import { CustomScrollLayout } from "@/shared/layouts/custom-scroll";
-import CloseButton from "@/shared/ui/buttons/close/CloseButton";
+import { CloseButton } from "@/shared/ui/buttons/close";
 import Overlay from "@/shared/ui/overlay/Overlay";
 
 import DefaultModal from "./default/DefaultModal";

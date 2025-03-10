@@ -1,4 +1,4 @@
-const EyeClosed = () => {
+export const EyeClosed = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -14,5 +14,3 @@ const EyeClosed = () => {
 		</svg>
 	);
 };
-
-export default EyeClosed;

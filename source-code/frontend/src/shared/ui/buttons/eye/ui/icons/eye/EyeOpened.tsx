@@ -1,4 +1,4 @@
-const EyeOpened = () => {
+export const EyeOpened = () => {
 	return (
 		<svg width="20" height="20" fill="none" viewBox="0 0 20 20">
 			<path
@@ -12,5 +12,3 @@ const EyeOpened = () => {
 		</svg>
 	);
 };
-
-export default EyeOpened;
