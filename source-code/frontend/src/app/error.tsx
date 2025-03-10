@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import routesConstants from "@/shared/constants/routes";
 import { ContentLayout } from "@/shared/layouts/content-layout";
-import RootButton from "@/shared/ui/buttons/root/RootButton";
+import { RootButton } from "@/shared/ui/buttons/root";
 
 export default function Error({
 	error,

@@ -7,9 +7,9 @@ import { ModalId, ModalSearchParams } from "@/features/modal/config/constants";
 import { useModal } from "@/features/modal/ui/ModalProvider";
 import { TestForm } from "@/features/send-test-form";
 import { ContentLayout } from "@/shared/layouts/content-layout";
-import RootButton from "@/shared/ui/buttons/root/RootButton";
-import RootLink from "@/shared/ui/links/root/RootLink";
-import Social from "@/shared/ui/social/Social";
+import { RootButton } from "@/shared/ui/buttons/root";
+import { RootLink } from "@/shared/ui/links/root";
+import { Social } from "@/shared/ui/social";
 
 import s from "./TestPage.module.scss";
 

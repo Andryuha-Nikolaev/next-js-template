@@ -2,7 +2,7 @@
 
 import { forwardRef, useEffect, useId, useMemo, useRef } from "react";
 
-import RootButton from "@/shared/ui/buttons/root/RootButton";
+import { RootButton } from "@/shared/ui/buttons/root";
 import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
 
 import s from "./FileInput.module.scss";

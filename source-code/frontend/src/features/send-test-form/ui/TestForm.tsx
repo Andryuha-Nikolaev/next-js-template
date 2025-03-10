@@ -17,13 +17,13 @@ import { RHFRangeDatePicker } from "@/shared/ui/fields/range-date-picker";
 import { RHFSelect } from "@/shared/ui/fields/select";
 import { RHFRangeSliderField, RHFSliderField } from "@/shared/ui/fields/slider";
 import { RHFTextarea } from "@/shared/ui/fields/textarea";
-import RootLink from "@/shared/ui/links/root/RootLink";
+import { FormWrapper } from "@/shared/ui/form/form-wrapper";
+import { RootLink } from "@/shared/ui/links/root";
 import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
 import PasswordFields from "./password-fields/PasswordFields";
 import s from "./TestForm.module.scss";
 
-import FormWrapper from "../../../shared/ui/form/form-wrapper/FormWrapper";
 import { sendTestForm } from "../api/actions";
 import {
 	defaultValues,

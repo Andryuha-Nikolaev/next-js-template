@@ -1,19 +1,11 @@
-import type React from "react";
-
 import parse from "html-react-parser";
-
-import RootButton from "@/shared/ui/buttons/root/RootButton";
 
 import s from "./FormWrapper.module.scss";
 
-interface FormWrapperProps {
-	children: React.ReactNode;
-	title: string;
-	buttonText?: string;
-	isLoading: boolean;
-}
+import { RootButton } from "../../../buttons/root";
+import type { FormWrapperProps } from "../model/types";
 
-const FormWrapper = ({
+export const FormWrapper = ({
 	children,
 	title,
 	buttonText = "Отправить",
@@ -31,5 +23,3 @@ const FormWrapper = ({
 		</div>
 	);
 };
-
-export default FormWrapper;

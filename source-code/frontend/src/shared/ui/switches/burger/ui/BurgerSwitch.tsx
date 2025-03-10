@@ -4,10 +4,10 @@ import { useSiteState } from "@/shared/context/site";
 
 import s from "./BurgerSwitch.module.scss";
 
-import { BurgerButton } from "../../buttons/burger";
-import { CloseButton } from "../../buttons/close";
+import { BurgerButton } from "../../../buttons/burger";
+import { CloseButton } from "../../../buttons/close";
 
-const BurgerSwitch = () => {
+export const BurgerSwitch = () => {
 	const { isOpenBurger, switchBurger } = useSiteState();
 
 	return (
@@ -20,5 +20,3 @@ const BurgerSwitch = () => {
 		</div>
 	);
 };
-
-export default BurgerSwitch;

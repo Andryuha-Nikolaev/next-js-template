@@ -1,17 +1,10 @@
-import type React from "react";
-
 import clsx from "clsx";
 
 import s from "./Overlay.module.scss";
 
-interface OverlayProps {
-	children: React.ReactNode;
-	onMouseDown: () => void;
-	isShown: boolean;
-	className?: string;
-}
+import type { OverlayProps } from "../model/types";
 
-const Overlay = ({
+export const Overlay = ({
 	children,
 	isShown,
 	onMouseDown,
@@ -27,5 +20,3 @@ const Overlay = ({
 		</div>
 	);
 };
-
-export default Overlay;
