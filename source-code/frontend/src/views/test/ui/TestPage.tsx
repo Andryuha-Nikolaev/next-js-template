@@ -163,7 +163,7 @@ export const TestPage = () => {
 					<hr style={{ width: "100%" }} />
 					<h2>tooltips:</h2>
 					<Tooltip message="custom tooltip">
-						<RootButton>Custom tooltip</RootButton>
+						<RootButton as="span">Custom tooltip</RootButton>
 					</Tooltip>
 					<Tooltip message="success tooltip" type="success" />
 					<Tooltip message="error tooltip" type="error" />

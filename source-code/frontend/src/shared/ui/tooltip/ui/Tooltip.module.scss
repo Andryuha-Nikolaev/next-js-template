@@ -136,11 +136,11 @@
 }
 
 .icon {
-	min-width: convert-px2rem(32);
-	min-height: convert-px2rem(32);
+	min-width: convert-px2rem(24);
+	min-height: convert-px2rem(24);
 
 	svg {
-		width: convert-px2rem(24);
+		width: 100%;
 		height: auto;
 	}
 	@include flex-center;
