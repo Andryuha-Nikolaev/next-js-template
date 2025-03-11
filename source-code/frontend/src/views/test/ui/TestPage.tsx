@@ -10,6 +10,7 @@ import { ContentLayout } from "@/shared/layouts/content-layout";
 import { RootButton } from "@/shared/ui/buttons/root";
 import { RootLink } from "@/shared/ui/links/root";
 import { Social } from "@/shared/ui/social";
+import { Tooltip } from "@/shared/ui/tooltip";
 
 import s from "./TestPage.module.scss";
 
@@ -159,6 +160,9 @@ export const TestPage = () => {
 					>
 						showFeedbackModal with query
 					</RootButton>
+					<hr style={{ width: "100%" }} />
+					<h2>tooltips:</h2>
+					<Tooltip message="success tooltip" type="success" />
 					<hr style={{ width: "100%" }} />
 					<h2 id="form">Forms:</h2>
 					<TestForm />

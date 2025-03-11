@@ -27,14 +27,20 @@ $breakpoints: (
 	}
 }
 
+@mixin md-max {
+	@media (max-width: calc(#{map-get($breakpoints, "md")} - 1px)) {
+		@content;
+	}
+}
+
 @mixin md2 {
 	@media (min-width: map-get($breakpoints, "md2")) {
 		@content;
 	}
 }
 
-@mixin md-max {
-	@media (max-width: calc(#{map-get($breakpoints, "md")} - 1px)) {
+@mixin md2-max {
+	@media (max-width: calc(#{map-get($breakpoints, "md2")} - 1px)) {
 		@content;
 	}
 }
