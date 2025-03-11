@@ -6,8 +6,7 @@ const BurgerNavbar = () => {
 	return (
 		<div className={s.block}>
 			BurgerNavbar
-			<Link href={"/test#form"}>TEST FORM</Link>{" "}
-			<Link href={"/test/auth"}>Auth</Link>
+			<Link href={"/test#form"}>TEST FORM</Link>
 		</div>
 	);
 };
