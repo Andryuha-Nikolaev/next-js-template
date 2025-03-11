@@ -23,7 +23,7 @@ const Icons = {
 export const Tooltip = ({
 	onClick = () => {},
 	position = "right",
-	mobilePosition = "rightMobile",
+	mobilePosition = "topMobile",
 	children,
 	type,
 	message,

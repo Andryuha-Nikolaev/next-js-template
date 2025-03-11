@@ -162,7 +162,17 @@ export const TestPage = () => {
 					</RootButton>
 					<hr style={{ width: "100%" }} />
 					<h2>tooltips:</h2>
+					<Tooltip message="custom tooltip">
+						<RootButton>Custom tooltip</RootButton>
+					</Tooltip>
 					<Tooltip message="success tooltip" type="success" />
+					<Tooltip message="error tooltip" type="error" />
+					<Tooltip
+						message="alert tooltip"
+						type="alert"
+						onClick={() => alert("tooltip callback")}
+					/>
+					<Tooltip message="question tooltip" type="question" />
 					<hr style={{ width: "100%" }} />
 					<h2 id="form">Forms:</h2>
 					<TestForm />

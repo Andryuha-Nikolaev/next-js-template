@@ -25,6 +25,10 @@
 .triangle {
 	position: absolute;
 	width: convert-px2rem(12);
+	svg {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .popup {
@@ -43,9 +47,35 @@
 	background-color: var(--background);
 	z-index: 5;
 
+	&.top {
+		@include md2 {
+			left: 50%;
+			bottom: calc(100% + 10px);
+			transform: translateX(-50%);
+			.triangle {
+				left: 50%;
+				top: calc(100% - 4px);
+				transform: translateX(-50%) rotate(-90deg);
+			}
+		}
+	}
+
+	&.topMobile {
+		@include md2-max {
+			left: 50%;
+			bottom: calc(100% + 10px);
+			transform: translateX(-50%);
+			.triangle {
+				left: 50%;
+				top: calc(100% - 4px);
+				transform: translateX(-50%) rotate(-90deg);
+			}
+		}
+	}
+
 	&.rightMobile {
 		@include md2-max {
-			left: calc(100% + 8px);
+			left: calc(100% + 10px);
 			top: 50%;
 			transform: translateY(-50%);
 			.triangle {
@@ -58,7 +88,7 @@
 
 	&.leftMobile {
 		@include md2-max {
-			right: calc(100% + 8px);
+			right: calc(100% + 10px);
 			top: 50%;
 			transform: translateY(-50%);
 			.triangle {
@@ -71,7 +101,7 @@
 
 	&.right {
 		@include md2 {
-			left: calc(100% + 8px);
+			left: calc(100% + 10px);
 			top: 50%;
 			transform: translateY(-50%);
 			.triangle {
@@ -84,7 +114,7 @@
 
 	&.left {
 		@include md2 {
-			right: calc(100% + 8px);
+			right: calc(100% + 10px);
 			top: 50%;
 			transform: translateY(-50%);
 			.triangle {
@@ -102,8 +132,7 @@
 }
 
 .message {
-	font-size: convert-px2rem(12);
-	line-height: 1.4;
+	@include additional-text;
 }
 
 .icon {
