@@ -5,7 +5,7 @@ $breakpoints: (
 	"md": 768px,
 	"md2": 1024px,
 	"lg": 1280px,
-	"xl": 1445px,
+	"xl": 1440px,
 	"xxl": 1921px,
 );
 
@@ -47,6 +47,12 @@ $breakpoints: (
 
 @mixin lg {
 	@media (min-width: map-get($breakpoints, "lg")) {
+		@content;
+	}
+}
+
+@mixin lg-max {
+	@media (max-width: calc(#{map-get($breakpoints, "lg")} - 1px)) {
 		@content;
 	}
 }

@@ -23,7 +23,7 @@ const Icons = {
 export const Tooltip = ({
 	onClick = () => {},
 	position = "right",
-	mobilePosition = "topMobile",
+	mobilePosition = "top",
 	children,
 	type,
 	message,
@@ -73,7 +73,7 @@ export const Tooltip = ({
 				<div
 					className={clsx(
 						s.popup,
-						s[mobilePosition],
+						s[`${mobilePosition}Mobile`],
 						s[position],
 						isOpen && s.open
 					)}

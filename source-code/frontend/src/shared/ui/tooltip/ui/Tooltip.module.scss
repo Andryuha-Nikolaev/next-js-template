@@ -31,6 +31,50 @@
 	}
 }
 
+@mixin top {
+	left: 50%;
+	bottom: calc(100% + 12px);
+	transform: translateX(-50%);
+	.triangle {
+		left: 50%;
+		top: calc(100% - 4px);
+		transform: translateX(-50%) rotate(-90deg);
+	}
+}
+
+@mixin bottom {
+	left: 50%;
+	top: calc(100% + 12px);
+	transform: translateX(-50%);
+	.triangle {
+		left: 50%;
+		bottom: calc(100% - 4px);
+		transform: translateX(-50%) rotate(90deg);
+	}
+}
+
+@mixin right {
+	left: calc(100% + 12px);
+	top: 50%;
+	transform: translateY(-50%);
+	.triangle {
+		right: calc(100% - 2px);
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+@mixin left {
+	right: calc(100% + 12px);
+	top: 50%;
+	transform: translateY(-50%);
+	.triangle {
+		left: calc(100% - 2px);
+		top: 50%;
+		transform: translateY(-50%) rotate(180deg);
+	}
+}
+
 .popup {
 	opacity: 0;
 	visibility: hidden;
@@ -48,80 +92,50 @@
 	z-index: 5;
 
 	&.top {
-		@include md2 {
-			left: 50%;
-			bottom: calc(100% + 10px);
-			transform: translateX(-50%);
-			.triangle {
-				left: 50%;
-				top: calc(100% - 4px);
-				transform: translateX(-50%) rotate(-90deg);
-			}
+		@include lg {
+			@include top();
 		}
 	}
 
 	&.topMobile {
-		@include md2-max {
-			left: 50%;
-			bottom: calc(100% + 10px);
-			transform: translateX(-50%);
-			.triangle {
-				left: 50%;
-				top: calc(100% - 4px);
-				transform: translateX(-50%) rotate(-90deg);
-			}
+		@include lg-max {
+			@include top();
 		}
 	}
 
-	&.rightMobile {
-		@include md2-max {
-			left: calc(100% + 10px);
-			top: 50%;
-			transform: translateY(-50%);
-			.triangle {
-				right: calc(100% - 2px);
-				top: 50%;
-				transform: translateY(-50%);
-			}
+	&.bottom {
+		@include lg {
+			@include bottom();
 		}
 	}
 
-	&.leftMobile {
-		@include md2-max {
-			right: calc(100% + 10px);
-			top: 50%;
-			transform: translateY(-50%);
-			.triangle {
-				left: calc(100% - 2px);
-				top: 50%;
-				transform: translateY(-50%) rotate(180deg);
-			}
+	&.bottomMobile {
+		@include lg-max {
+			@include bottom();
 		}
 	}
 
 	&.right {
-		@include md2 {
-			left: calc(100% + 10px);
-			top: 50%;
-			transform: translateY(-50%);
-			.triangle {
-				right: calc(100% - 2px);
-				top: 50%;
-				transform: translateY(-50%);
-			}
+		@include lg {
+			@include right();
+		}
+	}
+
+	&.rightMobile {
+		@include lg-max {
+			@include right();
 		}
 	}
 
 	&.left {
-		@include md2 {
-			right: calc(100% + 10px);
-			top: 50%;
-			transform: translateY(-50%);
-			.triangle {
-				left: calc(100% - 2px);
-				top: 50%;
-				transform: translateY(-50%);
-			}
+		@include lg {
+			@include left();
+		}
+	}
+
+	&.leftMobile {
+		@include lg-max {
+			@include left();
 		}
 	}
 

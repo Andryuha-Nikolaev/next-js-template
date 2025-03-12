@@ -1,7 +1,9 @@
+type Position = "right" | "left" | "top" | "bottom";
+
 export type TooltipProps = {
 	onClick?: () => void;
-	position?: "right" | "left" | "top";
-	mobilePosition?: "rightMobile" | "leftMobile" | "topMobile";
+	position?: Position;
+	mobilePosition?: Position;
 	children?: React.ReactNode;
 	type?: "success" | "error" | "question" | "alert";
 	message?: string;

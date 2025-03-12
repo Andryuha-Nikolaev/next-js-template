@@ -165,12 +165,19 @@ export const TestPage = () => {
 					<Tooltip message="custom tooltip">
 						<RootButton as="span">Custom tooltip</RootButton>
 					</Tooltip>
-					<Tooltip message="success tooltip" type="success" />
-					<Tooltip message="error tooltip" type="error" />
+					<Tooltip
+						position="left"
+						mobilePosition="bottom"
+						message="success tooltip"
+						type="success"
+					/>
+					<Tooltip message="error tooltip" type="error" position="top" />
 					<Tooltip
 						message="alert tooltip"
 						type="alert"
 						onClick={() => alert("tooltip callback")}
+						position="bottom"
+						mobilePosition="bottom"
 					/>
 					<Tooltip message="question tooltip" type="question" />
 					<hr style={{ width: "100%" }} />
