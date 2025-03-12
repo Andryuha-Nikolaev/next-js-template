@@ -14,7 +14,7 @@ export const ErrorPage = ({ code, title, subtitle }: ErrorPageProps) => {
 			<ContentLayout>
 				<div className={s.wrap}>
 					<p className={s.code}>Ошибка {code && code}</p>
-					<h2 className={s.title}>{title}</h2>
+					<h1 className={s.title}>{title}</h1>
 					<p className={s.subtitle}>{subtitle}</p>
 					<div className={s.btnWrap}>
 						<RootButton as={Link} href={routesConstants.HOME.url}>

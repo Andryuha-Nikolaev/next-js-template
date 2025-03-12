@@ -9,15 +9,15 @@
 	}
 
 	.simplebar-vertical {
-		top: 7px !important;
-		bottom: 7px !important;
-		width: 8px !important;
-		right: convert-px2rem(5);
+		top: 6px !important;
+		bottom: 6px !important;
+		width: 10px !important;
+		right: 2px !important;
 	}
 
 	.simplebar-horizontal {
-		height: 8px !important;
-
+		height: 10px !important;
+		border: 2px !important;
 		.simplebar-scrollbar:before {
 			left: 0 !important;
 
