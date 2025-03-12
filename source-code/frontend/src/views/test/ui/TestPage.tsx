@@ -7,6 +7,7 @@ import { ModalId, ModalSearchParams } from "@/features/modal/config/constants";
 import { useModal } from "@/features/modal/ui/ModalProvider";
 import { TestForm } from "@/features/send-test-form";
 import { ContentLayout } from "@/shared/layouts/content-layout";
+import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
 import { RootButton } from "@/shared/ui/buttons/root";
 import { RootLink } from "@/shared/ui/links/root";
 import { Social } from "@/shared/ui/social";
@@ -161,7 +162,7 @@ export const TestPage = () => {
 						showFeedbackModal with query
 					</RootButton>
 					<hr style={{ width: "100%" }} />
-					<h2>tooltips:</h2>
+					<h2>Tooltips:</h2>
 					<Tooltip message="custom tooltip">
 						<RootButton as="span">Custom tooltip</RootButton>
 					</Tooltip>
@@ -180,6 +181,19 @@ export const TestPage = () => {
 						mobilePosition="bottom"
 					/>
 					<Tooltip message="question tooltip" type="question" />
+					<hr style={{ width: "100%" }} />
+					<h2>Breadcrumbs:</h2>
+					<Breadcrumbs
+						breadcrumbs={[
+							{ name: "Тест", url: "/test" },
+							{ name: "Тест", url: "/test" },
+							{ name: "Тест", url: "/test" },
+							{
+								name: "ТестТестТестТестТестТестТестТестТестТестТестТестТест Тест Тест Тест Тест Тест Тест Тест Тест",
+								url: "/test",
+							},
+						]}
+					/>
 					<hr style={{ width: "100%" }} />
 					<h2 id="form">Forms:</h2>
 					<TestForm />
