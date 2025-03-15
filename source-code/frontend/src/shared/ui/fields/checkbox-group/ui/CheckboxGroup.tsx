@@ -56,7 +56,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 								)
 							}
 						>
-							<p className={s.text}>{chooseAllCheckbox}</p>
+							{chooseAllCheckbox}
 						</Checkbox>
 					)}
 					{items.map((item, i) => (
@@ -69,11 +69,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 							value={item.value}
 							onChange={(e) => handleChange(e.target.value)}
 						>
-							{typeof item.label === "string" ? (
-								<p className={s.text}>{parse(item.label)}</p>
-							) : (
-								item.label
-							)}
+							{typeof item.label === "string" ? parse(item.label) : item.label}
 						</Checkbox>
 					))}
 				</div>

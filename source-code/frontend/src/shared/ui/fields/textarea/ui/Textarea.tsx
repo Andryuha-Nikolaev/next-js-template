@@ -40,12 +40,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 				isRequired={isRequired}
 				id={id}
 			>
-				<span className={wrapClassNames}>
+				<div className={wrapClassNames}>
 					<textarea id={id} ref={ref} className={s.input} {...restProps} />
 					{!restProps.disabled && (
 						<InputControls isFilled={isFilled} onReset={onReset} />
 					)}
-				</span>
+				</div>
 			</InputWrapper>
 		);
 	}

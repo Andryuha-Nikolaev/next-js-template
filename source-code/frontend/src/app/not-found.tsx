@@ -1,18 +1,11 @@
-import Link from "next/link";
-
-import routesConstants from "@/shared/constants/routes";
-import ContentLayout from "@/shared/layouts/content/ContentLayout";
-import RootButton from "@/shared/ui/buttons/root/RootButton";
+import { ErrorPage } from "@/views/error";
 
 export default function NotFound() {
 	return (
-		<ContentLayout>
-			<h2>Not found 404</h2>
-			<div>
-				<RootButton as={Link} href={routesConstants.HOME.url}>
-					На главную
-				</RootButton>
-			</div>
-		</ContentLayout>
+		<ErrorPage
+			code={404}
+			title="Что-то пошло не так"
+			subtitle="Страница не существует или переехала"
+		/>
 	);
 }

@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide, type SwiperRef } from "swiper/react";
 
-import ContentLayout from "@/shared/layouts/content/ContentLayout";
+import { ContentLayout } from "@/shared/layouts/content-layout";
 
 import s from "./Hero.module.scss";
 

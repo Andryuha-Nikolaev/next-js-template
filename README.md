@@ -1,1 +1,1 @@
-# project
+# next-js-template

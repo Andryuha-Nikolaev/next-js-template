@@ -1,6 +1,5 @@
 @import "@/styles/functions/convert-px2rem";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/square-size";
 @import "@/styles/mixins/breakpoints";
 @import "@/styles/mixins/mixins";
 
@@ -15,7 +14,7 @@
 .wrap {
 }
 
-.label {
+.inputWrap {
 	opacity: 0;
 	width: 0;
 	height: 0;

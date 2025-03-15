@@ -27,8 +27,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 		},
 		ref
 	) => {
-		console.log(value);
-
 		const isFilled = !!value;
 
 		const [currentType, setCurrentType] = useState(type);

@@ -1,5 +1,5 @@
-import CloseButton from "@/shared/ui/buttons/close/CloseButton";
-import EyeButton from "@/shared/ui/buttons/eye/EyeButton";
+import { CloseButton } from "@/shared/ui/buttons/close";
+import { EyeButton } from "@/shared/ui/buttons/eye";
 
 import CalendarIcon from "./icons/calendar-icon/CalendarIcon";
 import s from "./InputControls.module.scss";
@@ -16,7 +16,7 @@ export const InputControls = ({
 	hiddenReset,
 }: InputControlsProps) => {
 	return (
-		<span className={s.buttons}>
+		<div className={s.buttons}>
 			{type === "password" && !!togglePasswordVisibility && isFilled && (
 				<EyeButton
 					onMouseDown={(e) => {
@@ -48,6 +48,6 @@ export const InputControls = ({
 					className={s.reset}
 				/>
 			)}
-		</span>
+		</div>
 	);
 };

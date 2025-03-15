@@ -123,6 +123,7 @@ export const SliderField = ({
 			>
 				<div className={s.sliderWrap}>
 					<Slider
+						ariaLabelForHandle={label || "Изменить значение"}
 						className={s.slider}
 						classNames={{ rail: s.rail, handle: s.handle, track: s.track }}
 						{...restProps}
@@ -149,6 +150,7 @@ export const SliderField = ({
 				<div className={s.inputs}>
 					{isSingle && (
 						<Input
+							aria-label={label}
 							value={insertSpaces(firstValue.toString())}
 							onChange={(event) => handleInputChange(event.target.value, true)}
 							hiddenReset={firstValue === min}
@@ -158,6 +160,7 @@ export const SliderField = ({
 					{!isSingle && (
 						<>
 							<Input
+								aria-label={label}
 								value={insertSpaces(firstValue.toString())}
 								onChange={(event) =>
 									handleInputChange(event.target.value, true)
@@ -167,6 +170,7 @@ export const SliderField = ({
 							/>
 							<p>-</p>
 							<Input
+								aria-label={label}
 								value={insertSpaces(secondValue.toString())}
 								onChange={(event) =>
 									handleInputChange(event.target.value, false)

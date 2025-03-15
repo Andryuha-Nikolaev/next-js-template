@@ -2,7 +2,7 @@
 
 import { forwardRef, useEffect, useId, useMemo, useRef } from "react";
 
-import RootButton from "@/shared/ui/buttons/root/RootButton";
+import { RootButton } from "@/shared/ui/buttons/root";
 import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
 
 import s from "./FileInput.module.scss";
@@ -12,7 +12,7 @@ import FileInputRules from "./rules/FileInputRules";
 
 import { InputWrapper } from "../../input-wrapper";
 
-export const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
+export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 	(
 		{
 			errorMessage,
@@ -73,11 +73,18 @@ export const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 				id={id}
 			>
 				<div className={s.wrap}>
-					<label className={s.label} ref={ref}>
+					<div className={s.inputWrap}>
 						<input
 							id={id}
 							tabIndex={-1}
-							ref={inputRef}
+							ref={(node) => {
+								inputRef.current = node;
+								if (typeof ref === "function") {
+									ref(node);
+								} else if (ref) {
+									ref.current = node;
+								}
+							}}
 							type="file"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 								if (e.target.value) {
@@ -86,7 +93,7 @@ export const FileInput = forwardRef<HTMLLabelElement, FileInputProps>(
 							}}
 							{...restProps}
 						></input>
-					</label>
+					</div>
 					<RootButton
 						disabled={restProps.disabled}
 						type="button"

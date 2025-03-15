@@ -43,11 +43,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 								value={item.value}
 								disabled={disabled || item.disabled}
 							/>
-							{typeof item.label === "string" ? (
-								<p className={s.text}>{parse(item.label)}</p>
-							) : (
-								item.label
-							)}
+							{typeof item.label === "string" ? parse(item.label) : item.label}
 						</label>
 					))}
 				</div>

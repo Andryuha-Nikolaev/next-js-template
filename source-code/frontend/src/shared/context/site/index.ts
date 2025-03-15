@@ -1,2 +1,2 @@
-export type { SiteStateType } from "./ui/types";
+export type { SiteStateType } from "./model/types";
 export { useSiteState, SiteStateProvider } from "./ui/SiteStateProvider";

@@ -1,5 +1,5 @@
 import Hero from "./hero/Hero";
-import s from "./Home.module.scss";
+import s from "./HomePage.module.scss";
 
 export const HomePage = () => {
 	return (

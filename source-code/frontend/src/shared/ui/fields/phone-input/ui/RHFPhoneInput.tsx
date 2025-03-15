@@ -2,18 +2,16 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import { FieldNames } from "@/shared/constants/fields";
-
 import { PhoneInput } from "./PhoneInput";
 
 import type { RHFInputProps } from "../../input/model/types";
 
-export const RHFPhoneInput = ({ ...props }: RHFInputProps) => {
+export const RHFPhoneInput = ({ name, ...props }: RHFInputProps) => {
 	const { control } = useFormContext();
 
 	return (
 		<Controller
-			name={FieldNames.PHONE}
+			name={name}
 			control={control}
 			render={({ field, fieldState: { error } }) => {
 				return (

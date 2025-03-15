@@ -9,7 +9,8 @@ import {
 import { useMaskito } from "@maskito/react";
 import clsx from "clsx";
 import { format, isValid, parse } from "date-fns";
-import DatePicker from "react-datepicker";
+import { ru } from "date-fns/locale/ru";
+import DatePicker, { registerLocale } from "react-datepicker";
 
 import useClickOutside from "@/shared/hooks/other/useClickOutside";
 import type {
@@ -48,6 +49,8 @@ export const DatePickerComponent = forwardRef<
 		},
 		ref
 	) => {
+		registerLocale("ru", ru);
+
 		const dateFormat = time ? DATE_TIME_FORMAT : DATE_FORMAT;
 		const placeholder = time ? DATE_TIME_PLACEHOLDER : DATE_PLACEHOLDER;
 
@@ -173,9 +176,13 @@ export const DatePickerComponent = forwardRef<
 							)}
 						>
 							<DatePicker
+								locale="ru"
 								selected={value}
 								onChange={(e) => handleSingleSelect(e)}
 								inline
+								showMonthDropdown
+								showYearDropdown
+								dropdownMode="select"
 								{...props}
 							>
 								{props.selectsStart || props.selectsEnd ? (

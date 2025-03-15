@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
-import { ModalId, ModalSearchParams } from "@/features/modal/constants";
-import { useModal } from "@/features/modal/context/ModalProvider";
-import { TestForm } from "@/features/test-form";
-import ContentLayout from "@/shared/layouts/content/ContentLayout";
-import RootButton from "@/shared/ui/buttons/root/RootButton";
-import RootLink from "@/shared/ui/links/root/RootLink";
-import Social from "@/shared/ui/social/Social";
+import { ModalId, ModalSearchParams } from "@/features/modal/config/constants";
+import { useModal } from "@/features/modal/ui/ModalProvider";
+import { TestForm } from "@/features/send-test-form";
+import { ContentLayout } from "@/shared/layouts/content-layout";
+import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
+import { RootButton } from "@/shared/ui/buttons/root";
+import { RootLink } from "@/shared/ui/links/root";
+import { Social } from "@/shared/ui/social";
+import { Tooltip } from "@/shared/ui/tooltip";
 
 import s from "./TestPage.module.scss";
 
@@ -159,6 +161,39 @@ export const TestPage = () => {
 					>
 						showFeedbackModal with query
 					</RootButton>
+					<hr style={{ width: "100%" }} />
+					<h2>Tooltips:</h2>
+					<Tooltip message="custom tooltip">
+						<RootButton as="span">Custom tooltip</RootButton>
+					</Tooltip>
+					<Tooltip
+						position="left"
+						mobilePosition="bottom"
+						message="success tooltip"
+						type="success"
+					/>
+					<Tooltip message="error tooltip" type="error" position="top" />
+					<Tooltip
+						message="alert tooltip"
+						type="alert"
+						onClick={() => alert("tooltip callback")}
+						position="bottom"
+						mobilePosition="bottom"
+					/>
+					<Tooltip message="question tooltip" type="question" />
+					<hr style={{ width: "100%" }} />
+					<h2>Breadcrumbs:</h2>
+					<Breadcrumbs
+						breadcrumbs={[
+							{ name: "Тест", url: "/test" },
+							{ name: "Тест", url: "/test" },
+							{ name: "Тест", url: "/test" },
+							{
+								name: "ТестТестТестТестТестТестТестТестТестТестТестТестТест Тест Тест Тест Тест Тест Тест Тест Тест",
+								url: "/test",
+							},
+						]}
+					/>
 					<hr style={{ width: "100%" }} />
 					<h2 id="form">Forms:</h2>
 					<TestForm />
