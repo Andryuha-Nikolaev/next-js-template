@@ -103,6 +103,7 @@ export const TestForm = () => {
 							buttonText="Прикрепить файлы"
 							fileSize="Максимальный размер файлов - 10MB."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
+							withPreview
 						/>
 						<RHFCheckbox label="Согласие" name={FieldNames.POLICY}>
 							<span>
