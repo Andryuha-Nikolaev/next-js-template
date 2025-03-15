@@ -14,13 +14,13 @@
 
 .scrollbar {
 	width: 100%;
-	min-height: convert-px2rem(30);
 }
 
 .list {
 	display: flex;
 	width: fit-content;
 	padding: 0;
+	min-height: convert-px2rem(30);
 
 	@include lg {
 	}

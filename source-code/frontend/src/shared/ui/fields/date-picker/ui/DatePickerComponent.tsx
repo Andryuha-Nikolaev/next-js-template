@@ -180,6 +180,9 @@ export const DatePickerComponent = forwardRef<
 								selected={value}
 								onChange={(e) => handleSingleSelect(e)}
 								inline
+								showMonthDropdown
+								showYearDropdown
+								dropdownMode="select"
 								{...props}
 							>
 								{props.selectsStart || props.selectsEnd ? (
