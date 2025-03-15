@@ -25,11 +25,7 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
 					itemType="http://schema.org/BreadcrumbList"
 				>
 					{breadcrumbsWithHome.map((item, i) => (
-						<BreadcrumbsItem
-							key={`breadcrumb-${item.name}`}
-							index={i}
-							{...item}
-						/>
+						<BreadcrumbsItem key={i} index={i} {...item} />
 					))}
 				</ul>
 			</CustomScrollLayout>
