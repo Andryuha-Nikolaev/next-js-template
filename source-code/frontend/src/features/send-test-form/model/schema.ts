@@ -38,7 +38,7 @@ export const testFormSchema = z
 			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
 			.refine(
 				(files: FileList) => checkFilesSize(files, 5),
-				"Максимальный размер файла - 5MB"
+				"Максимальный размер файла - 5 МБ"
 			)
 			.refine(
 				(files: FileList) => checkFilesTypes(files),
@@ -50,7 +50,7 @@ export const testFormSchema = z
 			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
 			.refine(
 				(files: FileList) => checkFilesSize(files, 10),
-				"Максимальный размер файлов - 10MB"
+				"Максимальный размер файлов - 10 МБ"
 			)
 			.refine(
 				(files: FileList) => checkFilesTypes(files),

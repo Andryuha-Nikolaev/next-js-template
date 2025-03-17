@@ -92,7 +92,7 @@ export const TestForm = () => {
 							disabled
 							label="Файл с превью"
 							name={FieldNames.FILE}
-							fileSize="Максимальный размер файла - 5MB."
+							fileSize="Максимальный размер файла - 5 МБ."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
 						/>
@@ -101,7 +101,7 @@ export const TestForm = () => {
 							multiple
 							label="Несколько файлов"
 							buttonText="Прикрепить файлы"
-							fileSize="Максимальный размер файлов - 10MB."
+							fileSize="Максимальный размер файлов - 10 МБ."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
 						/>
