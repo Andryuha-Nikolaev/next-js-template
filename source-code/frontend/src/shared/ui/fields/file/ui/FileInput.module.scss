@@ -1,18 +1,4 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
-
-.wrap {
-}
+@use "@/styles/functions/_convert";
 
 .inputWrap {
 	opacity: 0;
@@ -23,5 +9,5 @@
 }
 
 .button {
-	margin-bottom: convert-px2rem(10) !important;
+	margin-bottom: convert.to-rem(10) !important;
 }

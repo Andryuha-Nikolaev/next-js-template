@@ -1,15 +1,4 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
+@use "@/styles/functions/_convert";
 
 .wrap {
 	position: relative;
@@ -17,8 +6,8 @@
 
 .slideContent {
 	aspect-ratio: 16/7;
-	padding: convert-px2rem(20);
-	min-height: convert-px2rem(300);
+	padding: convert.to-rem(20);
+	min-height: convert.to-rem(300);
 }
 
 .navigation {
@@ -40,9 +29,9 @@
 }
 
 .prev {
-	left: convert-px2rem(20);
+	left: convert.to-rem(20);
 }
 
 .next {
-	right: convert-px2rem(20);
+	right: convert.to-rem(20);
 }

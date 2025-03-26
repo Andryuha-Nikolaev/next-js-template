@@ -1,18 +1,8 @@
-@import "@/styles/functions/convert-px2rem";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
 
 .wrap {
-	margin-bottom: convert-px2rem(5);
+	margin-bottom: convert.to-rem(5);
 	align-self: flex-start;
 
 	label {

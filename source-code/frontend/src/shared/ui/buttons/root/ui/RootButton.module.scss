@@ -1,6 +1,4 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/mixins";
 
 .button {
@@ -9,37 +7,31 @@
 		color var(--transition-duration),
 		border-color var(--transition-duration);
 	border: none;
-	font-size: convert-px2rem(14);
+	font-size: convert.to-rem(14);
 	font-weight: 600;
 	flex-shrink: 0;
 	line-height: 1;
-	border-radius: convert-px2rem(10);
+	border-radius: convert.to-rem(10);
 	@include flex-center;
 	flex-direction: row;
-	gap: convert-px2rem(10);
+	gap: convert.to-rem(10);
 	position: relative;
 	text-decoration: none;
 	width: fit-content;
 
-	@include md {
-	}
-
-	@include lg {
-	}
-
 	&.sm {
-		min-height: convert-px2rem(36);
-		padding: convert-px2rem(5) convert-px2rem(10);
+		min-height: convert.to-rem(36);
+		padding: convert.to-rem(5) convert.to-rem(10);
 	}
 
 	&.md {
-		min-height: convert-px2rem(50);
-		padding: convert-px2rem(5) convert-px2rem(16);
+		min-height: convert.to-rem(50);
+		padding: convert.to-rem(5) convert.to-rem(16);
 	}
 
 	&.lg {
-		min-height: convert-px2rem(60);
-		padding: convert-px2rem(5) convert-px2rem(30);
+		min-height: convert.to-rem(60);
+		padding: convert.to-rem(5) convert.to-rem(30);
 	}
 
 	&.var1 {
@@ -107,8 +99,8 @@
 
 .icon {
 	transition: opacity var(--transition-duration);
-	max-width: convert-px2rem(24);
-	max-height: convert-px2rem(24);
+	max-width: convert.to-rem(24);
+	max-height: convert.to-rem(24);
 
 	&.right {
 		order: 1;

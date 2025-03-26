@@ -1,25 +1,14 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
+@use "@/styles/functions/_convert";
 
 .inputs {
 	display: flex;
 	align-items: center;
-	gap: convert-px2rem(5);
-	margin-top: convert-px2rem(12);
+	gap: convert.to-rem(5);
+	margin-top: convert.to-rem(12);
 }
 
 .sliderWrap {
-	padding: 0 convert-px2rem(15);
+	padding: 0 convert.to-rem(15);
 }
 
 .handle {

@@ -1,4 +1,4 @@
-@import "@/styles/functions/convert-px2rem";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/typography";
 @import "@/styles/mixins/breakpoints";
 @import "@/styles/mixins/mixins";
@@ -6,12 +6,6 @@
 .wrap {
 	position: relative;
 	@include flex-center;
-
-	@include md {
-	}
-
-	@include lg {
-	}
 }
 
 .spinner {
@@ -24,7 +18,7 @@
 
 .triangle {
 	position: absolute;
-	width: convert-px2rem(12);
+	width: convert.to-rem(12);
 	svg {
 		width: 100%;
 		height: auto;
@@ -82,12 +76,12 @@
 		opacity var(--transition-duration),
 		visibility var(--transition-duration);
 	position: absolute;
-	min-width: convert-px2rem(208);
+	min-width: convert.to-rem(208);
 
 	box-shadow: var(--box-shadow);
 
-	border-radius: convert-px2rem(10);
-	padding: convert-px2rem(20);
+	border-radius: convert.to-rem(10);
+	padding: convert.to-rem(20);
 	background-color: var(--background);
 	z-index: 5;
 
@@ -150,8 +144,8 @@
 }
 
 .icon {
-	min-width: convert-px2rem(24);
-	min-height: convert-px2rem(24);
+	min-width: convert.to-rem(24);
+	min-height: convert.to-rem(24);
 
 	svg {
 		width: 100%;

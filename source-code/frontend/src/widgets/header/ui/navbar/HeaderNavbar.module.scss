@@ -1,16 +1,12 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
 
 .block {
 	display: none;
-	@include md {
-	}
 
 	@include lg {
 		display: flex;
 		align-items: center;
-		gap: convert-px2rem(20);
+		gap: convert.to-rem(20);
 	}
 }

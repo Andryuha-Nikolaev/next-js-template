@@ -1,13 +1,11 @@
-@import "@/styles/functions/convert-px2rem";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
 
 .previewBlock {
-	margin-top: convert-px2rem(4);
+	margin-top: convert.to-rem(4);
 	display: flex;
 	flex-direction: column;
-	gap: convert-px2rem(5);
+	gap: convert.to-rem(5);
 }
 
 .previewName {
@@ -21,11 +19,11 @@
 }
 
 .reset {
-	margin-left: convert-px2rem(5) !important ;
+	margin-left: convert.to-rem(5) !important ;
 	vertical-align: middle;
 	display: inline-flex !important;
-	width: convert-px2rem(12) !important;
-	height: convert-px2rem(12) !important;
+	width: convert.to-rem(12) !important;
+	height: convert.to-rem(12) !important;
 }
 
 .previewImage {

@@ -22,7 +22,6 @@ import { RootLink } from "@/shared/ui/links/root";
 import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
 import PasswordFields from "./password-fields/PasswordFields";
-import s from "./TestForm.module.scss";
 
 import { sendTestForm } from "../api/actions";
 import {
@@ -67,7 +66,7 @@ export const TestForm = () => {
 	return (
 		<>
 			<FormProvider {...methods}>
-				<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<FormWrapper isLoading={isSubmitting} title="Тестовая форма">
 						<RHFInput
 							name={FieldNames.FIRST_NAME}
@@ -108,12 +107,7 @@ export const TestForm = () => {
 						<RHFCheckbox label="Согласие" name={FieldNames.POLICY}>
 							<span>
 								Я&nbsp;ознакомлен(а) с&nbsp;
-								<a
-									className={s.link}
-									href="/policy.pdf"
-									rel="noreferrer"
-									target="_blank"
-								>
+								<a href="/policy.pdf" rel="noreferrer" target="_blank">
 									Политикой конфиденциальности
 								</a>
 							</span>

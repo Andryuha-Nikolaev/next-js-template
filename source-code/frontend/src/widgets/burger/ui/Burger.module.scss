@@ -1,7 +1,4 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/_convert";
 
 .block {
 	z-index: var(--z-index-burger);
@@ -14,12 +11,6 @@
 	transform: translateX(100%);
 	transition: transform var(--transition-duration);
 
-	@include md {
-	}
-
-	@include lg {
-	}
-
 	&.open {
 		transform: translateX(0);
 	}
@@ -27,7 +18,7 @@
 
 .wrapper {
 	position: absolute;
-	top: convert-px2rem(calc(var(--header-height-number)));
+	top: convert.to-rem(calc(var(--header-height-number)));
 	left: 0;
 	right: 0;
 	bottom: 0;

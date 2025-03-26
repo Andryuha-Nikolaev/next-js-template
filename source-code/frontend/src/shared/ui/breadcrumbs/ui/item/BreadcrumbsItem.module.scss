@@ -1,15 +1,5 @@
-@import "@/styles/functions/convert-px2rem";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
 
 .item {
 	opacity: 0.8;
@@ -40,7 +30,7 @@
 
 .separator {
 	@include additional-text;
-	min-width: convert-px2rem(7);
+	min-width: convert.to-rem(7);
 	text-align: center;
-	margin: 0 convert-px2rem(4);
+	margin: 0 convert.to-rem(4);
 }

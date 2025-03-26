@@ -1,16 +1,9 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
+@use "@/styles/functions/_convert";
 @import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
 
 .block {
 	display: flex;
-	gap: convert-px2rem(10);
-	@include md {
-	}
-
-	@include lg {
-	}
+	gap: convert.to-rem(10);
 }
 
 .burger {
