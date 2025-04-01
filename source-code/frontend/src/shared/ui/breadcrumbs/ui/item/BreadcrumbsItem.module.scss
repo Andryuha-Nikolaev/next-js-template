@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .item {
 	opacity: 0.8;
@@ -18,8 +18,8 @@
 }
 
 .link {
-	@include link-2;
-	@include additional-text;
+	@include typography.link-2;
+	@include typography.additional-text;
 	text-decoration: none;
 	white-space: nowrap;
 
@@ -29,7 +29,7 @@
 }
 
 .separator {
-	@include additional-text;
+	@include typography.additional-text;
 	min-width: convert.to-rem(7);
 	text-align: center;
 	margin: 0 convert.to-rem(4);

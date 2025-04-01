@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .previewBlock {
 	margin-top: convert.to-rem(4);
@@ -13,7 +13,7 @@
 }
 
 .fileName {
-	@include small-text();
+	@include typography.small-text();
 	display: inline;
 	word-break: break-word;
 }

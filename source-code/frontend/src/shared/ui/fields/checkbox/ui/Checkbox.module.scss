@@ -1,6 +1,6 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .label {
 	position: relative;
@@ -9,7 +9,7 @@
 	text-align: left;
 	cursor: pointer;
 	width: fit-content;
-	@include additional-text;
+	@include typography.additional-text;
 
 	@include mixins.hover-wrapper {
 		.input {

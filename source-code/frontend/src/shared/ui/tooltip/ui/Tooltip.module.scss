@@ -1,7 +1,7 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
 @use "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .wrap {
 	position: relative;
@@ -140,7 +140,7 @@
 }
 
 .message {
-	@include additional-text;
+	@include typography.additional-text;
 }
 
 .icon {

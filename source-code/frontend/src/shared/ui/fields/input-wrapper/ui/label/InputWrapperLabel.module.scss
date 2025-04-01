@@ -1,12 +1,12 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .wrap {
 	margin-bottom: convert.to-rem(5);
 	align-self: flex-start;
 
 	label {
-		@include main-text();
+		@include typography.main-text();
 	}
 }
 .asterisk {

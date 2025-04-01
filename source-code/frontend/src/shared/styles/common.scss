@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 html {
 	scroll-padding-top: calc(var(--header-height-number) * 1px);
@@ -60,32 +60,32 @@ sup {
 }
 
 h1 {
-	@include h1();
+	@include typography.h1;
 }
 
 h2 {
-	@include h2();
+	@include typography.h2;
 }
 
 h3 {
-	@include h3();
+	@include typography.h3;
 }
 
 h4 {
-	@include h4();
+	@include typography.h4;
 }
 
 p {
-	@include main-text();
+	@include typography.main-text;
 }
 
 small {
-	@include small-text();
+	@include typography.small-text;
 }
 
 a {
 	color: inherit;
-	@include link-1;
+	@include typography.link-1;
 }
 
 button {

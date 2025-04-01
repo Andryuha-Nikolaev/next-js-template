@@ -1,5 +1,5 @@
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .rules {
-	@include small-text();
+	@include typography.small-text();
 }

@@ -1,4 +1,4 @@
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .block {
 	position: relative;
@@ -7,7 +7,7 @@
 
 .errorMessage {
 	display: block;
-	@include helper-text;
+	@include typography.helper-text;
 	color: var(--color-alert);
 	position: absolute;
 	top: 100%;

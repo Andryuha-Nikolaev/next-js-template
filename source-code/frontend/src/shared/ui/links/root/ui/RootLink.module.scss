@@ -1,11 +1,11 @@
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .link {
 	&.var1 {
-		@include link-1;
+		@include typography.link-1;
 	}
 
 	&.var2 {
-		@include link-2;
+		@include typography.link-2;
 	}
 }

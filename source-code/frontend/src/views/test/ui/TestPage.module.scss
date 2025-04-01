@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/typography";
+@use "@/styles/mixins/typography";
 
 .block {
 	padding-bottom: convert.to-rem(100);
@@ -13,9 +13,9 @@
 }
 
 .additionalText {
-	@include additional-text;
+	@include typography.additional-text;
 }
 
 .helperText {
-	@include helper-text;
+	@include typography.helper-text;
 }
