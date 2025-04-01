@@ -4,5 +4,5 @@
 .block {
 	width: convert.to-rem(24);
 	height: convert.to-rem(24);
-	@include mixins.flex-center();
+	@include mixins.flex-center;
 }
