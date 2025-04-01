@@ -1,6 +1,7 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
 @use "@/styles/mixins/typography";
+@use "@/styles/mixins/transition";
 
 .block {
 	display: flex;
@@ -44,7 +45,7 @@
 	vertical-align: text-bottom;
 	position: relative;
 	cursor: pointer;
-	transition: border-color var(--transition-duration);
+	@include transition.create(border-color);
 
 	&.error {
 		border-color: var(--color-alert) !important;

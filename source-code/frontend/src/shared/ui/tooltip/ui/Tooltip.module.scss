@@ -2,6 +2,7 @@
 @use "@/styles/mixins/mixins";
 @use "@/styles/mixins/breakpoints";
 @use "@/styles/mixins/typography";
+@use "@/styles/mixins/transition";
 
 .wrap {
 	position: relative;
@@ -72,9 +73,6 @@
 .popup {
 	opacity: 0;
 	visibility: hidden;
-	transition:
-		opacity var(--transition-duration),
-		visibility var(--transition-duration);
 	position: absolute;
 	min-width: convert.to-rem(208);
 
@@ -84,6 +82,8 @@
 	padding: convert.to-rem(20);
 	background-color: var(--background);
 	z-index: 5;
+
+	@include transition.create(opacity, visibility);
 
 	&.top {
 		@include breakpoints.lg {

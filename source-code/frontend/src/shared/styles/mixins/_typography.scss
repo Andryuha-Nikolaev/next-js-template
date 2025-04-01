@@ -1,6 +1,7 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins.scss";
 @use "@/styles/mixins/breakpoints.scss";
+@use "@/styles/mixins/transition";
 
 @mixin h1() {
 	font-weight: 400;
@@ -67,7 +68,7 @@
 	text-underline-offset: convert.to-rem(2);
 	width: fit-content;
 	text-decoration: underline;
-	transition: color var(--transition-duration);
+	@include transition.create(color);
 
 	@include mixins.hover-wrapper {
 		color: var(--color-link-1-hover);
@@ -87,7 +88,7 @@
 	text-underline-offset: convert.to-rem(2);
 	width: fit-content;
 	text-decoration: underline;
-	transition: color var(--transition-duration);
+	@include transition.create(color);
 
 	@include mixins.hover-wrapper {
 		color: var(--color-link-2-hover);

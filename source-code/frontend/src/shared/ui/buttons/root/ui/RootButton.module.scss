@@ -1,23 +1,23 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
+@use "@/styles/mixins/transition";
 
 .button {
-	transition:
-		background-color var(--transition-duration),
-		color var(--transition-duration),
-		border-color var(--transition-duration);
 	border: none;
 	font-size: convert.to-rem(14);
 	font-weight: 600;
 	flex-shrink: 0;
 	line-height: 1;
 	border-radius: convert.to-rem(10);
-	@include mixins.flex-center;
-	flex-direction: row;
 	gap: convert.to-rem(10);
 	position: relative;
 	text-decoration: none;
 	width: fit-content;
+
+	@include mixins.flex-center;
+	flex-direction: row;
+
+	@include transition.create(background-color, color, border-color);
 
 	&.sm {
 		min-height: convert.to-rem(36);
@@ -98,7 +98,7 @@
 }
 
 .icon {
-	transition: opacity var(--transition-duration);
+	@include transition.create(opacity);
 	max-width: convert.to-rem(24);
 	max-height: convert.to-rem(24);
 

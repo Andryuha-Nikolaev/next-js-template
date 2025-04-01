@@ -1,5 +1,6 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
+@use "@/styles/mixins/transition";
 
 .block {
 	display: flex;
@@ -11,16 +12,12 @@
 	width: convert.to-rem(40);
 	height: convert.to-rem(40);
 	flex-shrink: 0;
-
-	@include mixins.flex-center;
 	border-radius: 50%;
-
-	transition:
-		background-color var(--transition-duration),
-		color var(--transition-duration);
-
 	background-color: var(--bg-button-1);
 	color: var(--fg-button-1);
+
+	@include mixins.flex-center;
+	@include transition.create(background-color, color);
 
 	@include mixins.hover-wrapper {
 		background-color: var(--bg-button-1-hover);

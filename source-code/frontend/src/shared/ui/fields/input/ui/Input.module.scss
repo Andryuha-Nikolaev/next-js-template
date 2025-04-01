@@ -1,4 +1,5 @@
 @use "@/styles/functions/convert";
+@use "@/styles/mixins/transition";
 
 .wrap {
 	display: block;
@@ -16,7 +17,7 @@
 	border-radius: convert.to-rem(var(--input-border-radius-number));
 	padding: convert.to-rem(5) convert.to-rem(36) convert.to-rem(5)
 		convert.to-rem(16);
-	transition: border-color var(--transition-duration);
+	@include transition.create(border-color);
 
 	&:focus-visible {
 		border-color: var(--color-input-border-focused);

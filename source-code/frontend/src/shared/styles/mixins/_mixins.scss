@@ -1,3 +1,5 @@
+@use "@/styles/mixins/transition";
+
 @mixin hover-wrapper {
 	@media (hover: hover) {
 		&:hover {
@@ -27,7 +29,7 @@
 }
 
 @mixin hover-opacity {
-	transition: opacity var(--transition-duration);
+	@include transition.create(opacity);
 
 	@include hover-wrapper {
 		opacity: 0.7;
