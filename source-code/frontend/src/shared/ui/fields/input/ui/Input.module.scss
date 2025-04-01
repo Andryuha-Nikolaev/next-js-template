@@ -1,5 +1,6 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/transition";
+@use "@/styles/mixins/interaction";
 
 .wrap {
 	display: block;
@@ -19,7 +20,7 @@
 		convert.to-rem(16);
 	@include transition.create(border-color);
 
-	&:focus-visible {
+	@include interaction.keyboard-focus {
 		border-color: var(--color-input-border-focused);
 	}
 
@@ -31,7 +32,7 @@
 		padding-right: convert.to-rem(58);
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		cursor: not-allowed;
 		color: var(--fg-input-disabled) !important;
 		background-color: var(--bg-input-disabled) !important;

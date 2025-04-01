@@ -1,20 +1,5 @@
 @use "@/styles/mixins/transition";
-
-@mixin hover-wrapper {
-	@media (hover: hover) {
-		&:hover {
-			@content;
-		}
-	}
-}
-
-@mixin active-wrapper {
-	@media (hover: hover) {
-		&:active {
-			@content;
-		}
-	}
-}
+@use "@/styles/mixins/interaction";
 
 @mixin flex-center {
 	display: flex;
@@ -31,15 +16,15 @@
 @mixin hover-opacity {
 	@include transition.create(opacity);
 
-	@include hover-wrapper {
+	@include interaction.hover {
 		opacity: 0.7;
 	}
 
-	@include active-wrapper {
+	@include interaction.active {
 		opacity: 0.7;
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		opacity: 0.3;
 	}
 }

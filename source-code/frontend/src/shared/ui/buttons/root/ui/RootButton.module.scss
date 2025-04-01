@@ -1,6 +1,7 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
 @use "@/styles/mixins/transition";
+@use "@/styles/mixins/interaction";
 
 .button {
 	border: none;
@@ -39,13 +40,13 @@
 		color: var(--fg-button-1);
 		border: 1px solid var(--bg-button-1);
 
-		@include mixins.hover-wrapper {
+		@include interaction.hover {
 			background-color: var(--bg-button-1-hover);
 			color: var(--fg-button-1-hover);
 			border-color: var(--bg-button-1-hover);
 		}
 
-		@include mixins.active-wrapper {
+		@include interaction.active {
 			background-color: var(--bg-button-1-active);
 			color: var(--fg-button-1-active);
 			border-color: var(--bg-button-1-active);
@@ -57,13 +58,13 @@
 		color: var(--fg-button-2);
 		border: 1px solid var(--fg-button-2);
 
-		@include mixins.hover-wrapper {
+		@include interaction.hover {
 			background-color: var(--bg-button-2-hover);
 			color: var(--fg-button-2-hover);
 			border-color: var(--bg-button-2-hover);
 		}
 
-		@include mixins.active-wrapper {
+		@include interaction.active {
 			background-color: var(--bg-button-2-active);
 			color: var(--fg-button-2-active);
 			border-color: var(--bg-button-2-active);
@@ -73,12 +74,12 @@
 		background-color: var(--bg-button-3);
 		color: var(--fg-button-3);
 
-		@include mixins.hover-wrapper {
+		@include interaction.hover {
 			background-color: var(--bg-button-3-hover);
 			color: var(--fg-button-3-hover);
 		}
 
-		@include mixins.active-wrapper {
+		@include interaction.active {
 			background-color: var(--bg-button-3-active);
 			color: var(--fg-button-3-active);
 		}
@@ -88,7 +89,7 @@
 		pointer-events: none;
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		background-color: var(--bg-button-disabled) !important;
 		color: var(--fg-button-disabled) !important;
 		border-color: var(--bg-button-disabled) !important;

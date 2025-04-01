@@ -1,6 +1,7 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/scrollbar";
 @use "@/styles/mixins/transition";
+@use "@/styles/mixins/interaction";
 
 .wrap {
 	display: block;
@@ -47,7 +48,7 @@
 		color: var(--color-input-placeholder);
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		resize: none;
 		cursor: not-allowed;
 		color: var(--fg-input-disabled);

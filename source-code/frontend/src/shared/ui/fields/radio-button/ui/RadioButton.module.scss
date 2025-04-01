@@ -2,6 +2,7 @@
 @use "@/styles/mixins/mixins";
 @use "@/styles/mixins/typography";
 @use "@/styles/mixins/transition";
+@use "@/styles/mixins/interaction";
 
 .block {
 	display: flex;
@@ -23,7 +24,7 @@
 	cursor: pointer;
 	width: fit-content;
 
-	@include mixins.hover-wrapper {
+	@include interaction.hover {
 		.input {
 			border-color: var(--color-radio-border-hover);
 		}
@@ -51,11 +52,11 @@
 		border-color: var(--color-alert) !important;
 	}
 
-	&:focus-visible {
+	@include interaction.keyboard-focus {
 		border-color: var(--color-radio-border-focused);
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		background-color: var(--bg-radio-disabled) !important;
 		border-color: var(--color-radio-border) !important;
 		cursor: not-allowed !important;

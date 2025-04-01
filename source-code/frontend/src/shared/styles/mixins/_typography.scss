@@ -1,7 +1,8 @@
 @use "@/styles/functions/convert";
-@use "@/styles/mixins/mixins.scss";
-@use "@/styles/mixins/breakpoints.scss";
+@use "@/styles/mixins/mixins";
+@use "@/styles/mixins/breakpoints";
 @use "@/styles/mixins/transition";
+@use "@/styles/mixins/interaction";
 
 @mixin h1() {
 	font-weight: 400;
@@ -70,15 +71,15 @@
 	text-decoration: underline;
 	@include transition.create(color);
 
-	@include mixins.hover-wrapper {
+	@include interaction.hover {
 		color: var(--color-link-1-hover);
 	}
 
-	@include mixins.active-wrapper {
+	@include interaction.active {
 		color: var(--color-link-1-active);
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		color: var(--color-link-disabled);
 	}
 }
@@ -90,15 +91,15 @@
 	text-decoration: underline;
 	@include transition.create(color);
 
-	@include mixins.hover-wrapper {
+	@include interaction.hover {
 		color: var(--color-link-2-hover);
 	}
 
-	@include mixins.active-wrapper {
+	@include interaction.active {
 		color: var(--color-link-2-active);
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		color: var(--color-link-disabled);
 	}
 }
