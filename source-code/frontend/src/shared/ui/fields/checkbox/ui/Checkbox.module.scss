@@ -1,6 +1,6 @@
 @use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/mixins";
 
 .label {
 	position: relative;
@@ -11,7 +11,7 @@
 	width: fit-content;
 	@include additional-text;
 
-	@include hover-wrapper {
+	@include mixins.hover-wrapper {
 		.input {
 			border-color: var(--color-checkbox-border-hover);
 		}

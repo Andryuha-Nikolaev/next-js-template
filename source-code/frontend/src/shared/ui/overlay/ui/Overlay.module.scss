@@ -1,4 +1,4 @@
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/mixins";
 
 .overlay {
 	position: fixed;
@@ -13,8 +13,7 @@
 	transition:
 		opacity var(--transition-duration),
 		visibility var(--transition-duration);
-	@include flex-center;
-	@include backdrop;
+	@include mixins.flex-center;
 
 	&.open {
 		visibility: visible;

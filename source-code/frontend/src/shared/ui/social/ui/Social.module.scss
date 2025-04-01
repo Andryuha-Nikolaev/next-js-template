@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/mixins";
 
 .block {
 	display: flex;
@@ -12,7 +12,7 @@
 	height: convert.to-rem(40);
 	flex-shrink: 0;
 
-	@include flex-center;
+	@include mixins.flex-center;
 	border-radius: 50%;
 
 	transition:
@@ -22,12 +22,12 @@
 	background-color: var(--bg-button-1);
 	color: var(--fg-button-1);
 
-	@include hover-wrapper {
+	@include mixins.hover-wrapper {
 		background-color: var(--bg-button-1-hover);
 		color: var(--fg-button-1-hover);
 	}
 
-	@include active-wrapper {
+	@include mixins.active-wrapper {
 		background-color: var(--bg-button-1-active);
 		color: var(--fg-button-1-active);
 	}

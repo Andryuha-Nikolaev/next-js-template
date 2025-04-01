@@ -1,7 +1,7 @@
 @use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 @import "@/styles/mixins/typography";
 @import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
 
 .wrap {
 	position: relative;
@@ -151,5 +151,5 @@
 		width: 100%;
 		height: auto;
 	}
-	@include flex-center;
+	@include mixins.flex-center;
 }

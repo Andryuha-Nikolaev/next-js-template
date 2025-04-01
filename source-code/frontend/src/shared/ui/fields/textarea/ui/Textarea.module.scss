@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/scrollbar";
 
 .wrap {
 	display: block;
@@ -35,7 +35,7 @@
 	max-height: convert.to-rem(400);
 	border: none;
 	outline: none;
-	@include scrollbar;
+	@include scrollbar.scrollbar;
 
 	&::-webkit-scrollbar-thumb {
 		cursor: auto;

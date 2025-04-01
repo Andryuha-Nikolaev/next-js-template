@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/mixins";
 
 .buttons {
 	position: absolute;
@@ -7,7 +7,7 @@
 	top: 0;
 	height: 100%;
 	max-height: convert.to-rem(var(--input-height-number));
-	@include flex-center;
+	@include mixins.flex-center;
 	flex-direction: row;
 }
 
@@ -23,8 +23,8 @@
 .calendar {
 	width: convert.to-rem(24) !important;
 	height: convert.to-rem(24) !important;
-	@include flex-center;
-	@include hover-opacity;
+	@include mixins.flex-center;
+	@include mixins.hover-opacity;
 
 	svg {
 		width: 16px;

@@ -1,12 +1,12 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/mixins";
 
 .button {
 	width: convert.to-rem(24);
 
 	height: convert.to-rem(24);
-	@include flex-center;
-	@include hover-opacity;
+	@include mixins.flex-center;
+	@include mixins.hover-opacity;
 
 	svg {
 		width: 100%;

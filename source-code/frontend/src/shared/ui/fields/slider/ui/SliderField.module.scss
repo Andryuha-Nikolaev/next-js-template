@@ -1,4 +1,6 @@
-м .inputs {
+@use "@/styles/functions/convert";
+
+.inputs {
 	display: flex;
 	align-items: center;
 	gap: convert.to-rem(5);

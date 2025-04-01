@@ -1,6 +1,6 @@
 @use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/mixins";
 
 .block {
 	display: flex;
@@ -22,7 +22,7 @@
 	cursor: pointer;
 	width: fit-content;
 
-	@include hover-wrapper {
+	@include mixins.hover-wrapper {
 		.input {
 			border-color: var(--color-radio-border-hover);
 		}

@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/scrollbar";
 
 .react-select {
 	&__control {
@@ -71,7 +71,7 @@
 	&__menu-list {
 		padding: 0 !important;
 		border-radius: convert.to-rem(var(--input-border-radius-number)) !important;
-		@include scrollbar;
+		@include scrollbar.scrollbar;
 	}
 
 	&__option {

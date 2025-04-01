@@ -1,8 +1,8 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/mixins";
 
 .block {
 	width: convert.to-rem(24);
 	height: convert.to-rem(24);
-	@include flex-center();
+	@include mixins.flex-center();
 }
