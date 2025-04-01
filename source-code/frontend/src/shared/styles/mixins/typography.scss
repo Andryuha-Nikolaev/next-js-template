@@ -1,13 +1,13 @@
-@use "../functions/_convert";
-@import "../mixins/mixins.scss";
-@import "../mixins/breakpoints.scss";
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins.scss";
+@use "@/styles/mixins/breakpoints.scss";
 
 @mixin h1() {
 	font-weight: 400;
 	font-size: convert.to-rem(32);
 	line-height: 1.2;
 
-	@include lg {
+	@include breakpoints.lg {
 		font-size: convert.to-rem(42);
 	}
 }
@@ -17,7 +17,7 @@
 	font-size: convert.to-rem(28);
 	line-height: 1.2;
 
-	@include lg {
+	@include breakpoints.lg {
 		font-size: convert.to-rem(36);
 	}
 }
@@ -27,7 +27,7 @@
 	font-size: convert.to-rem(22);
 	line-height: 1.2;
 
-	@include lg {
+	@include breakpoints.lg {
 		font-size: convert.to-rem(28);
 	}
 }
@@ -69,11 +69,11 @@
 	text-decoration: underline;
 	transition: color var(--transition-duration);
 
-	@include hover-wrapper {
+	@include mixins.hover-wrapper {
 		color: var(--color-link-1-hover);
 	}
 
-	@include active-wrapper {
+	@include mixins.active-wrapper {
 		color: var(--color-link-1-active);
 	}
 
@@ -89,11 +89,11 @@
 	text-decoration: underline;
 	transition: color var(--transition-duration);
 
-	@include hover-wrapper {
+	@include mixins.hover-wrapper {
 		color: var(--color-link-2-hover);
 	}
 
-	@include active-wrapper {
+	@include mixins.active-wrapper {
 		color: var(--color-link-2-active);
 	}
 

@@ -1,11 +1,11 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
+@use "@/styles/mixins/breakpoints";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
 
 .wrap {
 	position: relative;
-	@include flex-center;
+	@include mixins.flex-center;
 }
 
 .spinner {
@@ -86,49 +86,49 @@
 	z-index: 5;
 
 	&.top {
-		@include lg {
+		@include breakpoints.lg {
 			@include top();
 		}
 	}
 
 	&.topMobile {
-		@include lg-max {
+		@include breakpoints.lg-max {
 			@include top();
 		}
 	}
 
 	&.bottom {
-		@include lg {
+		@include breakpoints.lg {
 			@include bottom();
 		}
 	}
 
 	&.bottomMobile {
-		@include lg-max {
+		@include breakpoints.lg-max {
 			@include bottom();
 		}
 	}
 
 	&.right {
-		@include lg {
+		@include breakpoints.lg {
 			@include right();
 		}
 	}
 
 	&.rightMobile {
-		@include lg-max {
+		@include breakpoints.lg-max {
 			@include right();
 		}
 	}
 
 	&.left {
-		@include lg {
+		@include breakpoints.lg {
 			@include left();
 		}
 	}
 
 	&.leftMobile {
-		@include lg-max {
+		@include breakpoints.lg-max {
 			@include left();
 		}
 	}

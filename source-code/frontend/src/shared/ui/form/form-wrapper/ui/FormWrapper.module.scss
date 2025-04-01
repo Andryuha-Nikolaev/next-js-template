@@ -1,11 +1,11 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/breakpoints";
+@use "@/styles/mixins/breakpoints";
 
 .block {
 	max-width: convert.to-rem(360);
 	margin: 0 auto;
 
-	@include md {
+	@include breakpoints.md {
 		max-width: unset;
 	}
 }

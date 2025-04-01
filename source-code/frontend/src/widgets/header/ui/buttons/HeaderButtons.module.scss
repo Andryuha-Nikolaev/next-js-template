@@ -1,5 +1,5 @@
 @use "@/styles/functions/convert";
-@import "@/styles/mixins/breakpoints";
+@use "@/styles/mixins/breakpoints";
 
 .block {
 	display: flex;
@@ -7,7 +7,7 @@
 }
 
 .burger {
-	@include lg {
+	@include breakpoints.lg {
 		display: none;
 	}
 }

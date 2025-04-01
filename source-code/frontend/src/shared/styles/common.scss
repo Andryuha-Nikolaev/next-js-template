@@ -1,6 +1,5 @@
 @use "@/styles/functions/convert";
 @import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
 
 html {
 	scroll-padding-top: calc(var(--header-height-number) * 1px);
