@@ -1,15 +1,5 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/typography";
 
 .item {
 	opacity: 0.8;
@@ -28,8 +18,8 @@
 }
 
 .link {
-	@include link-2;
-	@include additional-text;
+	@include typography.link-2;
+	@include typography.additional-text;
 	text-decoration: none;
 	white-space: nowrap;
 
@@ -39,8 +29,8 @@
 }
 
 .separator {
-	@include additional-text;
-	min-width: convert-px2rem(7);
+	@include typography.additional-text;
+	min-width: convert.to-rem(7);
 	text-align: center;
-	margin: 0 convert-px2rem(4);
+	margin: 0 convert.to-rem(4);
 }

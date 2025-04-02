@@ -1,5 +1,0 @@
-@function convert-px2rem($property, $font-size: var(--font-size-init-number)) {
-	$value: calc(1rem * #{$property} / #{var(--font-size-init-number)});
-
-	@return $value;
-}

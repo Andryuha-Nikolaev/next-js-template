@@ -1,4 +1,4 @@
-import "@/styles/index.scss";
+import "./styles/index.scss";
 
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";

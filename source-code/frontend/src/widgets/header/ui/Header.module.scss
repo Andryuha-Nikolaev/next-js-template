@@ -1,18 +1,10 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
 
 .header {
 	width: 100%;
 	z-index: var(--z-index-header);
 	background-color: var(--background);
 	box-shadow: var(--box-shadow);
-	@include md {
-	}
-
-	@include lg {
-	}
 
 	&_fixed {
 		position: fixed;
@@ -22,13 +14,8 @@
 }
 
 .block {
-	min-height: convert-px2rem(var(--header-height-number));
+	min-height: convert.to-rem(var(--header-height-number));
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	@include md {
-	}
-
-	@include lg {
-	}
 }

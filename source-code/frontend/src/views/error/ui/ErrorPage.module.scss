@@ -1,18 +1,9 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
 
 .block {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
-
-	@include md {
-	}
-
-	@include lg {
-	}
 
 	& > div {
 		flex-grow: 1;
@@ -26,15 +17,15 @@
 	z-index: 1;
 	margin: auto;
 	text-align: center;
-	padding: convert-px2rem(60) 0;
+	padding: convert.to-rem(60) 0;
 }
 
 .title {
-	margin: convert-px2rem(20) auto;
+	margin: convert.to-rem(20) auto;
 }
 
 .btnWrap {
 	margin: 0 auto;
 	width: fit-content;
-	margin-top: convert-px2rem(30);
+	margin-top: convert.to-rem(30);
 }

@@ -1,5 +1,5 @@
 const siteConstants = {
-	PROGRESS_BAR_COLOR: "#ff4a4a",
+	PROGRESS_BAR_COLOR: "#496dcb",
 	IS_FIXED_HEADER: true,
 };
 

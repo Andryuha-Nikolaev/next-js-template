@@ -1,21 +1,10 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
+@use "@/styles/functions/convert";
 
 .imageWrap {
 	position: relative;
 	width: 100%;
 
-	min-height: calc(100svh - convert-px2rem(var(--header-height-number)));
+	min-height: calc(100svh - convert.to-rem(var(--header-height-number)));
 }
 
 .image {

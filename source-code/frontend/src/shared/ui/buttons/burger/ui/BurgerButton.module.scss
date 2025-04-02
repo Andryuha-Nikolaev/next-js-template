@@ -1,12 +1,10 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 
 .button {
-	width: convert-px2rem(24);
-	height: convert-px2rem(24);
-	@include flex-center();
+	width: convert.to-rem(24);
+	height: convert.to-rem(24);
+	@include mixins.flex-center;
 
-	@include hover-opacity;
+	@include mixins.hover-opacity;
 }

@@ -1,22 +1,12 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 
 .button {
-	width: convert-px2rem(24);
+	width: convert.to-rem(24);
 
-	height: convert-px2rem(24);
-	@include flex-center;
-	@include hover-opacity;
+	height: convert.to-rem(24);
+	@include mixins.flex-center;
+	@include mixins.hover-opacity;
 
 	svg {
 		width: 100%;

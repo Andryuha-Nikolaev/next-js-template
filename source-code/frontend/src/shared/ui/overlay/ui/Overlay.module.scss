@@ -1,7 +1,5 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/mixins";
+@use "@/styles/mixins/transition";
 
 .overlay {
 	position: fixed;
@@ -13,11 +11,9 @@
 	z-index: var(--z-index-modal);
 	visibility: hidden;
 	opacity: 0;
-	transition:
-		opacity var(--transition-duration),
-		visibility var(--transition-duration);
-	@include flex-center;
-	@include backdrop;
+	@include transition.create(opacity, visibility);
+	@include mixins.flex-center;
+	@include mixins.backdrop;
 
 	&.open {
 		visibility: visible;

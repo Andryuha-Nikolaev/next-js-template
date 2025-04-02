@@ -1,20 +1,11 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/mixins/typography";
 
 .link {
-	@include md {
-	}
-
-	@include lg {
-	}
-
 	&.var1 {
-		@include link-1;
+		@include typography.link-1;
 	}
 
 	&.var2 {
-		@include link-2;
+		@include typography.link-2;
 	}
 }

@@ -1,16 +1,8 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 
 .block {
-	width: convert-px2rem(24);
-	height: convert-px2rem(24);
-	@include flex-center();
-
-	@include md {
-	}
-
-	@include lg {
-	}
+	width: convert.to-rem(24);
+	height: convert.to-rem(24);
+	@include mixins.flex-center;
 }
