@@ -1,45 +1,38 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
+@use "@/styles/mixins/transition";
+@use "@/styles/mixins/interaction";
 
 .button {
-	transition:
-		background-color var(--transition-duration),
-		color var(--transition-duration),
-		border-color var(--transition-duration);
 	border: none;
-	font-size: convert-px2rem(14);
+	font-size: convert.to-rem(14);
 	font-weight: 600;
 	flex-shrink: 0;
 	line-height: 1;
-	border-radius: convert-px2rem(10);
-	@include flex-center;
-	flex-direction: row;
-	gap: convert-px2rem(10);
+	border-radius: convert.to-rem(10);
+	gap: convert.to-rem(10);
 	position: relative;
 	text-decoration: none;
 	width: fit-content;
 
-	@include md {
-	}
+	@include mixins.flex-center;
+	flex-direction: row;
 
-	@include lg {
-	}
+	@include transition.create(background-color, color, border-color);
 
 	&.sm {
-		min-height: convert-px2rem(36);
-		padding: convert-px2rem(5) convert-px2rem(10);
+		min-height: convert.to-rem(36);
+		padding: convert.to-rem(5) convert.to-rem(10);
 	}
 
 	&.md {
-		min-height: convert-px2rem(50);
-		padding: convert-px2rem(5) convert-px2rem(16);
+		min-height: convert.to-rem(50);
+		padding: convert.to-rem(5) convert.to-rem(16);
 	}
 
 	&.lg {
-		min-height: convert-px2rem(60);
-		padding: convert-px2rem(5) convert-px2rem(30);
+		min-height: convert.to-rem(60);
+		padding: convert.to-rem(5) convert.to-rem(30);
 	}
 
 	&.var1 {
@@ -47,13 +40,13 @@
 		color: var(--fg-button-1);
 		border: 1px solid var(--bg-button-1);
 
-		@include hover-wrapper {
+		@include interaction.hover {
 			background-color: var(--bg-button-1-hover);
 			color: var(--fg-button-1-hover);
 			border-color: var(--bg-button-1-hover);
 		}
 
-		@include active-wrapper {
+		@include interaction.active {
 			background-color: var(--bg-button-1-active);
 			color: var(--fg-button-1-active);
 			border-color: var(--bg-button-1-active);
@@ -65,13 +58,13 @@
 		color: var(--fg-button-2);
 		border: 1px solid var(--fg-button-2);
 
-		@include hover-wrapper {
+		@include interaction.hover {
 			background-color: var(--bg-button-2-hover);
 			color: var(--fg-button-2-hover);
 			border-color: var(--bg-button-2-hover);
 		}
 
-		@include active-wrapper {
+		@include interaction.active {
 			background-color: var(--bg-button-2-active);
 			color: var(--fg-button-2-active);
 			border-color: var(--bg-button-2-active);
@@ -81,12 +74,12 @@
 		background-color: var(--bg-button-3);
 		color: var(--fg-button-3);
 
-		@include hover-wrapper {
+		@include interaction.hover {
 			background-color: var(--bg-button-3-hover);
 			color: var(--fg-button-3-hover);
 		}
 
-		@include active-wrapper {
+		@include interaction.active {
 			background-color: var(--bg-button-3-active);
 			color: var(--fg-button-3-active);
 		}
@@ -96,7 +89,7 @@
 		pointer-events: none;
 	}
 
-	&:disabled {
+	@include interaction.disabled {
 		background-color: var(--bg-button-disabled) !important;
 		color: var(--fg-button-disabled) !important;
 		border-color: var(--bg-button-disabled) !important;
@@ -106,9 +99,9 @@
 }
 
 .icon {
-	transition: opacity var(--transition-duration);
-	max-width: convert-px2rem(24);
-	max-height: convert-px2rem(24);
+	@include transition.create(opacity);
+	max-width: convert.to-rem(24);
+	max-height: convert.to-rem(24);
 
 	&.right {
 		order: 1;

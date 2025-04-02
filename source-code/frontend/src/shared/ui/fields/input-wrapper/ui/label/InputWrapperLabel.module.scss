@@ -1,22 +1,12 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
-
-.block {
-	@include md {
-	}
-
-	@include lg {
-	}
-}
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/typography";
 
 .wrap {
-	margin-bottom: convert-px2rem(5);
+	margin-bottom: convert.to-rem(5);
 	align-self: flex-start;
 
 	label {
-		@include main-text();
+		@include typography.main-text();
 	}
 }
 .asterisk {

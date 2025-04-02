@@ -1,12 +1,9 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
 
 .spinner {
-	width: convert-px2rem(30);
-	height: convert-px2rem(30);
-	border: convert-px2rem(3) solid var(--bg-spinner);
+	width: convert.to-rem(30);
+	height: convert.to-rem(30);
+	border: convert.to-rem(3) solid var(--bg-spinner);
 	border-bottom-color: var(--fg-spinner);
 	border-radius: 50%;
 	display: inline-block;

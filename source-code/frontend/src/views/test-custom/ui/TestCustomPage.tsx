@@ -2,7 +2,6 @@ import parse from "html-react-parser";
 
 import { ContentLayout } from "@/shared/layouts/content-layout";
 
-import s from "./TestCustomPage.module.scss";
 import type { CustomPage } from "./types";
 
 type TestCustomPageProps = {
@@ -19,7 +18,7 @@ export const TestCustomPage = ({
 			<h1 style={{ textAlign: "center" }}>
 				{title} slug:{slug}
 			</h1>
-			<div className={s.content}>{parse(text)}</div>
+			<div>{parse(text)}</div>
 		</ContentLayout>
 	);
 };

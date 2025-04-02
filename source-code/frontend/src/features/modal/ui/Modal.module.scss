@@ -1,15 +1,13 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/breakpoints";
 
 .wrap {
 	background-color: var(--background);
-	width: calc(100% - convert-px2rem(20));
-	max-width: convert-px2rem(600);
-	border-radius: convert-px2rem(10);
+	width: calc(100% - convert.to-rem(20));
+	max-width: convert.to-rem(600);
+	border-radius: convert.to-rem(10);
 	max-height: 96%;
-	@include md {
+	@include breakpoints.md {
 		width: 100%;
 	}
 }
@@ -20,11 +18,11 @@
 
 .close {
 	position: absolute;
-	right: convert-px2rem(20);
-	top: convert-px2rem(20);
+	right: convert.to-rem(20);
+	top: convert.to-rem(20);
 }
 
 .content {
-	padding: convert-px2rem(60) convert-px2rem(20);
+	padding: convert.to-rem(60) convert.to-rem(20);
 	position: relative;
 }

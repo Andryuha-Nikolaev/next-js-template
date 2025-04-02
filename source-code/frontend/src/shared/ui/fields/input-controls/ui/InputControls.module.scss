@@ -1,22 +1,19 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
+@use "@/styles/mixins/mixins";
 
 .buttons {
 	position: absolute;
-	right: convert-px2rem(10);
+	right: convert.to-rem(10);
 	top: 0;
-	// height: convert-px2rem(var(--input-height-number));
 	height: 100%;
-	max-height: convert-px2rem(var(--input-height-number));
-	@include flex-center;
+	max-height: convert.to-rem(var(--input-height-number));
+	@include mixins.flex-center;
 	flex-direction: row;
 }
 
 .reset {
-	width: convert-px2rem(24) !important;
-	height: convert-px2rem(24) !important;
+	width: convert.to-rem(24) !important;
+	height: convert.to-rem(24) !important;
 
 	svg {
 		width: 18px !important;
@@ -24,10 +21,10 @@
 }
 
 .calendar {
-	width: convert-px2rem(24) !important;
-	height: convert-px2rem(24) !important;
-	@include flex-center;
-	@include hover-opacity;
+	width: convert.to-rem(24) !important;
+	height: convert.to-rem(24) !important;
+	@include mixins.flex-center;
+	@include mixins.hover-opacity;
 
 	svg {
 		width: 16px;

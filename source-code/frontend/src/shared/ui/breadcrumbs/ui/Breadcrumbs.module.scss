@@ -1,15 +1,7 @@
-@import "@/styles/functions/convert-px2rem";
-@import "@/styles/mixins/typography";
-@import "@/styles/mixins/breakpoints";
-@import "@/styles/mixins/mixins";
+@use "@/styles/functions/convert";
 
 .nav {
 	width: 100%;
-	@include md {
-	}
-
-	@include lg {
-	}
 }
 
 .scrollbar {
@@ -20,8 +12,5 @@
 	display: flex;
 	width: fit-content;
 	padding: 0;
-	min-height: convert-px2rem(30);
-
-	@include lg {
-	}
+	min-height: convert.to-rem(30);
 }
