@@ -5,9 +5,9 @@ import clsx from "clsx";
 import s from "./CloseButton.module.scss";
 import { CloseIcon } from "./icons/close-icon/CloseIcon";
 
-interface CloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type CloseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	className?: string;
-}
+};
 
 export const CloseButton = ({
 	onClick,

@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { getDataWithCache } from "@/shared/api/services";
 import { TestCustomPage, type CustomPage } from "@/views/test-custom";
 
-interface CustomPageProps {
+type CustomPageProps = {
 	params: {
 		id: string;
 	};
-}
+};
 
 export async function generateMetadata({
 	params: { id },

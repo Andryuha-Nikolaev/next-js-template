@@ -2,7 +2,7 @@ import { CloseButton } from "@/shared/ui/buttons/close";
 
 import s from "./FileInputPreview.module.scss";
 
-interface FileInputPreviewProps {
+type FileInputPreviewProps = {
 	previews: {
 		image: string;
 		name: string;
@@ -10,7 +10,7 @@ interface FileInputPreviewProps {
 	}[];
 	onDeleteFile: (name: string) => void;
 	withPreview?: boolean;
-}
+};
 
 const FileInputPreview = ({
 	previews,

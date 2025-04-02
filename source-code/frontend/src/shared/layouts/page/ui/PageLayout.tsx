@@ -6,9 +6,9 @@ import siteConstants from "@/shared/constants/site";
 
 import s from "./PageLayout.module.scss";
 
-interface PageLayoutProps {
+type PageLayoutProps = {
 	children: React.ReactNode;
-}
+};
 
 export const PageLayout = ({ children }: PageLayoutProps) => {
 	return (

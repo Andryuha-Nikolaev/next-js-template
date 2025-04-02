@@ -1,9 +1,9 @@
 import { BurgerIcon } from "./burger-icon/BurgerIcon";
 import s from "./BurgerButton.module.scss";
 
-interface BurgerButtonProps {
+type BurgerButtonProps = {
 	onClick: () => void;
-}
+};
 
 export const BurgerButton = ({ onClick }: BurgerButtonProps) => {
 	return (

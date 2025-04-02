@@ -3,9 +3,9 @@
 import { ModalProvider } from "@/features/modal";
 import { SiteStateProvider } from "@/shared/context/site";
 
-export interface ProvidersProps {
+export type ProvidersProps = {
 	children: React.ReactNode;
-}
+};
 
 export function Providers({ children }: ProvidersProps) {
 	return (
