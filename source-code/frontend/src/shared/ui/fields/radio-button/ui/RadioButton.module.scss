@@ -74,6 +74,7 @@
 
 	&:checked {
 		border-color: var(--color-radio-border-focused);
+		background-color: var(--bg-radio-checked);
 	}
 
 	&:checked::before {
