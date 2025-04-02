@@ -59,12 +59,12 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
 							{chooseAllCheckbox}
 						</Checkbox>
 					)}
-					{items.map((item, i) => (
+					{items.map((item) => (
 						<Checkbox
 							disabled={item.disabled || disabled}
 							isError={!!errorMessage}
 							checked={value.includes(item.value)}
-							key={i}
+							key={item.value}
 							ref={ref}
 							value={item.value}
 							onChange={(e) => handleChange(e.target.value)}

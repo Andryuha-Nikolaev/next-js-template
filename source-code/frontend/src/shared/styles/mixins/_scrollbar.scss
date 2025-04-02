@@ -1,7 +1,7 @@
 @mixin scrollbar {
 	@-moz-document url-prefix() {
 		scrollbar-width: thin;
-		scrollbar-color: var(--color-scrollbar-thumb) transparent;
+		scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 	}
 
 	&::-webkit-scrollbar {
@@ -9,7 +9,7 @@
 		width: 8px;
 	}
 	&::-webkit-scrollbar-track {
-		background: transparent;
+		background: var(--color-scrollbar-track);
 		border-radius: 5px;
 	}
 	&::-webkit-scrollbar-thumb {
@@ -22,7 +22,7 @@
 	@-moz-document url-prefix() {
 		* {
 			scrollbar-width: thin;
-			scrollbar-color: var(--color-scrollbar-thumb) transparent;
+			scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 		}
 	}
 
@@ -31,7 +31,7 @@
 		width: 8px;
 	}
 	*::-webkit-scrollbar-track {
-		background: transparent;
+		background: var(--color-scrollbar-track);
 		border-radius: 5px;
 	}
 	*::-webkit-scrollbar-thumb {

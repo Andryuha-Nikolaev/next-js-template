@@ -23,8 +23,8 @@ const FileInputPreview = ({
 
 	return (
 		<div className={s.previewBlock}>
-			{previews.map((item, i) => (
-				<div className={s.previewItem} key={i}>
+			{previews.map((item) => (
+				<div className={s.previewItem} key={item.name}>
 					{withPreview && (
 						// eslint-disable-next-line @next/next/no-img-element
 						<img className={s.previewImage} src={item.image} alt="" />
