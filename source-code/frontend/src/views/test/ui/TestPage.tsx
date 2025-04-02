@@ -126,7 +126,7 @@ export const TestPage = () => {
 					<RootLink colorVariant="var2" href={"/"}>
 						RootLink var2
 					</RootLink>
-					<RootLink target="_blank" rel="noreferrer" href="/" as="a">
+					<RootLink href="/" as="a">
 						RootLink as=a
 					</RootLink>
 					<hr style={{ width: "100%" }} />
@@ -186,11 +186,11 @@ export const TestPage = () => {
 					<Breadcrumbs
 						breadcrumbs={[
 							{ name: "Тест", url: "/test" },
-							{ name: "Тест", url: "/test" },
-							{ name: "Тест", url: "/test" },
+							{ name: "Тест1", url: "/test1" },
+							{ name: "Тест2", url: "/test2" },
 							{
 								name: "ТестТестТестТестТестТестТестТестТестТестТестТестТест Тест Тест Тест Тест Тест Тест Тест Тест",
-								url: "/test",
+								url: "/test3",
 							},
 						]}
 					/>
