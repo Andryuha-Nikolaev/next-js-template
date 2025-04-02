@@ -88,7 +88,7 @@ export const defaultValues: TestFormSchemaType = {
 	[FieldNames.TEXT]: "",
 	[FieldNames.FILE]: "",
 	[FieldNames.FILES]: "",
-	[FieldNames.POLICY]: false,
+	[FieldNames.POLICY]: true,
 	[FieldNames.CHECKBOX_GROUP]: [],
 	[FieldNames.CHECKBOX_GROUP_2]: ["Второй чекбокс", "Четвертый"],
 	[FieldNames.RADIO]: "",
