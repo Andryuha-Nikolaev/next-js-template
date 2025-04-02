@@ -12,7 +12,12 @@ export const RHFCheckbox = ({ name, ...restProps }: RHFCheckboxProps) => {
 			name={name}
 			control={control}
 			render={({ field, fieldState: { error } }) => (
-				<Checkbox errorMessage={error?.message} {...field} {...restProps} />
+				<Checkbox
+					checked={field.value === true}
+					errorMessage={error?.message}
+					{...field}
+					{...restProps}
+				/>
 			)}
 		/>
 	);
