@@ -22,7 +22,7 @@ import {
 	// checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
-} from "@/shared/schemas/fileInput";
+} from "@/shared/schemas/fields/fileInputSchema";
 
 export const testFormSchema = z
 	.object({
