@@ -1,0 +1,16 @@
+@use "@/styles/functions/convert";
+
+.block {
+	width: 100%;
+	padding: convert.to-rem(50) 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: convert.to-rem(20);
+	border-bottom: 1px solid var(--foreground);
+}
+
+.title {
+	margin-bottom: convert.to-rem(20);
+	font-weight: 700;
+}

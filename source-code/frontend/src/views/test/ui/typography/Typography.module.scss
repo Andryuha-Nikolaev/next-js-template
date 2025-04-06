@@ -1,0 +1,13 @@
+@use "@/styles/mixins/typography";
+
+.block {
+	text-align: center;
+}
+
+.additionalText {
+	@include typography.additional-text;
+}
+
+.helperText {
+	@include typography.helper-text;
+}
