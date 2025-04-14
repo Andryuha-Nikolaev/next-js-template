@@ -7,11 +7,11 @@ import { useModal } from "@/features/modal/ui/ModalProvider";
 import { TestForm } from "@/features/send-test-form";
 import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
 import { RootButton } from "@/shared/ui/buttons/root";
-import { RootLink } from "@/shared/ui/links/root";
 import { Social } from "@/shared/ui/social";
 import { Tooltip } from "@/shared/ui/tooltip";
 
 import { Buttons } from "./buttons/Buttons";
+import { Links } from "./links/Links";
 import { Typography } from "./typography/Typography";
 
 export const TestPage = () => {
@@ -49,16 +49,7 @@ export const TestPage = () => {
 		<div>
 			<Typography />
 			<Buttons />
-			<h2>Links:</h2>
-			<RootLink as={"button"}>RootLink as=button</RootLink>
-			<RootLink href={"/test/aaa"}>RootLink var1 to dynamic route</RootLink>
-			<RootLink colorVariant="var2" href={"/"}>
-				RootLink var2
-			</RootLink>
-			<RootLink href="/" as="a">
-				RootLink as=a
-			</RootLink>
-			<hr style={{ width: "100%" }} />
+			<Links />
 			<h2>Social:</h2>
 			<Social />
 			<hr style={{ width: "100%" }} />
