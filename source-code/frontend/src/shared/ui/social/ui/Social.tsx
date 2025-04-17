@@ -12,9 +12,9 @@ const socialArray: SocialArrayItem[] = [
 export const Social = () => {
 	return (
 		<div className={s.block}>
-			{socialArray.map((item, i) => (
+			{socialArray.map((item) => (
 				<a
-					key={i}
+					key={item.name}
 					className={s.link}
 					href={item.url}
 					rel="noreferrer nofollow"

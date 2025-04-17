@@ -7,6 +7,7 @@
 .wrap {
 	position: relative;
 	@include mixins.flex-center;
+	width: fit-content;
 }
 
 .spinner {
@@ -144,8 +145,9 @@
 }
 
 .icon {
-	min-width: convert.to-rem(24);
-	min-height: convert.to-rem(24);
+	width: convert.to-rem(24);
+	height: convert.to-rem(24);
+	overflow: hidden;
 
 	svg {
 		width: 100%;

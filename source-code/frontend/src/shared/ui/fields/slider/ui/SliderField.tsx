@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import { debounce } from "lodash";
 import Slider from "rc-slider";
+import { useDebounceCallback as debounce } from "usehooks-ts";
 
 import type { SliderFieldProps } from "@/shared/ui/fields/slider/model/types";
 

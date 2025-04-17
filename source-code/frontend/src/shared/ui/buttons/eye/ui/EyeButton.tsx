@@ -6,9 +6,9 @@ import s from "./EyeButton.module.scss";
 import { EyeClosed } from "./icons/eye/EyeClosed";
 import { EyeOpened } from "./icons/eye/EyeOpened";
 
-interface EyeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type EyeButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	isVisible: boolean;
-}
+};
 
 export const EyeButton = ({
 	isVisible,

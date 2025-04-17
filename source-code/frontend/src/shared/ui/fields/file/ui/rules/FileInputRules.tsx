@@ -2,10 +2,10 @@ import parse from "html-react-parser";
 
 import s from "./FileInputRules.module.scss";
 
-interface FileInputRulesProps {
+type FileInputRulesProps = {
 	fileSize?: string;
 	fileFormat?: string;
-}
+};
 
 const FileInputRules = ({ fileSize, fileFormat }: FileInputRulesProps) => {
 	return (

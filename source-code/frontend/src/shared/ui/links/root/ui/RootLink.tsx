@@ -21,6 +21,7 @@ export const RootLink = <C extends React.ElementType = typeof Link>({
 		<Component
 			className={clsx(s.link, s[colorVariant], className && className)}
 			href={href}
+			{...(as === "a" && { target: "_blank", rel: "noreferrer" })}
 			{...restProps}
 		>
 			{children}

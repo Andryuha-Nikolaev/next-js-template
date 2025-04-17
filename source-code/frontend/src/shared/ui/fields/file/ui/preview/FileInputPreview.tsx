@@ -2,7 +2,7 @@ import { CloseButton } from "@/shared/ui/buttons/close";
 
 import s from "./FileInputPreview.module.scss";
 
-interface FileInputPreviewProps {
+type FileInputPreviewProps = {
 	previews: {
 		image: string;
 		name: string;
@@ -10,7 +10,7 @@ interface FileInputPreviewProps {
 	}[];
 	onDeleteFile: (name: string) => void;
 	withPreview?: boolean;
-}
+};
 
 const FileInputPreview = ({
 	previews,
@@ -23,8 +23,8 @@ const FileInputPreview = ({
 
 	return (
 		<div className={s.previewBlock}>
-			{previews.map((item, i) => (
-				<div className={s.previewItem} key={i}>
+			{previews.map((item) => (
+				<div className={s.previewItem} key={item.name}>
 					{withPreview && (
 						// eslint-disable-next-line @next/next/no-img-element
 						<img className={s.previewImage} src={item.image} alt="" />

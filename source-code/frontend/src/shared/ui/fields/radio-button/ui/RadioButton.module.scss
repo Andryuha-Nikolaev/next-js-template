@@ -22,6 +22,7 @@
 	text-align: left;
 	cursor: pointer;
 	width: fit-content;
+	@include typography.additional-text;
 
 	@include interaction.hover {
 		.input {
@@ -83,8 +84,4 @@
 		border-radius: 50%;
 		margin: convert.to-rem(3) convert.to-rem(3);
 	}
-}
-
-.text {
-	@include typography.additional-text;
 }

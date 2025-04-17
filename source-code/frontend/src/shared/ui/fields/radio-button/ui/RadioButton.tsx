@@ -32,8 +32,11 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 				label={label}
 			>
 				<div className={clsx(s.block, s[variant])}>
-					{items.map((item, i) => (
-						<label key={i} className={clsx(s.label, disabled && s.disabled)}>
+					{items.map((item) => (
+						<label
+							key={item.value}
+							className={clsx(s.label, disabled && s.disabled)}
+						>
 							<input
 								checked={value === item.value}
 								ref={ref}

@@ -1,10 +1,10 @@
 import s from "./InputWrapperLabel.module.scss";
 
-export interface InputWrapperLabelProps {
+export type InputWrapperLabelProps = {
 	id: string | undefined;
 	label: string;
 	isRequired?: boolean;
-}
+};
 
 export default function InputWrapperLabel({
 	id,

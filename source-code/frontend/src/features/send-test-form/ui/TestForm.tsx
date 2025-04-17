@@ -215,7 +215,6 @@ export const TestForm = () => {
 					</FormWrapper>
 				</form>
 			</FormProvider>
-			<div style={{ height: 207 }}></div>
 		</>
 	);
 };
