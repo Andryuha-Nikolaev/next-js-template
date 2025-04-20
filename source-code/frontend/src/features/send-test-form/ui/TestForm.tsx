@@ -196,7 +196,11 @@ export const TestForm = () => {
 								{ value: "ccc9", label: "ccc9" },
 							]}
 						/>
-						<RHFDatePicker label="Просто дата" name={FieldNames.DATE} />
+						<RHFDatePicker
+							label="Просто дата"
+							name={FieldNames.DATE}
+							isRequired
+						/>
 						<RHFRangeDatePicker
 							startDateName={FieldNames.START_DATE}
 							endDateName={FieldNames.END_DATE}
