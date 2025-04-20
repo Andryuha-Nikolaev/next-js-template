@@ -55,7 +55,7 @@ export const TestModal = () => {
 				show error modal hidden close button
 			</RootButton>
 			<RootButton colorVariant="var3" onClick={showFeedbackModal}>
-				show feedback modal disable overlay click
+				show feedback modal disabled overlay click
 			</RootButton>
 			<RootButton
 				colorVariant="var2"
