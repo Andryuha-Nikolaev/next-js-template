@@ -1,5 +1,13 @@
 @use "@/styles/functions/convert";
 
+.layout {
+	&:last-child {
+		.block {
+			border: none;
+		}
+	}
+}
+
 .block {
 	width: 100%;
 	padding: convert.to-rem(50) 0;

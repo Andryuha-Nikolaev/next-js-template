@@ -9,7 +9,7 @@ type TestPageWrapperProps = {
 
 export const TestPageWrapper = ({ children, title }: TestPageWrapperProps) => {
 	return (
-		<ContentLayout>
+		<ContentLayout className={s.layout}>
 			<div className={s.block}>
 				<h2 className={s.title}>{title}</h2>
 
