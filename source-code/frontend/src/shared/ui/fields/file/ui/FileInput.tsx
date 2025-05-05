@@ -28,6 +28,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 		},
 		ref
 	) => {
+		console.log(fileList);
+
 		const inputRef = useRef<HTMLInputElement | null>(null);
 
 		const currentFileList = useMemo(() => Array.from(fileList), [fileList]);

@@ -34,14 +34,15 @@ export const testFormSchema = z
 		[FieldNames.CONFIRM_PASSWORD]: passwordSchema,
 		[FieldNames.TEXT]: textSchema,
 		[FieldNames.FILE]: z
-			.any()
+			.instanceof(FileList)
+			.or(z.string())
 			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
 			.refine(
-				(files: FileList) => checkFilesSize(files, 5),
+				(files) => checkFilesSize(files, 5),
 				"Максимальный размер файла - 5 МБ"
 			)
 			.refine(
-				(files: FileList) => checkFilesTypes(files),
+				(files) => checkFilesTypes(files),
 				"Допустимые форматы: jpeg, jpg, png"
 			),
 
@@ -86,7 +87,8 @@ export const defaultValues: TestFormSchemaType = {
 	[FieldNames.PASSWORD]: "",
 	[FieldNames.CONFIRM_PASSWORD]: "",
 	[FieldNames.TEXT]: "",
-	[FieldNames.FILE]: "",
+	[FieldNames.FILE]:
+		"https://i.pinimg.com/originals/48/d1/cc/48d1cce3d9df20fc0da02d44327b5f6d.jpg",
 	[FieldNames.FILES]: "",
 	[FieldNames.POLICY]: true,
 	[FieldNames.CHECKBOX_GROUP]: [],
