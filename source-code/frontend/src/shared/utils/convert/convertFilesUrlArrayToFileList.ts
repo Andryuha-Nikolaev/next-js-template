@@ -1,4 +1,4 @@
-export async function convertFilesArrayUrlToFileList(
+export async function convertFilesUrlArrayToFileList(
 	files: string[],
 	name: string
 ): Promise<FileList | null> {

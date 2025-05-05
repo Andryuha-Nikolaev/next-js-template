@@ -4,7 +4,7 @@ import { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
 
 import { RootButton } from "@/shared/ui/buttons/root";
 import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
-import { convertFilesArrayUrlToFileList } from "@/shared/utils/convert/convertFilesArrayUrlToFileList";
+import { convertFilesUrlArrayToFileList } from "@/shared/utils/convert/convertFilesUrlArrayToFileList";
 
 import s from "./FileInput.module.scss";
 import AttachIcon from "./icons/attach-icon/AttachIcon";
@@ -60,7 +60,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 			if (Array.isArray(fileList) && !!fileList.length) {
 				setIsLoadingFiles(true);
 
-				convertFilesArrayUrlToFileList(fileList, "file from server")
+				convertFilesUrlArrayToFileList(fileList, "file from server")
 					.then((data) => {
 						if (data) {
 							onChangeFileList(data);
