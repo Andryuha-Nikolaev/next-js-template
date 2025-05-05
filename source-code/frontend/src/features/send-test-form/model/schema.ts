@@ -19,7 +19,7 @@ import {
 	textSchema,
 } from "@/shared/schemas/fields";
 import {
-	// checkFilesLength,
+	checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
 } from "@/shared/schemas/fields/fileInputSchema";
@@ -34,26 +34,26 @@ export const testFormSchema = z
 		[FieldNames.CONFIRM_PASSWORD]: passwordSchema,
 		[FieldNames.TEXT]: textSchema,
 		[FieldNames.FILE]: z
-			.any()
-			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+			.custom<FileList | string[]>()
+			.refine((files) => checkFilesLength(files), "Поле обязательно")
 			.refine(
-				(files: FileList) => checkFilesSize(files, 5),
+				(files) => checkFilesSize(files, 5),
 				"Максимальный размер файла - 5 МБ"
 			)
 			.refine(
-				(files: FileList) => checkFilesTypes(files),
+				(files) => checkFilesTypes(files),
 				"Допустимые форматы: jpeg, jpg, png"
 			),
 
 		[FieldNames.FILES]: z
-			.any()
-			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+			.custom<FileList | string[]>()
+			// .refine((files) => checkFilesLength(files), "Поле обязательно")
 			.refine(
-				(files: FileList) => checkFilesSize(files, 10),
+				(files) => checkFilesSize(files, 10),
 				"Максимальный размер файлов - 10 МБ"
 			)
 			.refine(
-				(files: FileList) => checkFilesTypes(files),
+				(files) => checkFilesTypes(files),
 				"Допустимые форматы: jpeg, jpg, png"
 			),
 		[FieldNames.POLICY]: checkboxSchema,
@@ -86,8 +86,8 @@ export const defaultValues: TestFormSchemaType = {
 	[FieldNames.PASSWORD]: "",
 	[FieldNames.CONFIRM_PASSWORD]: "",
 	[FieldNames.TEXT]: "",
-	[FieldNames.FILE]: "",
-	[FieldNames.FILES]: "",
+	[FieldNames.FILE]: [],
+	[FieldNames.FILES]: [],
 	[FieldNames.POLICY]: true,
 	[FieldNames.CHECKBOX_GROUP]: [],
 	[FieldNames.CHECKBOX_GROUP_2]: ["Второй чекбокс", "Четвертый"],

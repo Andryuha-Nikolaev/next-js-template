@@ -88,7 +88,6 @@ export const TestForm = () => {
 							label="Текст"
 						/>
 						<RHFFileInput
-							disabled
 							label="Файл с превью"
 							name={FieldNames.FILE}
 							fileSize="Максимальный размер файла - 5 МБ."

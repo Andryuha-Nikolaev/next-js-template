@@ -7,9 +7,9 @@ export type FileInputProps = InputHTMLAttributes<HTMLInputElement> &
 		fileSize?: string;
 		fileFormat?: string;
 		buttonText?: string;
-		fileList: FileList;
+		fileList: FileList | string[];
 		withPreview?: boolean;
-		onChangeFileList: (fileList: FileList | null | string) => void;
+		onChangeFileList: (fileList: FileList | string[]) => void;
 	};
 
 export type RHFFileInputProps = Omit<
