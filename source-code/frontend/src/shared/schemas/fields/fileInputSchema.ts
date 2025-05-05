@@ -6,7 +6,7 @@ export function checkFilesLength(files: FileList) {
 }
 
 export function checkFilesTypes(
-	value: FileList | string,
+	value: FileList,
 	validTypes: string[] = [
 		"image/jpeg",
 		"image/png",
@@ -16,7 +16,7 @@ export function checkFilesTypes(
 		// "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 	]
 ) {
-	if (!value || typeof value === "string" || value.length === 0) {
+	if (!value || value.length === 0) {
 		return true;
 	}
 
@@ -31,15 +31,9 @@ export function checkFilesTypes(
 	return true;
 }
 
-export function checkFilesSize(value: FileList | string, maxSizeMb: number) {
-	if (!value || typeof value === "string" || value.length === 0) {
-		return true;
-	}
-
-	const files = Array.from(value);
-
+export function checkFilesSize(files: FileList, maxSizeMb: number) {
 	if (
-		files.reduce((sum, file) => sum + file.size, 0) <=
+		Array.from(files).reduce((sum, file) => sum + file.size, 0) <
 		maxSizeMb * 1024 * 1024
 	) {
 		return true;
