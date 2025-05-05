@@ -45,6 +45,7 @@ export const DatePickerComponent = forwardRef<
 			modalPositionY = "bottom",
 			modalPositionX = "left",
 			disabled,
+			isAutoCorrectMinMaxDate = true,
 			...props
 		},
 		ref
@@ -112,9 +113,17 @@ export const DatePickerComponent = forwardRef<
 			setTimeout(() => setIsInputChanging(false));
 		};
 
+		const minMaxAutoCorrectProps = isAutoCorrectMinMaxDate
+			? {
+					min: props.minDate,
+					max: props.maxDate,
+				}
+			: undefined;
+
 		const dateOptions = maskitoDateOptionsGenerator({
 			mode: "dd/mm/yyyy",
 			separator: ".",
+			...minMaxAutoCorrectProps,
 		});
 
 		const dateTimeOptions = maskitoDateTimeOptionsGenerator({
@@ -122,8 +131,7 @@ export const DatePickerComponent = forwardRef<
 			timeMode: "HH:MM",
 			dateSeparator: ".",
 			dateTimeSeparator: " ",
-			min: props.minDate,
-			max: props.maxDate,
+			...minMaxAutoCorrectProps,
 		});
 
 		const maskedInputRef = useMaskito({

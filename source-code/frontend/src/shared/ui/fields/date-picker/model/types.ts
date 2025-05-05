@@ -10,6 +10,7 @@ export type BaseDatePickerProps = InputWrapperBaseProps & {
 	withInput?: boolean;
 	maskGuide?: boolean;
 	disabled?: boolean;
+	isAutoCorrectMinMaxDate?: boolean;
 };
 
 export type SingleDatePickerProps = BaseDatePickerProps & {
