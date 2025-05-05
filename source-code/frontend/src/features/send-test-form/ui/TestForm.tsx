@@ -5,6 +5,7 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import { useModal } from "@/features/modal/ui/ModalProvider";
 import { FieldNames } from "@/shared/constants/fields";
+import { valuesToFormData } from "@/shared/lib/form/submitUtils";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
 import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
@@ -19,7 +20,6 @@ import { RHFRangeSliderField, RHFSliderField } from "@/shared/ui/fields/slider";
 import { RHFTextarea } from "@/shared/ui/fields/textarea";
 import { FormWrapper } from "@/shared/ui/form/form-wrapper";
 import { RootLink } from "@/shared/ui/links/root";
-import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 
 import PasswordFields from "./password-fields/PasswordFields";
 

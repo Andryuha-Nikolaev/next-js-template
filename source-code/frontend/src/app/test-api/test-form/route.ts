@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { isProd } from "@/shared/utils/environment/isProd";
+import { isProd } from "@/shared/lib/environment/isProd";
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function POST(req: NextRequest) {
