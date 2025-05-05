@@ -115,8 +115,6 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 							type="file"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 								if (e.target.value) {
-									console.log(e.target.files);
-
 									onChangeFileList(e.target.files || []);
 								}
 							}}
