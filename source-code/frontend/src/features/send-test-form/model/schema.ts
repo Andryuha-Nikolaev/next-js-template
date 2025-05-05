@@ -14,10 +14,10 @@ import {
 	rangeSliderSchema,
 	selectSchema,
 	singleDateSchema,
-	singleDateSchemaRequired,
 	singleSliderSchema,
 	textSchema,
 } from "@/shared/schemas/fields";
+import { adultDateSchemaRequired } from "@/shared/schemas/fields/dateSchema";
 import {
 	checkFilesLength,
 	checkFilesSize,
@@ -62,7 +62,7 @@ export const testFormSchema = z
 		[FieldNames.RADIO]: radioButtonSchema,
 		[FieldNames.SELECT]: selectSchema,
 		[FieldNames.MULTI_SELECT]: multiSelectSchemaRequired,
-		[FieldNames.DATE]: singleDateSchemaRequired,
+		[FieldNames.DATE]: adultDateSchemaRequired,
 		[FieldNames.START_DATE]: singleDateSchema,
 		[FieldNames.END_DATE]: singleDateSchema,
 		[FieldNames.SINGLE_SLIDER]: singleSliderSchema,

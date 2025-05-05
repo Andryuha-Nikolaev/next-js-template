@@ -194,7 +194,7 @@ export const TestForm = () => {
 							]}
 						/>
 						<RHFDatePicker
-							label="Просто дата"
+							label="Дата рождения"
 							name={FieldNames.DATE}
 							isRequired
 						/>
