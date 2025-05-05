@@ -24,16 +24,13 @@ import { valuesToFormData } from "@/shared/utils/form/submitUtils";
 import PasswordFields from "./password-fields/PasswordFields";
 
 import { sendTestForm } from "../api/actions";
-import {
-	defaultValues,
-	testFormSchema,
-	type TestFormSchemaType,
-} from "../model/schema";
+import { testFormDefaultValues } from "../model/default-values";
+import { testFormSchema, type TestFormSchemaType } from "../model/schema";
 
 export const TestForm = () => {
 	const methods = useForm<TestFormSchemaType>({
 		resolver: zodResolver(testFormSchema),
-		defaultValues: defaultValues,
+		defaultValues: testFormDefaultValues,
 	});
 
 	const {
