@@ -93,6 +93,7 @@ export const TestForm = () => {
 							fileSize="Максимальный размер файла - 5 МБ."
 							fileFormat="Допустимые форматы: jpeg, jpg, png."
 							withPreview
+							isRequired
 						/>
 						<RHFFileInput
 							name={FieldNames.FILES}

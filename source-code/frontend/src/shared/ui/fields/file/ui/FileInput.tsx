@@ -1,9 +1,10 @@
 "use client";
 
-import { forwardRef, useEffect, useId, useMemo, useRef } from "react";
+import { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
 
 import { RootButton } from "@/shared/ui/buttons/root";
 import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
+import { convertFilesArrayUrlToFileList } from "@/shared/utils/convert/convertFilesArrayUrlToFileList";
 
 import s from "./FileInput.module.scss";
 import AttachIcon from "./icons/attach-icon/AttachIcon";
@@ -28,6 +29,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 		},
 		ref
 	) => {
+		const [isLoadingFiles, setIsLoadingFiles] = useState(false);
+
 		const inputRef = useRef<HTMLInputElement | null>(null);
 
 		const currentFileList = useMemo(
@@ -52,6 +55,26 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 				inputRef.current.files = dataTransfer.files;
 			}
 		}, [currentFileList]);
+
+		useEffect(() => {
+			if (Array.isArray(fileList) && !!fileList.length) {
+				setIsLoadingFiles(true);
+
+				convertFilesArrayUrlToFileList(fileList, "file from server")
+					.then((data) => {
+						if (data) {
+							onChangeFileList(data);
+						}
+					})
+
+					.catch((error) => {
+						console.error("Error loading images:", error);
+					})
+					.finally(() => {
+						setIsLoadingFiles(false);
+					});
+			}
+		}, [fileList, onChangeFileList]);
 
 		const onDeleteFile = (fileName: string) => {
 			const filteredArray = currentFileList.filter(
@@ -109,6 +132,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 						onClick={() => {
 							inputRef.current?.click();
 						}}
+						isLoading={isLoadingFiles}
 					>
 						{buttonText}
 					</RootButton>
