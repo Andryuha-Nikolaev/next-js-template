@@ -85,6 +85,7 @@ small {
 
 a {
 	color: inherit;
+	@include typography.link-1;
 }
 
 button {

@@ -12,6 +12,7 @@ type CloseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const CloseButton = ({
 	onClick,
 	className,
+	children,
 	...restProps
 }: CloseButtonProps) => {
 	return (
@@ -22,7 +23,7 @@ export const CloseButton = ({
 			type="button"
 			{...restProps}
 		>
-			<CloseIcon />
+			{children ?? <CloseIcon />}
 		</button>
 	);
 };
