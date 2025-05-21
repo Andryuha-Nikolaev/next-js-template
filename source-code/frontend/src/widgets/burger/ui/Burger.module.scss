@@ -1,5 +1,6 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/transition";
+@use "@/styles/mixins/mixins";
 
 .block {
 	z-index: var(--z-index-burger);
@@ -23,6 +24,11 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+
+.scrollbar {
+	max-height: 100%;
+	width: 100%;
 }
 
 .content {
