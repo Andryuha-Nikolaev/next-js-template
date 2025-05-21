@@ -39,7 +39,8 @@ export const RootButton = <C extends React.ElementType = "button">({
 				isLoading && s.loading,
 				className && className
 			)}
-			{...(Component === "button" && { type: "button" })}
+			{...(as === "button" && { type: "button" })}
+			{...(as === "a" && { target: "_blank", rel: "noreferrer" })}
 			{...restProps}
 		>
 			{buttonContent}
