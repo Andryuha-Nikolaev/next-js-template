@@ -19,8 +19,8 @@ function createBasicAuthHeader(username: string, password: string): string {
 	const base64Credentials = Buffer.from(credentials).toString("base64");
 	return `Basic ${base64Credentials}`;
 }
-const username = process.env.BASIC_AUTH_LOGIN;
-const password = process.env.BASIC_AUTH_PASSWORD;
+const username = process.env.NEXT_PUBLIC_BASIC_AUTH_LOGIN;
+const password = process.env.NEXT_PUBLIC_BASIC_AUTH_PASSWORD;
 
 const localHeaders =
 	username && password
