@@ -1,9 +1,9 @@
 "use server";
 
 import { sendFormData } from "@/shared/api/services";
-import { tryParseErrorCode } from "@/shared/lib/api/error";
+import { handleError, type HandleErrorResponse } from "@/shared/lib/api/error";
 
-export type TestFormResponse = { error: string } | undefined;
+export type TestFormResponse = HandleErrorResponse | undefined;
 
 export async function sendTestForm(
 	values: FormData
@@ -12,16 +12,6 @@ export async function sendTestForm(
 		await sendFormData("test-form", values);
 		return;
 	} catch (error) {
-		const errorCode = tryParseErrorCode(error);
-
-		if (errorCode) {
-			return {
-				error: errorCode,
-			};
-		}
-
-		return {
-			error: "unknown",
-		};
+		return handleError(error);
 	}
 }

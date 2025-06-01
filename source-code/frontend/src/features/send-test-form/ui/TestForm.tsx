@@ -3,8 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import { useModal } from "@/features/modal/ui/ModalProvider";
 import { FieldNames } from "@/shared/constants/fields";
+import useShowError from "@/shared/hooks/form/useErrorHandling";
 import { valuesToFormData } from "@/shared/lib/form/submitUtils";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
@@ -36,28 +36,20 @@ export const TestForm = () => {
 	const {
 		handleSubmit,
 		reset,
+		setError,
 		formState: { isSubmitting },
 	} = methods;
 
-	const { showSuccessModal, showErrorModal } = useModal();
+	const { showError } = useShowError();
 
 	const onSubmit: SubmitHandler<TestFormSchemaType> = async (values) => {
-		const error = await sendTestForm(valuesToFormData(values));
+		const response = await sendTestForm(valuesToFormData(values));
 
-		if (!error) {
+		if (!response) {
 			reset();
-			showSuccessModal({ title: "Данные успешно отправлены" });
-
-			return;
 		}
 
-		const { error: errorType } = error;
-
-		if (errorType === "unknown") {
-			showErrorModal();
-		} else {
-			showErrorModal({ title: errorType });
-		}
+		showError<TestFormSchemaType>({ response, setError });
 	};
 
 	return (

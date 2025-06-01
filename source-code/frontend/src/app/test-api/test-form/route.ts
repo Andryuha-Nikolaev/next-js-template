@@ -13,6 +13,13 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
+	return NextResponse.json(
+		{ error: "Неверный формат" },
+		{
+			status: 400,
+		}
+	);
+
 	const reqData = await req.formData();
 	console.log(Object.fromEntries(reqData.entries()));
 

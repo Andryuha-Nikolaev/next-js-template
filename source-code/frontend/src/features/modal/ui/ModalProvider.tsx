@@ -8,7 +8,6 @@ import type {
 	ModalProps,
 } from "@/features/modal/model/types";
 import Modal from "@/features/modal/ui/Modal";
-import { ErrorMessages } from "@/shared/constants/errorMessages";
 import useChangeQueryParams from "@/shared/hooks/query-params/useChangeQueryParams";
 
 import { ModalSearchParams } from "../config/constants";
@@ -44,7 +43,6 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const showErrorModal = (config?: ModalConfigProps) => {
 		showModal({
-			title: ErrorMessages.UNKNOWN,
 			type: "error",
 			...config,
 		});
