@@ -49,7 +49,7 @@ export const TestForm = () => {
 			reset();
 		}
 
-		showError<TestFormSchemaType>({ response, setError });
+		showError<TestFormSchemaType>({ error: response?.error, setError });
 	};
 
 	return (

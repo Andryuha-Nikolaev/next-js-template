@@ -3,7 +3,7 @@
 import { sendFormData } from "@/shared/api/services";
 import { handleError, type HandleErrorResponse } from "@/shared/lib/api/error";
 
-export type TestFormResponse = HandleErrorResponse | undefined;
+export type TestFormResponse = { error?: HandleErrorResponse } | undefined;
 
 export async function sendTestForm(
 	values: FormData
@@ -12,6 +12,6 @@ export async function sendTestForm(
 		await sendFormData("test-form", values);
 		return;
 	} catch (error) {
-		return handleError(error);
+		return { error: handleError(error) };
 	}
 }

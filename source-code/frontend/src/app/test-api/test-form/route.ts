@@ -13,12 +13,24 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	return NextResponse.json(
-		{ error: "Неверный формат" },
-		{
-			status: 400,
-		}
-	);
+	// return NextResponse.json(
+	// 	{ error: "Неверный формат" },
+	// 	{
+	// 		status: 400,
+	// 	}
+	// );
+
+	// return NextResponse.json(
+	// 	{
+	// 		error: "Неверный формат",
+	// 		errors: {
+	// 			[FieldNames.FIRST_NAME]: ["Неверное имя"],
+	// 		},
+	// 	},
+	// 	{
+	// 		status: 422,
+	// 	}
+	// );
 
 	const reqData = await req.formData();
 	console.log(Object.fromEntries(reqData.entries()));

@@ -3,12 +3,13 @@ import { ErrorTypes } from "@/shared/constants/errorTypes";
 import type { HandleErrorResponse } from "@/shared/lib/api/error";
 
 type ShowErrorType<T> = {
-	response: HandleErrorResponse | undefined;
+	error: HandleErrorResponse | undefined;
 	setError?: (
 		name: keyof T,
 		error: {
 			message: string;
-		}
+		},
+		options?: { shouldFocus: boolean }
 	) => void;
 	withSuccessModal?: boolean;
 	successMessage?: string;
@@ -18,12 +19,12 @@ const useShowError = () => {
 	const { showSuccessModal, showErrorModal } = useModal();
 
 	const showError = <T>({
-		response,
+		error,
 		setError,
 		withSuccessModal = true,
 		successMessage = "Данные успешно отправлены",
 	}: ShowErrorType<T>) => {
-		if (!response) {
+		if (!error) {
 			if (withSuccessModal) {
 				showSuccessModal({
 					title: successMessage,
@@ -33,18 +34,22 @@ const useShowError = () => {
 			return;
 		}
 
-		if (response.errorType === ErrorTypes.VALIDATION && setError) {
-			for (const [key, value] of Object.entries(response.fields)) {
-				setError(key as keyof T, {
-					message: value[0],
-				});
+		if (error.errorType === ErrorTypes.VALIDATION && setError) {
+			for (const [key, value] of Object.entries(error.fields)) {
+				setError(
+					key as keyof T,
+					{
+						message: value[0],
+					},
+					{ shouldFocus: true }
+				);
 			}
 
 			return;
 		}
 
 		showErrorModal({
-			title: response.message,
+			title: error.message,
 		});
 	};
 
