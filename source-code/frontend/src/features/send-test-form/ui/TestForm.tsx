@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 import { FieldNames } from "@/shared/constants/fields";
-import useShowError from "@/shared/hooks/form/useErrorHandling";
+import useShowError from "@/shared/hooks/form/useShowError";
 import { valuesToFormData } from "@/shared/lib/form/submitUtils";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
