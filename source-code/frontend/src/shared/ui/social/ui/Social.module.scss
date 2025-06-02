@@ -1,7 +1,6 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/mixins";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/interaction";
+@use "@/styles/mixins/button";
 
 .block {
 	display: flex;
@@ -14,19 +13,8 @@
 	height: convert.to-rem(40);
 	flex-shrink: 0;
 	border-radius: 50%;
-	background-color: var(--bg-button-1);
-	color: var(--fg-button-1);
 
 	@include mixins.flex-center;
-	@include transition.create(background-color, color);
 
-	@include interaction.hover {
-		background-color: var(--bg-button-1-hover);
-		color: var(--fg-button-1-hover);
-	}
-
-	@include interaction.active {
-		background-color: var(--bg-button-1-active);
-		color: var(--fg-button-1-active);
-	}
+	@include button.button-1;
 }

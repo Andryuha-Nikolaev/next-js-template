@@ -14,10 +14,10 @@ import { TestPageWrapper } from "./wrapper/TestPageWrapper";
 export const TestPage = () => {
 	return (
 		<>
+			<Typography />
 			<TestPageWrapper title="Form">
 				<TestForm />
 			</TestPageWrapper>
-			<Typography />
 			<Buttons />
 			<Links />
 			<SocialMedia />
