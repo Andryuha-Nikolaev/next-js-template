@@ -15,6 +15,7 @@ import {
 	selectSchema,
 	singleDateSchema,
 	singleSliderSchema,
+	stringSchema,
 	textSchema,
 } from "@/shared/schemas/fields";
 import { adultDateSchema } from "@/shared/schemas/fields/dateSchema";
@@ -67,6 +68,7 @@ export const testFormSchema = z
 		[FieldNames.END_DATE]: singleDateSchema,
 		[FieldNames.SINGLE_SLIDER]: singleSliderSchema,
 		[FieldNames.RANGE_SLIDER]: rangeSliderSchema,
+		[FieldNames.AUTOCOMPLETE_INPUT]: stringSchema,
 	})
 	.refine(
 		(data) => data[FieldNames.PASSWORD] === data[FieldNames.CONFIRM_PASSWORD],

@@ -6,6 +6,7 @@ import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import { FieldNames } from "@/shared/constants/fields";
 import useShowError from "@/shared/hooks/form/useShowError";
 import { valuesToFormData } from "@/shared/lib/form/submitUtils";
+import { RHFAutocompleteInput } from "@/shared/ui/fields/autocomplete-input";
 import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
 import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
@@ -206,6 +207,29 @@ export const TestForm = () => {
 							label="Range slider"
 							name={FieldNames.RANGE_SLIDER}
 							max={1000000000}
+						/>
+						<RHFAutocompleteInput
+							label="Autocomplete input"
+							name={FieldNames.AUTOCOMPLETE_INPUT}
+							autoCompleteProps={{
+								filterByValue: true,
+								items: [
+									"первое",
+									"второе",
+									"тест",
+									"Тест 2",
+									"Тест 3",
+									"тест-4",
+									"Тест тест тест тест тест тест 5",
+									"тест-6",
+									"тест-7",
+									"тест-8",
+									"тест-9",
+									"тест-10",
+									"тест-11",
+									"тест-12",
+								],
+							}}
 						/>
 					</FormWrapper>
 				</form>
