@@ -1,7 +1,8 @@
 "use client";
 
-import { forwardRef, useEffect, useId, useMemo, useRef } from "react";
+import { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
 
+import { convertFilesUrlArrayToFileList } from "@/shared/lib/convert/convertFilesUrlArrayToFileList";
 import { RootButton } from "@/shared/ui/buttons/root";
 import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
 
@@ -28,9 +29,14 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 		},
 		ref
 	) => {
+		const [isLoadingFiles, setIsLoadingFiles] = useState(false);
+
 		const inputRef = useRef<HTMLInputElement | null>(null);
 
-		const currentFileList = useMemo(() => Array.from(fileList), [fileList]);
+		const currentFileList = useMemo(
+			() => (Array.isArray(fileList) ? [] : Array.from(fileList)),
+			[fileList]
+		);
 
 		const previews = useMemo(
 			() =>
@@ -50,14 +56,35 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 			}
 		}, [currentFileList]);
 
+		useEffect(() => {
+			if (Array.isArray(fileList) && !!fileList.length) {
+				setIsLoadingFiles(true);
+
+				convertFilesUrlArrayToFileList(fileList, "file from server")
+					.then((data) => {
+						if (data) {
+							onChangeFileList(data);
+						}
+					})
+
+					.catch((error) => {
+						console.error("Error loading images:", error);
+					})
+					.finally(() => {
+						setIsLoadingFiles(false);
+					});
+			}
+		}, [fileList, onChangeFileList]);
+
 		const onDeleteFile = (fileName: string) => {
-			const fileArray = Array.from(fileList);
-			const filteredArray = fileArray.filter((file) => file.name !== fileName);
+			const filteredArray = currentFileList.filter(
+				(file) => file.name !== fileName
+			);
 			const dataTransfer = new DataTransfer();
 			filteredArray.forEach((file) => dataTransfer.items.add(file));
 
 			if (filteredArray.length < 1) {
-				onChangeFileList("");
+				onChangeFileList([]);
 			} else {
 				onChangeFileList(dataTransfer.files);
 			}
@@ -88,7 +115,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 							type="file"
 							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 								if (e.target.value) {
-									onChangeFileList(e.target.files);
+									onChangeFileList(e.target.files || []);
 								}
 							}}
 							{...restProps}
@@ -103,6 +130,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 						onClick={() => {
 							inputRef.current?.click();
 						}}
+						isLoading={isLoadingFiles}
 					>
 						{buttonText}
 					</RootButton>

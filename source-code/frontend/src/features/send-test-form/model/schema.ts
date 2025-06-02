@@ -14,12 +14,12 @@ import {
 	rangeSliderSchema,
 	selectSchema,
 	singleDateSchema,
-	singleDateSchemaRequired,
 	singleSliderSchema,
 	textSchema,
 } from "@/shared/schemas/fields";
+import { adultDateSchema } from "@/shared/schemas/fields/dateSchema";
 import {
-	// checkFilesLength,
+	checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
 } from "@/shared/schemas/fields/fileInputSchema";
@@ -34,26 +34,26 @@ export const testFormSchema = z
 		[FieldNames.CONFIRM_PASSWORD]: passwordSchema,
 		[FieldNames.TEXT]: textSchema,
 		[FieldNames.FILE]: z
-			.any()
-			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+			.custom<FileList | string[]>()
+			.refine((files) => checkFilesLength(files), "Поле обязательно")
 			.refine(
-				(files: FileList) => checkFilesSize(files, 5),
+				(files) => checkFilesSize(files, 5),
 				"Максимальный размер файла - 5 МБ"
 			)
 			.refine(
-				(files: FileList) => checkFilesTypes(files),
+				(files) => checkFilesTypes(files),
 				"Допустимые форматы: jpeg, jpg, png"
 			),
 
 		[FieldNames.FILES]: z
-			.any()
-			// .refine((files: FileList) => checkFilesLength(files), "Поле обязательно")
+			.custom<FileList | string[]>()
+			// .refine((files) => checkFilesLength(files), "Поле обязательно")
 			.refine(
-				(files: FileList) => checkFilesSize(files, 10),
+				(files) => checkFilesSize(files, 10),
 				"Максимальный размер файлов - 10 МБ"
 			)
 			.refine(
-				(files: FileList) => checkFilesTypes(files),
+				(files) => checkFilesTypes(files),
 				"Допустимые форматы: jpeg, jpg, png"
 			),
 		[FieldNames.POLICY]: checkboxSchema,
@@ -62,7 +62,7 @@ export const testFormSchema = z
 		[FieldNames.RADIO]: radioButtonSchema,
 		[FieldNames.SELECT]: selectSchema,
 		[FieldNames.MULTI_SELECT]: multiSelectSchemaRequired,
-		[FieldNames.DATE]: singleDateSchemaRequired,
+		[FieldNames.DATE]: adultDateSchema,
 		[FieldNames.START_DATE]: singleDateSchema,
 		[FieldNames.END_DATE]: singleDateSchema,
 		[FieldNames.SINGLE_SLIDER]: singleSliderSchema,
@@ -77,26 +77,3 @@ export const testFormSchema = z
 	);
 
 export type TestFormSchemaType = z.infer<typeof testFormSchema>;
-
-export const defaultValues: TestFormSchemaType = {
-	[FieldNames.FIRST_NAME]: "Андрей",
-	[FieldNames.LAST_NAME]: "Николаев",
-	[FieldNames.PHONE]: "",
-	[FieldNames.EMAIL]: "",
-	[FieldNames.PASSWORD]: "",
-	[FieldNames.CONFIRM_PASSWORD]: "",
-	[FieldNames.TEXT]: "",
-	[FieldNames.FILE]: "",
-	[FieldNames.FILES]: "",
-	[FieldNames.POLICY]: true,
-	[FieldNames.CHECKBOX_GROUP]: [],
-	[FieldNames.CHECKBOX_GROUP_2]: ["Второй чекбокс", "Четвертый"],
-	[FieldNames.RADIO]: "",
-	[FieldNames.SELECT]: null,
-	[FieldNames.MULTI_SELECT]: [{ value: "ccc", label: "ccc" }],
-	[FieldNames.DATE]: null,
-	[FieldNames.START_DATE]: null,
-	[FieldNames.END_DATE]: null,
-	[FieldNames.SINGLE_SLIDER]: "49",
-	[FieldNames.RANGE_SLIDER]: [0, 1000000000],
-};

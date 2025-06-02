@@ -30,7 +30,8 @@
 		}
 	}
 
-	&.disabled {
+	&.disabled,
+	&:has(input:disabled) {
 		cursor: not-allowed;
 	}
 }

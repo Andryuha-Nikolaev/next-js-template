@@ -62,5 +62,6 @@
 		"*.{json,html}": [
 			"prettier --write --ignore-unknown"
 		]
-	}
+	},
+	"packageManager": "pnpm@10.4.1"
 }

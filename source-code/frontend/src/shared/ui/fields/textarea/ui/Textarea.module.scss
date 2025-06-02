@@ -20,7 +20,8 @@
 		border-color: var(--color-alert) !important;
 	}
 
-	&.disabled {
+	&.disabled,
+	&:has(textarea:disabled) {
 		cursor: not-allowed;
 		background-color: var(--bg-input-disabled);
 	}

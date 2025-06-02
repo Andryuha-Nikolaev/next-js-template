@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { isProd } from "@/shared/utils/environment/isProd";
+import { isProd } from "@/shared/lib/environment/isProd";
 import type { CustomPage } from "@/views/test-custom";
 
 const data: { data: CustomPage } = {

@@ -34,13 +34,15 @@ export const Burger = () => {
 			}}
 			className={clsx(s.block, isOpenBurger && s.open)}
 		>
-			<CustomScrollLayout className={s.wrapper}>
-				<ContentLayout>
-					<div className={s.content}>
-						<BurgerNavbar />
-					</div>
-				</ContentLayout>
-			</CustomScrollLayout>
+			<div className={s.wrapper}>
+				<CustomScrollLayout className={s.scrollbar}>
+					<ContentLayout>
+						<div className={s.content}>
+							<BurgerNavbar />
+						</div>
+					</ContentLayout>
+				</CustomScrollLayout>
+			</div>
 		</div>
 	);
 };
