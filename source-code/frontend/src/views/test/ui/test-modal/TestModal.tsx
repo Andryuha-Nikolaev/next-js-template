@@ -30,7 +30,7 @@ export const TestModal = () => {
 	};
 
 	const showDefaultErrorModal = () => {
-		showErrorModal({ hiddenCloseButton: true });
+		showErrorModal({ hiddenCloseButton: true, title: "Error" });
 	};
 
 	const showFeedbackModal = () => {
