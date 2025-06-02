@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import clsx from "clsx";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide, type SwiperRef } from "swiper/react";
 
+import useSwiper from "@/shared/hooks/swiper/useSwiper";
 import { ContentLayout } from "@/shared/layouts/content-layout";
 
 import s from "./Hero.module.scss";
@@ -13,23 +14,13 @@ import s from "./Hero.module.scss";
 const Hero = () => {
 	const swiperRef = useRef<SwiperRef>(null);
 
-	const [isSwiperLock, setIsSwiperLock] = useState(true);
-
-	const onPrev = () => {
-		swiperRef.current?.swiper.slidePrev();
-	};
-
-	const onNext = () => {
-		swiperRef.current?.swiper.slideNext();
-	};
+	const { isNavigationVisible, onPrev, onNext } = useSwiper(swiperRef);
 
 	return (
 		<section className={s.block}>
 			<ContentLayout>
 				<div className={s.wrap}>
 					<Swiper
-						onLock={() => setIsSwiperLock(true)}
-						onUnlock={() => setIsSwiperLock(false)}
 						ref={swiperRef}
 						spaceBetween={20}
 						modules={[Pagination]}
@@ -50,7 +41,7 @@ const Hero = () => {
 								</SwiperSlide>
 							))}
 					</Swiper>
-					<div className={clsx(s.navigation, !isSwiperLock && s.visible)}>
+					<div className={clsx(s.navigation, isNavigationVisible && s.visible)}>
 						<button className={clsx(s.prev)} onClick={onPrev}>
 							prev
 						</button>
