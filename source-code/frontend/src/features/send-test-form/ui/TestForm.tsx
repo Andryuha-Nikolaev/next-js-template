@@ -46,11 +46,11 @@ export const TestForm = () => {
 	const onSubmit: SubmitHandler<TestFormSchemaType> = async (values) => {
 		const response = await sendTestForm(valuesToFormData(values));
 
+		showError<TestFormSchemaType>({ error: response?.error, setError });
+
 		if (!response) {
 			reset();
 		}
-
-		showError<TestFormSchemaType>({ error: response?.error, setError });
 	};
 
 	return (
