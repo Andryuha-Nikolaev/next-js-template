@@ -13,10 +13,13 @@ import { Slide } from "./slide/Slide";
 
 const slides = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
+const LOOP = false;
+
 export const Carousel = () => {
 	const swiperRef = useRef<SwiperRef>(null);
 
-	const { isNavigationVisible, onPrev, onNext } = useSwiper(swiperRef);
+	const { isNavigationVisible, onPrev, onNext, isFirstSlide, isLastSlide } =
+		useSwiper(swiperRef);
 
 	return (
 		<div className={s.block}>
@@ -26,7 +29,7 @@ export const Carousel = () => {
 				modules={[Pagination]}
 				pagination={{ dynamicBullets: true }}
 				grabCursor
-				loop
+				loop={LOOP}
 			>
 				{slides.map(({ id }) => (
 					<SwiperSlide key={id}>
@@ -38,6 +41,9 @@ export const Carousel = () => {
 				onPrev={onPrev}
 				onNext={onNext}
 				isVisible={isNavigationVisible}
+				isFirstSlide={isFirstSlide}
+				isLastSlide={isLastSlide}
+				loop={LOOP}
 			/>
 		</div>
 	);

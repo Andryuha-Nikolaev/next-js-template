@@ -8,16 +8,34 @@ type NavigationProps = {
 	onPrev: () => void;
 	onNext: () => void;
 	isVisible: boolean;
+	isFirstSlide: boolean;
+	isLastSlide: boolean;
+	loop: boolean;
 };
 
-export const Navigation = ({ onPrev, onNext, isVisible }: NavigationProps) => {
+export const Navigation = ({
+	onPrev,
+	onNext,
+	isVisible,
+	isFirstSlide,
+	isLastSlide,
+	loop,
+}: NavigationProps) => {
 	return (
 		<div className={clsx(s.navigation, isVisible && s.visible)}>
 			<div className={clsx(s.prev)}>
-				<PrevNextButton direction="prev" onClick={onPrev} />
+				<PrevNextButton
+					disabled={!loop && isFirstSlide}
+					direction="prev"
+					onClick={onPrev}
+				/>
 			</div>
 			<div className={clsx(s.next)}>
-				<PrevNextButton direction="next" onClick={onNext} />
+				<PrevNextButton
+					disabled={!loop && isLastSlide}
+					direction="next"
+					onClick={onNext}
+				/>
 			</div>
 		</div>
 	);
