@@ -212,7 +212,6 @@ export const TestForm = () => {
 							label="Autocomplete input"
 							name={FieldNames.AUTOCOMPLETE_INPUT}
 							autoCompleteProps={{
-								filterByValue: true,
 								items: [
 									"первое",
 									"второе",

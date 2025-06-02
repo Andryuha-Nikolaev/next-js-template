@@ -18,7 +18,7 @@ export const AutocompleteInput = forwardRef<
 	const itemRefs = useRef<HTMLLIElement[]>([]);
 
 	const filteredItems = autoCompleteProps
-		? autoCompleteProps.filterByValue
+		? !autoCompleteProps.offFilterByValue
 			? autoCompleteProps.items.filter((item) =>
 					item.trim().toLowerCase().includes(String(value).trim().toLowerCase())
 				)
@@ -94,6 +94,7 @@ export const AutocompleteInput = forwardRef<
 					positionY={autoCompleteProps?.positionY}
 					itemRefs={itemRefs}
 					onItemSelect={handleItemSelect}
+					listMaxHeight={autoCompleteProps?.listMaxHeight}
 				/>
 			)}
 		</div>

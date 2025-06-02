@@ -8,6 +8,7 @@ type AutocompleteListProps = {
 	positionY?: "top" | "bottom";
 	itemRefs: React.RefObject<HTMLLIElement[]>;
 	onItemSelect: (item: string) => void;
+	listMaxHeight?: number;
 };
 
 export const AutocompleteList = ({
@@ -16,11 +17,15 @@ export const AutocompleteList = ({
 	positionY = "bottom",
 	itemRefs,
 	onItemSelect,
+	listMaxHeight = 300,
 }: AutocompleteListProps) => {
 	if (!items.length) return null;
 
 	return (
-		<ul className={clsx(s.list, s.open, s[positionY])}>
+		<ul
+			className={clsx(s.list, s.open, s[positionY])}
+			style={{ maxHeight: listMaxHeight }}
+		>
 			{items.map((item, index) => (
 				// eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
 				<li

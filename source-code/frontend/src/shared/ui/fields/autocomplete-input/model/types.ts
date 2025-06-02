@@ -3,8 +3,9 @@ import type { InputProps } from "../../input";
 export type AutocompleteInputProps = InputProps & {
 	autoCompleteProps?: {
 		items: string[];
-		filterByValue: boolean;
+		offFilterByValue?: boolean;
 		positionY?: "top" | "bottom";
+		listMaxHeight?: number;
 	};
 };
 
