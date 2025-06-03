@@ -1,20 +1,22 @@
 @use "@/styles/functions/convert";
 @use "@/styles/mixins/scrollbar";
+@use "@/styles/mixins/typography";
 
 .list {
 	padding: 0;
 	border: 1px solid var(--color-input-border-focused);
 	border-radius: convert.to-rem(var(--input-border-radius-number));
 	overflow: auto;
-	@include scrollbar.scrollbar;
 
-	visibility: hidden;
-	opacity: 0;
 	position: absolute;
 	left: 0;
 	width: 100%;
 	background-color: var(--background);
 	z-index: 1;
+	visibility: visible;
+	opacity: 1;
+
+	@include scrollbar.scrollbar;
 
 	&.top {
 		bottom: 100%;
@@ -23,11 +25,6 @@
 	&.bottom {
 		top: 100%;
 	}
-
-	&.open {
-		visibility: visible;
-		opacity: 1;
-	}
 }
 
 .item {
@@ -35,11 +32,9 @@
 	list-style: none;
 	padding: convert.to-rem(4) convert.to-rem(16);
 
-	&.active {
+	@include typography.main-text;
+
+	&.focused {
 		background-color: var(--color-option-focused);
 	}
-
-	// &:hover {
-	// 	background-color: var(--color-option-focused);
-	// }
 }

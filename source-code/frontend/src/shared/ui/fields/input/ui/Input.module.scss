@@ -36,6 +36,7 @@
 		cursor: not-allowed;
 		color: var(--fg-input-disabled) !important;
 		background-color: var(--bg-input-disabled) !important;
+		opacity: 1;
 	}
 
 	&:-webkit-autofill,

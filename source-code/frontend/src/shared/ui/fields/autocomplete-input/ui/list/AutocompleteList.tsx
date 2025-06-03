@@ -19,13 +19,13 @@ export const AutocompleteList = ({
 	itemRefs,
 	onItemSelect,
 	setActiveIndex,
-	listMaxHeight = 300,
+	listMaxHeight = 210,
 }: AutocompleteListProps) => {
 	if (!items.length) return null;
 
 	return (
 		<ul
-			className={clsx(s.list, s.open, s[positionY])}
+			className={clsx(s.list, s[positionY])}
 			style={{ maxHeight: listMaxHeight }}
 		>
 			{items.map((item, index) => (
