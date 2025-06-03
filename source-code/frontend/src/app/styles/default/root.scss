@@ -101,6 +101,14 @@
 	--color-accordion-active: var(--color-blue-dark);
 	--color-accordion-border: var(--color-blue-medium);
 
+	// pagination colors
+	--bg-pagination-item: var(--color-white);
+	--fg-pagination-item: var(--color-black-medium);
+	--bg-pagination-item-hover: var(--color-blue-medium);
+	--fg-pagination-item-hover: var(--color-white);
+	--bg-pagination-item-active: var(--color-blue-dark);
+	--fg-pagination-item-active: var(--color-white);
+
 	// scrollbar colors
 	--color-scrollbar-track: transparent;
 	--color-scrollbar-thumb: var(--color-gray-dark);
