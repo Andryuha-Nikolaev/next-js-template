@@ -1,5 +1,7 @@
 import clsx from "clsx";
 
+import { CustomScrollLayout } from "@/shared/layouts/custom-scroll";
+
 import s from "./AutocompleteList.module.scss";
 
 type AutocompleteListProps = {
@@ -24,31 +26,32 @@ export const AutocompleteList = ({
 	if (!items.length) return null;
 
 	return (
-		<ul
-			className={clsx(s.list, s[positionY])}
-			style={{ maxHeight: listMaxHeight }}
-		>
-			{items.map((item, index) => (
-				// eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-				<li
-					ref={(el) => {
-						if (el) {
-							(itemRefs.current as HTMLLIElement[])[index] = el;
-						}
-					}}
-					key={item}
-					className={clsx(s.item, activeIndex === index && s.active)}
-					onMouseDown={(e) => {
-						e.preventDefault();
-						onItemSelect(item);
-					}}
-					onMouseMove={() => {
-						setActiveIndex(index);
-					}}
-				>
-					{item}
-				</li>
-			))}
-		</ul>
+		<div className={clsx(s.wrap, s[positionY])}>
+			<CustomScrollLayout style={{ maxHeight: listMaxHeight }}>
+				<ul className={s.list}>
+					{items.map((item, index) => (
+						// eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+						<li
+							ref={(el) => {
+								if (el) {
+									(itemRefs.current as HTMLLIElement[])[index] = el;
+								}
+							}}
+							key={item}
+							className={clsx(s.item, activeIndex === index && s.active)}
+							onMouseDown={(e) => {
+								e.preventDefault();
+								onItemSelect(item);
+							}}
+							onMouseMove={() => {
+								setActiveIndex(index);
+							}}
+						>
+							{item}
+						</li>
+					))}
+				</ul>
+			</CustomScrollLayout>
+		</div>
 	);
 };
