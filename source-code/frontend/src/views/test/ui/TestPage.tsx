@@ -2,6 +2,7 @@
 
 import { TestForm } from "@/features/send-test-form";
 
+import { TestAccordion } from "./accordion/TestAccordion";
 import { Buttons } from "./buttons/Buttons";
 import { Links } from "./links/Links";
 import { SocialMedia } from "./social-media/SocialMedia";
@@ -24,6 +25,7 @@ export const TestPage = () => {
 			<TestModal />
 			<Tooltips />
 			<TestBreadcrumbs />
+			<TestAccordion />
 		</>
 	);
 };
