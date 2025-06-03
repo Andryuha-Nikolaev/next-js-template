@@ -161,9 +161,8 @@ export const TestForm = () => {
 							]}
 						/>
 						<RHFSelect
-							isDisabled
-							label="Выбор"
-							placeholder="Выбор"
+							label="Select"
+							placeholder="Select"
 							name={FieldNames.SELECT}
 							options={[
 								{ value: "aaaaaа", label: "aaaaa" },
@@ -209,7 +208,7 @@ export const TestForm = () => {
 							max={1000000000}
 						/>
 						<RHFAutocompleteInput
-							label="Autocomplete input"
+							label="Autocomplete input (введите тест)"
 							name={FieldNames.AUTOCOMPLETE_INPUT}
 							autoCompleteProps={{
 								items: [

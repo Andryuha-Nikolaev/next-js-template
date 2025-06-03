@@ -8,6 +8,7 @@ type AutocompleteListProps = {
 	positionY?: "top" | "bottom";
 	itemRefs: React.RefObject<HTMLLIElement[]>;
 	onItemSelect: (item: string) => void;
+	setActiveIndex: (item: number) => void;
 	listMaxHeight?: number;
 };
 
@@ -17,6 +18,7 @@ export const AutocompleteList = ({
 	positionY = "bottom",
 	itemRefs,
 	onItemSelect,
+	setActiveIndex,
 	listMaxHeight = 300,
 }: AutocompleteListProps) => {
 	if (!items.length) return null;
@@ -34,11 +36,14 @@ export const AutocompleteList = ({
 							(itemRefs.current as HTMLLIElement[])[index] = el;
 						}
 					}}
-					key={index}
+					key={item}
 					className={clsx(s.item, activeIndex === index && s.active)}
 					onMouseDown={(e) => {
 						e.preventDefault();
 						onItemSelect(item);
+					}}
+					onMouseMove={() => {
+						setActiveIndex(index);
 					}}
 				>
 					{item}

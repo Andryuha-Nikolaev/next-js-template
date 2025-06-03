@@ -95,6 +95,7 @@ export const AutocompleteInput = forwardRef<
 					itemRefs={itemRefs}
 					onItemSelect={handleItemSelect}
 					listMaxHeight={autoCompleteProps?.listMaxHeight}
+					setActiveIndex={setActiveIndex}
 				/>
 			)}
 		</div>

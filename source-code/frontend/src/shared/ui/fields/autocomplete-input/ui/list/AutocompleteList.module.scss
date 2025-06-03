@@ -34,15 +34,12 @@
 	cursor: pointer;
 	list-style: none;
 	padding: convert.to-rem(4) convert.to-rem(16);
-	color: var(--foreground);
 
 	&.active {
-		background-color: var(--bg-button-2-active);
-		color: var(--fg-button-2-active);
+		background-color: var(--color-option-focused);
 	}
 
-	&:hover {
-		background-color: var(--bg-button-2-hover);
-		color: var(--fg-button-2-hover);
-	}
+	// &:hover {
+	// 	background-color: var(--color-option-focused);
+	// }
 }
