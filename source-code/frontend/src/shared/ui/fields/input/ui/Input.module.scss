@@ -19,8 +19,8 @@
 	border: 1px solid var(--color-input-border);
 	border-radius: convert.to-rem(var(--input-border-radius-number));
 
-	background-color: var(--bg-input);
-	color: var(--fg-input);
+	background-color: var(--color-bg-input);
+	color: var(--color-fg-input);
 
 	font-size: convert.to-rem(16);
 
@@ -40,8 +40,8 @@
 
 	@include interaction.disabled {
 		cursor: not-allowed;
-		color: var(--fg-input-disabled) !important;
-		background-color: var(--bg-input-disabled) !important;
+		color: var(--color-fg-input-disabled) !important;
+		background-color: var(--color-bg-input-disabled) !important;
 		opacity: 1;
 	}
 
@@ -50,8 +50,8 @@
 	&:-webkit-autofill:focus,
 	&:-webkit-autofill:active {
 		-webkit-box-shadow: 0 0 0 convert.to-rem(var(--input-height-number))
-			var(--bg-input-autofill) inset !important;
-		-webkit-text-fill-color: var(--fg-input-autofill);
+			var(--color-bg-input-autofill) inset !important;
+		-webkit-text-fill-color: var(--color-fg-input-autofill);
 	}
 
 	&::placeholder {

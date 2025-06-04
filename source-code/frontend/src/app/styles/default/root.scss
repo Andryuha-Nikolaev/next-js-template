@@ -116,13 +116,13 @@
 	// input colors
 	--color-input-border: var(--color-gray-dark);
 	--color-input-border-focused: var(--color-black-medium);
-	--bg-input: var(--color-white);
-	--fg-input: var(--color-black-medium);
-	--bg-input-autofill: var(--color-white);
-	--fg-input-autofill: var(--color-black-medium);
+	--color-bg-input: var(--color-white);
+	--color-fg-input: var(--color-black-medium);
+	--color-bg-input-autofill: var(--color-bg-input);
+	--color-fg-input-autofill: var(--color-fg-input);
 	--color-input-placeholder: var(--color-black-opacity-50);
-	--bg-input-disabled: var(--color-gray-medium);
-	--fg-input-disabled: var(--color-gray-dark);
+	--color-bg-input-disabled: var(--color-gray-medium);
+	--color-fg-input-disabled: var(--color-gray-dark);
 
 	// checkbox colors
 	--color-checkbox-border: var(--color-gray-dark);

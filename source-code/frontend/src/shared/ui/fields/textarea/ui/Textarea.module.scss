@@ -11,7 +11,7 @@
 	border: 1px solid var(--color-input-border);
 	padding: convert.to-rem(14) convert.to-rem(4) convert.to-rem(14) 0;
 
-	background-color: var(--bg-input);
+	background-color: var(--color-bg-input);
 
 	@include transition.create(border-color);
 
@@ -26,7 +26,7 @@
 	&.disabled,
 	&:has(textarea:disabled) {
 		cursor: not-allowed;
-		background-color: var(--bg-input-disabled);
+		background-color: var(--color-bg-input-disabled);
 	}
 }
 
@@ -43,7 +43,7 @@
 	outline: none;
 
 	background-color: transparent;
-	color: var(--fg-input);
+	color: var(--color-fg-input);
 
 	@include scrollbar.scrollbar;
 
@@ -59,7 +59,7 @@
 	@include interaction.disabled {
 		resize: none;
 		cursor: not-allowed;
-		color: var(--fg-input-disabled);
+		color: var(--color-fg-input-disabled);
 		opacity: 1;
 	}
 }
