@@ -24,15 +24,15 @@
 	@include transition.create(color);
 
 	@include interaction.hover {
-		color: var(--color-accordion-hover);
+		color: var(--color-fg-accordion-hover);
 	}
 
 	@include interaction.active {
-		color: var(--color-accordion-active);
+		color: var(--color-fg-accordion-active);
 	}
 
 	&.active {
-		color: var(--color-accordion-active);
+		color: var(--color-fg-accordion-active);
 	}
 }
 

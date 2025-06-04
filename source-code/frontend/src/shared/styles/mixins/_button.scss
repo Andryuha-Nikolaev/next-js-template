@@ -3,9 +3,9 @@
 
 @mixin button-disabled {
 	@include interaction.disabled {
-		background-color: var(--bg-button-disabled) !important;
-		color: var(--fg-button-disabled) !important;
-		border-color: var(--bg-button-disabled) !important;
+		background-color: var(--color-bg-button-disabled) !important;
+		color: var(--color-fg-button-disabled) !important;
+		border-color: var(--color-bg-button-disabled) !important;
 
 		cursor: not-allowed;
 	}
@@ -16,20 +16,20 @@
 }
 
 @mixin button-1 {
-	background-color: var(--bg-button-1);
-	color: var(--fg-button-1);
-	border: 1px solid var(--bg-button-1);
+	background-color: var(--color-bg-button-1);
+	color: var(--color-fg-button-1);
+	border: 1px solid var(--color-bg-button-1);
 
 	@include interaction.hover {
-		background-color: var(--bg-button-1-hover);
-		color: var(--fg-button-1-hover);
-		border-color: var(--bg-button-1-hover);
+		background-color: var(--color-bg-button-1-hover);
+		color: var(--color-fg-button-1-hover);
+		border-color: var(--color-bg-button-1-hover);
 	}
 
 	@include interaction.active {
-		background-color: var(--bg-button-1-active);
-		color: var(--fg-button-1-active);
-		border-color: var(--bg-button-1-active);
+		background-color: var(--color-bg-button-1-active);
+		color: var(--color-fg-button-1-active);
+		border-color: var(--color-bg-button-1-active);
 	}
 
 	@include button-transition();
@@ -38,20 +38,20 @@
 }
 
 @mixin button-2 {
-	background-color: var(--bg-button-2);
-	color: var(--fg-button-2);
-	border: 1px solid var(--fg-button-2);
+	background-color: var(--color-bg-button-2);
+	color: var(--color-fg-button-2);
+	border: 1px solid var(--color-fg-button-2);
 
 	@include interaction.hover {
-		background-color: var(--bg-button-2-hover);
-		color: var(--fg-button-2-hover);
-		border-color: var(--bg-button-2-hover);
+		background-color: var(--color-bg-button-2-hover);
+		color: var(--color-fg-button-2-hover);
+		border-color: var(--color-bg-button-2-hover);
 	}
 
 	@include interaction.active {
-		background-color: var(--bg-button-2-active);
-		color: var(--fg-button-2-active);
-		border-color: var(--bg-button-2-active);
+		background-color: var(--color-bg-button-2-active);
+		color: var(--color-fg-button-2-active);
+		border-color: var(--color-bg-button-2-active);
 	}
 
 	@include button-transition();
@@ -60,17 +60,17 @@
 }
 
 @mixin button-3 {
-	background-color: var(--bg-button-3);
-	color: var(--fg-button-3);
+	background-color: var(--color-bg-button-3);
+	color: var(--color-fg-button-3);
 
 	@include interaction.hover {
-		background-color: var(--bg-button-3-hover);
-		color: var(--fg-button-3-hover);
+		background-color: var(--color-bg-button-3-hover);
+		color: var(--color-fg-button-3-hover);
 	}
 
 	@include interaction.active {
-		background-color: var(--bg-button-3-active);
-		color: var(--fg-button-3-active);
+		background-color: var(--color-bg-button-3-active);
+		color: var(--color-fg-button-3-active);
 	}
 
 	@include button-transition();

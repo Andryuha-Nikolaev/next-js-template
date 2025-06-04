@@ -48,42 +48,42 @@
 	--foreground: var(--color-black-medium);
 
 	// overlay colors
-	--bg-overlay: var(--color-black-opacity-50);
+	--color-bg-overlay: var(--color-black-opacity-50);
 
 	// alert colors
 	--color-alert: var(--color-red-medium);
 
 	// spinner colors
-	--bg-spinner: var(--color-gray-medium);
-	--fg-spinner: var(--color-red-medium);
+	--color-bg-spinner: var(--color-gray-medium);
+	--color-fg-spinner: var(--color-red-medium);
 
 	// button-1 colors
-	--bg-button-1: var(--color-black-medium);
-	--fg-button-1: var(--color-white);
-	--bg-button-1-hover: var(--color-black-dark);
-	--fg-button-1-hover: var(--color-white);
-	--bg-button-1-active: var(--color-black-light);
-	--fg-button-1-active: var(--color-white);
+	--color-bg-button-1: var(--color-black-medium);
+	--color-fg-button-1: var(--color-white);
+	--color-bg-button-1-hover: var(--color-black-dark);
+	--color-fg-button-1-hover: var(--color-white);
+	--color-bg-button-1-active: var(--color-black-light);
+	--color-fg-button-1-active: var(--color-white);
 
 	// button-2 colors
-	--bg-button-2: var(--color-white);
-	--fg-button-2: var(--color-black-medium);
-	--bg-button-2-hover: var(--color-black-dark);
-	--fg-button-2-hover: var(--color-white);
-	--bg-button-2-active: var(--color-black-light);
-	--fg-button-2-active: var(--color-white);
+	--color-bg-button-2: var(--color-white);
+	--color-fg-button-2: var(--color-black-medium);
+	--color-bg-button-2-hover: var(--color-black-dark);
+	--color-fg-button-2-hover: var(--color-white);
+	--color-bg-button-2-active: var(--color-black-light);
+	--color-fg-button-2-active: var(--color-white);
 
 	// button-3 colors
-	--bg-button-3: var(--color-blue-light);
-	--fg-button-3: var(--color-white);
-	--bg-button-3-hover: var(--color-blue-medium);
-	--fg-button-3-hover: var(--color-white);
-	--bg-button-3-active: var(--color-blue-dark);
-	--fg-button-3-active: var(--color-white);
+	--color-bg-button-3: var(--color-blue-light);
+	--color-fg-button-3: var(--color-white);
+	--color-bg-button-3-hover: var(--color-blue-medium);
+	--color-fg-button-3-hover: var(--color-white);
+	--color-bg-button-3-active: var(--color-blue-dark);
+	--color-fg-button-3-active: var(--color-white);
 
 	// button disabled colors
-	--bg-button-disabled: var(--color-gray-dark);
-	--fg-button-disabled: var(--color-gray-light);
+	--color-bg-button-disabled: var(--color-gray-dark);
+	--color-fg-button-disabled: var(--color-gray-light);
 
 	// link-1 colors
 	--color-link-1-hover: var(--color-blue-medium);
@@ -97,17 +97,17 @@
 	--color-link-disabled: var(--color-gray-dark);
 
 	// accordion colors
-	--color-accordion-hover: var(--color-blue-medium);
-	--color-accordion-active: var(--color-blue-dark);
+	--color-fg-accordion-hover: var(--color-blue-medium);
+	--color-fg-accordion-active: var(--color-blue-dark);
 	--color-accordion-border: var(--color-blue-medium);
 
 	// pagination colors
-	--bg-pagination-item: var(--color-white);
-	--fg-pagination-item: var(--color-black-medium);
-	--bg-pagination-item-hover: var(--color-blue-medium);
-	--fg-pagination-item-hover: var(--color-white);
-	--bg-pagination-item-active: var(--color-blue-dark);
-	--fg-pagination-item-active: var(--color-white);
+	--color-bg-pagination-item: var(--color-white);
+	--color-fg-pagination-item: var(--color-black-medium);
+	--color-bg-pagination-item-hover: var(--color-blue-medium);
+	--color-fg-pagination-item-hover: var(--color-white);
+	--color-bg-pagination-item-active: var(--color-blue-dark);
+	--color-fg-pagination-item-active: var(--color-white);
 
 	// scrollbar colors
 	--color-scrollbar-track: transparent;
