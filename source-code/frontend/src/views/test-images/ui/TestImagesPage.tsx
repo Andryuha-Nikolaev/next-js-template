@@ -22,8 +22,7 @@ export const TestImagesPage = () => {
 				src={image}
 				placeholder="blur"
 				className={s.image}
-				sizes="(max-width: 1600px) 1920px, 100vw"
-				quality={90}
+				sizes="100vw"
 			/>
 		</div>
 	);
