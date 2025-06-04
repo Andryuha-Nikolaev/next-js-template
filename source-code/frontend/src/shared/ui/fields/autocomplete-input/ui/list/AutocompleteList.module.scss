@@ -37,6 +37,6 @@
 	@include typography.main-text;
 
 	&.focused {
-		background-color: var(--color-select-option-bg-focused);
+		background-color: var(--color-bg-select-option-focused);
 	}
 }

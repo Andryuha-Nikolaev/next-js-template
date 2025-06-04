@@ -27,7 +27,7 @@
 .input {
 	flex-shrink: 0;
 	appearance: none;
-	background: var(--bg-checkbox);
+	background: var(--color-bg-checkbox);
 	border: 1px solid var(--color-checkbox-border);
 	height: convert.to-rem(20);
 	width: convert.to-rem(20);
@@ -46,7 +46,7 @@
 	}
 
 	@include interaction.disabled {
-		background-color: var(--bg-checkbox-disabled) !important;
+		background-color: var(--color-bg-checkbox-disabled) !important;
 		border-color: var(--color-checkbox-border) !important;
 		cursor: not-allowed !important;
 	}
@@ -63,7 +63,7 @@
 	}
 
 	&:checked {
-		background-color: var(--bg-checkbox-checked);
+		background-color: var(--color-bg-checkbox-checked);
 
 		&::before {
 			border-radius: 0;

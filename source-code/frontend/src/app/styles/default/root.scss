@@ -128,23 +128,23 @@
 	--color-checkbox-border: var(--color-gray-dark);
 	--color-checkbox-border-hover: var(--color-black-medium);
 	--color-checkbox-border-focused: var(--color-black-medium);
-	--bg-checkbox: var(--color-white);
-	--bg-checkbox-checked: var(--color-white);
-	--bg-checkbox-disabled: var(--color-gray-medium);
+	--color-bg-checkbox: var(--color-white);
+	--color-bg-checkbox-checked: var(--color-white);
+	--color-bg-checkbox-disabled: var(--color-gray-medium);
 
 	// radio button colors
 	--color-radio-border: var(--color-gray-dark);
 	--color-radio-border-hover: var(--color-black-medium);
 	--color-radio-border-focused: var(--color-black-medium);
 	--color-radio-point: var(--color-black-medium);
-	--bg-radio: var(--color-white);
-	--bg-radio-checked: var(--color-white);
-	--bg-radio-disabled: var(--color-gray-medium);
+	--color-bg-radio: var(--color-white);
+	--color-bg-radio-checked: var(--color-white);
+	--color-bg-radio-disabled: var(--color-gray-medium);
 
 	// select colors
 	--color-select-indicator: var(--color-gray-dark);
-	--color-select-option-bg-focused: var(--color-gray-light);
-	--color-select-option-bg-selected: var(--color-gray-medium);
+	--color-bg-select-option-focused: var(--color-gray-light);
+	--color-bg-select-option-selected: var(--color-gray-medium);
 
 	// focus colors
 	--color-outline-focus: var(--color-gray-dark);
