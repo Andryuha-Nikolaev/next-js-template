@@ -1,1 +1,11 @@
-{"extends": ["@msocial/eslint-config/next"], "rules": { "@typescript-eslint/no-misused-promises": "warn"}}
+{
+	"extends": ["@msocial/eslint-config/next"],
+	"rules": {
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": false
+			}
+		]
+	}
+}
