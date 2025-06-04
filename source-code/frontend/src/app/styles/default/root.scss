@@ -117,6 +117,7 @@
 	--color-input-border: var(--color-gray-dark);
 	--color-input-border-focused: var(--color-black-medium);
 	--bg-input: var(--color-white);
+	--fg-input: var(--color-black-medium);
 	--bg-input-autofill: var(--color-white);
 	--fg-input-autofill: var(--color-black-medium);
 	--color-input-placeholder: var(--color-black-opacity-50);
@@ -141,9 +142,9 @@
 	--bg-radio-disabled: var(--color-gray-medium);
 
 	// select colors
-	--color-dropdown-indicator: var(--color-gray-dark);
-	--color-option-focused: var(--color-gray-light);
-	--color-option-selected: var(--color-gray-medium);
+	--color-select-indicator: var(--color-gray-dark);
+	--color-select-option-bg-focused: var(--color-gray-light);
+	--color-select-option-bg-selected: var(--color-gray-medium);
 
 	// focus colors
 	--color-outline-focus: var(--color-gray-dark);

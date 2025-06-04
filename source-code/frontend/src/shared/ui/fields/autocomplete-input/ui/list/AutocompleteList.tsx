@@ -38,7 +38,7 @@ export const AutocompleteList = ({
 								}
 							}}
 							key={item}
-							className={clsx(s.item, activeIndex === index && s.active)}
+							className={clsx(s.item, activeIndex === index && s.focused)}
 							onMouseDown={(e) => {
 								e.preventDefault();
 								onItemSelect(item);

@@ -9,15 +9,21 @@
 
 .input {
 	display: block;
+
 	width: 100%;
 	min-height: convert.to-rem(var(--input-height-number));
 
-	font-size: convert.to-rem(16);
+	padding: convert.to-rem(5) convert.to-rem(36) convert.to-rem(5)
+		convert.to-rem(16);
 
 	border: 1px solid var(--color-input-border);
 	border-radius: convert.to-rem(var(--input-border-radius-number));
-	padding: convert.to-rem(5) convert.to-rem(36) convert.to-rem(5)
-		convert.to-rem(16);
+
+	background-color: var(--bg-input);
+	color: var(--fg-input);
+
+	font-size: convert.to-rem(16);
+
 	@include transition.create(border-color);
 
 	@include interaction.keyboard-focus {
