@@ -18,7 +18,7 @@
 			}
 		],
 		"paths": {
-			"@/styles*": ["./src/shared/styles/*"],
+			"$styles*": ["./src/shared/styles/*"],
 			"$shared/*": ["./src/shared/*"],
 			"$entities/*": ["./src/entities/*"],
 			"$features/*": ["./src/features/*"],

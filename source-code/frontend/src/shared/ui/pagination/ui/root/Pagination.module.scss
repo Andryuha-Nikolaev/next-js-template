@@ -1,7 +1,7 @@
-@use "@/styles/mixins/mixins";
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/interaction";
-@use "@/styles/mixins/breakpoints";
+@use "$styles/mixins/mixins";
+@use "$styles/functions/convert";
+@use "$styles/mixins/interaction";
+@use "$styles/mixins/breakpoints";
 
 .pagination {
 	display: flex;

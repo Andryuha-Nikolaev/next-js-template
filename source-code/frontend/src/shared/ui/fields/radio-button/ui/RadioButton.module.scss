@@ -1,7 +1,7 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/typography";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/interaction";
+@use "$styles/functions/convert";
+@use "$styles/mixins/typography";
+@use "$styles/mixins/transition";
+@use "$styles/mixins/interaction";
 
 .block {
 	display: flex;

@@ -1,4 +1,4 @@
-@use "@/styles/functions/convert";
+@use "$styles/functions/convert";
 
 .spinner {
 	width: convert.to-rem(30);

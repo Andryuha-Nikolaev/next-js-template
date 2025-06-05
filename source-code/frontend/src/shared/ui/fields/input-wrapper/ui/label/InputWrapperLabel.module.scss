@@ -1,5 +1,5 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/typography";
+@use "$styles/functions/convert";
+@use "$styles/mixins/typography";
 
 .wrap {
 	margin-bottom: convert.to-rem(5);

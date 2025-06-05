@@ -1,6 +1,6 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/mixins";
+@use "$styles/functions/convert";
+@use "$styles/mixins/transition";
+@use "$styles/mixins/mixins";
 
 .block {
 	z-index: var(--z-index-burger);

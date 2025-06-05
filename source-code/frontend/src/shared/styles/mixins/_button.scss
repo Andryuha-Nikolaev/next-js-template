@@ -1,5 +1,5 @@
-@use "@/styles/mixins/interaction";
-@use "@/styles/mixins/transition";
+@use "$styles/mixins/interaction";
+@use "$styles/mixins/transition";
 
 @mixin button-disabled {
 	@include interaction.disabled {

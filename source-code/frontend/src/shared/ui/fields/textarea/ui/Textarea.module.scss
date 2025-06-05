@@ -1,7 +1,7 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/scrollbar";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/interaction";
+@use "$styles/functions/convert";
+@use "$styles/mixins/scrollbar";
+@use "$styles/mixins/transition";
+@use "$styles/mixins/interaction";
 
 .wrap {
 	display: block;

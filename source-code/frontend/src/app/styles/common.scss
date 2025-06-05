@@ -1,6 +1,6 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/typography";
-@use "@/styles/mixins/interaction";
+@use "$styles/functions/convert";
+@use "$styles/mixins/typography";
+@use "$styles/mixins/interaction";
 
 html {
 	scroll-padding-top: calc(var(--header-height-number) * 1px);

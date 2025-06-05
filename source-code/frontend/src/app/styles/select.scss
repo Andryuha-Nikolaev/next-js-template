@@ -1,5 +1,5 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/scrollbar";
+@use "$styles/functions/convert";
+@use "$styles/mixins/scrollbar";
 
 .react-select {
 	&__control {

@@ -1,8 +1,8 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/mixins";
-@use "@/styles/mixins/interaction";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/button";
+@use "$styles/functions/convert";
+@use "$styles/mixins/mixins";
+@use "$styles/mixins/interaction";
+@use "$styles/mixins/transition";
+@use "$styles/mixins/button";
 
 .button {
 	border: none;
