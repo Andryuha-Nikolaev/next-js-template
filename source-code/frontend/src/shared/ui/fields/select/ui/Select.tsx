@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 import Select, { type GroupBase, type SelectInstance } from "react-select";
 
-import type { SelectProps } from "@/shared/ui/fields/select/model/types";
+import type { SelectProps } from "$shared/ui/fields/select/model/types";
 
 import s from "./Select.module.scss";
 

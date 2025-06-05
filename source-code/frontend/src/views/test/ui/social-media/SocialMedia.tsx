@@ -1,4 +1,4 @@
-import { Social } from "@/shared/ui/social";
+import { Social } from "$shared/ui/social";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

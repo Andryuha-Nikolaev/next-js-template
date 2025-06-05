@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFSliderFieldProps } from "@/shared/ui/fields/slider/model/types";
+import type { RHFSliderFieldProps } from "$shared/ui/fields/slider/model/types";
 
 import { SliderField } from "./SliderField";
 

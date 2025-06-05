@@ -12,11 +12,11 @@ import { format, isValid, parse } from "date-fns";
 import { ru } from "date-fns/locale/ru";
 import DatePicker, { registerLocale } from "react-datepicker";
 
-import useClickOutside from "@/shared/hooks/other/useClickOutside";
+import useClickOutside from "$shared/hooks/other/useClickOutside";
 import type {
 	DatePickerComponentProps,
 	SingleValue,
-} from "@/shared/ui/fields/date-picker/model/types";
+} from "$shared/ui/fields/date-picker/model/types";
 
 import s from "./DatePickerComponent.module.scss";
 

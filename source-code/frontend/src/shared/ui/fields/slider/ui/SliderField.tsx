@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import Slider from "rc-slider";
 import { useDebounceCallback as debounce } from "usehooks-ts";
 
-import type { SliderFieldProps } from "@/shared/ui/fields/slider/model/types";
+import type { SliderFieldProps } from "$shared/ui/fields/slider/model/types";
 
 import s from "./SliderField.module.scss";
 

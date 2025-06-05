@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { getDataWithCache } from "@/shared/api/services";
-import { TestCustomPage, type CustomPage } from "@/views/test-custom";
+import { getDataWithCache } from "$shared/api/services";
+import { TestCustomPage, type CustomPage } from "$views/test-custom";
 
 type CustomPageProps = {
 	params: {

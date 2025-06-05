@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { ContentLayout } from "@/shared/layouts/content-layout";
-import { HomePage } from "@/views/home";
+import { ContentLayout } from "$shared/layouts/content-layout";
+import { HomePage } from "$views/home";
 
 export default function Home() {
 	return (

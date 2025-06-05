@@ -1,7 +1,7 @@
 "use client";
 
-import routesConstants from "@/shared/constants/routes";
-import { CustomScrollLayout } from "@/shared/layouts/custom-scroll";
+import routesConstants from "$shared/constants/routes";
+import { CustomScrollLayout } from "$shared/layouts/custom-scroll";
 
 import s from "./Breadcrumbs.module.scss";
 import { BreadcrumbsItem } from "./item/BreadcrumbsItem";

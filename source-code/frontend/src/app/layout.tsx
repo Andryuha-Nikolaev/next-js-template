@@ -3,12 +3,6 @@ import "./styles/index.scss";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 
-import metaConstants from "@/shared/constants/meta";
-import siteConstants from "@/shared/constants/site";
-import viewportConstants from "@/shared/constants/viewport";
-import { Analytics } from "@/widgets/analytics";
-import { Burger } from "@/widgets/burger";
-
 import { primaryFont } from "./fonts";
 import { Providers } from "./providers";
 
@@ -18,9 +12,14 @@ import "rc-slider/assets/index.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { PageLayout } from "@/shared/layouts/page";
-import { Footer } from "@/widgets/footer";
-import { Header } from "@/widgets/header";
+import metaConstants from "$shared/constants/meta";
+import siteConstants from "$shared/constants/site";
+import viewportConstants from "$shared/constants/viewport";
+import { PageLayout } from "$shared/layouts/page";
+import { Analytics } from "$widgets/analytics";
+import { Burger } from "$widgets/burger";
+import { Footer } from "$widgets/footer";
+import { Header } from "$widgets/header";
 
 export const metadata: Metadata = metaConstants;
 

@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFSelectProps } from "@/shared/ui/fields/select/model/types";
+import type { RHFSelectProps } from "$shared/ui/fields/select/model/types";
 
 import { ReactSelect } from "./Select";
 

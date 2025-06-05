@@ -1,6 +1,6 @@
 "use client";
 
-import { TestForm } from "@/features/send-test-form";
+import { TestForm } from "$features/send-test-form";
 
 import { TestAccordion } from "./accordion/TestAccordion";
 import { Buttons } from "./buttons/Buttons";

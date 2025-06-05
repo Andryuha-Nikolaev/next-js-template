@@ -3,24 +3,24 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import { FieldNames } from "@/shared/constants/fields";
-import useShowError from "@/shared/hooks/form/useShowError";
-import { valuesToFormData } from "@/shared/lib/form/submitUtils";
-import { RHFAutocompleteInput } from "@/shared/ui/fields/autocomplete-input";
-import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
-import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
-import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
-import { RHFEmailInput } from "@/shared/ui/fields/email-input";
-import { RHFFileInput } from "@/shared/ui/fields/file";
-import { RHFInput } from "@/shared/ui/fields/input";
-import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
-import { RHFRadioButton } from "@/shared/ui/fields/radio-button";
-import { RHFRangeDatePicker } from "@/shared/ui/fields/range-date-picker";
-import { RHFSelect } from "@/shared/ui/fields/select";
-import { RHFRangeSliderField, RHFSliderField } from "@/shared/ui/fields/slider";
-import { RHFTextarea } from "@/shared/ui/fields/textarea";
-import { FormWrapper } from "@/shared/ui/form/form-wrapper";
-import { RootLink } from "@/shared/ui/links/root";
+import { FieldNames } from "$shared/constants/fields";
+import useShowError from "$shared/hooks/form/useShowError";
+import { valuesToFormData } from "$shared/lib/form/submitUtils";
+import { RHFAutocompleteInput } from "$shared/ui/fields/autocomplete-input";
+import { RHFCheckbox } from "$shared/ui/fields/checkbox";
+import { RHFCheckboxGroup } from "$shared/ui/fields/checkbox-group";
+import { RHFDatePicker } from "$shared/ui/fields/date-picker";
+import { RHFEmailInput } from "$shared/ui/fields/email-input";
+import { RHFFileInput } from "$shared/ui/fields/file";
+import { RHFInput } from "$shared/ui/fields/input";
+import { RHFPhoneInput } from "$shared/ui/fields/phone-input";
+import { RHFRadioButton } from "$shared/ui/fields/radio-button";
+import { RHFRangeDatePicker } from "$shared/ui/fields/range-date-picker";
+import { RHFSelect } from "$shared/ui/fields/select";
+import { RHFRangeSliderField, RHFSliderField } from "$shared/ui/fields/slider";
+import { RHFTextarea } from "$shared/ui/fields/textarea";
+import { FormWrapper } from "$shared/ui/form/form-wrapper";
+import { RootLink } from "$shared/ui/links/root";
 
 import PasswordFields from "./password-fields/PasswordFields";
 

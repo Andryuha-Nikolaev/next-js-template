@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import { ModalId, ModalSearchParams } from "@/features/modal";
-import { useModal } from "@/features/modal/ui/ModalProvider";
-import { RootButton } from "@/shared/ui/buttons/root";
+import { ModalId, ModalSearchParams } from "$features/modal";
+import { useModal } from "$features/modal/ui/ModalProvider";
+import { RootButton } from "$shared/ui/buttons/root";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

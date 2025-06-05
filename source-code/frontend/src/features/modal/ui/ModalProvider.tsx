@@ -3,12 +3,9 @@
 import type React from "react";
 import { createContext, Suspense, useContext, useState } from "react";
 
-import type {
-	ModalConfigProps,
-	ModalProps,
-} from "@/features/modal/model/types";
-import Modal from "@/features/modal/ui/Modal";
-import useChangeQueryParams from "@/shared/hooks/query-params/useChangeQueryParams";
+import type { ModalConfigProps, ModalProps } from "$features/modal/model/types";
+import Modal from "$features/modal/ui/Modal";
+import useChangeQueryParams from "$shared/hooks/query-params/useChangeQueryParams";
 
 import { ModalSearchParams } from "../config/constants";
 

@@ -1,4 +1,4 @@
-import { FieldNames } from "@/shared/constants/fields";
+import { FieldNames } from "$shared/constants/fields";
 
 import type { TestFormSchemaType } from "./schema";
 

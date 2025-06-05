@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import routesConstants from "@/shared/constants/routes";
-import { ContentLayout } from "@/shared/layouts/content-layout";
-import { RootButton } from "@/shared/ui/buttons/root";
+import routesConstants from "$shared/constants/routes";
+import { ContentLayout } from "$shared/layouts/content-layout";
+import { RootButton } from "$shared/ui/buttons/root";
 
 import s from "./ErrorPage.module.scss";
 

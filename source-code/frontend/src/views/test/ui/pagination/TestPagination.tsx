@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { PagePagination, Pagination } from "@/shared/ui/pagination";
+import { PagePagination, Pagination } from "$shared/ui/pagination";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

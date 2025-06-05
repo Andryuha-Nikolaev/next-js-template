@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 
-import { SearchParamsNames } from "@/shared/constants/searchParamsNames";
-import useChangeQueryParams from "@/shared/hooks/query-params/useChangeQueryParams";
-import useGetQueryParams from "@/shared/hooks/query-params/useGetQueryParams";
+import { SearchParamsNames } from "$shared/constants/searchParamsNames";
+import useChangeQueryParams from "$shared/hooks/query-params/useChangeQueryParams";
+import useGetQueryParams from "$shared/hooks/query-params/useGetQueryParams";
 
 import type { PagePaginationProps } from "../../model/types";
 import { Pagination } from "../root/Pagination";

@@ -1,4 +1,4 @@
-import { RootLink } from "@/shared/ui/links/root";
+import { RootLink } from "$shared/ui/links/root";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

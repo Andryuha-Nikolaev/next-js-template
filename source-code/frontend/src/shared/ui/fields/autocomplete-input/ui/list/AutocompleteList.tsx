@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { CustomScrollLayout } from "@/shared/layouts/custom-scroll";
+import { CustomScrollLayout } from "$shared/layouts/custom-scroll";
 
 import s from "./AutocompleteList.module.scss";
 

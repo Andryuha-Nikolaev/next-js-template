@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { FieldNames } from "@/shared/constants/fields";
+import { FieldNames } from "$shared/constants/fields";
 import {
 	checkboxGroupSchema,
 	checkboxGroupSchemaRequired,
@@ -17,13 +17,13 @@ import {
 	singleSliderSchema,
 	stringSchema,
 	textSchema,
-} from "@/shared/schemas/fields";
-import { adultDateSchema } from "@/shared/schemas/fields/dateSchema";
+} from "$shared/schemas/fields";
+import { adultDateSchema } from "$shared/schemas/fields/dateSchema";
 import {
 	checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
-} from "@/shared/schemas/fields/fileInputSchema";
+} from "$shared/schemas/fields/fileInputSchema";
 
 export const testFormSchema = z
 	.object({

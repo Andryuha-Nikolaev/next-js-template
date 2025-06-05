@@ -1,4 +1,4 @@
-import { TestImagesPage } from "@/views/test-images";
+import { TestImagesPage } from "$views/test-images";
 
 export default function TestImages() {
 	return <TestImagesPage />;

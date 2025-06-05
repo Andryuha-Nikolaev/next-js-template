@@ -2,7 +2,7 @@
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RHFTextareaProps } from "@/shared/ui/fields/textarea/model/types";
+import type { RHFTextareaProps } from "$shared/ui/fields/textarea/model/types";
 
 import { Textarea } from "./Textarea";
 

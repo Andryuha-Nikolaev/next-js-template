@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import clsx from "clsx";
 
-import { CloseIcon } from "@/shared/ui/buttons/close/ui/icons/close-icon/CloseIcon";
+import { CloseIcon } from "$shared/ui/buttons/close/ui/icons/close-icon/CloseIcon";
 
 import s from "./AccordionItem.module.scss";
 

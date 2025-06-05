@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "@/features/accordion";
+import { Accordion, AccordionItem } from "$features/accordion";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 
