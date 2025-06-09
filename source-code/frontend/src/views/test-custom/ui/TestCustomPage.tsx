@@ -1,6 +1,6 @@
 import parse from "html-react-parser";
 
-import { ContentLayout } from "@/shared/layouts/content-layout";
+import { ContentLayout } from "$shared/layouts/content-layout";
 
 import type { CustomPage } from "./types";
 

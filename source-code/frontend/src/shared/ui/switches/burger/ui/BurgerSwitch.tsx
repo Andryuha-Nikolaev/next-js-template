@@ -1,6 +1,6 @@
 "use client";
 
-import { useSiteState } from "@/shared/context/site";
+import { useSiteState } from "$shared/context/site";
 
 import s from "./BurgerSwitch.module.scss";
 

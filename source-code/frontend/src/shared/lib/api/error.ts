@@ -1,11 +1,11 @@
 import { isAxiosError } from "axios";
 
-import { ErrorMessages } from "@/shared/constants/errorMessages";
-import { ErrorTypes } from "@/shared/constants/errorTypes";
+import { ErrorMessages } from "$shared/constants/errorMessages";
+import { ErrorTypes } from "$shared/constants/errorTypes";
 import {
 	errorResponseWithMessageSchema,
 	validationErrorResponseSchema,
-} from "@/shared/schemas/error";
+} from "$shared/schemas/error";
 
 export type HandleErrorResponse =
 	| { errorType: ErrorTypes.MESSAGE; message: string }

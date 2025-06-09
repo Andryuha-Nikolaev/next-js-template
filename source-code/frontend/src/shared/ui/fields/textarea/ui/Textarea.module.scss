@@ -1,7 +1,7 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/scrollbar";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/interaction";
+@use "$styles/functions/convert";
+@use "$styles/mixins/scrollbar";
+@use "$styles/mixins/transition";
+@use "$styles/mixins/interaction";
 
 .wrap {
 	display: block;
@@ -10,6 +10,9 @@
 	border-radius: convert.to-rem(var(--input-border-radius-number));
 	border: 1px solid var(--color-input-border);
 	padding: convert.to-rem(14) convert.to-rem(4) convert.to-rem(14) 0;
+
+	background-color: var(--color-bg-input);
+
 	@include transition.create(border-color);
 
 	&:has(.input:focus-visible) {
@@ -23,7 +26,7 @@
 	&.disabled,
 	&:has(textarea:disabled) {
 		cursor: not-allowed;
-		background-color: var(--bg-input-disabled);
+		background-color: var(--color-bg-input-disabled);
 	}
 }
 
@@ -38,6 +41,10 @@
 	max-height: convert.to-rem(400);
 	border: none;
 	outline: none;
+
+	background-color: transparent;
+	color: var(--color-fg-input);
+
 	@include scrollbar.scrollbar;
 
 	&::-webkit-scrollbar-thumb {
@@ -52,6 +59,7 @@
 	@include interaction.disabled {
 		resize: none;
 		cursor: not-allowed;
-		color: var(--fg-input-disabled);
+		color: var(--color-fg-input-disabled);
+		opacity: 1;
 	}
 }

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { FieldNames } from "@/shared/constants/fields";
+import { FieldNames } from "$shared/constants/fields";
 import {
 	checkboxGroupSchema,
 	checkboxGroupSchemaRequired,
@@ -15,14 +15,15 @@ import {
 	selectSchema,
 	singleDateSchema,
 	singleSliderSchema,
+	stringSchema,
 	textSchema,
-} from "@/shared/schemas/fields";
-import { adultDateSchema } from "@/shared/schemas/fields/dateSchema";
+} from "$shared/schemas/fields";
+import { adultDateSchema } from "$shared/schemas/fields/dateSchema";
 import {
 	checkFilesLength,
 	checkFilesSize,
 	checkFilesTypes,
-} from "@/shared/schemas/fields/fileInputSchema";
+} from "$shared/schemas/fields/fileInputSchema";
 
 export const testFormSchema = z
 	.object({
@@ -67,6 +68,7 @@ export const testFormSchema = z
 		[FieldNames.END_DATE]: singleDateSchema,
 		[FieldNames.SINGLE_SLIDER]: singleSliderSchema,
 		[FieldNames.RANGE_SLIDER]: rangeSliderSchema,
+		[FieldNames.AUTOCOMPLETE_INPUT]: stringSchema,
 	})
 	.refine(
 		(data) => data[FieldNames.PASSWORD] === data[FieldNames.CONFIRM_PASSWORD],

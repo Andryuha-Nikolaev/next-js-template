@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 import parse from "html-react-parser";
 
-import type { RadioButtonProps } from "@/shared/ui/fields/radio-button/model/types";
+import type { RadioButtonProps } from "$shared/ui/fields/radio-button/model/types";
 
 import s from "./RadioButton.module.scss";
 

@@ -1,4 +1,4 @@
-export function clearEmptyValues<T extends Record<string, any>>(
+export function clearEmptyValues<T extends Record<string, unknown>>(
 	values: T
 ): Partial<T> {
 	const filteredObject = Object.fromEntries(
@@ -13,7 +13,7 @@ export function clearEmptyValues<T extends Record<string, any>>(
 	return filteredObject;
 }
 
-export function valuesToFormData<T extends Record<string, any>>(
+export function valuesToFormData<T extends Record<string, unknown>>(
 	values: T
 ): FormData {
 	const formData = new FormData();

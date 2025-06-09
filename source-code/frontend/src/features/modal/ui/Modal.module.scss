@@ -1,5 +1,5 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/breakpoints";
+@use "$styles/functions/convert";
+@use "$styles/mixins/breakpoints";
 
 .wrap {
 	background-color: var(--background);

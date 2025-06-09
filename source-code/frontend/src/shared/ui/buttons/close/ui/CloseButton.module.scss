@@ -1,5 +1,5 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/mixins";
+@use "$styles/functions/convert";
+@use "$styles/mixins/mixins";
 
 .button {
 	width: convert.to-rem(24);

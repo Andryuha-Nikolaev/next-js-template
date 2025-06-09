@@ -1,6 +1,6 @@
-import { useModal } from "@/features/modal/ui/ModalProvider";
-import { ErrorTypes } from "@/shared/constants/errorTypes";
-import type { HandleErrorResponse } from "@/shared/lib/api/error";
+import { useModal } from "$features/modal/ui/ModalProvider";
+import { ErrorTypes } from "$shared/constants/errorTypes";
+import type { HandleErrorResponse } from "$shared/lib/api/error";
 
 type ShowErrorType<T> = {
 	error: HandleErrorResponse | undefined;

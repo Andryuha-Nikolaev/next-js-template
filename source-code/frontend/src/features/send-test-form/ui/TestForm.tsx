@@ -3,23 +3,24 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
-import { FieldNames } from "@/shared/constants/fields";
-import useShowError from "@/shared/hooks/form/useShowError";
-import { valuesToFormData } from "@/shared/lib/form/submitUtils";
-import { RHFCheckbox } from "@/shared/ui/fields/checkbox";
-import { RHFCheckboxGroup } from "@/shared/ui/fields/checkbox-group";
-import { RHFDatePicker } from "@/shared/ui/fields/date-picker";
-import { RHFEmailInput } from "@/shared/ui/fields/email-input";
-import { RHFFileInput } from "@/shared/ui/fields/file";
-import { RHFInput } from "@/shared/ui/fields/input";
-import { RHFPhoneInput } from "@/shared/ui/fields/phone-input";
-import { RHFRadioButton } from "@/shared/ui/fields/radio-button";
-import { RHFRangeDatePicker } from "@/shared/ui/fields/range-date-picker";
-import { RHFSelect } from "@/shared/ui/fields/select";
-import { RHFRangeSliderField, RHFSliderField } from "@/shared/ui/fields/slider";
-import { RHFTextarea } from "@/shared/ui/fields/textarea";
-import { FormWrapper } from "@/shared/ui/form/form-wrapper";
-import { RootLink } from "@/shared/ui/links/root";
+import { FieldNames } from "$shared/constants/fields";
+import useShowError from "$shared/hooks/form/useShowError";
+import { valuesToFormData } from "$shared/lib/form/submitUtils";
+import { RHFAutocompleteInput } from "$shared/ui/fields/autocomplete-input";
+import { RHFCheckbox } from "$shared/ui/fields/checkbox";
+import { RHFCheckboxGroup } from "$shared/ui/fields/checkbox-group";
+import { RHFDatePicker } from "$shared/ui/fields/date-picker";
+import { RHFEmailInput } from "$shared/ui/fields/email-input";
+import { RHFFileInput } from "$shared/ui/fields/file";
+import { RHFInput } from "$shared/ui/fields/input";
+import { RHFPhoneInput } from "$shared/ui/fields/phone-input";
+import { RHFRadioButton } from "$shared/ui/fields/radio-button";
+import { RHFRangeDatePicker } from "$shared/ui/fields/range-date-picker";
+import { RHFSelect } from "$shared/ui/fields/select";
+import { RHFRangeSliderField, RHFSliderField } from "$shared/ui/fields/slider";
+import { RHFTextarea } from "$shared/ui/fields/textarea";
+import { FormWrapper } from "$shared/ui/form/form-wrapper";
+import { RootLink } from "$shared/ui/links/root";
 
 import PasswordFields from "./password-fields/PasswordFields";
 
@@ -45,11 +46,11 @@ export const TestForm = () => {
 	const onSubmit: SubmitHandler<TestFormSchemaType> = async (values) => {
 		const response = await sendTestForm(valuesToFormData(values));
 
+		showError<TestFormSchemaType>({ error: response?.error, setError });
+
 		if (!response) {
 			reset();
 		}
-
-		showError<TestFormSchemaType>({ error: response?.error, setError });
 	};
 
 	return (
@@ -160,9 +161,8 @@ export const TestForm = () => {
 							]}
 						/>
 						<RHFSelect
-							isDisabled
-							label="Выбор"
-							placeholder="Выбор"
+							label="Select"
+							placeholder="Select"
 							name={FieldNames.SELECT}
 							options={[
 								{ value: "aaaaaа", label: "aaaaa" },
@@ -206,6 +206,28 @@ export const TestForm = () => {
 							label="Range slider"
 							name={FieldNames.RANGE_SLIDER}
 							max={1000000000}
+						/>
+						<RHFAutocompleteInput
+							label="Autocomplete input (введите тест)"
+							name={FieldNames.AUTOCOMPLETE_INPUT}
+							autoCompleteProps={{
+								items: [
+									"первое",
+									"второе",
+									"тест",
+									"Тест 2",
+									"Тест 3",
+									"тест-4",
+									"Тест тест тест тест тест тест 5",
+									"тест-6",
+									"тест-7",
+									"тест-8",
+									"тест-9",
+									"тест-10",
+									"тест-11",
+									"тест-12",
+								],
+							}}
 						/>
 					</FormWrapper>
 				</form>

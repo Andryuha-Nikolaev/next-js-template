@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { PrevNextButton } from "@/shared/ui/buttons/prev-next";
+import { PrevNextButton } from "$shared/ui/buttons/prev-next";
 
 import s from "./Navigation.module.scss";
 

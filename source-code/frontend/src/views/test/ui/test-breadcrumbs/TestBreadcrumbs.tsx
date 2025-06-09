@@ -1,4 +1,4 @@
-import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
+import { Breadcrumbs } from "$shared/ui/breadcrumbs";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

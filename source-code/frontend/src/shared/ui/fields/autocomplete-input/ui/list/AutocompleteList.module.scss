@@ -1,0 +1,42 @@
+@use "$styles/functions/convert";
+@use "$styles/mixins/scrollbar";
+@use "$styles/mixins/typography";
+
+.wrap {
+	border: 1px solid var(--color-input-border-focused);
+	border-radius: convert.to-rem(var(--input-border-radius-number));
+
+	overflow: hidden;
+
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: var(--background);
+	z-index: 1;
+	visibility: visible;
+	opacity: 1;
+
+	&.top {
+		bottom: 100%;
+	}
+
+	&.bottom {
+		top: 100%;
+	}
+}
+
+.list {
+	padding: 0;
+}
+
+.item {
+	cursor: pointer;
+	list-style: none;
+	padding: convert.to-rem(4) convert.to-rem(16);
+
+	@include typography.main-text;
+
+	&.focused {
+		background-color: var(--color-bg-select-option-focused);
+	}
+}

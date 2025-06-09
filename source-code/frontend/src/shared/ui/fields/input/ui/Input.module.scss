@@ -1,6 +1,6 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/transition";
-@use "@/styles/mixins/interaction";
+@use "$styles/functions/convert";
+@use "$styles/mixins/transition";
+@use "$styles/mixins/interaction";
 
 .wrap {
 	display: block;
@@ -9,15 +9,21 @@
 
 .input {
 	display: block;
+
 	width: 100%;
 	min-height: convert.to-rem(var(--input-height-number));
 
-	font-size: convert.to-rem(16);
+	padding: convert.to-rem(5) convert.to-rem(36) convert.to-rem(5)
+		convert.to-rem(16);
 
 	border: 1px solid var(--color-input-border);
 	border-radius: convert.to-rem(var(--input-border-radius-number));
-	padding: convert.to-rem(5) convert.to-rem(36) convert.to-rem(5)
-		convert.to-rem(16);
+
+	background-color: var(--color-bg-input);
+	color: var(--color-fg-input);
+
+	font-size: convert.to-rem(16);
+
 	@include transition.create(border-color);
 
 	@include interaction.keyboard-focus {
@@ -34,8 +40,9 @@
 
 	@include interaction.disabled {
 		cursor: not-allowed;
-		color: var(--fg-input-disabled) !important;
-		background-color: var(--bg-input-disabled) !important;
+		color: var(--color-fg-input-disabled) !important;
+		background-color: var(--color-bg-input-disabled) !important;
+		opacity: 1;
 	}
 
 	&:-webkit-autofill,
@@ -43,8 +50,8 @@
 	&:-webkit-autofill:focus,
 	&:-webkit-autofill:active {
 		-webkit-box-shadow: 0 0 0 convert.to-rem(var(--input-height-number))
-			var(--bg-input-autofill) inset !important;
-		-webkit-text-fill-color: var(--fg-input-autofill);
+			var(--color-bg-input-autofill) inset !important;
+		-webkit-text-fill-color: var(--color-fg-input-autofill);
 	}
 
 	&::placeholder {

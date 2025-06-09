@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide, type SwiperRef } from "swiper/react";
 
-import useSwiper from "@/shared/hooks/swiper/useSwiper";
+import useSwiper from "$shared/hooks/swiper/useSwiper";
 
 import s from "./Carousel.module.scss";
 import { Navigation } from "./navigation/Navigation";

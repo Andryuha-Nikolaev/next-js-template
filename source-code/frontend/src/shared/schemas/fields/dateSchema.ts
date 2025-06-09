@@ -1,4 +1,4 @@
-import { addYears, formatDate, isValid, parseISO, startOfDay } from "date-fns";
+import { addYears, format, isValid, parseISO, startOfDay } from "date-fns";
 import { z } from "zod";
 
 export const singleDateSchema = z.date().or(z.null()).or(z.string());
@@ -24,7 +24,7 @@ export const adultDateSchema = singleDateSchema.refine(
 		return date < maxDate;
 	},
 	{
-		message: `Дата должна быть раньше ${formatDate(addYears(new Date(), -18), "dd.MM.yyyy")}`,
+		message: `Дата должна быть раньше ${format(addYears(new Date(), -18), "dd.MM.yyyy")}`,
 	}
 );
 

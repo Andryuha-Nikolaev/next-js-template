@@ -3,8 +3,8 @@ import axios, { type AxiosInstance } from "axios";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
-// import { TOKEN } from "@/constants/auth";
-// import { buildRedirectQuery } from "@/features/auth/lib/redirect";
+// import { TOKEN } from "$constants/auth";
+// import { buildRedirectQuery } from "$features/auth/lib/redirect";
 
 export type Flow = (
 	instance: AxiosInstance

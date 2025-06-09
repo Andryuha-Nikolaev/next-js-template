@@ -1,1 +1,1 @@
-export { TestImagesPage } from "@/views/test-images/ui/TestImagesPage";
+export { TestImagesPage } from "./ui/TestImagesPage";

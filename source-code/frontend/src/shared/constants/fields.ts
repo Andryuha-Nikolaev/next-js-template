@@ -19,4 +19,5 @@ export enum FieldNames {
 	END_DATE = "endDate",
 	SINGLE_SLIDER = "singleSlider",
 	RANGE_SLIDER = "rangeSlider",
+	AUTOCOMPLETE_INPUT = "autocompleteInput",
 }

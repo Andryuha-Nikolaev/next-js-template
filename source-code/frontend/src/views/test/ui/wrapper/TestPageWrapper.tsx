@@ -1,4 +1,4 @@
-import { ContentLayout } from "@/shared/layouts/content-layout";
+import { ContentLayout } from "$shared/layouts/content-layout";
 
 import s from "./TestPageWrapper.module.scss";
 

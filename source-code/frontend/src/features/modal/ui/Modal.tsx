@@ -2,12 +2,12 @@ import { useEffect } from "react";
 
 import clsx from "clsx";
 
-import { useModal } from "@/features/modal/ui/ModalProvider";
-import useGetQueryParams from "@/shared/hooks/query-params/useGetQueryParams";
-import useScrollLock from "@/shared/hooks/scroll/useScrollLock";
-import { CustomScrollLayout } from "@/shared/layouts/custom-scroll";
-import { CloseButton } from "@/shared/ui/buttons/close";
-import { Overlay } from "@/shared/ui/overlay";
+import { useModal } from "$features/modal/ui/ModalProvider";
+import useGetQueryParams from "$shared/hooks/query-params/useGetQueryParams";
+import useScrollLock from "$shared/hooks/scroll/useScrollLock";
+import { CustomScrollLayout } from "$shared/layouts/custom-scroll";
+import { CloseButton } from "$shared/ui/buttons/close";
+import { Overlay } from "$shared/ui/overlay";
 
 import DefaultModal from "./default/DefaultModal";
 import FeedbackModal from "./feedback/FeedbackModal";

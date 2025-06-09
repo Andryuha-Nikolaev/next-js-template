@@ -2,9 +2,9 @@
 
 import { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
 
-import { convertFilesUrlArrayToFileList } from "@/shared/lib/convert/convertFilesUrlArrayToFileList";
-import { RootButton } from "@/shared/ui/buttons/root";
-import type { FileInputProps } from "@/shared/ui/fields/file/model/types";
+import { convertFilesUrlArrayToFileList } from "$shared/lib/convert/convertFilesUrlArrayToFileList";
+import { RootButton } from "$shared/ui/buttons/root";
+import type { FileInputProps } from "$shared/ui/fields/file/model/types";
 
 import s from "./FileInput.module.scss";
 import AttachIcon from "./icons/attach-icon/AttachIcon";

@@ -1,11 +1,10 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/scrollbar";
+@use "$styles/functions/convert";
+@use "$styles/mixins/scrollbar";
 
 .react-select {
 	&__control {
 		min-height: convert.to-rem(var(--input-height-number)) !important;
 		font-size: convert.to-rem(16) !important;
-		background-color: transparent !important;
 
 		border: 1px solid var(--color-input-border) !important;
 		border-radius: convert.to-rem(var(--input-border-radius-number)) !important;
@@ -13,6 +12,9 @@
 		transition: border-color var(--transition-duration) !important;
 		padding: 0 convert.to-rem(16) !important;
 		box-shadow: none !important;
+
+		background-color: var(--color-bg-input) !important;
+		color: var(--color-fg-input) !important;
 
 		&--menu-is-open {
 			.react-select__dropdown-indicator {
@@ -27,7 +29,13 @@
 		}
 
 		&--is-disabled {
-			background-color: var(--bg-input-disabled) !important;
+			background-color: var(--color-bg-input-disabled) !important;
+		}
+	}
+
+	&__single-value {
+		&--is-disabled {
+			color: var(--color-fg-input-disabled) !important;
 		}
 	}
 
@@ -40,12 +48,12 @@
 		transition:
 			transform var(--transition-duration),
 			color var(--transition-duration) !important;
-		color: var(--color-dropdown-indicator) !important;
+		color: var(--color-select-indicator) !important;
 		cursor: pointer !important;
 	}
 
 	&__clear-indicator {
-		color: var(--color-dropdown-indicator) !important;
+		color: var(--color-select-indicator) !important;
 		cursor: pointer !important;
 	}
 
@@ -64,7 +72,7 @@
 	&__menu {
 		border-radius: convert.to-rem(var(--input-border-radius-number)) !important;
 		border: 1px solid var(--color-input-border-focused) !important;
-		background-color: var(--bg-input) !important;
+		background-color: var(--color-bg-input) !important;
 		margin-top: 0 !important;
 	}
 
@@ -81,7 +89,7 @@
 		display: flex !important;
 		align-items: center !important;
 		font-size: convert.to-rem(16) !important;
-		color: var(--foreground) !important;
+		color: var(--color-fg-input) !important;
 		border-bottom: 1px solid var(--color-input-border-focused) !important;
 		border-radius: 0 !important;
 
@@ -90,11 +98,11 @@
 		}
 
 		&--is-focused {
-			background-color: var(--color-option-focused) !important;
+			background-color: var(--color-bg-select-option-focused) !important;
 		}
 
 		&--is-selected {
-			background-color: var(--color-option-selected) !important;
+			background-color: var(--color-bg-select-option-selected) !important;
 		}
 	}
 }

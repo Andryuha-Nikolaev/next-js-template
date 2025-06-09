@@ -3,15 +3,18 @@
 import { forwardRef } from "react";
 
 import clsx from "clsx";
-import Select from "react-select";
+import Select, { type GroupBase, type SelectInstance } from "react-select";
 
-import type { SelectProps } from "@/shared/ui/fields/select/model/types";
+import type { SelectProps } from "$shared/ui/fields/select/model/types";
 
 import s from "./Select.module.scss";
 
 import { InputWrapper } from "../../input-wrapper";
 
-export const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
+export const ReactSelect = forwardRef<
+	SelectInstance<unknown, boolean, GroupBase<unknown>>,
+	SelectProps
+>(
 	(
 		{
 			errorMessage,
@@ -39,7 +42,6 @@ export const ReactSelect = forwardRef<HTMLSelectElement, SelectProps>(
 					<Select
 						noOptionsMessage={() => "Нет опций"}
 						className={s.container}
-						// @ts-ignore
 						ref={ref}
 						classNamePrefix="react-select"
 						isSearchable={isSearchable}

@@ -1,4 +1,4 @@
-import { FieldNames } from "@/shared/constants/fields";
+import { FieldNames } from "$shared/constants/fields";
 
 import type { TestFormSchemaType } from "./schema";
 
@@ -27,4 +27,5 @@ export const testFormDefaultValues: TestFormSchemaType = {
 	[FieldNames.END_DATE]: null,
 	[FieldNames.SINGLE_SLIDER]: "49",
 	[FieldNames.RANGE_SLIDER]: [0, 1000000000],
+	[FieldNames.AUTOCOMPLETE_INPUT]: "",
 };

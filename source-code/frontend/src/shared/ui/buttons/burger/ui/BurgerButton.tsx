@@ -1,4 +1,4 @@
-import { BurgerIcon } from "./burger-icon/BurgerIcon";
+import { BurgerIcon } from "./burger-icon/icons/BurgerIcon";
 import s from "./BurgerButton.module.scss";
 
 type BurgerButtonProps = {

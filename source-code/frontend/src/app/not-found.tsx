@@ -1,4 +1,4 @@
-import { ErrorPage } from "@/views/error";
+import { ErrorPage } from "$views/error";
 
 export default function NotFound() {
 	return (

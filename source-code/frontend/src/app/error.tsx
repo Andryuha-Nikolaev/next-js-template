@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { ErrorPage } from "@/views/error";
+import { ErrorPage } from "$views/error";
 
 export default function Error({ error }: { error: Error }) {
 	useEffect(() => {

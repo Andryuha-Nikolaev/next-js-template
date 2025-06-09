@@ -1,5 +1,5 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/typography";
+@use "$styles/functions/convert";
+@use "$styles/mixins/typography";
 
 .previewBlock {
 	margin-top: convert.to-rem(4);

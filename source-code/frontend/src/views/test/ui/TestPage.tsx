@@ -1,9 +1,11 @@
 "use client";
 
-import { TestForm } from "@/features/send-test-form";
+import { TestForm } from "$features/send-test-form";
 
+import { TestAccordion } from "./accordion/TestAccordion";
 import { Buttons } from "./buttons/Buttons";
 import { Links } from "./links/Links";
+import { TestPagination } from "./pagination/TestPagination";
 import { SocialMedia } from "./social-media/SocialMedia";
 import { TestBreadcrumbs } from "./test-breadcrumbs/TestBreadcrumbs";
 import { TestModal } from "./test-modal/TestModal";
@@ -14,16 +16,18 @@ import { TestPageWrapper } from "./wrapper/TestPageWrapper";
 export const TestPage = () => {
 	return (
 		<>
+			<Typography />
 			<TestPageWrapper title="Form">
 				<TestForm />
 			</TestPageWrapper>
-			<Typography />
 			<Buttons />
 			<Links />
 			<SocialMedia />
 			<TestModal />
 			<Tooltips />
 			<TestBreadcrumbs />
+			<TestAccordion />
+			<TestPagination />
 		</>
 	);
 };

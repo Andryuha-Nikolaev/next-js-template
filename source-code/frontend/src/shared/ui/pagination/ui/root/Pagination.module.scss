@@ -1,0 +1,65 @@
+@use "$styles/mixins/mixins";
+@use "$styles/functions/convert";
+@use "$styles/mixins/interaction";
+@use "$styles/mixins/breakpoints";
+
+.pagination {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	flex-wrap: wrap;
+}
+
+.page {
+	cursor: pointer;
+
+	&.active {
+		background-color: var(--color-bg-pagination-item-active) !important;
+		color: var(--color-fg-pagination-item-active) !important;
+		cursor: default !important;
+	}
+}
+
+.page,
+.arrow {
+	background-color: var(--color-bg-pagination-item);
+	color: var(--color-fg-pagination-item);
+
+	@include interaction.hover {
+		background-color: var(--color-bg-pagination-item-hover);
+		color: var(--color-fg-pagination-item-hover);
+	}
+
+	@include interaction.active {
+		background-color: var(--color-bg-pagination-item-active);
+		color: var(--color-fg-pagination-item-active);
+	}
+
+	&:disabled {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+.page,
+.ellipsis,
+.arrow {
+	padding: 2px;
+
+	font-size: convert.to-rem(16);
+	height: convert.to-rem(30);
+	min-width: convert.to-rem(30);
+	line-height: 1;
+
+	@include mixins.flex-center;
+}
+
+.ellipsis {
+	cursor: default;
+}
+
+.arrow {
+	&.next {
+		transform: rotate(180deg);
+	}
+}

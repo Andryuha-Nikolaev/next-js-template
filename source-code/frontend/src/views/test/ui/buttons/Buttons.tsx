@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
-import { RootButton } from "@/shared/ui/buttons/root";
+import { RootButton } from "$shared/ui/buttons/root";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

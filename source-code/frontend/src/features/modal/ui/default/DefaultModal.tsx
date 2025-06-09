@@ -1,6 +1,6 @@
 import parse from "html-react-parser";
 
-import { useModal } from "@/features/modal/ui/ModalProvider";
+import { useModal } from "$features/modal/ui/ModalProvider";
 
 import s from "./DefaultModal.module.scss";
 import ErrorIcon from "./icons/error/ErrorIcon";

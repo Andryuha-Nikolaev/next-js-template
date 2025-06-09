@@ -1,7 +1,7 @@
 "use server";
 
-import { sendFormData } from "@/shared/api/services";
-import { handleError, type HandleErrorResponse } from "@/shared/lib/api/error";
+import { sendFormData } from "$shared/api/services";
+import { handleError, type HandleErrorResponse } from "$shared/lib/api/error";
 
 export type TestFormResponse = { error?: HandleErrorResponse } | undefined;
 

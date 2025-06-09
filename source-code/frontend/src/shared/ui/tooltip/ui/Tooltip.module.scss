@@ -1,8 +1,8 @@
-@use "@/styles/functions/convert";
-@use "@/styles/mixins/mixins";
-@use "@/styles/mixins/breakpoints";
-@use "@/styles/mixins/typography";
-@use "@/styles/mixins/transition";
+@use "$styles/functions/convert";
+@use "$styles/mixins/mixins";
+@use "$styles/mixins/breakpoints";
+@use "$styles/mixins/typography";
+@use "$styles/mixins/transition";
 
 .wrap {
 	position: relative;

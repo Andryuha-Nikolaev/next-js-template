@@ -1,5 +1,5 @@
-import { RootButton } from "@/shared/ui/buttons/root";
-import { Tooltip } from "@/shared/ui/tooltip";
+import { RootButton } from "$shared/ui/buttons/root";
+import { Tooltip } from "$shared/ui/tooltip";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
 

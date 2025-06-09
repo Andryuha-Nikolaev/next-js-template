@@ -1,4 +1,4 @@
-import { CloseButton } from "@/shared/ui/buttons/close";
+import { CloseButton } from "$shared/ui/buttons/close";
 
 import s from "./FileInputPreview.module.scss";
 

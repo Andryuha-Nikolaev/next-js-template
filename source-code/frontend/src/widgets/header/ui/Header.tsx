@@ -2,9 +2,9 @@
 
 import clsx from "clsx";
 
-import siteConstants from "@/shared/constants/site";
-import { useSiteState } from "@/shared/context/site";
-import { ContentLayout } from "@/shared/layouts/content-layout";
+import siteConstants from "$shared/constants/site";
+import { useSiteState } from "$shared/context/site";
+import { ContentLayout } from "$shared/layouts/content-layout";
 
 import HeaderButtons from "./buttons/HeaderButtons";
 import s from "./Header.module.scss";

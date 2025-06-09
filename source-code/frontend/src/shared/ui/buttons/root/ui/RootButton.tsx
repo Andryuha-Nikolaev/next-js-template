@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { Spinner } from "@/shared/ui/spinner";
+import { Spinner } from "$shared/ui/spinner";
 
 import s from "./RootButton.module.scss";
 

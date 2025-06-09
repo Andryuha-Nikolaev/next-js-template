@@ -4,7 +4,7 @@ import { forwardRef, useId } from "react";
 
 import clsx from "clsx";
 
-import type { TextareaProps } from "@/shared/ui/fields/textarea/model/types";
+import type { TextareaProps } from "$shared/ui/fields/textarea/model/types";
 
 import s from "./Textarea.module.scss";
 
