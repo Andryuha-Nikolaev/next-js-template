@@ -12,6 +12,8 @@ import "rc-slider/assets/index.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import Script from "next/script";
+
 import metaConstants from "$shared/constants/meta";
 import siteConstants from "$shared/constants/site";
 import viewportConstants from "$shared/constants/viewport";
@@ -31,7 +33,18 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="ru">
+		<html
+			lang="ru"
+			suppressHydrationWarning={siteConstants.IS_TELEGRAM_WEB_APP}
+		>
+			{siteConstants.IS_TELEGRAM_WEB_APP && (
+				<head>
+					<Script
+						src="https://telegram.org/js/telegram-web-app.js"
+						strategy="beforeInteractive"
+					/>
+				</head>
+			)}
 			<body className={primaryFont.variable}>
 				<NextTopLoader
 					color={siteConstants.PROGRESS_BAR_COLOR}

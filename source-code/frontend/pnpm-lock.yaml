@@ -90,6 +90,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.5(@types/react@18.3.18)
+      '@types/telegram-web-app':
+        specifier: ^7.10.1
+        version: 7.10.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.0.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
@@ -411,12 +414,14 @@ packages:
       react-dom: '>=16.8'
 
   '@msocial/eslint-config@0.2.1':
-    resolution: {integrity: sha512-JklAqpCY3BnJPFcWq0PFWJXPr9xxAWnYBe5HS/efR7EooE9Men6YoPpQjlZejgoQIuh2zRS1d2t43+XgfDzvTA==}
+    resolution: {integrity: sha512-EupJTFg0TgUHETYEW7RELo5pirkXyWCX9RF5MMiIy5pVGx+VorGqyHDlcGnbD+s0IbpoOZ0/IqMz6F+3VPq12A==}
+    deprecated: Use one of @m-social/eslint-config-{svelte,typescript,react,next} configs with ESLint v9 instead
     peerDependencies:
       eslint: ^8.57.0
 
   '@msocial/prettier-config@0.2.0':
-    resolution: {integrity: sha512-ixkj3gBjNWusxurQoKZRGZWQnD9v1Vl6HkEG/FP4NI4YnI/bX5bkLJF9ZyjCeKUKfMmKfdtLxuNTnbKPkmpSbw==}
+    resolution: {integrity: sha512-yyDv8hGtg+VeiZ/2BB27E92pDJmjg9VPKVEUn32L6ecZHQl3088l2YPW7ptJ9wUvPzVmSJvl8G/rz5lp51LL5g==}
+    deprecated: Use @m-social/prettier-config-react instead
     peerDependencies:
       prettier: ^3.2.0
 
@@ -621,6 +626,9 @@ packages:
 
   '@types/react@18.3.18':
     resolution: {integrity: sha512-t4yC+vtgnkYjNSKlFx1jkAhH8LgTo2N/7Qvi83kdEaUtMDiwpbLAktKDaAMlRcJ5eSxZkH74eEGt1ky31d7kfQ==}
+
+  '@types/telegram-web-app@7.10.1':
+    resolution: {integrity: sha512-GKL659G6lnHRAt3Dt7L1Fa0dwvc+ZZQtJcYrJVJGwjvsbi/Rcp1qKs9pFwb34/KC04+J+TlQj4D7yKo10sBSEw==}
 
   '@typescript-eslint/eslint-plugin@7.18.0':
     resolution: {integrity: sha512-94EQTWZ40mzBc42ATNIBimBEDltSJ9RQHCC8vc/PDbxi4k8dVwUAv4o98dk50M1zB+JGFxp43FP7f8+FP8R6Sw==}
@@ -2806,6 +2814,8 @@ snapshots:
     dependencies:
       '@types/prop-types': 15.7.14
       csstype: 3.1.3
+
+  '@types/telegram-web-app@7.10.1': {}
 
   '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
