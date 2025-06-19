@@ -11,9 +11,6 @@
 
 	// sizes
 	--header-height-number: 60;
-	@media (min-width: 1280px) {
-		--header-height-number: 80;
-	}
 	--input-height-number: 50;
 	--input-border-radius-number: 10;
 
@@ -148,6 +145,10 @@
 
 	// focus colors
 	--color-outline-focus: var(--color-gray-dark);
+
+	@media (min-width: 1280px) {
+		--header-height-number: 80;
+	}
 
 	// &.dark {
 	// }

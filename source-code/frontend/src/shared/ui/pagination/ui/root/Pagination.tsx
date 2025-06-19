@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import clsx from "clsx";
 
 import { ArrowIcon } from "./icons/ArrowIcon";
@@ -82,7 +81,7 @@ export const Pagination = ({
 				return (
 					<button
 						key={item}
-						className={classNames(s.page, {
+						className={clsx(s.page, {
 							[s.active]: item === currentPage,
 						})}
 						onClick={() => handlePageChange(item)}
