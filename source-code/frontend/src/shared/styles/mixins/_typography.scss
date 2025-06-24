@@ -39,6 +39,12 @@
 	line-height: 1.2;
 }
 
+@mixin large-text() {
+	font-weight: 400;
+	font-size: convert.to-rem(18);
+	line-height: 1.2;
+}
+
 @mixin main-text() {
 	font-weight: 400;
 	font-size: convert.to-rem(16);
