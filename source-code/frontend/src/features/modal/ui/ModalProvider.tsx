@@ -70,6 +70,8 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 			handleChangeParams(params.toString(), "replace");
 		}
 
+		console.log("aaaaa");
+
 		if (modalConfig?.onHideCallback) {
 			modalConfig.onHideCallback();
 		}
