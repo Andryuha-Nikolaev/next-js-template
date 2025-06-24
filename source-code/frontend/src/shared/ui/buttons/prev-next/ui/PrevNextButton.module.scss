@@ -7,13 +7,14 @@
 .button {
 	width: convert.to-rem(42);
 	height: convert.to-rem(42);
-	border-radius: 50%;
 
 	@include transition.create(background-color, color, border-color);
 
 	@include mixins.flex-center;
 
 	@include button.button-1;
+
+	border-radius: 50%;
 
 	&.next {
 		transform: rotate(180deg);
