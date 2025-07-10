@@ -1,7 +1,7 @@
-@import "./default/reset.css";
-@import "./default/root";
+@use "./default/reset.css";
+@use "./default/root";
 
-@import "./common";
+@use "./common";
 
-@import "./scrollbar.scss";
-@import "./select.scss";
+@use "./scrollbar.scss";
+@use "./select.scss";

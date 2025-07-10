@@ -1,5 +1,6 @@
 @use "$styles/mixins/interaction";
 @use "$styles/mixins/transition";
+@use "$styles/functions/convert";
 
 @mixin button-disabled {
 	@include interaction.disabled {
@@ -19,6 +20,7 @@
 	background-color: var(--color-bg-button-1);
 	color: var(--color-fg-button-1);
 	border: 1px solid var(--color-bg-button-1);
+	border-radius: convert.to-rem(var(--button-border-radius-number));
 
 	@include interaction.hover {
 		background-color: var(--color-bg-button-1-hover);
@@ -41,6 +43,7 @@
 	background-color: var(--color-bg-button-2);
 	color: var(--color-fg-button-2);
 	border: 1px solid var(--color-fg-button-2);
+	border-radius: convert.to-rem(var(--button-border-radius-number));
 
 	@include interaction.hover {
 		background-color: var(--color-bg-button-2-hover);
@@ -62,6 +65,7 @@
 @mixin button-3 {
 	background-color: var(--color-bg-button-3);
 	color: var(--color-fg-button-3);
+	border-radius: convert.to-rem(var(--button-border-radius-number));
 
 	@include interaction.hover {
 		background-color: var(--color-bg-button-3-hover);

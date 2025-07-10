@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 
+import { CloseButton } from "$shared/ui/buttons/close";
 import { RootButton } from "$shared/ui/buttons/root";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
@@ -60,6 +61,15 @@ export const Buttons = () => {
 			>
 				Root Button with icon right
 			</RootButton>
+			<div>
+				<CloseButton />
+			</div>
+
+			<CloseButton size="sm" />
+			<CloseButton size="md" />
+			<CloseButton size="lg" colorVariant="var1" />
+			<CloseButton size="lg" colorVariant="var2" />
+			<CloseButton size="lg" colorVariant="var3" />
 		</TestPageWrapper>
 	);
 };

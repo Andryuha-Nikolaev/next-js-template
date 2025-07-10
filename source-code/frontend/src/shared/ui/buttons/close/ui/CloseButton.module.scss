@@ -1,16 +1,53 @@
 @use "$styles/functions/convert";
 @use "$styles/mixins/mixins";
+@use "$styles/mixins/button";
 
 .button {
-	width: convert.to-rem(24);
-	height: convert.to-rem(24);
 	flex-shrink: 0;
 	@include mixins.flex-center;
-
-	@include mixins.hover-opacity;
 
 	svg {
 		width: 100%;
 		height: auto;
+	}
+
+	&.transparent {
+		@include mixins.hover-opacity;
+	}
+
+	&.var1 {
+		@include button.button-1;
+	}
+
+	&.var2 {
+		@include button.button-2;
+	}
+
+	&.var3 {
+		@include button.button-3;
+	}
+
+	&.auto {
+		width: 100%;
+		height: 100%;
+	}
+
+	&.sm {
+		width: convert.to-rem(16);
+		height: convert.to-rem(16);
+	}
+
+	&.md {
+		width: convert.to-rem(24);
+		height: convert.to-rem(24);
+	}
+
+	&.lg {
+		width: convert.to-rem(40);
+		height: convert.to-rem(40);
+
+		svg {
+			width: convert.to-rem(30);
+		}
 	}
 }

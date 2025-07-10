@@ -1,7 +1,14 @@
 "use client";
 
 import type React from "react";
-import { createContext, Suspense, useContext, useState } from "react";
+import {
+	createContext,
+	Suspense,
+	useCallback,
+	useContext,
+	useEffect,
+	useState,
+} from "react";
 
 import type { ModalConfigProps, ModalProps } from "$features/modal/model/types";
 import Modal from "$features/modal/ui/Modal";
@@ -47,7 +54,7 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const handleChangeParams = useChangeQueryParams();
 
-	const hideModal = () => {
+	const hideModal = useCallback(() => {
 		setIsShown(false);
 
 		setTimeout(() => {
@@ -66,7 +73,23 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 		if (modalConfig?.onHideCallback) {
 			modalConfig.onHideCallback();
 		}
-	};
+	}, [handleChangeParams, modalConfig]);
+
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape" && isShown) {
+				const target = e.target as HTMLElement;
+				if (target.blur) {
+					target.blur();
+				}
+
+				hideModal();
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [isShown, hideModal]);
 
 	return (
 		<ModalContext.Provider
