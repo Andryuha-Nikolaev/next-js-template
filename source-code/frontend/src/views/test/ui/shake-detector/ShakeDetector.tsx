@@ -1,9 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type React from "react";
 import { useEffect, useState } from "react";
 
-// Расширяем глобальный интерфейс для поддержки iOS
+// Расширяем глобальные интерфейсы для поддержки iOS
 declare global {
 	interface DeviceMotionEvent {
+		requestPermission?: () => Promise<"granted" | "denied">;
+	}
+	interface DeviceOrientationEvent {
 		requestPermission?: () => Promise<"granted" | "denied">;
 	}
 }
@@ -15,28 +20,50 @@ const ShakeDetector: React.FC = () => {
 	const [maxForce, setMaxForce] = useState<number>(0);
 	const [isIOS, setIsIOS] = useState(false);
 
+	// Новые состояния для сенсоров
+	const [acceleration, setAcceleration] = useState<{
+		x: number | null;
+		y: number | null;
+		z: number | null;
+	}>({ x: null, y: null, z: null });
+
+	const [rotation, setRotation] = useState<{
+		alpha: number | null;
+		beta: number | null;
+		gamma: number | null;
+	}>({ alpha: null, beta: null, gamma: null });
+
 	useEffect(() => {
-		//@ts-ignore
 		setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
 	}, []);
 
-	// Исправленная функция с правильной типизацией
 	const requestPermission = async () => {
-		// Для iOS с поддержкой requestPermission\
-		//@ts-ignore
-		if (isIOS && typeof DeviceMotionEvent.requestPermission === "function") {
-			try {
-				//@ts-ignore
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-				const status = await DeviceMotionEvent.requestPermission();
-				setPermissionGranted(status === "granted");
-			} catch (e) {
-				console.error("Permission error:", e);
+		try {
+			// Запрос разрешения для акселерометра
+			// @ts-ignore
+			if (isIOS && typeof DeviceMotionEvent.requestPermission === "function") {
+				// @ts-ignore
+				const motionStatus = await DeviceMotionEvent.requestPermission();
+				if (motionStatus !== "granted") return;
 			}
-		}
-		// Для Android и других браузеров
-		else {
+
+			// Запрос разрешения для гироскопа
+			if (
+				isIOS &&
+				// @ts-ignore
+				typeof DeviceOrientationEvent.requestPermission === "function"
+			) {
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+				const orientationStatus =
+					// @ts-expect-error
+					// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+					await DeviceOrientationEvent.requestPermission();
+				if (orientationStatus !== "granted") return;
+			}
+
 			setPermissionGranted(true);
+		} catch (e) {
+			console.error("Permission error:", e);
 		}
 	};
 
@@ -44,23 +71,50 @@ const ShakeDetector: React.FC = () => {
 		if (!permissionGranted) return;
 
 		const handleMotion = (event: DeviceMotionEvent) => {
-			const acceleration = event.accelerationIncludingGravity;
-			if (!acceleration) return;
+			// Обработка акселерометра (существующая логика)
+			const accelerationWithGravity = event.accelerationIncludingGravity;
+			if (accelerationWithGravity) {
+				const force = Math.sqrt(
+					(accelerationWithGravity.x || 0) ** 2 +
+						(accelerationWithGravity.y || 0) ** 2 +
+						(accelerationWithGravity.z || 0) ** 2
+				);
 
-			const force = Math.sqrt(
-				(acceleration.x || 0) ** 2 +
-					(acceleration.y || 0) ** 2 +
-					(acceleration.z || 0) ** 2
-			);
+				setCurrentForce(force);
+				setMinForce((prev) => Math.min(prev, force));
+				setMaxForce((prev) => Math.max(prev, force));
+			}
 
-			setCurrentForce(force);
-			setMinForce((prev) => Math.min(prev, force));
-			setMaxForce((prev) => Math.max(prev, force));
+			// Новые данные: акселерометр (без гравитации)
+			setAcceleration({
+				x: event.acceleration?.x ?? null,
+				y: event.acceleration?.y ?? null,
+				z: event.acceleration?.z ?? null,
+			});
+		};
+
+		// Новый обработчик для гироскопа
+		const handleOrientation = (event: DeviceOrientationEvent) => {
+			setRotation({
+				alpha: event.alpha,
+				beta: event.beta,
+				gamma: event.gamma,
+			});
 		};
 
 		window.addEventListener("devicemotion", handleMotion);
-		return () => window.removeEventListener("devicemotion", handleMotion);
+		window.addEventListener("deviceorientation", handleOrientation);
+
+		return () => {
+			window.removeEventListener("devicemotion", handleMotion);
+			window.removeEventListener("deviceorientation", handleOrientation);
+		};
 	}, [permissionGranted]);
+
+	// Форматирование значений для отображения
+	const formatSensorValue = (value: number | null) => {
+		return value !== null ? value.toFixed(2) : "N/A";
+	};
 
 	return (
 		<div
@@ -74,6 +128,7 @@ const ShakeDetector: React.FC = () => {
 				</button>
 			) : (
 				<div>
+					{/* Существующая секция */}
 					<div style={{ fontSize: "20px", margin: "20px 0" }}>
 						Сила: <strong>{currentForce.toFixed(2)} g</strong>
 					</div>
@@ -111,12 +166,45 @@ const ShakeDetector: React.FC = () => {
 							<small>Макс: {maxForce.toFixed(2)} g</small>
 						</div>
 					</div>
+
+					{/* Новая секция: данные сенсоров */}
+					<div
+						style={{
+							marginTop: "40px",
+							borderTop: "1px solid #eee",
+							paddingTop: "20px",
+						}}
+					>
+						<h3>Данные датчиков</h3>
+
+						<div
+							style={{
+								display: "flex",
+								flexWrap: "wrap",
+								justifyContent: "center",
+							}}
+						>
+							<div style={{ margin: "10px", minWidth: "150px" }}>
+								<h4>Акселерометр</h4>
+								<div>X: {formatSensorValue(acceleration.x)} m/s²</div>
+								<div>Y: {formatSensorValue(acceleration.y)} m/s²</div>
+								<div>Z: {formatSensorValue(acceleration.z)} m/s²</div>
+							</div>
+
+							<div style={{ margin: "10px", minWidth: "150px" }}>
+								<h4>Гироскоп</h4>
+								<div>Alpha: {formatSensorValue(rotation.alpha)}°</div>
+								<div>Beta: {formatSensorValue(rotation.beta)}°</div>
+								<div>Gamma: {formatSensorValue(rotation.gamma)}°</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			)}
 
 			<div style={{ marginTop: "20px", color: "#666", fontSize: "14px" }}>
 				{isIOS && !permissionGranted
-					? "⚠️ Требуется разрешение для доступа к акселерометру"
+					? "⚠️ Требуется разрешение для доступа к датчикам"
 					: "Встряхните телефон для измерения силы"}
 			</div>
 		</div>
