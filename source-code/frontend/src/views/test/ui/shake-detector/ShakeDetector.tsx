@@ -17,7 +17,7 @@ const ShakeDetector: React.FC = () => {
 
 	useEffect(() => {
 		//@ts-ignore
-		setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent));
+		setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
 	}, []);
 
 	// Исправленная функция с правильной типизацией
