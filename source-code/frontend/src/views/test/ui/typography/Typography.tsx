@@ -1,3 +1,5 @@
+import { typography } from "$shared/ui/typography";
+
 import s from "./Typography.module.scss";
 
 import { TestPageWrapper } from "../wrapper/TestPageWrapper";
@@ -16,6 +18,9 @@ export const Typography = () => {
 			<small>small Прототип нового сервиса — это как структура</small>
 			<p className={s.helperText}>
 				p helper Прототип нового сервиса — это как структура
+			</p>
+			<p className={typography("headingH1")}>
+				Функция типографии. Параграф, как h1
 			</p>
 		</TestPageWrapper>
 	);
