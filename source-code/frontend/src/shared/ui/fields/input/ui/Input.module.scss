@@ -52,6 +52,7 @@
 		-webkit-box-shadow: 0 0 0 convert.to-rem(var(--input-height-number))
 			var(--color-bg-input-autofill) inset !important;
 		-webkit-text-fill-color: var(--color-fg-input-autofill);
+		transition: background-color 5000s ease-in-out 0s;
 	}
 
 	&::placeholder {
