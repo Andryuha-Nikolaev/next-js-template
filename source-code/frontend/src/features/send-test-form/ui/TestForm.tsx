@@ -10,10 +10,13 @@ import { RHFAutocompleteInput } from "$shared/ui/fields/autocomplete-input";
 import { RHFCheckbox } from "$shared/ui/fields/checkbox";
 import { RHFCheckboxGroup } from "$shared/ui/fields/checkbox-group";
 import { RHFDatePicker } from "$shared/ui/fields/date-picker";
-import { RHFEmailInput } from "$shared/ui/fields/email-input";
 import { RHFFileInput } from "$shared/ui/fields/file";
-import { RHFInput } from "$shared/ui/fields/input";
-import { RHFPhoneInput } from "$shared/ui/fields/phone-input";
+import { Input, RHFInput } from "$shared/ui/fields/input";
+import {
+	RHFEmailInput,
+	RHFPhoneInput,
+	withRHFInput,
+} from "$shared/ui/fields/input/ui/RHFInput";
 import { RHFRadioButton } from "$shared/ui/fields/radio-button";
 import { RHFRangeDatePicker } from "$shared/ui/fields/range-date-picker";
 import { RHFSelect } from "$shared/ui/fields/select";
@@ -53,6 +56,8 @@ export const TestForm = () => {
 		}
 	};
 
+	const Ass = withRHFInput(Input);
+
 	return (
 		<>
 			<FormProvider {...methods}>
@@ -69,6 +74,7 @@ export const TestForm = () => {
 							placeholder="Фамилия"
 							label="Фамилия disabled"
 						/>
+						<Ass name="sda" />
 						<RHFPhoneInput name={FieldNames.PHONE} isRequired />
 						<RHFEmailInput name={FieldNames.EMAIL} />
 						<PasswordFields />
